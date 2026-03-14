@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Satoshium Systems — Operational Architecture</title>
+
+<style>
+
+/* ===== Core Theme ===== */
+
+:root{
+ --card-wm: url('https:/satoshium.link/assets/seal.png');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+margin:0;
+padding:0;
+background:var(--bg);
+color:var(--text);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+line-height:1.55
+}
+body{
+ padding-top:80px;
+}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+
+/* ===== Layout ===== */
+
+.content{
+padding:34px 18px 60px
+}
+
+h1,h2{
+margin:0 0 10px
+}
+
+h1{
+font-size:30px;
+color:var(--gold2)
+}
+
+h2{
+font-size:20px;
+color:var(--gold2);
+margin-top:26px
+}
+
+p,li{
+color:var(--text)
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:22px 0
+}
+
+/* ===== Cards ===== */
+
+.card{
+position: relative;
+overflow: hidden;
+
+background: linear-gradient(
+to bottom right,
+rgba(12,16,24,.94),
+rgba(12,16,24,.88)
+);
+
+border:1px solid var(--line);
+border-radius:16px;
+
+padding:16px 16px;
+margin:16px 0;
+
+box-shadow:
+0 0 0 1px rgba(214,163,74,.08),
+0 20px 50px rgba(0,0,0,.45);
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:-60px;
+background-image: var(--card-wm);
+background-repeat:no-repeat;
+background-size: min(720px, 70vw);
+background-position: right -140px center;
+opacity:0.028;
+filter: blur(1px);
+pointer-events:none;
+z-index:0;
+}
+
+.card > *{
+position:relative;
+z-index:1
+}
+.card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.card {
+ border: 1px solid rgba(214,163,74,.15);
+}
+
+.muted{
+color:var(--muted)
+}
+
+.footer{
+border-top:1px solid var(--line);
+padding:18px 0 32px;
+color:var(--muted)
+}
+
+/* ===== Small Platform Header Panel ===== */
+ 
+.systems-catalog{
+margin-top:22px;
+margin-bottom:26px;
+padding:16px 18px;
+border:1px solid var(--line);
+border-radius:14px;
+background:linear-gradient(to bottom right, rgba(12,16,24,.92), rgba(12,16,24,.86));
+box-shadow:0 0 0 1px rgba(214,163,74,.06), 0 10px 30px rgba(0,0,0,.35);
+}
+
+.catalog-title{
+font-size:13px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--gold2);
+margin-bottom:6px;
+}
+
+.catalog-description{
+font-size:14px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.catalog-meta{
+font-size:12px;
+color:var(--muted);
+letter-spacing:.04em;
+}
+ 
+/* ===== Pills ===== */
+
+.pill{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 10px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(214,163,74,.08);
+color:var(--gold2);
+font-size:12px;
+font-weight:700
+}
+
+ul{
+margin:8px 0 0 18px
+}
+
+</style>
+</head>
+
+<body id="top">
+
+ <div id="topbar-slot"></div>
+<script src="https://satoshium.link/assets/topbar-loader.js"></script>
+
+<main class="wrap content">
+
+  <div class="pill">🧩 Systems Architecture</div>
+
+  <h1 style="margin-top:12px;">Satoshium Systems</h1>
+ <p class="muted">
+Functional software systems that compose the operational layer of the Satoshium platform.
+</p>
+
+<p class="muted" style="max-width:840px;">
+The Satoshium architecture defines conceptual layers for decentralized intelligence infrastructure.
+This page documents the **software systems that implement those layers**.</p>
+<p class="muted" style="max-width:840px;">
+Each system represents a functional component supporting:
+ <p>
+<div class="muted" style="margin-bottom:14px; max-width:860px;">
+ <ul class="muted">
+      <li>knowledge structuring</li>
+      <li>AI interaction and reasoning workflows</li>  
+      <li>governance and safety controls</li>
+      <li>simulation environments</li>
+      <li>public documentation and traceability</li>
+  </ul>
+</div>
+ <p>
+<div class="muted" style="margin-bottom:14px; max-width:860px;">
+Together these systems form the operational backbone of the Satoshium reasoning platform.
+</p>
+
+ <div class="muted" style="margin-bottom:14px; max-width:860px;">
+    SATOSHIUM™ — Class 042: computer programming services and AI software development.<br>
+    This page documents the operational systems architecture supporting Satoshium platform development.
+  </div>
+ 
+<div class="systems-catalog">
+
+<div class="catalog-title">Software Systems Catalog</div>
+
+<div class="catalog-description">
+This catalog documents the operational software systems that compose the Satoshium platform.
+
+Each system implements part of the platform architecture and supports the broader reasoning workflow:
+
+knowledge → claims → verification → simulation → learning
+
+Systems listed here represent functional components used to build and operate the decentralized intelligence infrastructure.
+</div>
+
+<div class="catalog-meta">
+Platform: Satoshium™ • System Registry: Active • Architecture Layer: Operational
+</div>
+
+<div class="card">
+
+<h2 style="margin-top:0;">Platform System Categories</h2>
+
+<p class="muted">
+Satoshium systems are grouped by functional role within the platform architecture.
+Each category corresponds to a major operational layer.
+</p>
+
+<ul class="small">
+<li><strong>Knowledge Systems</strong> — canonical terminology, specifications, and shared platform definitions.</li>
+<li><strong>Intelligence Systems</strong> — interfaces and tools for interacting with structured platform knowledge.</li>
+<li><strong>Governance Systems</strong> — rule enforcement and safety boundaries for autonomous systems.</li>
+<li><strong>Simulation Systems</strong> — experimental environments used to test scenarios and system behaviors.</li>
+<li><strong>Documentation Systems</strong> — public records, architecture documentation, and development traceability.</li>
+</ul>
+
+<p class="muted small">
+These categories correspond to the layered model described on the
+<a href="https://satoshium.ai/architecture/"></script>/architecture/">Architecture page</a>.
+</p>
+
+</div>
+ 
+</div>
+ 
+  <div class="card" style="--card-wm:url('https://satoshium.links/assets/seal.png');">
+    <h2 style="margin-top:0;">System Status Model</h2>
+    <p class="muted" style="max-width:860px;">
+      Each system is labeled to reflect its operational maturity and deployment posture.
+      Status labels are used consistently across the platform for architectural clarity and traceability.
+    </p>
+
+    <div class="grid">
+      <div class="sys">
+        <div class="row">
+          <div class="title">Operational</div>
+          <div class="meta"><span class="pill ok">Operational</span></div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0;">
+          Deployed and usable as part of the live Satoshium platform (public or restricted access).
+        </p>
+      </div>
+<hr></hr>
+      <div class="sys">
+        <div class="row">
+          <div class="title">Foundation</div>
+          <div class="meta"><span class="pill warn">Foundation</span></div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0;">
+          Core architectural layer that defines vocabulary, specifications, and structural constraints used by other systems.
+        </p>
+      </div>
+<hr></hr>
+      <div class="sys">
+        <div class="row">
+          <div class="title">In Development</div>
+          <div class="meta"><span class="pill dev">In Development</span></div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0;">
+          Under active engineering. Interfaces and behavior may change as the system stabilizes.
+        </p>
+      </div>
+<hr></hr>
+      <div class="sys">
+        <div class="row">
+          <div class="title">Experimental</div>
+          <div class="meta"><span class="pill exp">Experimental</span></div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0;">
+          Research and simulation modules used to test concepts in controlled environments.
+        </p>
+      </div>
+<hr></hr>
+      <div class="sys">
+        <div class="row">
+          <div class="title">Internal</div>
+          <div class="meta"><span class="pill gray">Internal</span></div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0;">
+          Used for internal coordination, repository alignment, or build operations; not presented as a public interface.
+        </p>
+      </div>
+    </div>
+  </div>
+<hr></hr>
+  <!-- ===================================================== -->
+  <!-- KNOWLEDGE SYSTEMS -->
+  <!-- ===================================================== -->
+  <div class="card" style="--card-wm:url('https://satoshium.links/seal.png');">
+    <h2 style="margin-top:0;">📚 Knowledge Systems</h2>
+    <p class="muted">
+      Knowledge Systems provide the canonical reference layer used across Satoshium systems.
+      They define terminology, concepts, and specifications required for consistent AI behavior and governance logic.
+    </p>
+
+    <div class="sys">
+      <div class="row">
+        <div class="title">Canonical Terminology System (Glossary Builder)</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-KNOW-001 • Layer: Knowledge Systems • Type: Canonical Vocabulary Engine
+</p>
+          <span class="pill ok">Operational</span>
+          <span class="pill warn">Foundational</span>
+          <!-- Replace href with your preferred canonical link -->
+          <a class="pill" href="https://glossary-hub.replit.app/" target="_blank" rel="noopener">Open System</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Maintains canonical definitions and system vocabulary used throughout the platform.
+        Supports consistent naming, AI comprehension, and cross-repository alignment.
+      </p>
+    
+      <ul class="small">
+        <li>Canonical term registry and definitions</li>
+        <li>Shared vocabulary for architecture, governance, and simulation modules</li>
+        <li>Semantic consistency for AI interfaces and documentation</li>
+      </ul>
+    </div>
+ <hr></hr>
+    <div class="sys" style="margin-top:10px;">
+      <div class="row">
+        <div class="title">Canon Repository</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-KNOW-002 • Layer: Knowledge Systems • Type: Canonical Framework Repository
+</p>
+          <span class="pill warn">Foundation</span>
+          <!-- Replace href if you want this to point to a public repo or page -->
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/repo-map/">Reference</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Defines the conceptual framework and canonical structure that informs system design,
+        terminology standards, and long-horizon governance assumptions.
+      </p>
+    </div>
+ <hr></hr>
+    <div class="sys" style="margin-top:10px;">
+      <div class="row">
+        <div class="title">Specifications Repository (Canon & Specs)</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-KNOW-003 • Layer: Knowledge Systems • Type: Platform Specifications Repository
+</p>
+          <span class="pill ok">Operational</span>
+          <span class="pill warn">Foundation</span>
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/repo-map/">Reference</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Maintains platform specifications for system roles, lifecycle logic, and documentation standards.
+        Acts as the technical baseline for system consistency and auditability.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- INTELLIGENCE SYSTEMS -->
+  <!-- ===================================================== -->
+  <div class="card" style="--card-wm:url('https://satoshium.links/assets/seal.png');">
+    <h2 style="margin-top:0;">🧠 Intelligence Systems</h2>
+    <p class="muted">
+      Intelligence Systems provide software interfaces for structured AI interaction within the Satoshium ecosystem.
+      They are designed to support research workflows and architecture development aligned to the platform’s canonical knowledge layer.
+    </p>
+
+    <div class="sys">
+      <div class="row">
+        <div class="title">Satoshium AI (Research Interface)</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-INTEL-001 • Layer: Intelligence Systems • Type: AI Research Interface
+</p>
+          <span class="pill ok">Operational</span>
+          <span class="pill">Access: Restricted / Limited</span>
+          <!-- Replace href with the exact public page where Satoshium AI is accessible -->
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/labs/demos/ai-chat.html" target="_blank" rel="noopener">Open Interface</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Provides an AI research interface for querying Satoshium-aligned concepts, definitions, and architectural structures.
+        Designed for structured exploration and analysis rather than open-ended entertainment use.
+      </p>
+      <ul class="small">
+        <li>Structured research interaction layer</li>
+        <li>Designed to align with canonical terminology and system definitions</li>
+        <li>Used to support architecture and systems development workflows</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- GOVERNANCE SYSTEMS -->
+  <!-- ===================================================== -->
+  <div class="card" style="--card-wm:url('https://satoshium.links/assets/seal.png');">
+    <h2 style="margin-top:0;">🛡️ Governance Systems</h2>
+    <p class="muted">
+      Governance Systems define policy constraints, safety boundaries, and rule enforcement logic used to control
+      agent behavior and system-level automation within Satoshium.
+    </p>
+
+    <div class="sys">
+      <div class="row">
+        <div class="title">Aegis: The Agent Firewall</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-GOV-001 • Layer: Governance Systems • Type: Agent Safety Firewall
+</p>
+          <span class="pill dev">In Development</span>
+          <span class="pill gray">Internal</span>
+          <!-- Optional: point to a public documentation page if/when you have one -->
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/repo-map/">Reference</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Rule-based agent safety framework intended to enforce behavioral constraints and prevent unsafe actions.
+        Designed as a system boundary for autonomous software agents operating within defined policy limits.
+      </p>
+      <ul class="small">
+        <li>Rules and policy structure (category-based)</li>
+        <li>Constraint evaluation and enforcement model</li>
+        <li>Safety classification and response handling</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- SIMULATION SYSTEMS -->
+  <!-- ===================================================== -->
+  <div class="card" style="--card-wm:url('https://satoshium.links/assets/seal.png');">
+    <h2 style="margin-top:0;">🧪 Simulation Systems</h2>
+    <p class="muted">
+      Simulation Systems provide controlled environments for testing concepts related to AI behavior, governance models,
+      and decentralized infrastructure assumptions. These modules are treated as experimental software components.
+    </p>
+
+    <div class="sys">
+      <div class="row">
+        <div class="title">Satoshium Labs (Simulation Modules)</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-SIM-001 • Layer: Simulation Systems • Type: Experimental Simulation Environment
+</p>
+          <span class="pill exp">Experimental</span>
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/labs/" target="_blank" rel="noopener">Open Labs</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Collection of simulation modules used to explore system behaviors and scenario-driven assumptions.
+        These modules support design discovery and controlled concept testing.
+      </p>
+      <ul class="small">
+        <li>Scenario-based intelligence exploration</li>
+        <li>System concept validation in controlled interfaces</li>
+        <li>Supports long-horizon architecture planning</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- DOCUMENTATION SYSTEMS -->
+  <!-- ===================================================== -->
+  <div class="card" style="--card-wm:url('https://satoshium.links/assets/seal.png');">
+    <h2 style="margin-top:0;">🧾 Documentation Systems</h2>
+    <p class="muted">
+      Documentation Systems provide the audit trail and architectural record for Satoshium development.
+      These systems support traceability, public build clarity, and consistent technical communication.
+    </p>
+
+    <div class="sys">
+      <div class="row">
+        <div class="title">Public Build Updates</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-DOC-001 • Layer: Documentation Systems • Type: Public Development Record
+</p>
+          <span class="pill ok">Operational</span>
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/updates/">Open Updates</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Maintains a public record of platform development milestones and system changes for transparency and traceability.
+      </p>
+    </div>
+ <hr></hr>
+    <div class="sys" style="margin-top:10px;">
+      <div class="row">
+        <div class="title">Canon & Specs Documentation Layer</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-DOC-002 • Layer: Documentation Systems • Type: Technical Documentation Layer
+</p>
+          <span class="pill ok">Operational</span>
+          <span class="pill warn">Foundation</span>
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/repo-map/">Open Reference</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Provides system specifications, naming conventions, structural documentation standards, and platform definitions.
+        Serves as the technical reference baseline for implementation consistency.
+      </p>
+    </div>
+ <hr></hr>
+    <div class="sys" style="margin-top:10px;">
+      <div class="row">
+        <div class="title">Repository Map</div>
+        <div class="meta">
+         <p class="muted" style="margin:4px 0 8px;font-size:12px;">
+  System Registry ID: SYS-DOC-003 • Layer: Documentation Systems • Type: Repository Navigation Index
+</p>
+          <span class="pill ok">Operational</span>
+          <a class="pill" href="https://satoshiumai.github.io/satoshium-progress/repo-map/">Open Repo Map</a>
+        </div>
+      </div>
+      <p class="muted small" style="margin:8px 0 0;">
+        Navigational system index documenting the platform repository structure and system grouping.
+      </p>
+    </div>
+  </div>
+
+              <!-- Footer mission statement + links -->
+      <hr />
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
+</div>
+<hr />
+<div id="footer-container"></div>
+<script src="https://satoshium.links/assets/sayings.js"></script>
+<script>
+fetch("https://satoshium.links/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+</body>
+</html>
