@@ -6,7 +6,7 @@
 <title>Satoshium — Network Layer</title>
 <style>
 :root{
- --card-wm: url('https://satoshium.link/assets/seal.png');
+ --card-wm: url('/assets/seal.png');
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
@@ -181,7 +181,7 @@ ul{margin:8px 0 0 18px}
 </head>
 <body id="top">
 <div id="topbar-slot"></div>
-<script src="https://satoshium.link/components/topbar-loader.js"></script>
+<script src="components/topbar-loader.js"></script>
 
 <main class="wrap content">
 
@@ -220,7 +220,7 @@ ul{margin:8px 0 0 18px}
  <div class="span-2" id="domain-layers"></div>
 
 <script>
-fetch("https://satoshium.link/components/domain-layers.html")
+fetch("/components/domain-layers.html")
  .then(r => r.text())
  .then(data => {
  document.getElementById("domain-layers").innerHTML = data;
@@ -468,9 +468,9 @@ fetch("https://satoshium.link/components/domain-layers.html")
 
 <div id="footer-container"></div>
 
-<script src="https://satoshium.link/assets/sayings.js"></script>
+<script src="/assets/sayings.js"></script>
 <script>
-fetch("https://satoshium.link/components/footer.html")
+fetch("/components/footer.html")
  .then(response => response.text())
  .then(data => {
    document.getElementById("footer-container").innerHTML = data;
