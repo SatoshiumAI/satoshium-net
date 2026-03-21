@@ -925,6 +925,20 @@ function openReceipt() {
         <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256 || ""}</div></div>
       </div>
 
+      <hr style="margin-top:40px;border:none;border-top:1px solid #444;">
+
+      <h3 style="color:#d4a94f;">Embedded Verification Record</h3>
+      <pre style="
+      background:#111;
+      padding:14px;
+      border-radius:6px;
+      font-size:12px;
+      overflow:auto;
+      color:#ccc;
+      ">
+      ${JSON.stringify(record, null, 2)}
+      </pre>
+
       <div class="footer">
         SATOSHIUM Agent Governance & Cryptographic Automation Services • Execution receipt generated from live evaluation record.
       </div>
