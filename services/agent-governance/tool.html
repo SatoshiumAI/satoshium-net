@@ -517,8 +517,16 @@ This governance record can be exported for audit review, pilot collaboration, an
             <div class="result-value" id="rulesetValue">Not generated yet</div>
           </div>
           <div class="result-item">
+            <span class="result-label">Ruleset digest (SHA-256)</span>
+            <div class="result-value" id="rulesetDigestValue">Not generated yet</div>
+          </div>
+          <div class="result-item">
             <span class="result-label">Agent</span>
             <div class="result-value" id="agentValue">Not generated yet</div>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Action digest (SHA-256)</span>
+            <div class="result-value" id="actionDigestValue">Not generated yet</div>
           </div>
           <div class="result-item">
             <span class="result-label">Decision rationale</span>
@@ -528,6 +536,7 @@ This governance record can be exported for audit review, pilot collaboration, an
             <span class="result-label">VERIFICATION REFERENCE (SHA-256)</span>
             <div class="result-value" id="hashValue">Not generated yet</div>
           </div>
+        
                   </div>
 
         <div class="actions-row">
@@ -657,8 +666,13 @@ function renderResult(record) {
   document.getElementById("timestampValue").textContent = record.timestamp_utc;
   document.getElementById("rulesetValue").textContent = record.ruleset_name || "Unnamed ruleset";
   document.getElementById("agentValue").textContent = record.agent_name || "Unnamed agent";
+  document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256;
+  document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
   document.getElementById("decisionReason").textContent = record.reason;
   document.getElementById("hashValue").textContent = record.verification_reference_sha256;
+  document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256;
+document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
+document.getElementById("hashValue").textContent = record.verification_reference_sha256;
 }
 
 async function runEvaluation() {
@@ -680,7 +694,7 @@ async function runEvaluation() {
 
     tool: "SATOSHIUM Agent Governance Tool",
 
-    service_url: "https://satoshium.ai/services/agent-governance/",
+    service_url: "https://satoshium.net/services/agent-governance/",
 
     tool_url: window.location.href,
 
@@ -784,6 +798,9 @@ function clearForm() {
   document.getElementById("agentValue").textContent = "Not generated yet";
   document.getElementById("decisionReason").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
+  document.getElementById("rulesetDigestValue").textContent = "Not generated yet";
+document.getElementById("actionDigestValue").textContent = "Not generated yet";
+document.getElementById("hashValue").textContent = "Not generated yet";
 }
 
 function downloadJson() {
