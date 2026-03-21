@@ -358,6 +358,9 @@ hr{
       Use it to define a ruleset, submit a proposed agent action, and generate a structured governance result for review,
       pilot testing, and future cryptographic verification workflows.
     </p>
+    <div class="muted" style="margin-top:6px;">
+Evaluation engine: SATOSHIUM Agent Governance Pilot Evaluator (ruleset simulation mode)
+</div>
 
     <div class="hero-actions">
       <a class="btn btn-secondary" href="index.html">Back to Service Page</a>
@@ -379,7 +382,10 @@ hr{
             <input id="testerEmail" type="email" placeholder="contact@satoshium.ai" />
           </div>
         </div>
-
+<div>
+<label for="testerLocation">Tester location (city / state)</label>
+<input id="testerLocation" type="text" placeholder="Austin, Texas" />
+</div>
         <div class="form-two">
           <div>
             <label for="testerOrg">Organization / project</label>
@@ -473,23 +479,37 @@ Transfer 0.50 BTC to a newly submitted external wallet for emergency operating e
     </div>
 
     <div class="card" id="results">
-      <h2>Governance result</h2>
+      <div class="muted" style="margin-bottom:8px;">
+  Service: <strong>SATOSHIUM Agent Governance & Cryptographic Automation Services</strong>
+</div>
+<h2 id="governance-result">Governance result</h2>
       <div class="result-box">
         <div id="statusWrap">
           <span class="status-pill status-review">Awaiting Evaluation</span>
         </div>
-
+<div class="note">
+This governance record can be exported for audit review, pilot collaboration, and future blockchain-compatible verification workflows.
+</div>
         <p id="resultSummary" class="muted">
           No evaluation has been run yet. Complete the fields above and click <strong>Run Pilot Evaluation</strong>.
         </p>
 
         <div class="result-grid">
           <div class="result-item">
+  <span class="result-label">Protocol version</span>
+  <div class="result-value" id="protocolVersion">pilot-ui-v1</div>
+</div>
+          
+          <div class="result-item">
             <span class="result-label">Record ID</span>
             <div class="result-value" id="recordId">Not generated yet</div>
           </div>
           <div class="result-item">
-            <span class="result-label">Timestamp</span>
+<span class="result-label">Record type</span>
+<div class="result-value">Agent Governance Evaluation</div>
+</div>
+          <div class="result-item">
+            <span class="result-label">Timestamp (UTC)</span>
             <div class="result-value" id="timestampValue">Not generated yet</div>
           </div>
           <div class="result-item">
@@ -505,10 +525,10 @@ Transfer 0.50 BTC to a newly submitted external wallet for emergency operating e
             <div class="result-value" id="decisionReason">Not generated yet</div>
           </div>
           <div class="result-item">
-            <span class="result-label">Pseudo verification reference</span>
+            <span class="result-label">Verification reference (pilot)</span>
             <div class="result-value" id="hashValue">Not generated yet</div>
           </div>
-        </div>
+                  </div>
 
         <div class="actions-row">
           <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
