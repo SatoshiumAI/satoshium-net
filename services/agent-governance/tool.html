@@ -1243,8 +1243,8 @@ async function verifyUploadedJson(event) {
   const recomputedVerificationHash = await sha256Hash(JSON.stringify(verificationRecord));
 
   const isValid =
-    recomputedRulesetHash === record.ruleset_digest_sha256 &&
-    recomputedActionHash === record.action_digest_sha256 &&
+    recomputedRulesetHash === record.ruleset_digest_sha256Hash &&
+    recomputedActionHash === record.action_digest_sha256Hash &&
     recomputedVerificationHash === record.verification_reference_sha256;
 
   if (isValid) {
