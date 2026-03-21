@@ -681,7 +681,7 @@ margin-top:8px;
 font-size:13px;
 color:#888;
 ">
-Verification reference (SHA-256Hash):<br>
+Verification reference (SHA-256):<br>
 <strong style="color:#d4a94f;">
 ${r.verification_reference_sha256Hash}
 </strong>
@@ -948,9 +948,9 @@ ${r.verification_reference_sha256Hash}
 
       <h2>Cryptographic Verification</h2>
       <div class="grid">
-        <div class="item"><span class="label">Ruleset Digest (SHA-256Hash)</span><div class="value mono">${r.ruleset_digest_sha256Hash || ""}</div></div>
-        <div class="item"><span class="label">Action Digest (SHA-256Hash)</span><div class="value mono">${r.action_digest_sha256Hash || ""}</div></div>
-        <div class="item"><span class="label">Verification Reference (SHA-256Hash)</span><div class="value mono">${r.verification_reference_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${r.ruleset_digest_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${r.action_digest_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256Hash || ""}</div></div>
       </div>
 
       <hr style="margin-top:40px;border:none;border-top:1px solid #444;">
@@ -1159,7 +1159,6 @@ function clearForm() {
   document.getElementById("rulesetValue").textContent = "Not generated yet";
   document.getElementById("agentValue").textContent = "Not generated yet";
   document.getElementById("decisionReason").textContent = "Not generated yet";
-  document.getElementById("hashValue").textContent = "Not generated yet";
   document.getElementById("rulesetDigestValue").textContent = "Not generated yet";
   document.getElementById("actionDigestValue").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
@@ -1228,13 +1227,13 @@ async function verifyUploadedJson(event) {
     ruleset_name: record.ruleset_name,
     risk_level: record.risk_level,
     ruleset_text: record.ruleset_text,
-    ruleset_digest_sha256: recomputedRulesetHash,
+    ruleset_digest_sha256Hash: recomputedRulesetHash,
     agent_name: record.agent_name,
     action_type: record.action_type,
     amount_value: record.amount_value,
     approval_token: record.approval_token,
     action_text: record.action_text,
-    action_digest_sha256: recomputedActionHash,
+    action_digest_sha256Hash: recomputedActionHash,
     decision: record.decision,
     summary: record.summary,
     reason: record.reason
@@ -1245,7 +1244,7 @@ async function verifyUploadedJson(event) {
   const isValid =
     recomputedRulesetHash === record.ruleset_digest_sha256Hash &&
     recomputedActionHash === record.action_digest_sha256Hash &&
-    recomputedVerificationHash === record.verification_reference_sha256;
+    recomputedVerificationHash === record.verification_reference_sha256Hash;
 
   if (isValid) {
     alert("Verification SUCCESS: JSON record integrity confirmed.");
