@@ -332,6 +332,21 @@ textarea{
 .result-value{
   font-size:14px;
   word-break:break-word;
+  line-height:1.55;
+}
+
+.result-item{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(214,163,74,.12);
+  border-radius:10px;
+  padding:12px;
+  min-height:92px;
+}
+
+  .hash-value{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:12px;
+  line-height:1.55;
 }
 
 .actions-row{
@@ -532,7 +547,7 @@ This governance record can be exported for audit review, pilot collaboration, an
           </div>
           <div class="result-item">
             <span class="result-label">Ruleset digest (SHA-256)</span>
-            <div class="result-value" id="rulesetDigestValue">Not generated yet</div>
+            <div class="result-value hash-value" id="rulesetDigestValue">Not generated yet</div>
           </div>
           <div class="result-item">
             <span class="result-label">Agent</span>
@@ -540,7 +555,7 @@ This governance record can be exported for audit review, pilot collaboration, an
           </div>
           <div class="result-item">
             <span class="result-label">Action digest (SHA-256)</span>
-            <div class="result-value" id="actionDigestValue">Not generated yet</div>
+            <div class="result-value hash-value" id="actionDigestValue">Not generated yet</div>
           </div>
           <div class="result-item">
             <span class="result-label">Decision rationale</span>
@@ -548,7 +563,7 @@ This governance record can be exported for audit review, pilot collaboration, an
           </div>
           <div class="result-item">
             <span class="result-label">VERIFICATION REFERENCE (SHA-256)</span>
-            <div class="result-value" id="hashValue">Not generated yet</div>
+            <div class="result-value hash-value" id="hashValue">Not generated yet</div>
           </div>
         
                   </div>
