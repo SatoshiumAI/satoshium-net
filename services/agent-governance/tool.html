@@ -662,39 +662,86 @@ function renderResult(record) {
 }
 
 async function runEvaluation() {
+
   const data = getValues();
 
+  const rulesetDigest = await sha256Hash(data.rulesetText || "");
+  const actionDigest = await sha256Hash(
+    (data.actionText || "") + "|" +
+    (data.actionType || "") + "|" +
+    (data.amountValue || "")
+  );
+
   const record = {
+
+    record_type: "Agent Governance Evaluation",
+
     service: "SATOSHIUM Agent Governance & Cryptographic Automation Services",
+
     tool: "SATOSHIUM Agent Governance Tool",
+
+    service_url: "https://satoshium.ai/services/agent-governance/",
+
+    tool_url: window.location.href,
+
+    evaluation_engine: "SATOSHIUM Agent Governance Pilot Evaluator",
+
+    protocol_version: "sat-agr-protocol-v1",
+
     record_id: makeRecordId(),
+
     timestamp_utc: new Date().toISOString(),
+
     tester_name: data.testerName,
+
     tester_email: data.testerEmail,
+
     tester_org: data.testerOrg,
+
     tester_location: data.testerLocation,
+
     evaluation_purpose: data.testerPurpose,
+
     ruleset_name: data.rulesetName,
+
     risk_level: data.riskLevel,
+
     ruleset_text: data.rulesetText,
+
+    ruleset_digest_sha256: rulesetDigest,
+
     agent_name: data.agentName,
+
     action_type: data.actionType,
+
     amount_value: data.amountValue,
+
     approval_token: data.approvalToken,
-    action_text: data.actionText
+
+    action_text: data.actionText,
+
+    action_digest_sha256: actionDigest
   };
 
   const result = evaluateRecord(data);
+
   record.decision = result.decision;
   record.summary = result.summary;
   record.reason = result.reason;
-  record.protocol_version = "sat-agr-protocol-v1";
-  record.verification_reference_sha256 = await sha256Hash(JSON.stringify(record));
+
+  record.verification_reference_sha256 =
+    await sha256Hash(JSON.stringify(record));
 
   state.lastRecord = record;
+
   renderResult(record);
 
-  document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  document
+    .getElementById("results")
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 }
 
 function loadDemo() {
