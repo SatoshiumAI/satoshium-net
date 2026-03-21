@@ -992,9 +992,6 @@ function renderResult(record) {
   document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
   document.getElementById("decisionReason").textContent = record.reason;
   document.getElementById("hashValue").textContent = record.verification_reference_sha256;
-  document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256;
-  document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
-  document.getElementById("hashValue").textContent = record.verification_reference_sha256;
   document.getElementById("engineValue").textContent = record.evaluation_engine || "Not generated yet";
 }
 
