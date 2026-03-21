@@ -11,13 +11,17 @@
 
 :root{
  --card-wm: url('https://satoshium.link/assets/seal.png');
+
  --bg:#07090d;
  --panel:#0c1018;
  --text:#e8edf7;
  --muted:#9aa7bd;
+
  --gold:#d6a34a;
  --gold2:#f4c36a;
+
  --line:rgba(214,163,74,.18);
+ --max-width:980px;
 }
 
 *{box-sizing:border-box}
@@ -28,67 +32,123 @@ padding:0;
 background:var(--bg);
 color:var(--text);
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-line-height:1.55
+line-height:1.6;
 }
+
 body{
- padding-top:80px;
-}
-a{color:var(--gold2);text-decoration:none}
-a:hover{color:var(--gold)}
-
-.wrap{max-width:980px;margin:0 auto;padding:0 18px}
-
- .wrap.content{
-  opacity:0;
-  transform:translateY(6px);
-  animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
+padding-top:80px;
 }
 
-@keyframes pageEnter{
- to{
- opacity:1;
- transform:translateY(0);
- }
+/* ===== Links ===== */
+
+a{
+color:var(--gold2);
+text-decoration:none;
+}
+
+a:hover{
+color:var(--gold);
 }
 
 /* ===== Layout ===== */
 
-.content{
-padding:34px 18px 60px
+.wrap{
+max-width:var(--max-width);
+margin:0 auto;
+padding:0 18px;
 }
 
-h1,h2{
-margin:0 0 10px
+.wrap.content{
+opacity:0;
+transform:translateY(6px);
+animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
 }
+
+@keyframes pageEnter{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.content{
+padding:44px 18px 70px;
+}
+
+/* ===== Typography ===== */
 
 h1{
 font-size:30px;
-color:var(--gold2)
+margin:8px 0 14px;
+color:var(--gold2);
 }
 
 h2{
 font-size:20px;
+margin:0 0 12px;
 color:var(--gold2);
-margin-top:26px
 }
 
-p,li{
-color:var(--text)
+p{
+margin:0 0 14px;
 }
 
-hr{
-border:none;
-border-top:1px solid var(--line);
-margin:22px 0
+li{
+margin-bottom:6px;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+margin-bottom:28px;
+}
+
+.hero-actions{
+margin-top:18px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+/* ===== Buttons ===== */
+
+.btn{
+display:inline-block;
+padding:8px 14px;
+border-radius:8px;
+font-size:13px;
+font-weight:600;
+border:1px solid var(--line);
+background:rgba(214,163,74,.08);
+}
+
+.btn-primary{
+background:rgba(214,163,74,.18);
+}
+
+.btn-secondary{
+background:rgba(214,163,74,.06);
+}
+
+/* ===== Grid ===== */
+
+.grid{
+display:grid;
+gap:18px;
+}
+
+.two-up{
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 }
 
 /* ===== Cards ===== */
 
 .card{
-position: relative;
-overflow: hidden;
+position:relative;
+overflow:hidden;
 
-background: linear-gradient(
+background:
+linear-gradient(
 to bottom right,
 rgba(12,16,24,.94),
 rgba(12,16,24,.88)
@@ -97,53 +157,63 @@ rgba(12,16,24,.88)
 border:1px solid var(--line);
 border-radius:16px;
 
-padding:16px 16px;
-margin:16px 0;
+padding:20px 20px;
+margin:18px 0;
 
 box-shadow:
 0 0 0 1px rgba(214,163,74,.08),
 0 20px 50px rgba(0,0,0,.45);
+
+transition:
+transform .18s ease,
+box-shadow .18s ease;
 }
+
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 14px 40px rgba(0,0,0,.35);
+}
+
+/* watermark */
 
 .card::before{
 content:"";
 position:absolute;
 inset:-60px;
-background-image: var(--card-wm);
+
+background-image:var(--card-wm);
 background-repeat:no-repeat;
-background-size: min(720px, 70vw);
-background-position: right -140px center;
-opacity:0.028;
-filter: blur(1px);
+background-size:min(720px,70vw);
+background-position:right -140px center;
+
+opacity:.028;
+filter:blur(1px);
+
 pointer-events:none;
 z-index:0;
 }
 
-.card > *{
+.card>*{
 position:relative;
-z-index:1
-}
-.card {
-  transition: transform .18s ease, box-shadow .18s ease;
+z-index:1;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+/* ===== Steps list ===== */
+
+.steps{
+margin:0;
+padding-left:22px;
 }
 
-.card {
- border: 1px solid rgba(214,163,74,.15);
-}
+/* ===== Note block ===== */
 
-.muted{
-color:var(--muted)
-}
-
-.footer{
-border-top:1px solid var(--line);
-padding:18px 0 32px;
-color:var(--muted)
+.note{
+margin-top:12px;
+padding:10px 14px;
+border-left:3px solid var(--gold);
+background:rgba(214,163,74,.08);
+border-radius:6px;
+font-size:14px;
 }
 
 /* ===== Pills ===== */
@@ -152,23 +222,44 @@ color:var(--muted)
 display:inline-flex;
 align-items:center;
 gap:8px;
-padding:8px 10px;
+
+padding:8px 12px;
 border:1px solid var(--line);
 border-radius:999px;
+
 background:rgba(214,163,74,.08);
 color:var(--gold2);
+
 font-size:12px;
-font-weight:700
+font-weight:700;
+margin-bottom:8px;
 }
 
-ul{
-margin:8px 0 0 18px
+/* ===== Footer ===== */
+
+.reflection{
+margin-top:40px;
+}
+
+.footer{
+border-top:1px solid var(--line);
+padding:26px 0 44px;
+color:var(--muted);
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:28px 0;
+}
+
+.muted{
+color:var(--muted);
 }
 
 </style>
 
-   </header> 
-<body id="top">
+  <body id="top">
 
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="https://satoshium.link/components/topbar-loader.js"></script>
@@ -194,7 +285,7 @@ margin:8px 0 0 18px
 
     <section>
       <div class="wrap grid two-up">
- <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+ <div class="card">
           <h2>What this service provides</h2>
           <ul>
             <li>Design and development of governance logic for decentralized AI agents</li>
@@ -205,7 +296,7 @@ margin:8px 0 0 18px
           </ul>
         </div>
 
-<div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+<div class="card">
           <h2>Who this is for</h2>
           <ul>
             <li>Builders testing AI agent governance models</li>
@@ -219,7 +310,7 @@ margin:8px 0 0 18px
 
     <section id="workflow">
       <div class="wrap grid">
-  <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+  <div class="card">
           <h2>Current service workflow</h2>
           <ol class="steps">
             <li>Submit or define a governance ruleset for an AI agent or automation workflow.</li>
@@ -234,7 +325,7 @@ margin:8px 0 0 18px
 
     <section>
       <div class="wrap grid two-up">
-<div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+<div class="card">
           <h2>Service positioning</h2>
           <p>
             This service is part of the broader SATOSHIUM ecosystem and is being developed
@@ -244,7 +335,7 @@ margin:8px 0 0 18px
           </p>
         </div>
 
- <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+ <div class="card">
           <h2>Pilot availability</h2>
           <p>
             SATOSHIUM Agent Governance & Cryptographic Automation Services is currently available
@@ -259,7 +350,7 @@ margin:8px 0 0 18px
 
     <section id="launch">
       <div class="wrap grid">
-<div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+<div class="card">
           <h2>Launch pilot service</h2>
           <p>
             The interactive governance tool will be connected here next. This pilot service page
