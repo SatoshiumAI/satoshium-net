@@ -575,6 +575,7 @@ This governance record can be exported for audit review, pilot collaboration, an
         <div class="actions-row">
   <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
   <button class="btn btn-primary" type="button" id="openReceipt">Open Execution Receipt</button>
+  <button class="btn btn-primary" type="button" id="verifyJson">Verify JSON Record</button>
         </div>
       </div>
     </div>
@@ -1180,11 +1181,49 @@ function downloadJson() {
   URL.revokeObjectURL(url);
 }
 
+  <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
+
 document.getElementById("runEvaluation").addEventListener("click", runEvaluation);
 document.getElementById("loadDemo").addEventListener("click", loadDemo);
 document.getElementById("clearForm").addEventListener("click", clearForm);
 document.getElementById("downloadJson").addEventListener("click", downloadJson);
 document.getElementById("openReceipt").addEventListener("click", openReceipt);
+
+document.getElementById("verifyJson").addEventListener("click", () => {
+  document.getElementById("jsonFileInput").click();
+});
+
+document.getElementById("jsonFileInput").addEventListener("change", verifyUploadedJson);
+
+async function verifyUploadedJson(event) {
+
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const text = await file.text();
+  const record = JSON.parse(text);
+
+  const recomputedRulesetHash = await sha256(record.ruleset_text || "");
+  const recomputedActionHash = await sha256(record.action_text || "");
+
+  const verificationString =
+    recomputedRulesetHash +
+    recomputedActionHash +
+    record.record_id;
+
+  const recomputedVerificationHash = await sha256(verificationString);
+
+  if (
+    recomputedRulesetHash === record.ruleset_digest_sha256 &&
+    recomputedActionHash === record.action_digest_sha256 &&
+    recomputedVerificationHash === record.verification_reference_sha256
+  ) {
+    alert("Verification SUCCESS: JSON record integrity confirmed.");
+  } else {
+    alert("Verification FAILED: Record may have been modified.");
+  }
+}
+  
 </script>
 </body>
 </html>
