@@ -648,7 +648,16 @@ function getValues() {
     actionText: document.getElementById("actionText").value.trim()
   };
 }
+  
+function openReceipt() {
+  if (!state.lastRecord) {
+    alert("Run an evaluation first so an execution receipt exists to open.");
+    return;
+  }
 
+  alert("Execution receipt button is connected. Next step: render the branded receipt view.");
+}
+  
 function evaluateRecord(data) {
   const action = (data.actionText + " " + data.actionType).toLowerCase();
   const rules = data.rulesetText.toLowerCase();
@@ -861,6 +870,7 @@ document.getElementById("runEvaluation").addEventListener("click", runEvaluation
 document.getElementById("loadDemo").addEventListener("click", loadDemo);
 document.getElementById("clearForm").addEventListener("click", clearForm);
 document.getElementById("downloadJson").addEventListener("click", downloadJson);
+document.getElementById("openReceipt").addEventListener("click", openReceipt);
 </script>
 </body>
 </html>
