@@ -497,7 +497,7 @@ This governance record can be exported for audit review, pilot collaboration, an
         <div class="result-grid">
           <div class="result-item">
   <span class="result-label">Protocol version</span>
-  <div class="result-value" id="protocolVersion">pilot-ui-v1</div>
+  <div class="result-value" id="protocolVersion">sat-agr-protocol-v1</div>
 </div>
           
           <div class="result-item">
@@ -580,13 +580,6 @@ async function sha256Hash(message) {
   ).join("");
   return hashHex.toUpperCase();
 }
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-    hash |= 0;
-  }
-  return "SAT-" + Math.abs(hash).toString(16).toUpperCase().padStart(8, "0");
-}
 
 function makeRecordId() {
   const now = new Date();
@@ -658,13 +651,13 @@ function setStatus(decision) {
 function renderResult(record) {
   setStatus(record.decision);
   document.getElementById("resultSummary").textContent = record.summary;
+  document.getElementById("protocolVersion").textContent = record.protocol_version;
   document.getElementById("recordId").textContent = record.record_id;
   document.getElementById("timestampValue").textContent = record.timestamp_utc;
   document.getElementById("rulesetValue").textContent = record.ruleset_name || "Unnamed ruleset";
   document.getElementById("agentValue").textContent = record.agent_name || "Unnamed agent";
   document.getElementById("decisionReason").textContent = record.reason;
-  document.getElementById("hashValue").textContent =
-record.verification_reference_sha256;
+  document.getElementById("hashValue").textContent = record.verification_reference_sha256;
 }
 
 async function runEvaluation() {
@@ -694,8 +687,7 @@ async function runEvaluation() {
   record.summary = result.summary;
   record.reason = result.reason;
   record.protocol_version = "sat-agr-protocol-v1";
-  record.verification_reference_sha256 =
-await sha256Hash(JSON.stringify(record));
+  record.verification_reference_sha256 = await sha256Hash(JSON.stringify(record));
 
   state.lastRecord = record;
   renderResult(record);
@@ -706,6 +698,7 @@ await sha256Hash(JSON.stringify(record));
 function loadDemo() {
   document.getElementById("testerName").value = "Christopher Burris";
   document.getElementById("testerEmail").value = "contact@satoshium.ai";
+  document.getElementById("testerLocation").value = "Austin, Texas";
   document.getElementById("testerOrg").value = "Satoshium";
   document.getElementById("testerPurpose").value = "Pilot governance review";
   document.getElementById("rulesetName").value = "wallet-ops-v1";
@@ -724,7 +717,7 @@ function loadDemo() {
 
 function clearForm() {
   [
-    "testerName","testerEmail","testerOrg","testerPurpose",
+    "testerName","testerEmail","testerLocation","testerOrg","testerPurpose",
     "rulesetName","rulesetText","agentName","amountValue",
     "approvalToken","actionText"
   ].forEach(id => document.getElementById(id).value = "");
@@ -735,6 +728,7 @@ function clearForm() {
   state.lastRecord = null;
   document.getElementById("statusWrap").innerHTML = `<span class="status-pill status-review">Awaiting Evaluation</span>`;
   document.getElementById("resultSummary").innerHTML = `No evaluation has been run yet. Complete the fields above and click <strong>Run Pilot Evaluation</strong>.`;
+  document.getElementById("protocolVersion").textContent = "sat-agr-protocol-v1";
   document.getElementById("recordId").textContent = "Not generated yet";
   document.getElementById("timestampValue").textContent = "Not generated yet";
   document.getElementById("rulesetValue").textContent = "Not generated yet";
