@@ -577,6 +577,7 @@ This governance record can be exported for audit review, pilot collaboration, an
   <button class="btn btn-primary" type="button" id="openReceipt">Open Execution Receipt</button>
   <button class="btn btn-primary" type="button" id="verifyJson">Verify JSON Record</button>
         </div>
+          <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
       </div>
     </div>
   </section>
@@ -680,7 +681,7 @@ color:#888;
 ">
 Verification reference (SHA-256):<br>
 <strong style="color:#d4a94f;">
-${record.verification_reference_sha256}
+${r.verification_reference_sha256Hash}
 </strong>
 </div>
 
@@ -945,9 +946,9 @@ ${record.verification_reference_sha256}
 
       <h2>Cryptographic Verification</h2>
       <div class="grid">
-        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${r.ruleset_digest_sha256 || ""}</div></div>
-        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${r.action_digest_sha256 || ""}</div></div>
-        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256 || ""}</div></div>
+        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${r.ruleset_digest_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${r.action_digest_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256Hash || ""}</div></div>
       </div>
 
       <hr style="margin-top:40px;border:none;border-top:1px solid #444;">
@@ -1027,10 +1028,10 @@ function renderResult(record) {
   document.getElementById("timestampValue").textContent = record.timestamp_utc;
   document.getElementById("rulesetValue").textContent = record.ruleset_name || "Unnamed ruleset";
   document.getElementById("agentValue").textContent = record.agent_name || "Unnamed agent";
-  document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256;
-  document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
+  document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256Hash;
+  document.getElementById("actionDigestValue").textContent = record.action_digest_sha256Hash;
   document.getElementById("decisionReason").textContent = record.reason;
-  document.getElementById("hashValue").textContent = record.verification_reference_sha256;
+  document.getElementById("hashValue").textContent = record.verification_reference_sha256Hash;
   document.getElementById("engineValue").textContent = record.evaluation_engine || "Not generated yet";
 }
 
@@ -1081,7 +1082,7 @@ async function runEvaluation() {
 
     ruleset_text: data.rulesetText,
 
-    ruleset_digest_sha256: rulesetDigest,
+    ruleset_digest_sha256Hash: rulesetDigest,
 
     agent_name: data.agentName,
 
@@ -1093,7 +1094,7 @@ async function runEvaluation() {
 
     action_text: data.actionText,
 
-    action_digest_sha256: actionDigest
+    action_digest_sha256Hash: actionDigest
   };
 
   const result = evaluateRecord(data);
@@ -1102,7 +1103,7 @@ async function runEvaluation() {
   record.summary = result.summary;
   record.reason = result.reason;
 
-  record.verification_reference_sha256 =
+  record.verification_reference_sha256Hash =
     await sha256Hash(JSON.stringify(record));
 
   state.lastRecord = record;
@@ -1181,8 +1182,6 @@ function downloadJson() {
   URL.revokeObjectURL(url);
 }
 
-  <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
-
 document.getElementById("runEvaluation").addEventListener("click", runEvaluation);
 document.getElementById("loadDemo").addEventListener("click", loadDemo);
 document.getElementById("clearForm").addEventListener("click", clearForm);
@@ -1196,32 +1195,63 @@ document.getElementById("verifyJson").addEventListener("click", () => {
 document.getElementById("jsonFileInput").addEventListener("change", verifyUploadedJson);
 
 async function verifyUploadedJson(event) {
-
   const file = event.target.files[0];
   if (!file) return;
 
   const text = await file.text();
   const record = JSON.parse(text);
 
-  const recomputedRulesetHash = await sha256(record.ruleset_text || "");
-  const recomputedActionHash = await sha256(record.action_text || "");
+  const recomputedRulesetHash = await sha256Hash(record.ruleset_text || "");
+  const recomputedActionHash = await sha256Hash(
+    (record.action_text || "") + "|" +
+    (record.action_type || "") + "|" +
+    (record.amount_value || "")
+  );
 
-  const verificationString =
-    recomputedRulesetHash +
-    recomputedActionHash +
-    record.record_id;
+  const verificationRecord = {
+    record_type: record.record_type,
+    service: record.service,
+    tool: record.tool,
+    service_url: record.service_url,
+    tool_url: record.tool_url,
+    evaluation_engine: record.evaluation_engine,
+    protocol_version: record.protocol_version,
+    record_id: record.record_id,
+    timestamp_utc: record.timestamp_utc,
+    tester_name: record.tester_name,
+    tester_email: record.tester_email,
+    tester_org: record.tester_org,
+    tester_location: record.tester_location,
+    evaluation_purpose: record.evaluation_purpose,
+    ruleset_name: record.ruleset_name,
+    risk_level: record.risk_level,
+    ruleset_text: record.ruleset_text,
+    ruleset_digest_sha256: recomputedRulesetHash,
+    agent_name: record.agent_name,
+    action_type: record.action_type,
+    amount_value: record.amount_value,
+    approval_token: record.approval_token,
+    action_text: record.action_text,
+    action_digest_sha256: recomputedActionHash,
+    decision: record.decision,
+    summary: record.summary,
+    reason: record.reason
+  };
 
-  const recomputedVerificationHash = await sha256(verificationString);
+  const recomputedVerificationHash = await sha256Hash(JSON.stringify(verificationRecord));
 
-  if (
+  const isValid =
     recomputedRulesetHash === record.ruleset_digest_sha256 &&
     recomputedActionHash === record.action_digest_sha256 &&
-    recomputedVerificationHash === record.verification_reference_sha256
-  ) {
+    recomputedVerificationHash === record.verification_reference_sha256;
+
+  if (isValid) {
     alert("Verification SUCCESS: JSON record integrity confirmed.");
   } else {
     alert("Verification FAILED: Record may have been modified.");
   }
+
+  event.target.value = "";
 }
   
 </script>
