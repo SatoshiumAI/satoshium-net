@@ -562,8 +562,12 @@ This governance record can be exported for audit review, pilot collaboration, an
             <div class="result-value" id="decisionReason">Not generated yet</div>
           </div>
           <div class="result-item">
-            <span class="result-label">VERIFICATION REFERENCE (SHA-256)</span>
+            <span class="result-label">Verification Reference (SHA-256)</span>
             <div class="result-value hash-value" id="hashValue">Not generated yet</div>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Evaluation engine</span>
+            <div class="result-value" id="engineValue">SATOSHIUM Agent Governance Pilot Evaluator</div>
           </div>
         
                   </div>
@@ -700,8 +704,9 @@ function renderResult(record) {
   document.getElementById("decisionReason").textContent = record.reason;
   document.getElementById("hashValue").textContent = record.verification_reference_sha256;
   document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256;
-document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
-document.getElementById("hashValue").textContent = record.verification_reference_sha256;
+  document.getElementById("actionDigestValue").textContent = record.action_digest_sha256;
+  document.getElementById("hashValue").textContent = record.verification_reference_sha256;
+  document.getElementById("engineValue").textContent = record.evaluation_engine || "Not generated yet";
 }
 
 async function runEvaluation() {
@@ -828,8 +833,9 @@ function clearForm() {
   document.getElementById("decisionReason").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
   document.getElementById("rulesetDigestValue").textContent = "Not generated yet";
-document.getElementById("actionDigestValue").textContent = "Not generated yet";
-document.getElementById("hashValue").textContent = "Not generated yet";
+  document.getElementById("actionDigestValue").textContent = "Not generated yet";
+  document.getElementById("hashValue").textContent = "Not generated yet";
+  document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Pilot Evaluator";
 }
 
 function downloadJson() {
