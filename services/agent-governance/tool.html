@@ -670,7 +670,19 @@ function openReceipt() {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SATOSHIUM Agent Governance Execution Receipt</title>
+<h2>SATOSHIUM Agent Governance Execution Receipt</h2>
+
+<div style="
+margin-top:8px;
+font-size:13px;
+color:#888;
+">
+Verification reference (SHA-256):<br>
+<strong style="color:#d4a94f;">
+${record.verification_reference_sha256}
+</strong>
+</div>
+
 <style>
   :root{
     --bg:#07090d;
@@ -698,6 +710,18 @@ function openReceipt() {
     max-width:980px;
     margin:0 auto;
   }
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  pre {
+    background: #f4f4f4;
+    color: black;
+  }
+}
 
   .receipt{
     background:linear-gradient(to bottom right, rgba(12,16,24,.96), rgba(12,16,24,.90));
