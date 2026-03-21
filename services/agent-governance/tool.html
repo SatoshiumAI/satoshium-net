@@ -234,11 +234,19 @@ textarea:focus{
   background:rgba(255,255,255,.045);
 }
 
+textarea::placeholder{
+  color:rgba(232,237,247,.42);
+}
+  
 textarea{
   min-height:130px;
   resize:vertical;
 }
 
+.rules-box{
+  min-height:220px;
+}
+  
 .form-grid{
   display:grid;
   gap:14px;
@@ -419,7 +427,7 @@ Evaluation engine: SATOSHIUM Agent Governance Pilot Evaluator (ruleset simulatio
 
         <div>
           <label for="rulesetText">Rules</label>
-          <textarea id="rulesetText" placeholder="Example:
+<textarea class="rules-box" id="rulesetText" placeholder="Example:
 - Block transfers above 0.10 BTC
 - Require human review before publishing sensitive data
 - Block external wallet transfers without approval
