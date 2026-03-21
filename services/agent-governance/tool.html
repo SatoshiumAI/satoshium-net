@@ -525,7 +525,7 @@ This governance record can be exported for audit review, pilot collaboration, an
             <div class="result-value" id="decisionReason">Not generated yet</div>
           </div>
           <div class="result-item">
-            <span class="result-label">Verification reference (pilot)</span>
+            <span class="result-label">VERIFICATION REFERENCE (SHA-256)</span>
             <div class="result-value" id="hashValue">Not generated yet</div>
           </div>
                   </div>
@@ -570,7 +570,16 @@ function slugify(value) {
     .slice(0, 40) || "unnamed";
 }
 
-function pseudoHash(str) {
+async function sha256Hash(message) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(message);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b =>
+    b.toString(16).padStart(2, "0")
+  ).join("");
+  return hashHex.toUpperCase();
+}
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = ((hash << 5) - hash) + str.charCodeAt(i);
@@ -654,10 +663,11 @@ function renderResult(record) {
   document.getElementById("rulesetValue").textContent = record.ruleset_name || "Unnamed ruleset";
   document.getElementById("agentValue").textContent = record.agent_name || "Unnamed agent";
   document.getElementById("decisionReason").textContent = record.reason;
-  document.getElementById("hashValue").textContent = record.pseudo_verification_reference;
+  document.getElementById("hashValue").textContent =
+record.verification_reference_sha256;
 }
 
-function runEvaluation() {
+async function runEvaluation() {
   const data = getValues();
 
   const record = {
@@ -683,8 +693,9 @@ function runEvaluation() {
   record.decision = result.decision;
   record.summary = result.summary;
   record.reason = result.reason;
-  record.protocol_version = "pilot-ui-v1";
-  record.pseudo_verification_reference = pseudoHash(JSON.stringify(record));
+  record.protocol_version = "sat-agr-protocol-v1";
+  record.verification_reference_sha256 =
+await sha256Hash(JSON.stringify(record));
 
   state.lastRecord = record;
   renderResult(record);
