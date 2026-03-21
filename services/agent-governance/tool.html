@@ -655,6 +655,288 @@ function openReceipt() {
     return;
   }
 
+  const r = state.lastRecord;
+
+  const receiptWindow = window.open("", "_blank");
+
+  if (!receiptWindow) {
+    alert("Popup blocked. Please allow popups for this site to open the execution receipt.");
+    return;
+  }
+
+  receiptWindow.document.write(`
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SATOSHIUM Agent Governance Execution Receipt</title>
+<style>
+  :root{
+    --bg:#07090d;
+    --panel:#0c1018;
+    --panel2:#111827;
+    --text:#e8edf7;
+    --muted:#9aa7bd;
+    --gold:#d6a34a;
+    --gold2:#f4c36a;
+    --line:rgba(214,163,74,.18);
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    padding:40px 24px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.6;
+  }
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+  }
+
+  .receipt{
+    background:linear-gradient(to bottom right, rgba(12,16,24,.96), rgba(12,16,24,.90));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+  }
+
+  .eyebrow{
+    display:inline-block;
+    padding:7px 12px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(214,163,74,.08);
+    color:var(--gold2);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  h1{
+    margin:0 0 8px;
+    color:var(--gold2);
+    font-size:30px;
+    line-height:1.15;
+  }
+
+  h2{
+    margin:28px 0 12px;
+    color:var(--gold2);
+    font-size:18px;
+  }
+
+  p{
+    margin:0 0 12px;
+  }
+
+  .muted{
+    color:var(--muted);
+  }
+
+  .status{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.04em;
+    background:${r.decision === "APPROVED" ? "#5fd38d" : r.decision === "BLOCKED" ? "#ff7b7b" : "#f0b35a"};
+    color:${r.decision === "APPROVED" ? "#09140d" : r.decision === "BLOCKED" ? "#1f0909" : "#211506"};
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    margin-top:14px;
+  }
+
+  .item{
+    background:rgba(255,255,255,.02);
+    border:1px solid rgba(214,163,74,.12);
+    border-radius:12px;
+    padding:14px;
+  }
+
+  .label{
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+
+  .value{
+    font-size:14px;
+    word-break:break-word;
+  }
+
+  .mono{
+    font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:12px;
+    line-height:1.55;
+  }
+
+  .actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:0 0 22px;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    border:1px solid var(--line);
+    background:rgba(214,163,74,.10);
+    color:var(--text);
+    cursor:pointer;
+  }
+
+  .summary{
+    margin-top:12px;
+    padding:14px;
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+    background:rgba(214,163,74,.08);
+  }
+
+  .footer{
+    margin-top:28px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  @media print{
+    body{
+      padding:0;
+      background:#fff;
+      color:#000;
+    }
+
+    .actions{
+      display:none;
+    }
+
+    .receipt{
+      box-shadow:none;
+      border:1px solid #ccc;
+      background:#fff;
+      color:#000;
+    }
+
+    .muted,.label,.footer{
+      color:#444 !important;
+    }
+
+    h1,h2{
+      color:#000 !important;
+    }
+
+    .item{
+      border:1px solid #ccc;
+      background:#fff;
+    }
+
+    .summary{
+      border-left:3px solid #888;
+      background:#f6f6f6;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+      <button class="btn" onclick="window.close()">Close</button>
+    </div>
+
+    <div class="receipt">
+      <div class="eyebrow">SATOSHIUM • Agent Governance Execution Receipt</div>
+      <h1>SATOSHIUM Agent Governance Execution Receipt</h1>
+      <p class="muted">
+        Human-readable receipt generated from the SATOSHIUM Agent Governance Tool for audit review,
+        pilot collaboration, and blockchain-compatible verification workflows.
+      </p>
+
+      <div class="status">${r.decision}</div>
+
+      <div class="summary">
+        <strong>Decision Summary:</strong><br />
+        ${r.summary || "No summary generated."}
+      </div>
+
+      <h2>Receipt Information</h2>
+      <div class="grid">
+        <div class="item"><span class="label">Record Type</span><div class="value">${r.record_type || ""}</div></div>
+        <div class="item"><span class="label">Record ID</span><div class="value">${r.record_id || ""}</div></div>
+        <div class="item"><span class="label">Timestamp (UTC)</span><div class="value">${r.timestamp_utc || ""}</div></div>
+        <div class="item"><span class="label">Protocol Version</span><div class="value">${r.protocol_version || ""}</div></div>
+      </div>
+
+      <h2>Service Context</h2>
+      <div class="grid">
+        <div class="item"><span class="label">Service</span><div class="value">${r.service || ""}</div></div>
+        <div class="item"><span class="label">Tool</span><div class="value">${r.tool || ""}</div></div>
+        <div class="item"><span class="label">Service URL</span><div class="value">${r.service_url || ""}</div></div>
+        <div class="item"><span class="label">Tool URL</span><div class="value">${r.tool_url || ""}</div></div>
+        <div class="item"><span class="label">Evaluation Engine</span><div class="value">${r.evaluation_engine || ""}</div></div>
+        <div class="item"><span class="label">Risk Level</span><div class="value">${r.risk_level || ""}</div></div>
+      </div>
+
+      <h2>Tester Information</h2>
+      <div class="grid">
+        <div class="item"><span class="label">Tester Name</span><div class="value">${r.tester_name || ""}</div></div>
+        <div class="item"><span class="label">Tester Email</span><div class="value">${r.tester_email || ""}</div></div>
+        <div class="item"><span class="label">Organization / Project</span><div class="value">${r.tester_org || ""}</div></div>
+        <div class="item"><span class="label">Tester Location</span><div class="value">${r.tester_location || ""}</div></div>
+        <div class="item"><span class="label">Evaluation Purpose</span><div class="value">${r.evaluation_purpose || ""}</div></div>
+      </div>
+
+      <h2>Governance Inputs</h2>
+      <div class="grid">
+        <div class="item"><span class="label">Ruleset Name</span><div class="value">${r.ruleset_name || ""}</div></div>
+        <div class="item"><span class="label">Agent Name</span><div class="value">${r.agent_name || ""}</div></div>
+        <div class="item"><span class="label">Action Type</span><div class="value">${r.action_type || ""}</div></div>
+        <div class="item"><span class="label">Amount Value</span><div class="value">${r.amount_value || ""}</div></div>
+        <div class="item"><span class="label">Approval Token</span><div class="value">${r.approval_token || "(none)"}</div></div>
+        <div class="item"><span class="label">Decision Rationale</span><div class="value">${r.reason || ""}</div></div>
+      </div>
+
+      <h2>Cryptographic Verification</h2>
+      <div class="grid">
+        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${r.ruleset_digest_sha256 || ""}</div></div>
+        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${r.action_digest_sha256 || ""}</div></div>
+        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256 || ""}</div></div>
+      </div>
+
+      <div class="footer">
+        SATOSHIUM Agent Governance & Cryptographic Automation Services • Execution receipt generated from live evaluation record.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+  `);
+
+  receiptWindow.document.close();
+}
+
   alert("Execution receipt button is connected. Next step: render the branded receipt view.");
 }
   
