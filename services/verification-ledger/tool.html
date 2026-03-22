@@ -849,14 +849,6 @@ document.getElementById("jsonFileInput").addEventListener("change", verifyUpload
 
 document.getElementById("governanceFileInput").addEventListener("change", importGovernanceRecord);
 
-  state.importedSource =
-  record.record_type === "Verification Ledger Entry"
-    ? "verification_ledger"
-    : "agent_governance";
-
-state.importedRecordId = record.record_id || null;
-state.importedVerificationHash =
-  record.verification_reference_sha256Hash || null;
 </script>
 
 </body>
