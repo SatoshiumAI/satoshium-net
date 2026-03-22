@@ -528,7 +528,12 @@ This governance record can be exported for audit review, collaboration, and futu
   <span class="result-label">Protocol version</span>
   <div class="result-value" id="protocolVersion">sat-agr-protocol-v1</div>
 </div>
-          
+<div class="result-item">
+  <span class="result-label">Execution output record</span>
+  <div class="result-value" id="executionOutputRecord">
+    No execution record generated yet
+  </div>
+</div>          
           <div class="result-item">
             <span class="result-label">Record ID</span>
             <div class="result-value" id="recordId">Not generated yet</div>
@@ -1044,6 +1049,12 @@ function renderResult(record) {
   document.getElementById("policyTriggered").textContent = record.policy_triggered || "Not generated yet";
   document.getElementById("decisionReason").textContent = record.reason;
   document.getElementById("hashValue").textContent = record.verification_reference_sha256Hash;
+  document.getElementById("executionOutputRecord").innerHTML =
+  "Decision: " + record.decision + "<br>" +
+  "Policy Triggered: " + record.policy_triggered + "<br>" +
+  "Timestamp: " + record.timestamp_utc + "<br>" +
+  "Verification Hash: SHA256: " +
+  record.verification_reference_sha256Hash.substring(0, 16) + "...";
 }
 
 async function runEvaluation() {
@@ -1174,6 +1185,8 @@ function clearForm() {
   document.getElementById("policyTriggered").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
   document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Reference Evaluator";
+  document.getElementById("executionOutputRecord").textContent =
+  "No execution record generated yet";
   }
 
 function downloadJson() {
