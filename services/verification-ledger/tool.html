@@ -498,7 +498,7 @@ Ledger entry created for a governance denial event related to an external access
 
 <div class="actions-row">
   <button class="btn btn-primary" type="button" id="generateLedger">Generate Ledger Entry</button>
-  <button class="btn btn-secondary" type="button" id="importGovernanceBtn">Import Governance Record</button>
+  <button class="btn btn-secondary" type="button" id="importGovernanceBtn">Import Governance / Ledger Record</button>
   <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
   <button class="btn btn-secondary" type="button" id="downloadTxtBtn">Download Ledger Report (.txt)</button>
   <button class="btn btn-secondary" type="button" id="verifyJson">Verify Ledger Record Integrity</button>
@@ -793,7 +793,11 @@ async function importGovernanceRecord(event) {
   const record = JSON.parse(text);
 
   document.getElementById("agentName").value = record.agent_name || "";
-  document.getElementById("ruleId").value = record.policy_triggered || record.ruleset_name || "";
+  document.getElementById("ruleId").value =
+  record.policy_triggered ||
+  record.ruleset_name ||
+  record.rule_id ||
+  "";
 
   if (record.decision === "APPROVED") {
     document.getElementById("decisionValue").value = "allowed";
