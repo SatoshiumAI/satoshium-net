@@ -505,7 +505,7 @@ Ledger entry created for a governance denial event related to an external access
 </div>
 
         <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
-        <input type="file" id="governanceFileInput" accept=".json" style="display:none;"
+        <input type="file" id="governanceFileInput" accept=".json" style="display:none;">
       </div>
     </div>
   </section>
@@ -782,6 +782,9 @@ async function verifyUploadedJson(event) {
     alert("Verification FAILED: Ledger record may have been modified.");
   }
 
+  event.target.value = "";
+}
+
 async function importGovernanceRecord(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -809,7 +812,7 @@ async function importGovernanceRecord(event) {
     (record.verification_reference_sha256Hash || "unknown") + ".";
 
   event.target.value = "";
-  }
+}
 
 document.getElementById("generateLedger").addEventListener("click", generateLedgerEntry);
 document.getElementById("downloadJson").addEventListener("click", downloadJson);
