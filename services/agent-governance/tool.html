@@ -589,6 +589,7 @@ This governance record can be exported for audit review, collaboration, and futu
 
         <div class="actions-row">
   <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
+  <button id="downloadTxtBtn">Download Execution Report (.txt)</button>
   <button class="btn btn-primary" type="button" id="openReceipt">Open Execution Receipt</button>
   <button class="btn btn-primary" type="button" id="verifyJson">Verify Governance Record Integrity</button>
         </div>
@@ -1202,6 +1203,63 @@ function downloadJson() {
     return;
   }
 
+function downloadExecutionTxt() {
+
+  if (!window.latestGovernanceRecord) {
+    alert("Run a governance evaluation first.");
+    return;
+  }
+
+  const record = window.latestGovernanceRecord;
+
+  const report =
+`SATOSHIUM Agent Governance Execution Report
+
+Service:
+SATOSHIUM Agent Governance & Cryptographic Automation Services
+
+Tool:
+SATOSHIUM Agent Governance Tool
+
+Record ID:
+${record.record_id}
+
+Decision:
+${record.decision}
+
+Policy Triggered:
+${record.policy_triggered}
+
+Timestamp (UTC):
+${record.timestamp_utc}
+
+Verification Reference (SHA-256):
+${record.verification_reference_sha256Hash}
+
+Agent:
+${record.agent_name}
+
+Ruleset:
+${record.ruleset_name}
+
+Risk Level:
+${record.risk_level}
+
+Evaluation Engine:
+${record.evaluation_engine}
+`;
+
+  const blob = new Blob([report], { type: "text/plain" });
+
+  const link = document.createElement("a");
+
+  link.href = URL.createObjectURL(blob);
+
+  link.download = "governance_execution_report.txt";
+
+  link.click();
+}
+  
   const filenameBase = slugify(state.lastRecord.ruleset_name || state.lastRecord.agent_name || "governance-record");
   const blob = new Blob([JSON.stringify(state.lastRecord, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -1219,6 +1277,9 @@ document.getElementById("loadDemo").addEventListener("click", loadDemo);
 document.getElementById("clearForm").addEventListener("click", clearForm);
 document.getElementById("downloadJson").addEventListener("click", downloadJson);
 document.getElementById("openReceipt").addEventListener("click", openReceipt);
+  document
+  .getElementById("downloadTxtBtn")
+  .addEventListener("click", downloadExecutionTxt);
 
 document.getElementById("verifyJson").addEventListener("click", () => {
   document.getElementById("jsonFileInput").click();
