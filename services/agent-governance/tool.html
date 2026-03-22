@@ -1255,6 +1255,18 @@ async function verifyUploadedJson(event) {
 }
   
 </script>
+  <script>
+
+function satoshiumTrack(eventName, details = {}) {
+  if (!window.cloudflare || !window.cloudflare.insights) return;
+
+  window.cloudflare.insights.track(eventName, {
+    domain: "satoshium.net",
+    ...details
+  });
+}
+
+</script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1f9a86c180684740a44ffb9899e98888"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
