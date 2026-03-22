@@ -636,7 +636,7 @@ async function generateLedgerEntry() {
     decision: data.decisionValue,
     anchor_ready: data.anchorReady,
     notes: data.notesText,
-    entry_digest_sha256Hash: entryDigest
+    entry_digest_sha256Hash: entryDigest,
     source_import: state.importedSource || "manual_entry",
     source_record_id: state.importedRecordId || null,
     source_verification_hash: state.importedVerificationHash || null,
@@ -824,6 +824,15 @@ document.getElementById("notesText").value =
   " with verification reference " +
   (record.verification_reference_sha256Hash || "unknown") + ".";
 
+state.importedSource =
+  record.record_type === "Verification Ledger Entry"
+    ? "verification_ledger"
+    : "agent_governance";
+
+state.importedRecordId = record.record_id || null;
+state.importedVerificationHash =
+  record.verification_reference_sha256Hash || null;
+  
   event.target.value = "";
 }
 
