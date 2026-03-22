@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>SATOSHIUM Verification Ledger Tool</title>
+<meta name="description" content="SATOSHIUM Verification Ledger Tool generates tamper-evident ledger records for decentralized AI agents, producing anchor-ready verification outputs for audit and future blockchain workflows." />
+
+<style>
+:root{
+  --card-wm: url('https://satoshium.link/assets/seal.png');
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+  --success:#5fd38d;
+  --warn:#f0b35a;
+  --danger:#ff7b7b;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.6;
+}
+
+body{
+  padding-top:80px;
+}
+
+a{
+  color:var(--gold2);
+  text-decoration:none;
+}
+
+a:hover{
+  color:var(--gold);
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:0 18px;
+}
+
+.wrap.content{
+  opacity:0;
+  transform:translateY(6px);
+  animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+@keyframes pageEnter{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.content{
+  padding:44px 18px 70px;
+}
+
+h1{
+  font-size:30px;
+  margin:8px 0 14px;
+  color:var(--gold2);
+}
+
+h2{
+  font-size:20px;
+  margin:0 0 12px;
+  color:var(--gold2);
+}
+
+p{
+  margin:0 0 14px;
+}
+
+small,
+.muted{
+  color:var(--muted);
+}
+
+.hero{
+  margin-bottom:28px;
+}
+
+.hero-actions{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:9px 14px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.08);
+  color:var(--text);
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  color:var(--text);
+}
+
+.btn-primary{
+  background:rgba(214,163,74,.18);
+}
+
+.btn-secondary{
+  background:rgba(214,163,74,.06);
+}
+
+.btn-danger{
+  background:rgba(255,123,123,.08);
+  border-color:rgba(255,123,123,.24);
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px 20px;
+  margin:18px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px rgba(0,0,0,.35);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image:var(--card-wm);
+  background-repeat:no-repeat;
+  background-size:min(720px,70vw);
+  background-position:right -140px center;
+  opacity:.028;
+  filter:blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.note{
+  margin-top:12px;
+  padding:10px 14px;
+  border-left:3px solid var(--gold);
+  background:rgba(214,163,74,.08);
+  border-radius:6px;
+  font-size:14px;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  color:var(--gold2);
+  margin:0 0 6px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+  border:1px solid rgba(214,163,74,.16);
+  border-radius:10px;
+  padding:12px 12px;
+  font:inherit;
+  outline:none;
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:rgba(244,195,106,.45);
+  box-shadow:0 0 0 3px rgba(214,163,74,.08);
+  background:rgba(255,255,255,.045);
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+textarea::placeholder{
+  color:rgba(232,237,247,.42);
+}
+
+.form-grid{
+  display:grid;
+  gap:14px;
+}
+
+.form-two{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+
+.result-box{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  background:rgba(255,255,255,.02);
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+  margin-bottom:12px;
+}
+
+.status-approved{
+  color:#09140d;
+  background:var(--success);
+}
+
+.status-review{
+  color:#211506;
+  background:var(--warn);
+}
+
+.status-blocked{
+  color:#1f0909;
+  background:var(--danger);
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+
+.result-item{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(214,163,74,.12);
+  border-radius:10px;
+  padding:12px;
+  min-height:92px;
+}
+
+.result-label{
+  display:block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.result-value{
+  font-size:14px;
+  word-break:break-word;
+  line-height:1.55;
+}
+
+.hash-value{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.actions-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+
+hr{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:28px 0;
+}
+
+.reflection{
+  margin-top:40px;
+}
+
+@media (max-width:640px){
+  h1{font-size:26px}
+  .content{padding-top:34px}
+}
+</style>
+</head>
+<body id="top">
+
+<div id="topbar-slot" data-topbar="platform"></div>
+<script src="https://satoshium.link/components/topbar-loader.js"></script>
+
+<main class="wrap content">
+
+  <section class="hero">
+    <div class="pill">Reference Tool • Ledger Entries • Anchor-Ready Outputs</div>
+    <h1>SATOSHIUM Verification Ledger Tool</h1>
+    <p class="muted" style="margin-top:-4px; margin-bottom:10px;">
+      SATOSHIUM Verification Ledger Engine v0.1
+    </p>
+    <p>
+      This interface supports the workflow for SATOSHIUM Verification Ledger. Use it to create
+      structured verification ledger entries for decentralized AI agents, generate tamper-evident
+      records, and export anchor-ready outputs for audit and review.
+    </p>
+    <div class="muted" style="margin-top:6px;">
+      Verification engine: SATOSHIUM Verification Ledger Reference Evaluator (deterministic record mode)
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-secondary" href="index.html">Back to Service Page</a>
+      <a class="btn btn-primary" href="#tool-form">Start Ledger Entry</a>
+    </div>
+  </section>
+
+  <div class="card">
+    <h2 style="margin-top:0;">Privacy notice</h2>
+    <p class="muted">
+      This reference tool does not collect, transmit, or permanently store submitted verification data on the site.
+      Ledger records are generated locally in the browser for demonstration, collaboration, and export workflows.
+    </p>
+  </div>
+
+  <section id="tool-form">
+    <div class="card">
+      <h2>Verification entry input</h2>
+      <div class="form-grid">
+
+        <div class="form-two">
+          <div>
+            <label for="agentName">Agent name</label>
+            <input id="agentName" type="text" placeholder="compliance_agent_alpha" />
+          </div>
+          <div>
+            <label for="ruleId">Rule / policy ID</label>
+            <input id="ruleId" type="text" placeholder="access_policy_07" />
+          </div>
+        </div>
+
+        <div class="form-two">
+          <div>
+            <label for="decisionValue">Decision</label>
+            <select id="decisionValue">
+              <option value="allowed">allowed</option>
+              <option value="denied">denied</option>
+              <option value="review_required">review_required</option>
+            </select>
+          </div>
+          <div>
+            <label for="anchorReady">Anchor-ready</label>
+            <select id="anchorReady">
+              <option value="TRUE">TRUE</option>
+              <option value="FALSE">FALSE</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="notesText">Notes (optional)</label>
+          <textarea id="notesText" placeholder="Example:
+Ledger entry created for a governance denial event related to an external access rule."></textarea>
+        </div>
+
+        <div class="note">
+          This standalone ledger generator creates deterministic verification records intended to complement
+          upstream governance workflows and future anchoring systems.
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="results">
+      <div class="muted" style="margin-bottom:8px;">
+        Service: <strong>SATOSHIUM Verification Ledger</strong>
+      </div>
+      <h2>Verification ledger result</h2>
+
+      <div class="result-box">
+        <div id="statusWrap">
+          <span class="status-pill status-review">Awaiting Entry</span>
+        </div>
+
+        <p id="resultSummary" class="muted">
+          No ledger entry has been generated yet. Complete the fields above and click <strong>Generate Ledger Entry</strong>.
+        </p>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <span class="result-label">Protocol version</span>
+            <div class="result-value" id="protocolVersion">sat-vl-protocol-v0.1</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Ledger record ID</span>
+            <div class="result-value" id="recordId">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Record type</span>
+            <div class="result-value">Verification Ledger Entry</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Timestamp (UTC)</span>
+            <div class="result-value" id="timestampValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Agent</span>
+            <div class="result-value" id="agentValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Rule / policy ID</span>
+            <div class="result-value" id="ruleValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Decision</span>
+            <div class="result-value" id="decisionOutput">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Anchor-ready</span>
+            <div class="result-value" id="anchorValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Entry digest (SHA-256)</span>
+            <div class="result-value hash-value" id="entryDigestValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Verification reference (SHA-256)</span>
+            <div class="result-value hash-value" id="hashValue">Not generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Execution output record</span>
+            <div class="result-value" id="executionOutputRecord">No ledger record generated yet</div>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Verification engine</span>
+            <div class="result-value" id="engineValue">SATOSHIUM Verification Ledger Reference Evaluator</div>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button class="btn btn-primary" type="button" id="generateLedger">Generate Ledger Entry</button>
+          <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
+          <button class="btn btn-secondary" type="button" id="downloadTxtBtn">Download Ledger Report (.txt)</button>
+          <button class="btn btn-secondary" type="button" id="verifyJson">Verify Ledger Record Integrity</button>
+        </div>
+
+        <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="wrap reflection">
+  <hr />
+  <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+    Verifiable systems become stronger when their records can stand on their own.
+  </div>
+  <hr />
+
+  <div id="footer-container"></div>
+</div>
+
+<script src="https://satoshium.link/assets/sayings.js"></script>
+<script>
+fetch("https://satoshium.link/components/footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer-container").innerHTML = data;
+  });
+</script>
+
+<script>
+const state = {
+  lastRecord: null
+};
+
+function slugify(value) {
+  return (value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40) || "unnamed";
+}
+
+async function sha256Hash(message) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(message);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b =>
+    b.toString(16).padStart(2, "0")
+  ).join("");
+  return hashHex.toUpperCase();
+}
+
+function makeRecordId() {
+  const now = new Date();
+  const stamp = now.toISOString().slice(0,10).replace(/-/g, "");
+  const rand = Math.floor(Math.random() * 900 + 100);
+  return `sat-vl-${stamp}-${rand}`;
+}
+
+function getValues() {
+  return {
+    agentName: document.getElementById("agentName").value.trim(),
+    ruleId: document.getElementById("ruleId").value.trim(),
+    decisionValue: document.getElementById("decisionValue").value,
+    anchorReady: document.getElementById("anchorReady").value,
+    notesText: document.getElementById("notesText").value.trim()
+  };
+}
+
+function setStatus(decision) {
+  const wrap = document.getElementById("statusWrap");
+  let className = "status-review";
+  let label = decision.toUpperCase();
+
+  if (decision === "allowed") className = "status-approved";
+  if (decision === "denied") className = "status-blocked";
+  if (decision === "review_required") className = "status-review";
+
+  wrap.innerHTML = `<span class="status-pill ${className}">${label}</span>`;
+}
+
+function renderResult(record) {
+  setStatus(record.decision);
+  document.getElementById("resultSummary").textContent = record.summary;
+  document.getElementById("protocolVersion").textContent = record.protocol_version;
+  document.getElementById("recordId").textContent = record.record_id;
+  document.getElementById("timestampValue").textContent = record.timestamp_utc;
+  document.getElementById("agentValue").textContent = record.agent_name || "Not generated yet";
+  document.getElementById("ruleValue").textContent = record.rule_id || "Not generated yet";
+  document.getElementById("decisionOutput").textContent = record.decision || "Not generated yet";
+  document.getElementById("anchorValue").textContent = record.anchor_ready || "Not generated yet";
+  document.getElementById("entryDigestValue").textContent = record.entry_digest_sha256Hash || "Not generated yet";
+  document.getElementById("hashValue").textContent = record.verification_reference_sha256Hash || "Not generated yet";
+  document.getElementById("executionOutputRecord").innerHTML =
+    "Decision: " + record.decision + "<br>" +
+    "Rule: " + (record.rule_id || "Not generated yet") + "<br>" +
+    "Timestamp: " + record.timestamp_utc + "<br>" +
+    "Verification Hash: SHA256: " +
+    record.verification_reference_sha256Hash.substring(0, 16) + "...";
+  document.getElementById("engineValue").textContent = record.verification_engine || "SATOSHIUM Verification Ledger Reference Evaluator";
+}
+
+async function generateLedgerEntry() {
+  const data = getValues();
+
+  const timestamp = new Date().toISOString();
+
+  const entrySource =
+    (data.agentName || "") + "|" +
+    (data.ruleId || "") + "|" +
+    (data.decisionValue || "") + "|" +
+    (timestamp || "") + "|" +
+    (data.notesText || "") + "|" +
+    (data.anchorReady || "");
+
+  const entryDigest = await sha256Hash(entrySource);
+
+  const record = {
+    record_type: "Verification Ledger Entry",
+    service: "SATOSHIUM Verification Ledger",
+    tool: "SATOSHIUM Verification Ledger Tool",
+    service_url: "https://satoshium.net/services/verification-ledger/",
+    tool_url: window.location.href,
+    verification_engine: "SATOSHIUM Verification Ledger Reference Evaluator",
+    protocol_version: "sat-vl-protocol-v0.1",
+    record_id: makeRecordId(),
+    timestamp_utc: timestamp,
+    agent_name: data.agentName,
+    rule_id: data.ruleId,
+    decision: data.decisionValue,
+    anchor_ready: data.anchorReady,
+    notes: data.notesText,
+    entry_digest_sha256Hash: entryDigest
+  };
+
+  record.summary = "Verification ledger entry generated successfully for audit and anchoring workflows.";
+  record.verification_reference_sha256Hash = await sha256Hash(JSON.stringify(record));
+
+  state.lastRecord = record;
+  renderResult(record);
+
+  document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function clearLedgerView() {
+  state.lastRecord = null;
+  document.getElementById("statusWrap").innerHTML = `<span class="status-pill status-review">Awaiting Entry</span>`;
+  document.getElementById("resultSummary").innerHTML = `No ledger entry has been generated yet. Complete the fields above and click <strong>Generate Ledger Entry</strong>.`;
+  document.getElementById("protocolVersion").textContent = "sat-vl-protocol-v0.1";
+  document.getElementById("recordId").textContent = "Not generated yet";
+  document.getElementById("timestampValue").textContent = "Not generated yet";
+  document.getElementById("agentValue").textContent = "Not generated yet";
+  document.getElementById("ruleValue").textContent = "Not generated yet";
+  document.getElementById("decisionOutput").textContent = "Not generated yet";
+  document.getElementById("anchorValue").textContent = "Not generated yet";
+  document.getElementById("entryDigestValue").textContent = "Not generated yet";
+  document.getElementById("hashValue").textContent = "Not generated yet";
+  document.getElementById("executionOutputRecord").textContent = "No ledger record generated yet";
+  document.getElementById("engineValue").textContent = "SATOSHIUM Verification Ledger Reference Evaluator";
+}
+
+function downloadJson() {
+  if (!state.lastRecord) {
+    alert("Generate a ledger entry first so a record exists to download.");
+    return;
+  }
+
+  const filenameBase = slugify(state.lastRecord.rule_id || state.lastRecord.agent_name || "verification-ledger-record");
+  const blob = new Blob([JSON.stringify(state.lastRecord, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${filenameBase}-ledger-record.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function downloadExecutionTxt() {
+  if (!state.lastRecord) {
+    alert("Generate a ledger entry first.");
+    return;
+  }
+
+  const record = state.lastRecord;
+
+  const report =
+`SATOSHIUM Verification Ledger Report
+
+Service:
+SATOSHIUM Verification Ledger
+
+Tool:
+SATOSHIUM Verification Ledger Tool
+
+Record ID:
+${record.record_id}
+
+Agent:
+${record.agent_name}
+
+Rule:
+${record.rule_id}
+
+Decision:
+${record.decision}
+
+Anchor-ready:
+${record.anchor_ready}
+
+Timestamp (UTC):
+${record.timestamp_utc}
+
+Entry Digest (SHA-256):
+${record.entry_digest_sha256Hash}
+
+Verification Reference (SHA-256):
+${record.verification_reference_sha256Hash}
+
+Verification Engine:
+${record.verification_engine}
+`;
+
+  const blob = new Blob([report], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "verification_ledger_report.txt";
+  link.click();
+}
+
+async function verifyUploadedJson(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const text = await file.text();
+  const record = JSON.parse(text);
+
+  const recomputedEntryDigest = await sha256Hash(
+    (record.agent_name || "") + "|" +
+    (record.rule_id || "") + "|" +
+    (record.decision || "") + "|" +
+    (record.timestamp_utc || "") + "|" +
+    (record.notes || "") + "|" +
+    (record.anchor_ready || "")
+  );
+
+  const verificationRecord = {
+    record_type: record.record_type,
+    service: record.service,
+    tool: record.tool,
+    service_url: record.service_url,
+    tool_url: record.tool_url,
+    verification_engine: record.verification_engine,
+    protocol_version: record.protocol_version,
+    record_id: record.record_id,
+    timestamp_utc: record.timestamp_utc,
+    agent_name: record.agent_name,
+    rule_id: record.rule_id,
+    decision: record.decision,
+    anchor_ready: record.anchor_ready,
+    notes: record.notes,
+    entry_digest_sha256Hash: recomputedEntryDigest,
+    summary: record.summary
+  };
+
+  const recomputedVerificationHash = await sha256Hash(JSON.stringify(verificationRecord));
+
+  const isValid =
+    recomputedEntryDigest === record.entry_digest_sha256Hash &&
+    recomputedVerificationHash === record.verification_reference_sha256Hash;
+
+  if (isValid) {
+    alert("Verification SUCCESS: Ledger record integrity confirmed.");
+  } else {
+    alert("Verification FAILED: Ledger record may have been modified.");
+  }
+
+  event.target.value = "";
+}
+
+document.getElementById("generateLedger").addEventListener("click", generateLedgerEntry);
+document.getElementById("downloadJson").addEventListener("click", downloadJson);
+document.getElementById("downloadTxtBtn").addEventListener("click", downloadExecutionTxt);
+document.getElementById("verifyJson").addEventListener("click", () => {
+  document.getElementById("jsonFileInput").click();
+});
+document.getElementById("jsonFileInput").addEventListener("change", verifyUploadedJson);
+</script>
+
+</body>
+</html>
