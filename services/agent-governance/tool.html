@@ -575,6 +575,12 @@ This governance record can be exported for audit review, collaboration, and futu
             <div class="result-value hash-value" id="hashValue">Not generated yet</div>
           </div>
           <div class="result-item">
+            <span class="result-label">Execution output record</span>
+            <div class="result-value" id="executionOutputRecord">
+            No execution record generated yet
+  </div>
+</div>
+          <div class="result-item">
             <span class="result-label">Evaluation engine</span>
             <div class="result-value" id="engineValue">SATOSHIUM Agent Governance Reference Evaluator</div>
           </div>
@@ -1184,6 +1190,7 @@ function clearForm() {
   document.getElementById("actionDigestValue").textContent = "Not generated yet";
   document.getElementById("policyTriggered").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
+  document.getElementById("executionOutputRecord").textContent = "No execution record generated yet";
   document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Reference Evaluator";
   document.getElementById("executionOutputRecord").textContent =
   "No execution record generated yet";
