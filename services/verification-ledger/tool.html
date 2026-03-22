@@ -496,14 +496,16 @@ Ledger entry created for a governance denial event related to an external access
           </div>
         </div>
 
-        <div class="actions-row">
-          <button class="btn btn-primary" type="button" id="generateLedger">Generate Ledger Entry</button>
-          <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
-          <button class="btn btn-secondary" type="button" id="downloadTxtBtn">Download Ledger Report (.txt)</button>
-          <button class="btn btn-secondary" type="button" id="verifyJson">Verify Ledger Record Integrity</button>
-        </div>
+<div class="actions-row">
+  <button class="btn btn-primary" type="button" id="generateLedger">Generate Ledger Entry</button>
+  <button class="btn btn-secondary" type="button" id="importGovernanceBtn">Import Governance Record</button>
+  <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
+  <button class="btn btn-secondary" type="button" id="downloadTxtBtn">Download Ledger Report (.txt)</button>
+  <button class="btn btn-secondary" type="button" id="verifyJson">Verify Ledger Record Integrity</button>
+</div>
 
         <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
+        <input type="file" id="governanceFileInput" accept=".json" style="display:none;"
       </div>
     </div>
   </section>
@@ -780,8 +782,34 @@ async function verifyUploadedJson(event) {
     alert("Verification FAILED: Ledger record may have been modified.");
   }
 
+async function importGovernanceRecord(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const text = await file.text();
+  const record = JSON.parse(text);
+
+  document.getElementById("agentName").value = record.agent_name || "";
+  document.getElementById("ruleId").value = record.policy_triggered || record.ruleset_name || "";
+
+  if (record.decision === "APPROVED") {
+    document.getElementById("decisionValue").value = "allowed";
+  } else if (record.decision === "BLOCKED") {
+    document.getElementById("decisionValue").value = "denied";
+  } else {
+    document.getElementById("decisionValue").value = "review_required";
+  }
+
+  document.getElementById("anchorReady").value = "TRUE";
+
+  document.getElementById("notesText").value =
+    "Imported from SATOSHIUM Agent Governance record " +
+    (record.record_id || "") +
+    " with verification reference " +
+    (record.verification_reference_sha256Hash || "unknown") + ".";
+
   event.target.value = "";
-}
+  }
 
 document.getElementById("generateLedger").addEventListener("click", generateLedgerEntry);
 document.getElementById("downloadJson").addEventListener("click", downloadJson);
@@ -790,6 +818,11 @@ document.getElementById("verifyJson").addEventListener("click", () => {
   document.getElementById("jsonFileInput").click();
 });
 document.getElementById("jsonFileInput").addEventListener("change", verifyUploadedJson);
+  document.getElementById("importGovernanceBtn").addEventListener("click", () => {
+  document.getElementById("governanceFileInput").click();
+});
+
+document.getElementById("governanceFileInput").addEventListener("change", importGovernanceRecord);
 </script>
 
 </body>
