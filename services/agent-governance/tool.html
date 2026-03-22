@@ -558,6 +558,10 @@ This governance record can be exported for audit review, pilot collaboration, an
             <div class="result-value hash-value" id="actionDigestValue">Not generated yet</div>
           </div>
           <div class="result-item">
+            <span class="result-label">Policy triggered</span>
+            <div class="result-value" id="policyTriggered">Not generated yet</div>
+          </div>
+          <div class="result-item">
             <span class="result-label">Decision rationale</span>
             <div class="result-value" id="decisionReason">Not generated yet</div>
           </div>
@@ -987,6 +991,7 @@ function evaluateRecord(data) {
   let decision = "REVIEW REQUIRED";
   let summary = "The submitted action should be manually reviewed before execution.";
   let reason = "Default pilot result pending stronger policy confirmation.";
+  let policyTriggered = "default_manual_review_rule";
 
   const mentionsSensitive = /identity|personal data|private key|seed phrase|medical|passport|ssn/.test(action);
   const mentionsExternal = /external|wallet|third-party|api|publish/.test(action);
@@ -996,23 +1001,27 @@ function evaluateRecord(data) {
     decision = "BLOCKED";
     summary = "The submitted action was blocked due to sensitive or protected data handling without approval.";
     reason = "Sensitive data handling detected without explicit approval token.";
+    policyTriggered = "sensitive_data_protection_rule";
   } else if ((highTransfer || mentionsExternal) && !hasApproval) {
     decision = "REVIEW REQUIRED";
     summary = "The submitted action requires human review because it appears to involve elevated risk or external execution.";
     reason = "External action or elevated transfer detected without approval token.";
+    policyTriggered = "financial_threshold_rule";
   } else if ((rules.includes("block") || rules.includes("require human review")) && mentionsExternal && !hasApproval) {
     decision = "REVIEW REQUIRED";
     summary = "The submitted action aligns with a ruleset that calls for review before higher-risk execution.";
     reason = "Ruleset language indicates manual review before external or sensitive operations.";
+    policyTriggered = "external_execution_review_rule";
   } else {
     decision = "APPROVED";
     summary = "The submitted action passed the pilot governance review under the current ruleset conditions.";
     reason = "No blocking condition triggered under the current pilot evaluator.";
+    policyTriggered = "baseline_allow_rule";
   }
 
-  return { decision, summary, reason };
+  return { decision, summary, reason, policyTriggered };
 }
-
+  
 function setStatus(decision) {
   const wrap = document.getElementById("statusWrap");
   let className = "status-review";
@@ -1030,10 +1039,11 @@ function renderResult(record) {
   document.getElementById("rulesetValue").textContent = record.ruleset_name || "Unnamed ruleset";
   document.getElementById("agentValue").textContent = record.agent_name || "Unnamed agent";
   document.getElementById("rulesetDigestValue").textContent = record.ruleset_digest_sha256Hash;
+  document.getElementById("engineValue").textContent = record.evaluation_engine || "Not generated yet";
   document.getElementById("actionDigestValue").textContent = record.action_digest_sha256Hash;
+  document.getElementById("policyTriggered").textContent = record.policy_triggered || "Not generated yet";
   document.getElementById("decisionReason").textContent = record.reason;
   document.getElementById("hashValue").textContent = record.verification_reference_sha256Hash;
-  document.getElementById("engineValue").textContent = record.evaluation_engine || "Not generated yet";
 }
 
 async function runEvaluation() {
@@ -1100,9 +1110,10 @@ async function runEvaluation() {
 
   const result = evaluateRecord(data);
 
-  record.decision = result.decision;
-  record.summary = result.summary;
-  record.reason = result.reason;
+    record.decision = result.decision;
+    record.summary = result.summary;
+    record.reason = result.reason;
+    record.policy_triggered = result.policyTriggered;
 
   record.verification_reference_sha256Hash =
     await sha256Hash(JSON.stringify(record));
@@ -1160,9 +1171,10 @@ function clearForm() {
   document.getElementById("decisionReason").textContent = "Not generated yet";
   document.getElementById("rulesetDigestValue").textContent = "Not generated yet";
   document.getElementById("actionDigestValue").textContent = "Not generated yet";
+  document.getElementById("policyTriggered").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
   document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Pilot Evaluator";
-}
+  }
 
 function downloadJson() {
   if (!state.lastRecord) {
