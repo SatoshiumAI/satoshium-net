@@ -517,10 +517,10 @@ Transfer 0.50 BTC to a newly submitted external wallet for emergency operating e
           <span class="status-pill status-review">Awaiting Evaluation</span>
         </div>
 <div class="note">
-This governance record can be exported for audit review, pilot collaboration, and future blockchain-compatible verification workflows.
+This governance record can be exported for audit review, collaboration, and future blockchain-compatible verification workflows.
 </div>
         <p id="resultSummary" class="muted">
-          No evaluation has been run yet. Complete the fields above and click <strong>Run Pilot Evaluation</strong>.
+          No evaluation has been run yet. Complete the fields above and click <strong>Run Reference Evaluation</strong>.
         </p>
 
         <div class="result-grid">
@@ -571,7 +571,7 @@ This governance record can be exported for audit review, pilot collaboration, an
           </div>
           <div class="result-item">
             <span class="result-label">Evaluation engine</span>
-            <div class="result-value" id="engineValue">SATOSHIUM Agent Governance Pilot Evaluator</div>
+            <div class="result-value" id="engineValue">SATOSHIUM Agent Governance Reference Evaluator</div>
           </div>
         
                   </div>
@@ -902,7 +902,7 @@ ${r.verification_reference_sha256Hash}
       <h1>SATOSHIUM Agent Governance Execution Receipt</h1>
       <p class="muted">
         Human-readable receipt generated from the SATOSHIUM Agent Governance Tool for audit review,
-        pilot collaboration, and blockchain-compatible verification workflows.
+        collaboration, and blockchain-compatible verification workflows.
       </p>
 
       <div class="status">${r.decision}</div>
@@ -1162,7 +1162,7 @@ function clearForm() {
 
   state.lastRecord = null;
   document.getElementById("statusWrap").innerHTML = `<span class="status-pill status-review">Awaiting Evaluation</span>`;
-  document.getElementById("resultSummary").innerHTML = `No evaluation has been run yet. Complete the fields above and click <strong>Run Pilot Evaluation</strong>.`;
+ document.getElementById("resultSummary").innerHTML = `No evaluation has been run yet. Complete the fields above and click <strong>Run Governance Evaluation</strong>.`;
   document.getElementById("protocolVersion").textContent = "sat-agr-protocol-v1";
   document.getElementById("recordId").textContent = "Not generated yet";
   document.getElementById("timestampValue").textContent = "Not generated yet";
@@ -1247,7 +1247,7 @@ async function verifyUploadedJson(event) {
     action_digest_sha256Hash: recomputedActionHash,
     decision: record.decision,
     summary: record.summary,
-    reason: record.reason
+    reason: record.reason,
     policy_triggered: record.policy_triggered,
   };
 
