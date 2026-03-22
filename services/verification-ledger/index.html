@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>SATOSHIUM Verification Ledger</title>
+<meta name="description" content="SATOSHIUM Verification Ledger provides cryptographic verification records for decentralized AI agents, generating tamper-evident execution outputs suitable for audit workflows and future blockchain anchoring." />
+
+<style>
+:root{
+  --card-wm: url('https://satoshium.link/assets/seal.png');
+  --bg:#07090d;
+  --panel:#0c1018;
+  --text:#e8edf7;
+  --muted:#9aa7bd;
+  --gold:#d6a34a;
+  --gold2:#f4c36a;
+  --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.6;
+}
+
+body{
+  padding-top:80px;
+}
+
+a{
+  color:var(--gold2);
+  text-decoration:none;
+}
+
+a:hover{
+  color:var(--gold);
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:0 18px;
+}
+
+.wrap.content{
+  opacity:0;
+  transform:translateY(6px);
+  animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+@keyframes pageEnter{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.content{
+  padding:44px 18px 70px;
+}
+
+h1{
+  font-size:30px;
+  margin:8px 0 14px;
+  color:var(--gold2);
+}
+
+h2{
+  font-size:20px;
+  margin:0 0 12px;
+  color:var(--gold2);
+}
+
+p{
+  margin:0 0 14px;
+}
+
+small,
+.muted{
+  color:var(--muted);
+}
+
+.hero{
+  margin-bottom:28px;
+}
+
+.hero-actions{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:9px 14px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  border:1px solid var(--line);
+  background:rgba(214,163,74,.08);
+  color:var(--text);
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  color:var(--text);
+}
+
+.btn-primary{
+  background:rgba(214,163,74,.18);
+}
+
+.btn-secondary{
+  background:rgba(214,163,74,.06);
+}
+
+.grid{
+  display:grid;
+  gap:18px;
+}
+
+.two-up{
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(to bottom right, rgba(12,16,24,.94), rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px 20px;
+  margin:18px 0;
+  box-shadow:
+    0 0 0 1px rgba(214,163,74,.08),
+    0 20px 50px rgba(0,0,0,.45);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px rgba(0,0,0,.35);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image:var(--card-wm);
+  background-repeat:no-repeat;
+  background-size:min(720px,70vw);
+  background-position:right -140px center;
+  opacity:.028;
+  filter:blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.note{
+  margin-top:12px;
+  padding:10px 14px;
+  border-left:3px solid var(--gold);
+  background:rgba(214,163,74,.08);
+  border-radius:6px;
+  font-size:14px;
+}
+
+.steps{
+  margin:0;
+  padding-left:18px;
+}
+
+.steps li{
+  margin-bottom:10px;
+}
+
+.code-sample{
+  margin-top:10px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(214,163,74,.12);
+  border-radius:10px;
+  padding:14px;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:13px;
+  line-height:1.6;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+hr{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:28px 0;
+}
+
+.reflection{
+  margin-top:40px;
+}
+
+@media (max-width:640px){
+  h1{font-size:26px}
+  .content{padding-top:34px}
+}
+</style>
+</head>
+<body id="top">
+
+<div id="topbar-slot" data-topbar="platform"></div>
+<script src="https://satoshium.link/components/topbar-loader.js"></script>
+
+<main class="wrap content">
+
+  <section class="hero">
+    <div class="pill">Verification Ledger • Audit Records • Anchor-Ready Outputs</div>
+    <h1>SATOSHIUM Verification Ledger</h1>
+    <p class="muted" style="margin-top:-4px; margin-bottom:10px;">
+      SATOSHIUM Verification Ledger Engine v0.1
+    </p>
+    <p>
+      SATOSHIUM Verification Ledger provides cryptographic verification records for decentralized AI agents,
+      generating tamper-evident execution outputs suitable for audit workflows, cross-system validation,
+      and future blockchain anchoring.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-secondary" href="https://satoshium.net/services/">Back to Services</a>
+      <a class="btn btn-primary" href="#workflow">View Verification Workflow</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2 style="margin-top:0;">Service availability</h2>
+      <p>
+        SATOSHIUM Verification Ledger is being developed as a companion verification layer for
+        agent governance workflows inside the Satoshium platform. The service is designed to
+        generate structured, tamper-evident records that capture rule inputs, decisions, timestamps,
+        and verification references in a consistent ledger-style format.
+      </p>
+      <div class="note">
+        This service is intended to complement SATOSHIUM Agent Governance by strengthening
+        traceability, auditability, and future anchoring workflows for decentralized agent systems.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid two-up">
+      <div class="card">
+        <h2>What this service provides</h2>
+        <ul class="steps">
+          <li>Generation of timestamped verification ledger entries</li>
+          <li>Tamper-evident execution records for agent decisions</li>
+          <li>Hash-based outputs suitable for future blockchain anchoring</li>
+          <li>Portable records for audit, review, and cross-system validation</li>
+          <li>Structured support for governance-to-verification workflows</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Why it matters</h2>
+        <p>
+          Most governance interfaces stop at decisions. The Verification Ledger extends that process by
+          producing durable trust artifacts that can be reviewed, exported, compared, and later anchored
+          to broader registry or blockchain-compatible infrastructure.
+        </p>
+        <div class="pill">Companion Trust Layer</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow">
+    <div class="card">
+      <h2>Current verification workflow</h2>
+      <ol class="steps">
+        <li>Receive a governance decision or execution event from an upstream agent workflow.</li>
+        <li>Generate a structured verification record including the decision, timestamp, and input references.</li>
+        <li>Compute tamper-evident hash outputs for audit and reproducibility.</li>
+        <li>Export the ledger-style record for review, receipt generation, and future anchoring workflows.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid two-up">
+      <div class="card">
+        <h2>Example verification record</h2>
+        <div class="code-sample">SATOSHIUM Verification Record
+
+Agent: compliance_agent_alpha
+Rule: access_policy_07
+Decision: denied
+Timestamp: 2026-05-02T19:08:11Z
+Hash: SHA256: 9FD2A...
+Anchor-ready: TRUE</div>
+      </div>
+
+      <div class="card">
+        <h2>Planned next component</h2>
+        <p>
+          The next component of this service layer is an interactive verification interface for
+          creating, viewing, and exporting ledger-style records tied to agent governance outputs.
+        </p>
+        <p>
+          Planned location:
+          <a href="https://satoshium.net/services/verification-ledger/tool.html">Launch Verification Ledger Tool →</a>
+        </p>
+        <div class="pill">In Development</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2 style="margin-top:0;">Request early access</h2>
+      <p>
+        Request early access to SATOSHIUM Verification Ledger pilot deployments.
+      </p>
+      <p class="muted">
+        Ledger integrations, verification workflows, and audit-oriented record generation are available
+        for early evaluation partners exploring decentralized agent trust infrastructure.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="mailto:contact@satoshium.ai?subject=Verification%20Ledger%20Pilot%20Request">
+          Request Pilot Access
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2 style="margin-top:0;">Privacy notice</h2>
+      <p class="muted">
+        This service page describes verification ledger workflows and does not collect, transmit,
+        or permanently store submitted verification data on the site. Future interactive versions may
+        introduce export and verification capabilities while preserving transparent workflow boundaries.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<div class="wrap reflection">
+  <hr />
+  <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+    Verifiable systems strengthen trust by leaving durable traces behind.
+  </div>
+  <hr />
+
+  <div id="footer-container"></div>
+</div>
+
+<script src="https://satoshium.link/assets/sayings.js"></script>
+<script>
+fetch("https://satoshium.link/components/footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer-container").innerHTML = data;
+  });
+</script>
+
+</body>
+</html>
