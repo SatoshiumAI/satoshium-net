@@ -809,11 +809,17 @@ async function importGovernanceRecord(event) {
 
   document.getElementById("anchorReady").value = "TRUE";
 
-  document.getElementById("notesText").value =
-    "Imported from SATOSHIUM Agent Governance record " +
-    (record.record_id || "") +
-    " with verification reference " +
-    (record.verification_reference_sha256Hash || "unknown") + ".";
+  const sourceLabel =
+  record.record_type === "Verification Ledger Entry"
+    ? "SATOSHIUM Verification Ledger record "
+    : "SATOSHIUM Agent Governance record ";
+
+document.getElementById("notesText").value =
+  "Imported from " +
+  sourceLabel +
+  (record.record_id || "") +
+  " with verification reference " +
+  (record.verification_reference_sha256Hash || "unknown") + ".";
 
   event.target.value = "";
 }
