@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>SATOSHIUM Agent Governance Tool</title>
-<meta name="description" content="Pilot governance tool for SATOSHIUM Agent Governance & Cryptographic Automation Services." />
+<meta name="description" content="Governance tool for SATOSHIUM Agent Governance & Cryptographic Automation Services." />
 
 <style>
 :root{
@@ -422,7 +422,7 @@ hr{
           </div>
           <div>
             <label for="testerPurpose">Purpose of evaluation</label>
-            <input id="testerPurpose" type="text" placeholder="Pilot governance review" />
+            <input id="testerPurpose" type="text" placeholder="Governance review" />
           </div>
         </div>
       </div>
@@ -456,7 +456,7 @@ hr{
         </div>
 
         <div class="note">
-          For this pilot version, the evaluator uses simple keyword and threshold logic to simulate governance outcomes.
+          For this version, the evaluator uses simple keyword and threshold logic to simulate governance outcomes.
           Later we can replace this with a Replit/Python rules engine and cryptographic hash generation.
         </div>
       </div>
@@ -501,7 +501,7 @@ Transfer 0.50 BTC to a newly submitted external wallet for emergency operating e
       </div>
 
       <div class="actions-row">
-        <button class="btn btn-primary" type="button" id="runEvaluation">Run Pilot Evaluation</button>
+        <button class="btn btn-primary" type="button" id="runEvaluation">Run Governance Evaluation</button>
         <button class="btn btn-secondary" type="button" id="loadDemo">Load Demo Example</button>
         <button class="btn btn-danger" type="button" id="clearForm">Clear Form</button>
       </div>
@@ -1069,7 +1069,7 @@ async function runEvaluation() {
 
     tool_url: window.location.href,
 
-    evaluation_engine: "SATOSHIUM Agent Governance Pilot Evaluator",
+    evaluation_engine: "SATOSHIUM Agent Governance Reference Evaluator",
 
     protocol_version: "sat-agr-protocol-v1",
 
@@ -1173,7 +1173,7 @@ function clearForm() {
   document.getElementById("actionDigestValue").textContent = "Not generated yet";
   document.getElementById("policyTriggered").textContent = "Not generated yet";
   document.getElementById("hashValue").textContent = "Not generated yet";
-  document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Pilot Evaluator";
+  document.getElementById("engineValue").textContent = "SATOSHIUM Agent Governance Reference Evaluator";
   }
 
 function downloadJson() {
@@ -1248,6 +1248,7 @@ async function verifyUploadedJson(event) {
     decision: record.decision,
     summary: record.summary,
     reason: record.reason
+    policy_triggered: record.policy_triggered,
   };
 
   const recomputedVerificationHash = await sha256Hash(JSON.stringify(verificationRecord));
