@@ -1197,20 +1197,14 @@ function clearForm() {
   "No execution record generated yet";
   }
 
-function downloadJson() {
-  if (!state.lastRecord) {
-    alert("Run an evaluation first so a record exists to download.");
-    return;
-  }
-
 function downloadExecutionTxt() {
 
-  if (!window.latestGovernanceRecord) {
+  if (!state.lastRecord) {
     alert("Run a governance evaluation first.");
     return;
   }
 
-  const record = window.latestGovernanceRecord;
+  const record = state.lastRecord;
 
   const report =
 `SATOSHIUM Agent Governance Execution Report
@@ -1260,6 +1254,12 @@ ${record.evaluation_engine}
   link.click();
 }
   
+function downloadJson() {
+  if (!state.lastRecord) {
+    alert("Run an evaluation first so a record exists to download.");
+    return;
+  }
+ 
   const filenameBase = slugify(state.lastRecord.ruleset_name || state.lastRecord.agent_name || "governance-record");
   const blob = new Blob([JSON.stringify(state.lastRecord, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
