@@ -7,21 +7,33 @@
 <style>
 body {
     background-color: #0b0f14;
-    color: #d6e2f0;
+    color: #e3e6ff;
     font-family: monospace;
     max-width: 900px;
     margin: auto;
     padding: 40px;
 }
 
+h1 {
+    color: #9d7bff;
+}
+
 a {
-    color: #4cc9f0;
+    color: #9d7bff;
     text-decoration: none;
 }
 
 .thread {
-    border-bottom: 1px solid #233044;
+    border-bottom: 1px solid #2a2740;
     padding: 10px 0;
+}
+
+.thread:hover {
+    color: #9d7bff;
+}
+
+.pinned {
+    color: #c6b7ff;
 }
 </style>
 </head>
@@ -38,8 +50,8 @@ cryptographic trust infrastructure for autonomous agents.
 
 <hr>
 
-<div class="thread">[PINNED] Constitutional AI and Public Trust</div>
-<div class="thread">[THREAD] Agent Governance Rule Structures</div>
+<div class="thread"><span class="pinned">[PINNED] Constitutional AI and Public Trust</span></div>
+<div class="thread"><span class="pinned">[PINNED] Agent Governance Rule Structures</span></div>
 <div class="thread">[THREAD] Explainability vs Black-Box Systems</div>
 <div class="thread">[THREAD] Verification Ledgers for AI Outputs</div>
 <div class="thread">[THREAD] Cryptographic Automation Architectures</div>
