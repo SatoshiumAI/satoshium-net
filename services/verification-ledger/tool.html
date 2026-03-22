@@ -729,7 +729,15 @@ ${record.verification_reference_sha256Hash}
 
 Verification Engine:
 ${record.verification_engine}
-`;
+
+Source Import Type:
+${record.source_import || "manual_entry"}
+
+Source Record ID:
+${record.source_record_id || "none"}
+
+Source Verification Hash:
+${record.source_verification_hash || "none"}
 
   const blob = new Blob([report], { type: "text/plain" });
   const link = document.createElement("a");
