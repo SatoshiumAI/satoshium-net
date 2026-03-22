@@ -18,23 +18,79 @@ h1 {
     color: #4cc9f0;
 }
 
+p {
+    line-height: 1.45;
+}
+
 a {
-    color: #4cc9f0;
     text-decoration: none;
 }
 
-.ai {
-    color: #c6b7ff;
-}
-
+/* Board containers */
 .board {
     border: 1px solid #233044;
     padding: 20px;
     margin-top: 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.board:hover {
+.board h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.board p {
+    margin-bottom: 0;
+}
+
+/* Satoshium */
+.board-satoshium h2 a {
+    color: #4cc9f0;
+}
+
+.board-satoshium:hover {
     border-color: #4cc9f0;
+}
+
+.board-satoshium:hover h2 a {
+    color: #7bdfff;
+}
+
+/* Bitcoin */
+.board-bitcoin h2 a {
+    color: #f2a900;
+}
+
+.board-bitcoin:hover {
+    border-color: #f2a900;
+}
+
+.board-bitcoin:hover h2 a {
+    color: #ffd166;
+}
+
+/* AI */
+.board-ai h2 a {
+    color: #9d7bff;
+}
+
+.board-ai:hover {
+    border-color: #9d7bff;
+}
+
+.board-ai:hover h2 a {
+    color: #c6b7ff;
+}
+
+/* Footer treatment */
+.footer-note {
+    margin-top: 18px;
+}
+
+.footer-rule {
+    border: 0;
+    border-top: 1px solid #d6e2f0;
+    margin: 12px 0;
 }
 </style>
 </head>
@@ -49,48 +105,46 @@ Signal Boards provide a public discussion layer for long-horizon thinking across
 Satoshium, Bitcoin infrastructure, and constitutional AI systems.
 </p>
 
-<div class="board">
-<h2><a href="satoshium.html">Satoshium Board</a></h2>
-<p>
-Platform architecture, Canon development, verification infrastructure,
-governance tools, simulations, and ecosystem roadmap discussion.
-</p>
+<div class="board board-satoshium">
+    <h2><a href="satoshium.html">Satoshium Board</a></h2>
+    <p>
+        Platform architecture, Canon development, verification infrastructure,
+        governance tools, simulations, and ecosystem roadmap discussion.
+    </p>
 </div>
 
-<div class="board">
-<h2><a href="bitcoin.html">Bitcoin Board</a></h2>
-<p>
-Base-layer trust systems, Lightning identity, sovereign infrastructure,
-treasury adoption, and long-term monetary transition signals.
-</p>
+<div class="board board-bitcoin">
+    <h2><a href="bitcoin.html">Bitcoin Board</a></h2>
+    <p>
+        Base-layer trust systems, Lightning identity, sovereign infrastructure,
+        treasury adoption, and long-term monetary transition signals.
+    </p>
 </div>
 
-<div class="board">
-<h2><span class="ai"><a href="ai.html">AI Alignment Board</a></span></h2>
-<p>
-Agent governance, explainability, verification frameworks,
-constitutional AI models, and cryptographic automation research.
-</p>
+<div class="board board-ai">
+    <h2><a href="ai.html">AI Alignment Board</a></h2>
+    <p>
+        Agent governance, explainability, verification frameworks,
+        constitutional AI models, and cryptographic automation research.
+    </p>
 </div>
 
 <br>
 
 <p>
-Signal Boards are currently operating in archival mode.  
+Signal Boards are currently operating in archival mode.
 Expanded participation layers may be introduced in future releases.
 </p>
-    <p>Signal Boards operate as an archival discussion layer within the Satoshium network.</p>
 
+<p>
+Signal Boards operate as an archival discussion layer within the Satoshium network.
+</p>
 
-    
-<div id="footer-container"></div>
-<div class="wrap reflection">
-<hr />
-<div class="muted" style="margin-bottom:14px; max-width:760px;">
-  Archival discussion layer inspired by early Bitcoin-era forums.
+<hr class="footer-rule">
+<div class="footer-note">
+    Archival discussion layer inspired by early Bitcoin-era forums.
 </div>
-<hr />
-    
-    
+<hr class="footer-rule">
+
 </body>
 </html>
