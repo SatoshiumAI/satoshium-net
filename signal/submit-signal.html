@@ -124,7 +124,8 @@ Signal submission intake is being prepared for direct Satoshium review. Public f
 <input type="text" name="title" required>
 
 <label>Relevant Board</label>
-<select name="board">
+<select name="board" required>
+<option value="">Select board...</option>
 <option>Satoshium Board</option>
 <option>Bitcoin Board</option>
 <option>AI Alignment Board</option>
@@ -138,9 +139,14 @@ Signal submission intake is being prepared for direct Satoshium review. Public f
     <span>I have read the participation guidelines and understand submissions are reviewed before publication.</span>
 </label>
 
-<button type="button">Submission Endpoint Coming Soon</button>
+<button type="submit">Submit Signal</button>
 
-</form>
+<form action="https://formspree.io/f/mzdjlrjj" method="POST">
+<input type="hidden" name="source" value="Satoshium Signal Board">
+<input type="hidden" name="category" value="Signal Submission">
+<input type="hidden" name="_subject" value="New Satoshium Signal Submission">
+<input type="hidden" name="_redirect" value="https://satoshium.net/signal/submitted.html">
+<input type="text" name="_gotcha" style="display:none">
 
 <div class="rule"></div>
 
