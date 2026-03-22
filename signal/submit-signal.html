@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Submit a Signal Proposal</title>
+
+<style>
+body {
+    background-color: #0b0f14;
+    color: #d6e2f0;
+    font-family: monospace;
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+}
+
+h1 {
+    color: #7bdfff;
+}
+
+.meta {
+    color: #7bdfff;
+    margin-bottom: 24px;
+}
+
+.rule {
+    border-top: 1px solid #d6e2f0;
+    margin: 18px 0 24px 0;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+}
+
+input, textarea, select {
+    width: 100%;
+    background-color: #0f1620;
+    border: 1px solid #4cc9f0;
+    color: #d6e2f0;
+    padding: 8px;
+    font-family: monospace;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: #4cc9f0;
+    border: none;
+    color: #0b0f14;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7bdfff;
+}
+
+.footer-note {
+    margin-top: 28px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Submit a Signal Proposal</h1>
+
+<div class="meta">[SIGNAL SUBMISSION] Curated Intake Layer</div>
+
+<div class="rule"></div>
+
+<p>
+Signal proposals help improve the long-horizon development of the Satoshium platform.
+Submissions are reviewed before any public posting and may be edited for clarity,
+alignment, or structure.
+</p>
+
+<form action="mailto:contact@satoshium.ai" method="POST" enctype="text/plain">
+
+<label>Your Name or Alias (optional)</label>
+<input type="text" name="name">
+
+<label>Email (optional)</label>
+<input type="email" name="email">
+
+<label>Suggested Signal Title</label>
+<input type="text" name="title" required>
+
+<label>Relevant Board</label>
+<select name="board">
+<option>Satoshium Board</option>
+<option>Bitcoin Board</option>
+<option>AI Alignment Board</option>
+</select>
+
+<label>Your Signal Proposal</label>
+<textarea name="proposal" rows="10" required></textarea>
+
+<label>
+<input type="checkbox" required>
+I have read the participation guidelines and understand submissions are reviewed before publication.
+</label>
+
+<button type="submit">Submit Signal</button>
+
+</form>
+
+<div class="rule"></div>
+
+<p>
+Return to participation guidelines:
+<a href="participation.html">Signal Board Participation Guidelines</a>
+</p>
+
+<p>
+Return to Signal Boards:
+<a href="index.html">Signal Boards Index</a>
+</p>
+
+<p class="footer-note">
+Archival discussion layer inspired by early Bitcoin-era forums.
+</p>
+
+</body>
+</html>
