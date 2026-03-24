@@ -1,140 +1,155 @@
-# 🌐 Satoshium Net
+# 🌐 satoshium-net
 
-Welcome to **Satoshium Net** — the future network infrastructure layer of the Satoshium ecosystem.
+Infrastructure systems and operational service surfaces for the Satoshium platform.
 
-This repository powers **https://satoshium.net**, a public-facing infrastructure and network-visibility surface used to define, map, and expand the long-term operational layer of Satoshium.
+The **satoshium-net repository** defines the coordination layer that connects
+platform systems, verification services, governance workflows, and signal infrastructure
+supporting decentralized intelligence.
 
-While **satoshium.ai** serves as the public-facing platform and **satoshium.info** serves as the knowledge and engineering layer, **satoshium.net** is intended to evolve into the infrastructure layer where services, systems, network concepts, and future coordination pathways become visible over time.
+Where:
 
----
+- satoshium.ai defines platform architecture
+- satoshium.info defines knowledge resources
+- satoshium.xyz hosts experimental simulations
 
-# 🌐 The Satoshium Domain Ecosystem
-
-Satoshium uses multiple domains to separate functional layers of the project:
-
-| Domain | Purpose |
-|------|------|
-| **satoshium.ai** | Main Satoshium platform |
-| **satoshium-progress** | Public build surface and visible development progress |
-| **satoshium.info** | Knowledge layer, documentation hub, and engineering workspace |
-| **satoshium.net** | Network infrastructure and future service visibility |
-| **satoshium.xyz** | Experimental systems and agent testing |
-| **satoshium.store** | Merchandise and economic layer |
-
-This layered domain architecture allows the Satoshium ecosystem to scale over time while maintaining clear separation between systems.
+**satoshium.net exposes operational infrastructure**.
 
 ---
 
-# ⚙️ Purpose of This Repository
+# 🧭 Purpose
 
-The **satoshium-net** repository exists to provide a structured home for the future network and infrastructure layer of Satoshium.
+This repository documents and supports the systems that enable structured interaction
+between governance logic, verification workflows, registry infrastructure,
+and decentralized coordination signals.
 
-This includes:
+It serves as the infrastructure visibility layer for:
 
-- Infrastructure visibility
-- Network architecture exploration
-- System coordination planning
-- Service topology concepts
-- Repository and systems mapping
-- Temporary development assets
-- Workspace-based experimentation
-
-It also serves as a **public infrastructure surface** when planning and refining how the Satoshium ecosystem may eventually connect across services, systems, and networked environments.
+- system registries
+- service interfaces
+- governance execution workflows
+- verification ledger outputs
+- signal coordination surfaces
 
 ---
 
-# 🧩 Site Structure
+# 🧱 Infrastructure Role in the Platform
 
-```text
-satoshium-net
-│
-├── index.html
-│
-├── workspace
-│    ├── index.html
-│    ├── debug
-│    ├── repos
-│    ├── ui
-│    ├── architecture
-│    └── temp
-│
-├── assets
-│    ├── css
-│    └── img
-│
-└── README.md
-```
+Satoshium develops as layered coordination infrastructure built in public.
+
+Within that structure:
+
+satoshium.ai → architecture
+satoshium.net → infrastructure
+satoshium.info → knowledge
+satoshium.xyz → simulations
+
+This repository supports the infrastructure plane connecting those layers.
 
 ---
 
-# 🧪 Workspace Sections
+# ⚙️ Systems
 
-### 🔧 Debug
-Troubleshooting resources used to identify visual, structural, and technical issues during active development.
+The `/systems/` catalog documents functional platform systems including:
 
-### 📦 Repositories
-Visual references and diagrams for repository structure, system grouping, and ecosystem organization.
+- canonical knowledge infrastructure
+- intelligence interaction interfaces
+- signal coordination pathways
+- governance enforcement surfaces
+- simulation environments
+- documentation traceability layers
 
-### 🎨 UI
-Interface experiments and design exploration for future network-facing surfaces.
-
-### 🏛 Architecture
-Diagrams and planning notes describing the infrastructure and systems architecture of the Satoshium ecosystem.
-
-### 📂 Temp
-Temporary assets and working files used during active sessions before they are sorted into more permanent sections.
+Each system is registered using structured identifiers inside the System Registry.
 
 ---
 
-# 🛰️ What Satoshium Net Can Become
+# 🛠 Services
 
-Over time, **satoshium.net** may evolve into a broader network layer for the ecosystem, including areas such as:
+The `/services/` layer exposes operational service interfaces supporting
+decentralized intelligence workflows.
 
-- Service topology maps
-- Infrastructure architecture notes
-- Node and routing concepts
-- Communication pathway models
-- System visibility surfaces
-- Network research and essays
-- Long-horizon infrastructure planning
+Examples include:
 
-The current build establishes the foundation for that future direction.
+- Agent Governance & Cryptographic Automation Services
+- Verification Ledger infrastructure
 
----
+These services produce structured execution outputs suitable for:
 
-# 🤖 AI Collaboration Environment
-
-This repository also supports **AI-assisted development**.
-
-Screenshots, notes, diagrams, and references can be organized here and discussed during collaborative sessions with AI systems.
-
-Example workflow:
-
-```text
-https://satoshium.net/workspace/architecture/
-https://satoshium.net/workspace/debug/
-```
-
-This allows infrastructure planning and network-layer development to happen with more structure and less friction.
+- audit workflows
+- policy enforcement
+- verification pipelines
+- registry-linked coordination
+- future blockchain anchoring
 
 ---
 
-# 🚀 About Satoshium
+# 📡 Signal Infrastructure
 
-**Satoshium** is a decentralized intelligence infrastructure built on the Bitcoin standard.
+The Signal Layer supports coordination across:
 
-The project explores how cryptographic trust systems, AI agents, structured knowledge layers, and future infrastructure surfaces can interact within transparent, verifiable environments.
+- platform systems
+- infrastructure workflows
+- governance interfaces
+- experimental simulation environments
+
+Signal Boards and Sovereign Signal provide structured visibility into
+decentralized coordination pathways under development.
 
 ---
 
-# 📜 License
+# 📚 Documentation Structure
 
-This project is licensed under the MIT License.
+Supporting documentation is located in:
+
+/docs/
+
+These documents describe:
+
+- infrastructure protocol expectations
+- governance boundaries
+- contribution structure
+- repository coordination standards
+- implementation references
 
 ---
 
-# 🧭 Project Status
+# 🧾 Repository Status
 
-Satoshium Net is an early-stage infrastructure surface within the broader Satoshium ecosystem.
+Status: Active infrastructure layer
 
-The foundation is now in place, and this repository will continue to expand as the project’s network, systems, and infrastructure concepts mature over time.
+This repository supports live Satoshium systems and services deployed
+through the public platform at:
+
+https://satoshium.net/
+
+---
+
+# 🔗 Related Repositories
+
+Core platform layers:
+
+- satoshium-ai
+- satoshium-info
+- satoshium-xyz
+
+Supporting registries and specifications:
+
+- satoshium-specs
+- satoshium-registry
+- satoshium-core
+
+---
+
+# 🧠 Platform Context
+
+Satoshium develops as decentralized coordination infrastructure
+for verifiable intelligence systems operating under transparent rules.
+
+Infrastructure surfaces exposed through this repository support:
+
+governance
+verification
+registry alignment
+signal routing
+service execution
+
+within the broader Satoshium platform.
