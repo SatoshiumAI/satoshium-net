@@ -320,7 +320,16 @@
           margin-top: 20px;
         }
       }
-    </style>
+     
+      .shell {
+    width: min(100% - 24px, 1180px);
+    margin-top: 20px;
+  }
+</style>
+
+<script>
+  const API_BASE = "https://api.satoshium.net";
+</script>
   </head>
   <body>
     <main class="shell">
@@ -367,7 +376,18 @@
 
             <div>
               <label>&nbsp;</label>
-              <div class="button">Run Inspection</div>
+              <select id="mode">
+  <option value="explorer">explorer</option>
+  <option value="facade">facade</option>
+  <option value="signalTransport">signalTransport</option>
+  <option value="issuanceTransport">issuanceTransport</option>
+</select>
+
+<input id="actors" type="text" value="actor-a,actor-b" placeholder="actor-a,actor-b" />
+
+<button id="runInspection" class="button">Run Inspection</button>
+
+<pre id="responseOutput"></pre>
             </div>
           </div>
 
@@ -437,15 +457,53 @@
           </p>
         </section>
 
-        <section class="soul-note">
-          <h3>SOU Relevance</h3>
-          <p>
-            This page demonstrates a live callable SATOSHIUM certification-authority inspection
-            service presented as a professional read-only operational surface suitable for
-            dashboards, demonstrations, service inspection, and USPTO SOU screenshots.
-          </p>
-        </section>
+    
       </div>
     </main>
+    <script>
+  const API_BASE = "https://api.satoshium.net";
+
+  const modeSelect = document.getElementById("mode");
+  const actorsInput = document.getElementById("actors");
+  const runButton = document.getElementById("runInspection");
+  const output = document.getElementById("responseOutput");
+
+  async function runInspection() {
+    const viewMode = modeSelect.value;
+    const actorIds = actorsInput.value.trim();
+
+    if (!actorIds) {
+      output.textContent = JSON.stringify({
+        service: "certificationAuthority",
+        version: "v1",
+        mode: viewMode,
+        data: null,
+        error: "actorIds required"
+      }, null, 2);
+      return;
+    }
+
+    const url = `${API_BASE}/certification-authority?viewMode=${encodeURIComponent(viewMode)}&actorIds=${encodeURIComponent(actorIds)}`;
+
+    output.textContent = "Loading...";
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      output.textContent = JSON.stringify(data, null, 2);
+    } catch (err) {
+      output.textContent = JSON.stringify({
+        service: "certificationAuthority",
+        version: "v1",
+        mode: viewMode,
+        data: null,
+        error: "Request failed",
+        details: String(err)
+      }, null, 2);
+    }
+  }
+
+  runButton.addEventListener("click", runInspection);
+</script>
   </body>
 </html>
