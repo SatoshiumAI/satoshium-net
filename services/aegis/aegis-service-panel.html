@@ -9,6 +9,26 @@
     <meta name="theme-color" content="#d6a34a">
     <title>Aegis — Certification Authority Inspection Service</title>
     <style>
+ /* Docs reference links (Satoshium OS style) */
+.docs-links a {
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.docs-links a:visited {
+  color: #00eaff;
+}
+
+.docs-links a:hover {
+  color: #7ff6ff;
+  text-shadow: 0 0 6px rgba(0,234,255,.35);
+}
+
+.docs-links a:active {
+  color: #00cfe6;
+}
+      
       :root {
         --bg: #061014;
         --bg-deep: #03090c;
@@ -425,19 +445,20 @@
               Reference the documented contract and panel definition for service consumers and UI
               implementers.
             </p>
-            <ul class="clean">
-             <li>
+ 
+            <div class="docs-links">
   <a href="https://satoshium.net/services/aegis/docs/certification-authority-service-contract.md">
     certification-authority-service-contract.md
   </a>
-</li>
-              <li>
+</div>
+
+<div class="docs-links">
   <a href="https://satoshium.net/services/aegis/docs/aegis-service-panel.md">
     aegis-service-panel.md
   </a>
-</li>
-            </ul>
-          </div>
+</div>
+           
+           </div>
         </section>
 
         <section class="request">
