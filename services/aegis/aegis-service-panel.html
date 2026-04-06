@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aegis — Certification Authority Inspection Service</title>
+    <style>
+      :root {
+        --bg: #061014;
+        --bg-deep: #03090c;
+        --panel: rgba(8, 20, 26, 0.92);
+        --panel-strong: rgba(10, 27, 34, 0.96);
+        --border: rgba(76, 222, 209, 0.34);
+        --border-strong: rgba(94, 255, 239, 0.55);
+        --text: #d9fffb;
+        --muted: #8eb6b2;
+        --accent: #52f3df;
+        --accent-soft: #1ec8c0;
+        --warning: #8ff8ea;
+        --shadow: 0 0 0 1px rgba(82, 243, 223, 0.08), 0 0 22px rgba(30, 200, 192, 0.12);
+        --radius: 16px;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          linear-gradient(rgba(82, 243, 223, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(82, 243, 223, 0.02) 1px, transparent 1px),
+          radial-gradient(circle at top, rgba(32, 124, 120, 0.22), transparent 34%),
+          linear-gradient(180deg, #071217 0%, #04090d 100%);
+        background-size: 24px 24px, 24px 24px, auto, auto;
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0));
+        background-size: 100% 4px;
+        opacity: 0.2;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 48px));
+        margin: 32px auto 56px;
+      }
+
+      .hero,
+      .panel,
+      .terminal,
+      .docs,
+      .request,
+      .soul-note {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero {
+        padding: 28px 30px;
+        margin-bottom: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(82, 243, 223, 0.06), transparent 45%);
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        font-family: var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 650;
+      }
+
+      h1 {
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.05;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 860px;
+        line-height: 1.65;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .pill,
+      .state-note,
+      .preset,
+      .button {
+        border: 1px solid var(--border-strong);
+        color: var(--text);
+        background: rgba(7, 28, 30, 0.72);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.03em;
+      }
+
+      .pill {
+        color: var(--warning);
+        box-shadow: 0 0 18px rgba(82, 243, 223, 0.11);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .panel {
+        padding: 24px;
+      }
+
+      .panel-header {
+        margin-bottom: 18px;
+      }
+
+      .panel-header p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr auto;
+        gap: 14px;
+        align-items: end;
+      }
+
+      label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin-bottom: 8px;
+        font-family: var(--mono);
+      }
+
+      select,
+      input {
+        width: 100%;
+        background: var(--panel-strong);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 14px;
+        font-family: var(--mono);
+        font-size: 14px;
+        outline: none;
+      }
+
+      select:focus,
+      input:focus {
+        border-color: var(--border-strong);
+        box-shadow: 0 0 0 3px rgba(82, 243, 223, 0.08);
+      }
+
+      .button {
+        border-radius: 12px;
+        padding: 14px 18px;
+        cursor: default;
+        text-align: center;
+        white-space: nowrap;
+        background: linear-gradient(180deg, rgba(19, 68, 72, 0.95), rgba(8, 28, 32, 0.95));
+      }
+
+      .presets {
+        margin-top: 16px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .preset {
+        border-radius: 999px;
+        cursor: default;
+      }
+
+      .terminal {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .terminal-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(82, 243, 223, 0.18);
+        background: rgba(6, 18, 21, 0.9);
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .terminal-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .terminal-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(82, 243, 223, 0.4);
+        box-shadow: 0 0 12px rgba(82, 243, 223, 0.18);
+      }
+
+      pre {
+        margin: 0;
+        padding: 22px;
+        overflow: auto;
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.65;
+        color: #d7fffb;
+        background: linear-gradient(180deg, rgba(3, 10, 13, 0.94), rgba(5, 14, 18, 0.98));
+      }
+
+      code.inline {
+        font-family: var(--mono);
+        color: var(--warning);
+        background: rgba(10, 35, 37, 0.72);
+        border: 1px solid rgba(82, 243, 223, 0.16);
+        border-radius: 8px;
+        padding: 2px 7px;
+      }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      ul.clean {
+        list-style: none;
+        padding: 0;
+        margin: 14px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      ul.clean li {
+        padding: 12px 14px;
+        border: 1px solid rgba(82, 243, 223, 0.14);
+        border-radius: 12px;
+        background: rgba(8, 20, 24, 0.72);
+        color: var(--muted);
+      }
+
+      .docs p,
+      .request p,
+      .soul-note p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .docs,
+      .request,
+      .soul-note {
+        padding: 22px 24px;
+      }
+
+      .docs strong,
+      .request strong,
+      .soul-note strong {
+        color: var(--text);
+      }
+
+      @media (max-width: 960px) {
+        .controls,
+        .grid-two {
+          grid-template-columns: 1fr;
+        }
+
+        .shell {
+          width: min(100% - 24px, 1180px);
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="eyebrow">Satoshium OS / Aegis Service Surface</div>
+        <h1>Aegis — Certification Authority Inspection Service</h1>
+        <p>
+          Read-only certification-authority readiness inspection surface exposing lifecycle
+          transport visibility for actors participating in canon-participation certification
+          flows. Designed for dashboards, consoles, service inspection tooling, and screenshot
+          evidence without enabling activation behavior.
+        </p>
+        <div class="hero-meta">
+          <span class="pill">READ-ONLY INSPECTION SURFACE</span>
+          <span class="state-note">Certification authority inspection endpoint active</span>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Inspection Control Panel</h2>
+            <p>
+              Static mockup prepared for future endpoint wiring. This panel demonstrates the
+              intended SATOSHIUM operator flow for certification-authority service inspection.
+            </p>
+          </div>
+
+          <div class="controls">
+            <div>
+              <label for="mode">Mode Selector</label>
+              <select id="mode">
+                <option selected>explorer</option>
+                <option>facade</option>
+                <option>signalTransport</option>
+                <option>issuanceTransport</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="actors">Actor IDs</label>
+              <input id="actors" type="text" value="actor-a,actor-b" placeholder="actor-a,actor-b" />
+            </div>
+
+            <div>
+              <label>&nbsp;</label>
+              <div class="button">Run Inspection</div>
+            </div>
+          </div>
+
+          <div class="presets">
+            <div class="preset">Preset: actor-a,actor-b</div>
+            <div class="preset">Preset: actor-alpha,actor-beta,actor-gamma</div>
+          </div>
+        </section>
+
+        <section class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div>certification-authority :: response-viewer :: read-only</div>
+          </div>
+          <pre>{
+  "service": "certificationAuthority",
+  "version": "v1",
+  "mode": "explorer",
+  "timestamp": "2026-04-06T18:21:00.000Z",
+  "data": {
+    "certificationAuthorityExplorerProjection": {
+      "certificationAuthoritySurfaceAvailable": true,
+      "certificationAuthorityReceiptSurfaceAvailable": true,
+      "certificationAuthorityReceiptSignalTransportReady": true,
+      "certificationAuthorityReceiptIssuanceTransportReady": true,
+      "certificationAuthorityTransportFacadeReady": true,
+      "certificationAuthorityExplorerProjectionReady": true
+    }
+  }
+}</pre>
+        </section>
+
+        <section class="grid-two">
+          <div class="docs">
+            <h3>Lifecycle Guarantees</h3>
+            <ul class="clean">
+              <li>read-only inspection surface</li>
+              <li>no receipt issuance</li>
+              <li>no canon binding</li>
+              <li>no routing authority</li>
+              <li>no execution authority</li>
+              <li>no persistence</li>
+              <li>no registry mutation</li>
+              <li>no ledger mutation</li>
+            </ul>
+          </div>
+
+          <div class="docs">
+            <h3>Service Contract / Docs References</h3>
+            <p>
+              Reference the documented contract and panel definition for service consumers and UI
+              implementers.
+            </p>
+            <ul class="clean">
+              <li><strong>certification-authority-service-contract.md</strong></li>
+              <li><strong>aegis-service-panel.md</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="request">
+          <h3>Example Request</h3>
+          <p>
+            <code class="inline">GET /certification-authority?viewMode=explorer&amp;actorIds=actor-a,actor-b</code>
+          </p>
+        </section>
+
+        <section class="soul-note">
+          <h3>SOU Relevance</h3>
+          <p>
+            This page demonstrates a live callable SATOSHIUM certification-authority inspection
+            service presented as a professional read-only operational surface suitable for
+            dashboards, demonstrations, service inspection, and USPTO SOU screenshots.
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
