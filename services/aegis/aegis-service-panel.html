@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="alternate icon" href="/assets/favicon.ico">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<meta name="theme-color" content="#d6a34a">
-        <title>Aegis — Certification Authority Inspection Service</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="alternate icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#d6a34a">
+    <title>Aegis — Certification Authority Inspection Service</title>
     <style>
       :root {
         --bg: #061014;
@@ -27,12 +27,9 @@
         --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
-      html,
-      body {
+      html, body {
         margin: 0;
         min-height: 100%;
         background:
@@ -60,12 +57,7 @@
         margin: 32px auto 56px;
       }
 
-      .hero,
-      .panel,
-      .terminal,
-      .docs,
-      .request,
-      .soul-note {
+      .hero, .panel, .terminal, .docs, .request {
         background: var(--panel);
         border: 1px solid var(--border);
         border-radius: var(--radius);
@@ -97,9 +89,7 @@
         margin-bottom: 14px;
       }
 
-      h1,
-      h2,
-      h3 {
+      h1, h2, h3 {
         margin: 0;
         font-weight: 650;
       }
@@ -125,10 +115,7 @@
         margin-top: 22px;
       }
 
-      .pill,
-      .state-note,
-      .preset,
-      .button {
+      .pill, .state-note, .preset, .button {
         border: 1px solid var(--border-strong);
         color: var(--text);
         background: rgba(7, 28, 30, 0.72);
@@ -150,13 +137,9 @@
         gap: 22px;
       }
 
-      .panel {
-        padding: 24px;
-      }
+      .panel { padding: 24px; }
 
-      .panel-header {
-        margin-bottom: 18px;
-      }
+      .panel-header { margin-bottom: 18px; }
 
       .panel-header p {
         margin: 8px 0 0;
@@ -181,8 +164,7 @@
         font-family: var(--mono);
       }
 
-      select,
-      input {
+      select, input {
         width: 100%;
         background: var(--panel-strong);
         color: var(--text);
@@ -194,8 +176,7 @@
         outline: none;
       }
 
-      select:focus,
-      input:focus {
+      select:focus, input:focus {
         border-color: var(--border-strong);
         box-shadow: 0 0 0 3px rgba(82, 243, 223, 0.08);
       }
@@ -203,10 +184,28 @@
       .button {
         border-radius: 12px;
         padding: 14px 18px;
-        cursor: default;
         text-align: center;
         white-space: nowrap;
         background: linear-gradient(180deg, rgba(19, 68, 72, 0.95), rgba(8, 28, 32, 0.95));
+        cursor: pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+        min-height: 50px;
+      }
+
+      button.button {
+        appearance: none;
+        outline: none;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 0 1px rgba(82, 243, 223, 0.16), 0 0 16px rgba(30, 200, 192, 0.18);
+      }
+
+      .button:disabled {
+        opacity: 0.6;
+        cursor: progress;
+        transform: none;
       }
 
       .presets {
@@ -218,7 +217,12 @@
 
       .preset {
         border-radius: 999px;
-        cursor: default;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .preset:hover {
+        box-shadow: 0 0 0 1px rgba(82, 243, 223, 0.16), 0 0 16px rgba(30, 200, 192, 0.18);
       }
 
       .terminal {
@@ -260,6 +264,8 @@
         line-height: 1.65;
         color: #d7fffb;
         background: linear-gradient(180deg, rgba(3, 10, 13, 0.94), rgba(5, 14, 18, 0.98));
+        white-space: pre-wrap;
+        word-break: break-word;
       }
 
       code.inline {
@@ -293,29 +299,22 @@
         color: var(--muted);
       }
 
-      .docs p,
-      .request p,
-      .soul-note p {
+      .docs p, .request p {
         margin: 10px 0 0;
         color: var(--muted);
         line-height: 1.65;
       }
 
-      .docs,
-      .request,
-      .soul-note {
+      .docs, .request {
         padding: 22px 24px;
       }
 
-      .docs strong,
-      .request strong,
-      .soul-note strong {
+      .docs strong, .request strong {
         color: var(--text);
       }
 
       @media (max-width: 960px) {
-        .controls,
-        .grid-two {
+        .controls, .grid-two {
           grid-template-columns: 1fr;
         }
 
@@ -324,16 +323,7 @@
           margin-top: 20px;
         }
       }
-     
-      .shell {
-    width: min(100% - 24px, 1180px);
-    margin-top: 20px;
-  }
-</style>
-
-<script>
-  const API_BASE = "https://api.satoshium.net";
-</script>
+    </style>
   </head>
   <body>
     <main class="shell">
@@ -357,8 +347,7 @@
           <div class="panel-header">
             <h2>Inspection Control Panel</h2>
             <p>
-              Static mockup prepared for future endpoint wiring. This panel demonstrates the
-              intended SATOSHIUM operator flow for certification-authority service inspection.
+              Live read-only panel wired to the certification-authority inspection endpoint.
             </p>
           </div>
 
@@ -366,10 +355,10 @@
             <div>
               <label for="mode">Mode Selector</label>
               <select id="mode">
-                <option selected>explorer</option>
-                <option>facade</option>
-                <option>signalTransport</option>
-                <option>issuanceTransport</option>
+                <option value="explorer" selected>explorer</option>
+                <option value="facade">facade</option>
+                <option value="signalTransport">signalTransport</option>
+                <option value="issuanceTransport">issuanceTransport</option>
               </select>
             </div>
 
@@ -380,24 +369,13 @@
 
             <div>
               <label>&nbsp;</label>
-              <select id="mode">
-  <option value="explorer">explorer</option>
-  <option value="facade">facade</option>
-  <option value="signalTransport">signalTransport</option>
-  <option value="issuanceTransport">issuanceTransport</option>
-</select>
-
-<input id="actors" type="text" value="actor-a,actor-b" placeholder="actor-a,actor-b" />
-
-<button id="runInspection" class="button">Run Inspection</button>
-
-<pre id="responseOutput"></pre>
+              <button id="runInspection" class="button" type="button">Run Inspection</button>
             </div>
           </div>
 
           <div class="presets">
-            <div class="preset">Preset: actor-a,actor-b</div>
-            <div class="preset">Preset: actor-alpha,actor-beta,actor-gamma</div>
+            <button class="preset" type="button" data-actors="actor-a,actor-b">Preset: actor-a,actor-b</button>
+            <button class="preset" type="button" data-actors="actor-alpha,actor-beta,actor-gamma">Preset: actor-alpha,actor-beta,actor-gamma</button>
           </div>
         </section>
 
@@ -408,7 +386,7 @@
             </div>
             <div>certification-authority :: response-viewer :: read-only</div>
           </div>
-          <pre>{
+          <pre id="responseOutput">{
   "service": "certificationAuthority",
   "version": "v1",
   "mode": "explorer",
@@ -460,54 +438,65 @@
             <code class="inline">GET /certification-authority?viewMode=explorer&amp;actorIds=actor-a,actor-b</code>
           </p>
         </section>
-
-    
       </div>
     </main>
+
     <script>
-  const API_BASE = "https://api.satoshium.net";
+      const API_BASE = "https://api.satoshium.net";
 
-  const modeSelect = document.getElementById("mode");
-  const actorsInput = document.getElementById("actors");
-  const runButton = document.getElementById("runInspection");
-  const output = document.getElementById("responseOutput");
+      const modeSelect = document.getElementById("mode");
+      const actorsInput = document.getElementById("actors");
+      const runButton = document.getElementById("runInspection");
+      const output = document.getElementById("responseOutput");
+      const presets = document.querySelectorAll(".preset");
 
-  async function runInspection() {
-    const viewMode = modeSelect.value;
-    const actorIds = actorsInput.value.trim();
+      async function runInspection() {
+        const viewMode = modeSelect.value;
+        const actorIds = actorsInput.value.trim();
 
-    if (!actorIds) {
-      output.textContent = JSON.stringify({
-        service: "certificationAuthority",
-        version: "v1",
-        mode: viewMode,
-        data: null,
-        error: "actorIds required"
-      }, null, 2);
-      return;
-    }
+        if (!actorIds) {
+          output.textContent = JSON.stringify({
+            service: "certificationAuthority",
+            version: "v1",
+            mode: viewMode,
+            data: null,
+            error: "actorIds required"
+          }, null, 2);
+          return;
+        }
 
-    const url = `${API_BASE}/certification-authority?viewMode=${encodeURIComponent(viewMode)}&actorIds=${encodeURIComponent(actorIds)}`;
+        const url = `${API_BASE}/certification-authority?viewMode=${encodeURIComponent(viewMode)}&actorIds=${encodeURIComponent(actorIds)}`;
 
-    output.textContent = "Loading...";
+        runButton.disabled = true;
+        runButton.textContent = "Loading...";
+        output.textContent = "Loading...";
 
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      output.textContent = JSON.stringify(data, null, 2);
-    } catch (err) {
-      output.textContent = JSON.stringify({
-        service: "certificationAuthority",
-        version: "v1",
-        mode: viewMode,
-        data: null,
-        error: "Request failed",
-        details: String(err)
-      }, null, 2);
-    }
-  }
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          output.textContent = JSON.stringify({
+            service: "certificationAuthority",
+            version: "v1",
+            mode: viewMode,
+            data: null,
+            error: "Request failed",
+            details: String(err)
+          }, null, 2);
+        } finally {
+          runButton.disabled = false;
+          runButton.textContent = "Run Inspection";
+        }
+      }
 
-  runButton.addEventListener("click", runInspection);
-</script>
+      runButton.addEventListener("click", runInspection);
+
+      presets.forEach((preset) => {
+        preset.addEventListener("click", () => {
+          actorsInput.value = preset.dataset.actors || "";
+        });
+      });
+    </script>
   </body>
 </html>
