@@ -344,8 +344,10 @@
         }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body id="top">
+<div id="topbar-slot" data-topbar="platform"></div>
+<script src="/components/topbar-loader.js"></script>
     <main class="shell">
       <section class="hero">
         <div class="eyebrow">Satoshium OS / Aegis Service Surface</div>
@@ -470,6 +472,23 @@
       </div>
     </main>
 
+<div class="wrap reflection">
+  <hr>
+  <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+    In the age of autonomous agents, trust must be verified.
+  </div>
+  <hr>
+  <div id="footer-container"></div>
+</div>
+
+<script src="https://satoshium.link/assets/sayings.js"></script>
+<script>
+fetch("https://satoshium.link/components/footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer-container").innerHTML = data;
+  });
+</script>
     <script>
       const API_BASE = "https://api.satoshium.net";
 
