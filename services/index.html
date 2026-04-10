@@ -77,6 +77,14 @@ color:var(--gold2);
 margin-top:26px
 }
 
+h3{
+margin:14px 0 8px;
+font-size:15px;
+color:var(--gold2);
+letter-spacing:.02em;
+text-transform:uppercase
+}
+
 p,li{
 color:var(--text)
 }
@@ -166,8 +174,45 @@ font-size:12px;
 font-weight:700
 }
 
+.pill-row{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:10px
+}
+
 ul{
 margin:8px 0 0 18px
+}
+
+.small{
+font-size:14px
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:12px;
+margin-top:14px
+}
+
+.feature-box{
+border:1px solid var(--line);
+border-radius:14px;
+padding:12px 12px;
+background:rgba(214,163,74,.04)
+}
+
+.feature-box strong{
+display:block;
+margin-bottom:6px;
+color:var(--gold2)
+}
+
+.note{
+border-left:3px solid var(--gold);
+padding-left:12px;
+margin-top:14px
 }
 
 </style>
@@ -177,7 +222,7 @@ margin:8px 0 0 18px
 
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="/components/topbar-loader.js"></script>
- 
+
 <main class="wrap content">
 
 <div class="pill">🧭 Platform Services</div>
@@ -187,6 +232,7 @@ margin:8px 0 0 18px
 <p class="muted">
 Public interfaces and platform capabilities exposed by the Satoshium platform ecosystem.
 </p>
+
 <div class="card">
   <h2>Orientation Service</h2>
   <p>
@@ -197,11 +243,12 @@ Public interfaces and platform capabilities exposed by the Satoshium platform ec
     <a href="https://satoshium.ai/mentor">Launch the Mentor →</a>
   </p>
 </div>
+
 <p class="muted" style="max-width:840px;">
 Services represent the practical entry points into Satoshium systems. They expose platform capabilities that support learning, research, experimentation, and participation across the ecosystem.
 </p>
 
- <div class="card">
+<div class="card">
 
 <h2 style="margin-top:0;">Core Platform Services</h2>
 
@@ -259,7 +306,7 @@ Validate exported governance records using deterministic hash recomputation.</li
 This service provides the first operational governance evaluation interface within the Satoshium platform.
 </p>
 
-<div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+<div class="pill-row">
 
 <a class="pill" href="https://satoshium.net/services/agent-governance/">
 Service Overview →
@@ -269,6 +316,70 @@ Service Overview →
 Launch Governance Tool →
 </a>
 
+</div>
+
+<div class="pill" style="margin-top:12px;">Operational</div>
+
+</div>
+
+<div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+
+<h2 style="margin-top:0;">Aegis: The Agent Firewall</h2>
+
+<p>
+<strong>Aegis</strong> is Satoshium’s certification-authority-grade agent firewall. It evaluates agent lifecycle posture,
+routing readiness, issuance eligibility, export readiness, and long-horizon trust compatibility across the platform’s
+registry, Chronicle, and future Anchor layers.
+</p>
+
+<div class="feature-grid">
+  <div class="feature-box">
+    <strong>Lifecycle Intelligence</strong>
+    Tracks authority posture, confidence, transitions, and collective readiness across certification surfaces.
+  </div>
+  <div class="feature-box">
+    <strong>Registry & Certification Routing</strong>
+    Produces deterministic eligibility, participation, routing, and issuance surfaces for downstream platform modules.
+  </div>
+  <div class="feature-box">
+    <strong>Export-Ready Bundle Surfaces</strong>
+    Supports bundle manifests, readiness descriptors, archive inspection, deterministic hashing, and artifact-class export identity.
+  </div>
+  <div class="feature-box">
+    <strong>Chronicle & Anchor Compatibility</strong>
+    Exposes Chronicle handshake readiness, Anchor eligibility, and commitment-preview signals without performing external writes.
+  </div>
+</div>
+
+<h3>Included capabilities</h3>
+<ul class="small">
+  <li><strong>Certification authority posture evaluation</strong> with confidence and transition detection.</li>
+  <li><strong>Registry admission, participation, and eligibility routing</strong> for indexing, snapshots, coordination, and certification surfaces.</li>
+  <li><strong>Certification routing and issuance gates</strong> suitable for future Certifier interoperability.</li>
+  <li><strong>Bundle export infrastructure</strong> including manifest surfaces, readiness endpoints, ZIP schema, artifact stubs, and deterministic hash identity.</li>
+  <li><strong>Chronicle handshake and Anchor preview compatibility</strong> for future proof-chain integration.</li>
+</ul>
+
+<p class="muted small note">
+Aegis is now represented as a complete exportable subsystem within Satoshium’s trust-layer architecture, with machine-readable readiness, inspection, and bundle access surfaces.
+</p>
+<p class="muted small">
+Aegis is available for research collaboration, infrastructure integration pilots,
+and certification-authority deployment discussions.
+</p>
+
+<div class="pill-row">
+  <a class="pill" href="https://satoshium.net/services/aegis/">
+    Explore Aegis →
+  </a>
+
+  <a class="pill" href="mailto:contact@satoshium.ai?subject=Aegis%20Deployment%20or%20Licensing%20Inquiry">
+    Request Aegis Deployment or Licensing Information →
+  </a>
+
+  <a class="pill" href="/services/aegis/architecture.html">
+    View Aegis Architecture Overview →
+  </a>
 </div>
 
 <div class="pill" style="margin-top:12px;">Operational</div>
@@ -309,7 +420,7 @@ This service provides the operational verification ledger interface supporting
 Satoshium’s cryptographic audit infrastructure layer.
 </p>
 
-<div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+<div class="pill-row">
 
 <a class="pill" href="https://satoshium.net/services/verification-ledger/">
 Service Overview →
@@ -324,7 +435,7 @@ Launch Verification Ledger Tool →
 <div class="pill" style="margin-top:12px;">Operational</div>
 
 </div>
- 
+
 <div class="card">
 
 <h2 style="margin-top:0;">Experimental Services</h2>
@@ -349,7 +460,7 @@ Experimental services evolve as the platform architecture matures.
 
 </div>
 
- <div class="card">
+<div class="card">
 
 <h2 style="margin-top:0;">Future Service Layer</h2>
 
@@ -381,8 +492,8 @@ the platform’s knowledge systems, governance frameworks, and simulation enviro
 These capabilities are implemented through software systems, repositories,
 and experimental research modules documented across the platform.
 </p>
- 
- <div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
+
+<div class="card" style="--card-wm:url('/satoshium-progress/assets/seal.png');">
 
 <h2>AI System Development</h2>
 
@@ -447,9 +558,9 @@ AI development standards, and platform governance structures.
 
 </div>
 
- </div>
-             <!-- Footer mission statement + links -->
-      <hr />
+</div>
+
+<hr />
 <div class="wrap reflection">
 <hr />
 <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
@@ -469,4 +580,3 @@ fetch("https://satoshium.link/components/footer.html")
 </script>
 </body>
 </html>
-
