@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="alternate icon" href="/assets/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#d6a34a">
+
+<title>Aegis Architecture Overview</title>
+
+<style>
+:root{
+ --card-wm: url('https://satoshium.link/assets/seal.png');
+ --bg:#07090d;
+ --panel:#0c1018;
+ --text:#e8edf7;
+ --muted:#9aa7bd;
+ --gold:#d6a34a;
+ --gold2:#f4c36a;
+ --line:rgba(214,163,74,.18);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.6
+}
+body{padding-top:80px}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:var(--gold)}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.wrap.content{
+  opacity:0;
+  transform:translateY(6px);
+  animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
+}
+@keyframes pageEnter{
+  to{opacity:1;transform:translateY(0)}
+}
+
+.content{padding:34px 18px 64px}
+h1,h2,h3{margin:0 0 10px}
+h1{font-size:32px;color:var(--gold2)}
+h2{font-size:22px;color:var(--gold2);margin-top:28px}
+h3{font-size:15px;color:var(--gold2);margin-top:0;letter-spacing:.03em;text-transform:uppercase}
+p,li{color:var(--text)}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(to bottom right,rgba(12,16,24,.94),rgba(12,16,24,.88));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px 18px;
+  margin:16px 0;
+  box-shadow:0 0 0 1px rgba(214,163,74,.08),0 20px 50px rgba(0,0,0,.45);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.35)}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background-image:var(--card-wm);
+  background-repeat:no-repeat;
+  background-size:min(760px, 72vw);
+  background-position:right -140px center;
+  opacity:.028;
+  filter:blur(1px);
+  pointer-events:none;
+  z-index:0;
+}
+.card > *{position:relative;z-index:1}
+
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(214,163,74,.08);
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:700
+}
+.pill-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px
+}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;
+  margin-top:14px
+}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:14px
+}
+.feature-box{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 12px;
+  background:rgba(214,163,74,.04)
+}
+.feature-box strong{
+  display:block;
+  margin-bottom:6px;
+  color:var(--gold2)
+}
+.codeblock{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  background:rgba(0,0,0,.22);
+  color:#dfe8f9;
+  overflow:auto;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px;
+  line-height:1.5;
+}
+.note{
+  border-left:3px solid var(--gold);
+  padding-left:12px;
+  margin-top:14px
+}
+.footer{
+  border-top:1px solid var(--line);
+  padding:18px 0 32px;
+  color:var(--muted)
+}
+ul{margin:8px 0 0 18px}
+</style>
+</head>
+
+<body id="top">
+
+<div id="topbar-slot" data-topbar="platform"></div>
+<script src="/components/topbar-loader.js"></script>
+
+<main class="wrap content">
+
+<div class="pill">🛡️ Architecture Overview</div>
+
+<h1 style="margin-top:12px;">Aegis: The Agent Firewall</h1>
+
+<p class="muted" style="max-width:900px;">
+Aegis is Satoshium’s certification-authority-grade agent firewall. It is designed as a layered, deterministic,
+read-only evaluation and export system that classifies authority posture, routing readiness, issuance eligibility,
+bundle readiness, Chronicle compatibility, and future Anchor participation without prematurely granting execution authority.
+</p>
+
+<div class="card">
+  <h2 style="margin-top:0;">System Purpose</h2>
+  <p>
+    Aegis exists to evaluate whether a certification authority surface is stable, exportable, and trustworthy enough
+    to participate in Satoshium’s broader trust-layer ecosystem. Rather than executing decisions directly, Aegis produces
+    structured readiness, compatibility, and artifact surfaces that other future subsystems can inspect and verify.
+  </p>
+  <div class="grid-3">
+    <div class="feature-box">
+      <strong>Read-only by default</strong>
+      Aegis surfaces describe state, readiness, compatibility, and exportability without granting execution rights.
+    </div>
+    <div class="feature-box">
+      <strong>Deterministic classification</strong>
+      Routing, issuance, bundle, and compatibility outputs are derived from explicit conditions rather than hidden heuristics.
+    </div>
+    <div class="feature-box">
+      <strong>Trust-layer alignment</strong>
+      Outputs are structured to interoperate with Registry, Chronicle, and future Anchor commitment pipelines.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">High-Level Architecture</h2>
+  <div class="codeblock">Authority projection
+→ lifecycle posture
+→ registry eligibility
+→ certification routing
+→ certification issuance
+→ snapshot export readiness
+→ Chronicle handshake
+→ Anchor eligibility
+→ Explorer bundle descriptor
+→ artifact readiness
+→ export intent
+→ deterministic hash identity
+→ Anchor commitment preview</div>
+  <p class="muted small note">
+    The architecture is intentionally layered. Each surface builds on prior surfaces, preserving auditability and preventing
+    early execution authority from leaking into discovery, export, or compatibility layers.
+  </p>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Major Capability Families</h2>
+  <div class="grid-2">
+    <div class="feature-box">
+      <strong>Lifecycle intelligence</strong>
+      Authority posture, confidence, transitions, and collective coordination readiness.
+    </div>
+    <div class="feature-box">
+      <strong>Registry eligibility</strong>
+      Indexing, snapshot tracking, coordination graph, and certification-surface eligibility.
+    </div>
+    <div class="feature-box">
+      <strong>Certification routing</strong>
+      Routing readiness, reason surfaces, participation classes, and issuance eligibility.
+    </div>
+    <div class="feature-box">
+      <strong>Artifact exportability</strong>
+      Bundle descriptors, manifests, readiness surfaces, ZIP schema, artifact stubs, and ZIP-bytes stubs.
+    </div>
+    <div class="feature-box">
+      <strong>Chronicle compatibility</strong>
+      Snapshot-export compatibility and Chronicle handshake eligibility.
+    </div>
+    <div class="feature-box">
+      <strong>Anchor preparation</strong>
+      Anchor eligibility surfaces, deterministic bundle hashing, and commitment-preview payloads.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Trust Boundaries</h2>
+  <ul>
+    <li><strong>Projection surfaces are declarative.</strong> They describe state and readiness but do not grant authority.</li>
+    <li><strong>Handshake surfaces are compatibility declarations.</strong> They announce readiness for future Chronicle or Anchor interaction without triggering external actions.</li>
+    <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis may be packaged, inspected, downloaded, and hashed without mutating internal evaluation logic.</li>
+    <li><strong>Commitment preview is non-operative.</strong> Aegis can derive a future Anchor commitment payload shape without performing Bitcoin or Anchor operations.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Representative Surfaces</h2>
+  <div class="grid-2">
+    <div class="feature-box">
+      <strong>Lifecycle posture surfaces</strong>
+      Posture, confidence, transition detection, and aggregate coordination eligibility.
+    </div>
+    <div class="feature-box">
+      <strong>Registry surfaces</strong>
+      Admission hints, eligibility routing, reason surfaces, participation classes, and transition tracking.
+    </div>
+    <div class="feature-box">
+      <strong>Certification surfaces</strong>
+      Routing readiness, routing reasoning, participation classes, participation transitions, and issuance eligibility.
+    </div>
+    <div class="feature-box">
+      <strong>Export surfaces</strong>
+      Capability manifest, readiness endpoint, bundle descriptor, bundle manifest, ZIP schema, export intent, and artifact readiness.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Bundle & Export Model</h2>
+  <p>
+    Aegis now supports a complete export lifecycle for its certification-authority subsystem bundle:
+  </p>
+  <div class="codeblock">write
+→ inspect
+→ manifest read
+→ download
+→ deterministic hash
+→ Anchor commitment preview</div>
+  <p>
+    The canonical bundle is represented as:
+  </p>
+  <div class="codeblock">aegis-certification-authority.bundle.zip</div>
+  <p class="muted small">
+    This bundle is designed to be portable, inspectable, and hash-addressable while preserving strict separation between
+    artifact publication and future Chronicle/Anchor execution layers.
+  </p>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Current Public-Facing Surfaces</h2>
+  <ul class="small">
+    <li><strong>Readiness endpoint</strong> — machine-readable operational summary</li>
+    <li><strong>Bundle inspection endpoint</strong> — confirms written archive structure and manifest readability</li>
+    <li><strong>Manifest access endpoint</strong> — returns manifest.json directly from the written bundle</li>
+    <li><strong>Bundle download endpoint</strong> — streams the written certification-authority bundle</li>
+    <li><strong>ZIP-bytes stub endpoint</strong> — returns a deterministic in-memory portable bundle representation</li>
+    <li><strong>Hash surface endpoint</strong> — exposes deterministic bundle identity and content fingerprints</li>
+    <li><strong>Anchor commitment preview endpoint</strong> — provides a future commitment payload shape without external writes</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Commercial / Deployment Positioning</h2>
+  <p>
+    Aegis is intended for research collaboration, infrastructure integration pilots, certification-authority deployment
+    discussions, and future licensing conversations within decentralized intelligence and trust-layer environments.
+  </p>
+  <p class="muted small note">
+    The system is positioned as deployable infrastructure rather than a mass-market consumer application.
+    That makes Aegis appropriate for technical evaluations, integration planning, and structured deployment inquiry.
+  </p>
+
+  <div class="pill-row">
+    <a class="pill" href="https://satoshium.net/services/aegis/">Explore Aegis →</a>
+    <a class="pill" href="mailto:contact@satoshium.ai?subject=Aegis%20Deployment%20or%20Licensing%20Inquiry">Request Aegis Deployment or Licensing Information →</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">Status</h2>
+  <p>
+    Aegis is now represented as a complete exportable subsystem within Satoshium’s trust-layer architecture,
+    with machine-readable readiness, inspection, packaging, compatibility, hashing, and commitment-preview surfaces.
+  </p>
+  <div class="pill-row">
+    <div class="pill">Operational</div>
+    <div class="pill">Exportable</div>
+    <div class="pill">Chronicle-Compatible</div>
+    <div class="pill">Anchor-Ready</div>
+  </div>
+</div>
+
+<hr />
+
+<div class="wrap reflection">
+  <hr />
+  <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+    Satoshium is being built slowly, in public, and with architectural discipline.
+  </div>
+  <hr />
+
+  <div id="footer-container"></div>
+</div>
+
+<script src="https://satoshium.link/assets/sayings.js"></script>
+<script>
+fetch("https://satoshium.link/components/footer.html")
+ .then(response => response.text())
+ .then(data => {
+ document.getElementById("footer-container").innerHTML = data;
+ });
+</script>
+
+</body>
+</html>
