@@ -161,47 +161,43 @@ ul{margin:8px 0 0 18px}
 <h1 style="margin-top:12px;">Aegis: The Agent Firewall</h1>
 
 <p class="muted" style="max-width:900px;">
-Aegis is Satoshium’s certification-authority-grade agent firewall. It is designed as a layered, deterministic, read-only evaluation and export system that classifies authority posture, routing readiness, issuance eligibility, bundle readiness, Chronicle compatibility, and future Anchor participation without prematurely granting execution authority.
+Aegis is Satoshium’s lifecycle verification engine for evaluating whether autonomous agents remain safe, unstable, or hostile across time. It is designed as a layered, deterministic, read-only subsystem that exposes inspection, routing-readiness, export, and compatibility surfaces without claiming premature execution authority or external enforcement.
 </p>
 
 <div class="card">
   <h2 style="margin-top:0;">System Purpose</h2>
   <p>
-    Aegis exists to evaluate whether a certification authority surface is stable, exportable, and trustworthy enough to participate in Satoshium’s broader trust-layer ecosystem. Rather than executing decisions directly, Aegis produces structured readiness, compatibility, and artifact surfaces that other future subsystems can inspect and verify.
+    Aegis exists to make agent stability visible. Rather than marketing a finished enforcement product, Satoshium publishes Aegis as an inspectable subsystem that produces structured readiness signals other systems, researchers, and infrastructure teams can review, test, and compare.
   </p>
   <div class="grid-3">
     <div class="feature-box">
       <strong>Read-only by default</strong>
-      Aegis surfaces describe state, readiness, compatibility, and exportability without granting execution rights.
+      Aegis describes posture, transitions, compatibility, and export readiness without granting execution rights.
     </div>
     <div class="feature-box">
-      <strong>Deterministic classification</strong>
-      Routing, issuance, bundle, and compatibility outputs are derived from explicit conditions rather than hidden heuristics.
+      <strong>Deterministic evaluation</strong>
+      Classification and readiness outputs are derived from explicit lifecycle conditions rather than hidden heuristics.
     </div>
     <div class="feature-box">
       <strong>Trust-layer alignment</strong>
-      Outputs are structured to interoperate with Registry, Chronicle, and future Anchor commitment pipelines.
+      Outputs are structured to interoperate with Registry, Chronicle, and future Anchor commitment layers.
     </div>
   </div>
 </div>
 
 <div class="card">
   <h2 style="margin-top:0;">High-Level Architecture</h2>
-  <div class="codeblock">Authority projection
-→ lifecycle posture
-→ registry eligibility
-→ certification routing
-→ certification issuance
-→ snapshot export readiness
-→ Chronicle handshake
-→ Anchor eligibility
-→ Explorer bundle descriptor
-→ artifact readiness
-→ export intent
-→ deterministic hash identity
-→ Anchor commitment preview</div>
+  <div class="codeblock">agent signals
+→ containment lifecycle evaluation
+→ stability posture
+→ registry participation readiness
+→ coordination routing readiness
+→ exportable bundle surfaces
+→ Chronicle handshake preview
+→ Anchor compatibility preview
+→ deterministic hash identity</div>
   <p class="muted small note">
-    The architecture is intentionally layered. Each surface builds on prior surfaces, preserving auditability and preventing early execution authority from leaking into discovery, export, or compatibility layers.
+    The architecture is intentionally layered. Each surface builds on prior surfaces so evaluation stays inspectable, portable, and auditable across the trust layer.
   </p>
 </div>
 
@@ -210,27 +206,27 @@ Aegis is Satoshium’s certification-authority-grade agent firewall. It is desig
   <div class="grid-2">
     <div class="feature-box">
       <strong>Lifecycle intelligence</strong>
-      Authority posture, confidence, transitions, and collective coordination readiness.
+      Tracks stability posture, transitions, persistence, and long-horizon agent behavior across containment lifecycles.
     </div>
     <div class="feature-box">
-      <strong>Registry eligibility</strong>
-      Indexing, snapshot tracking, coordination graph, and certification-surface eligibility.
+      <strong>Registry participation readiness</strong>
+      Produces deterministic signals for indexing, discovery, snapshotting, and future governance coordination.
     </div>
     <div class="feature-box">
-      <strong>Certification routing</strong>
-      Routing readiness, reason surfaces, participation classes, and issuance eligibility.
+      <strong>Coordination routing surfaces</strong>
+      Exposes participation classes, readiness reasons, and future certification-surface compatibility projections.
     </div>
     <div class="feature-box">
       <strong>Artifact exportability</strong>
-      Bundle descriptors, manifests, readiness surfaces, ZIP schema, artifact stubs, and ZIP-bytes stubs.
+      Supports manifest descriptors, bundle inspection, ZIP schema, and deterministic hash identity for portable review.
     </div>
     <div class="feature-box">
       <strong>Chronicle compatibility</strong>
-      Snapshot-export compatibility and Chronicle handshake eligibility.
+      Provides preview-level handshake readiness for Chronicle logging and state tracking.
     </div>
     <div class="feature-box">
       <strong>Anchor preparation</strong>
-      Anchor eligibility surfaces, deterministic bundle hashing, and commitment-preview payloads.
+      Exposes compatibility previews and commitment-shape surfaces without performing external Bitcoin writes.
     </div>
   </div>
 </div>
@@ -238,10 +234,10 @@ Aegis is Satoshium’s certification-authority-grade agent firewall. It is desig
 <div class="card">
   <h2 style="margin-top:0;">Trust Boundaries</h2>
   <ul>
-    <li><strong>Projection surfaces are declarative.</strong> They describe state and readiness but do not grant authority.</li>
-    <li><strong>Handshake surfaces are compatibility declarations.</strong> They announce readiness for future Chronicle or Anchor interaction without triggering external actions.</li>
-    <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis may be packaged, inspected, downloaded, and hashed without mutating internal evaluation logic.</li>
-    <li><strong>Commitment preview is non-operative.</strong> Aegis can derive a future Anchor commitment payload shape without performing Bitcoin or Anchor operations.</li>
+    <li><strong>Evaluation surfaces are declarative.</strong> They describe state and readiness but do not grant authority.</li>
+    <li><strong>Compatibility previews are non-operative.</strong> They announce readiness for future Chronicle or Anchor interaction without triggering external actions.</li>
+    <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis may be packaged, inspected, downloaded, and hashed without mutating evaluation logic.</li>
+    <li><strong>Hashes identify published artifacts.</strong> Deterministic bundle identity supports comparison and verification, not automatic trust assignment.</li>
   </ul>
 </div>
 
@@ -250,19 +246,19 @@ Aegis is Satoshium’s certification-authority-grade agent firewall. It is desig
   <div class="grid-2">
     <div class="feature-box">
       <strong>Lifecycle posture surfaces</strong>
-      Posture, confidence, transition detection, and aggregate coordination eligibility.
+      Stability posture, transition detection, persistence modeling, and aggregate readiness signals.
     </div>
     <div class="feature-box">
       <strong>Registry surfaces</strong>
-      Admission hints, eligibility routing, reason surfaces, participation classes, and transition tracking.
+      Participation hints, readiness reasons, discovery signals, and structured transition tracking.
     </div>
     <div class="feature-box">
-      <strong>Certification surfaces</strong>
-      Routing readiness, routing reasoning, participation classes, participation transitions, and issuance eligibility.
+      <strong>Coordination surfaces</strong>
+      Routing compatibility, participation classes, and future higher-trust interoperability projections.
     </div>
     <div class="feature-box">
       <strong>Export surfaces</strong>
-      Capability manifest, readiness endpoint, bundle descriptor, bundle manifest, ZIP schema, export intent, and artifact readiness.
+      Capability manifest, readiness endpoint, bundle descriptor, ZIP schema, and deterministic hash identity.
     </div>
   </div>
 </div>
@@ -270,21 +266,21 @@ Aegis is Satoshium’s certification-authority-grade agent firewall. It is desig
 <div class="card">
   <h2 style="margin-top:0;">Bundle & Export Model</h2>
   <p>
-    Aegis now supports a complete export lifecycle for its certification-authority subsystem bundle:
+    Aegis supports an inspectable export lifecycle for its canonical subsystem bundle:
   </p>
   <div class="codeblock">write
 → inspect
 → manifest read
 → download
 → deterministic hash
-→ Anchor commitment preview</div>
+→ compatibility preview</div>
   <p>
     The canonical bundle is represented as:
   </p>
-  <div class="codeblock">aegis-certification-authority.bundle.zip</div>
+  <div class="codeblock">aegis-lifecycle-verification.bundle.zip</div>
   <p class="muted small">
     This bundle is designed to be portable, inspectable, and hash-addressable while preserving strict separation between
-    artifact publication and future Chronicle/Anchor execution layers.
+    artifact publication and future Chronicle or Anchor execution layers.
   </p>
 </div>
 
@@ -292,40 +288,40 @@ Aegis is Satoshium’s certification-authority-grade agent firewall. It is desig
   <h2 style="margin-top:0;">Current Public-Facing Surfaces</h2>
   <ul class="small">
     <li><strong>Readiness endpoint</strong> — machine-readable operational summary</li>
-    <li><strong>Bundle inspection endpoint</strong> — confirms written archive structure and manifest readability</li>
+    <li><strong>Bundle inspection endpoint</strong> — confirms archive structure and manifest readability</li>
     <li><strong>Manifest access endpoint</strong> — returns manifest.json directly from the written bundle</li>
-    <li><strong>Bundle download endpoint</strong> — streams the written certification-authority bundle</li>
-    <li><strong>ZIP-bytes stub endpoint</strong> — returns a deterministic in-memory portable bundle representation</li>
+    <li><strong>Bundle download endpoint</strong> — streams the canonical Aegis bundle</li>
     <li><strong>Hash surface endpoint</strong> — exposes deterministic bundle identity and content fingerprints</li>
-    <li><strong>Anchor commitment preview endpoint</strong> — provides a future commitment payload shape without external writes</li>
+    <li><strong>Compatibility preview endpoint</strong> — provides future Chronicle and Anchor-facing shapes without external writes</li>
   </ul>
 </div>
 
 <div class="card">
-  <h2 style="margin-top:0;">Commercial / Deployment Positioning</h2>
+  <h2 style="margin-top:0;">Evaluation Positioning</h2>
   <p>
-    Aegis is intended for research collaboration, infrastructure integration pilots, certification-authority deployment discussions, and future licensing conversations within decentralized intelligence and trust-layer environments.
+    Aegis is published for inspection, experimentation, and technical review. Researchers, developers, and infrastructure teams can use the public surfaces, canonical bundle, and demo environment to evaluate how Aegis models agent lifecycle stability inside Satoshium’s trust layer.
   </p>
   <p class="muted small note">
-    The system is positioned as deployable infrastructure rather than a mass-market consumer application. That makes Aegis appropriate for technical evaluations, integration planning, and structured deployment inquiry.
+    This page positions Aegis as inspectable infrastructure rather than a finished mass-market product. That is the right posture for an early subsystem intended to earn trust through visibility, artifacts, and feedback.
   </p>
 
   <div class="pill-row">
     <a class="pill" href="https://satoshium.net/services/aegis/">Explore Aegis →</a>
-    <a class="pill" href="mailto:contact@satoshium.ai?subject=Aegis%20Deployment%20or%20Licensing%20Inquiry">Request Aegis Deployment or Licensing Information →</a>
+    <a class="pill" href="mailto:contact@satoshium.ai?subject=Aegis%20Evaluation%20or%20Research%20Inquiry">Contact Satoshium About Aegis Evaluation →</a>
   </div>
 </div>
 
 <div class="card">
   <h2 style="margin-top:0;">Status</h2>
   <p>
-    Aegis is now represented as a complete exportable subsystem within Satoshium’s trust-layer architecture, with machine-readable readiness, inspection, packaging, compatibility, hashing, and commitment-preview surfaces.
+    Aegis is now represented as an operational and exportable subsystem within Satoshium’s trust-layer architecture, with machine-readable readiness, inspection, packaging, hashing, and compatibility-preview surfaces.
   </p>
   <div class="pill-row">
     <div class="pill">Operational</div>
+    <div class="pill">Inspectable</div>
     <div class="pill">Exportable</div>
     <div class="pill">Chronicle-Compatible</div>
-    <div class="pill">Anchor-Ready</div>
+    <div class="pill">Anchor-Preview Ready</div>
   </div>
 </div>
 
