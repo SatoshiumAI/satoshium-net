@@ -7,7 +7,11 @@
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Aegis — The Agent Firewall | Coming Soon</title>
+<title>Aegis — Page Moved</title>
+
+<meta http-equiv="refresh" content="6; url=https://satoshium.net/services/aegis/">
+<link rel="canonical" href="https://satoshium.net/services/aegis/">
+
 <style>
 :root{
   --card-wm: url('https://satoshium.link/assets/seal.png');
@@ -60,6 +64,28 @@ body{padding-top:80px}
   pointer-events:none;
   filter:blur(1px);
 }
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  background:linear-gradient(to bottom right, rgba(12,16,24,.95), rgba(12,16,24,.88));
+  box-shadow:0 0 0 1px rgba(214,163,74,.08),0 18px 46px rgba(0,0,0,.42);
+  margin-top:18px;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-70px;
+  background-image:var(--card-wm);
+  background-repeat:no-repeat;
+  background-size:min(680px,68vw);
+  background-position:right -150px center;
+  opacity:.025;
+  pointer-events:none;
+}
+.card > *, .hero > *{position:relative;z-index:1}
 .pill{
   display:inline-flex;
   align-items:center;
@@ -80,14 +106,10 @@ h1{
   line-height:1.02;
   color:var(--gold2);
 }
-.hero-sub{
-  max-width:760px;
-  margin:0;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.7;
-}
-.hero-actions{
+h2{margin:0 0 10px;color:var(--gold2);font-size:21px}
+p{margin:0;color:var(--muted);line-height:1.7}
+.hero-sub{max-width:760px;font-size:18px}
+.hero-actions, .pill-row{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
@@ -121,28 +143,6 @@ h1{
   gap:18px;
   margin-top:22px;
 }
-.card{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:22px;
-  background:linear-gradient(to bottom right, rgba(12,16,24,.95), rgba(12,16,24,.88));
-  box-shadow:0 0 0 1px rgba(214,163,74,.08),0 18px 46px rgba(0,0,0,.42);
-}
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-70px;
-  background-image:var(--card-wm);
-  background-repeat:no-repeat;
-  background-size:min(680px,68vw);
-  background-position:right -150px center;
-  opacity:.025;
-  pointer-events:none;
-}
-h2{margin:0 0 10px;color:var(--gold2);font-size:21px}
-p{margin:0;color:var(--muted);line-height:1.68}
 .list{display:grid;gap:10px;margin-top:14px}
 .list div{
   padding:12px 14px;
@@ -154,6 +154,7 @@ p{margin:0;color:var(--muted);line-height:1.68}
 .list span{color:var(--gold2);font-weight:700}
 .reflection{margin:36px auto 0;color:var(--muted)}
 hr{border:none;border-top:1px solid rgba(214,163,74,.18);margin:16px 0}
+.small{font-size:14px}
 @media (max-width:640px){
   .hero{padding:24px 18px}
   .hero-sub{font-size:16px}
@@ -166,43 +167,39 @@ hr{border:none;border-top:1px solid rgba(214,163,74,.18);margin:16px 0}
 
 <main class="wrap content">
   <section class="hero" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-    <div class="pill">Satoshium Services • In Active Build</div>
-    <h1>Aegis — The Agent Firewall</h1>
+    <div class="pill">Satoshium Services • Page Updated</div>
+    <h1>Aegis Has Moved</h1>
     <p class="hero-sub">
-      Aegis is a lifecycle-aware agent firewall designed to help future systems distinguish between
-      safe, unstable, and hostile autonomous agents before they are allowed to act.
+      This page now redirects to the live Aegis experience. Aegis is no longer a “coming soon” concept page — it is now presented as an inspectable lifecycle verification subsystem within Satoshium.
     </p>
     <div class="hero-actions">
-      <a href="https://youtube.com/shorts/9BGYohR8tI4" class="button primary">Watch Satoshium's Aegis →</a>
+      <a href="https://satoshium.net/services/aegis/" class="button primary">Go to the Live Aegis Page →</a>
+      <a href="https://satoshium.net/services/aegis/architecture.html" class="button secondary">View Architecture Overview →</a>
       <a href="/services/" class="button secondary">Back to Services →</a>
     </div>
   </section>
 
   <section class="grid">
     <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Why It Matters</h2>
+      <h2>What Changed</h2>
       <p>
-        In the age of autonomous agents, security is no longer just about blocking traffic.
-        It is about understanding behavior, trust posture, escalation, and whether an agent can be
-        safely allowed to continue.
+        Aegis has advanced from an early placeholder into a public evaluation surface with live pages, an architecture overview, and exportable subsystem artifacts for inspection and review.
       </p>
     </div>
 
     <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>What Aegis Will Provide</h2>
+      <h2>Where To Go</h2>
       <div class="list">
-        <div><span>Security</span> for agent-facing systems</div>
-        <div><span>Safety</span> through containment-aware evaluation</div>
-        <div><span>Verification</span> of escalation and resolution pathways</div>
-        <div><span>Trust signals</span> for future autonomous participation</div>
+        <div><span>Live Aegis page</span> for the main public service overview</div>
+        <div><span>Architecture overview</span> for the layered system explanation</div>
+        <div><span>Service panel</span> for direct interaction with the current surface</div>
       </div>
     </div>
 
     <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Current State</h2>
+      <h2>Redirect Behavior</h2>
       <p>
-        Aegis is in active buildout inside the Satoshium governance stack. Core containment lifecycle
-        intelligence is now in place, with additional authority and participation layers still ahead.
+        This page automatically forwards visitors to the current Aegis destination after a few seconds, while still giving them context if they arrived from an older link or bookmark.
       </p>
     </div>
   </section>
@@ -211,7 +208,7 @@ hr{border:none;border-top:1px solid rgba(214,163,74,.18);margin:16px 0}
 <div class="wrap reflection">
   <hr>
   <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
-    In the age of autonomous agents, trust must be verified.
+    Satoshium is being built slowly, in public, and with architectural discipline.
   </div>
   <hr>
   <div id="footer-container"></div>
