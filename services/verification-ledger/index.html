@@ -8,8 +8,31 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
 
-<title>SATOSHIUM Verification Ledger</title>
+<title>SATOSHIUM Verification Ledger | Cryptographic Audit Records for Decentralized Agent Systems</title>
 <meta name="description" content="SATOSHIUM Verification Ledger provides cryptographic verification records for decentralized AI agents, generating tamper-evident execution outputs suitable for audit workflows and future blockchain anchoring." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="SATOSHIUM Verification Ledger | Cryptographic Audit Records for Decentralized Agent Systems" />
+<meta property="og:description" content="Cryptographic verification records for decentralized AI agents — tamper-evident execution outputs for audit workflows, cross-system validation, and future blockchain anchoring." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/services/verification-ledger/" />
+<meta property="og:image" content="https://satoshium.net/services/verification-ledger/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SATOSHIUM Verification Ledger | Cryptographic Audit Records for Decentralized Agent Systems" />
+<meta name="twitter:description" content="Cryptographic verification records for decentralized AI agents — tamper-evident execution outputs for audit workflows, cross-system validation, and future blockchain anchoring." />
+<meta name="twitter:image" content="https://satoshium.net/services/verification-ledger/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.net/services/verification-ledger/" />
+
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
 
 <style>
 :root{
@@ -24,6 +47,11 @@
 }
 
 *{box-sizing:border-box}
+
+/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+html{
+  scroll-behavior:smooth;
+}
 
 html,body{
   margin:0;
@@ -45,6 +73,13 @@ a{
 
 a:hover{
   color:var(--gold);
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
 }
 
 .wrap{
@@ -229,6 +264,17 @@ hr{
 
 .reflection{
   margin-top:40px;
+  /* TIER 3 — CSS: added margin-bottom and color for consistency with other pages */
+  margin-bottom:40px;
+  color:var(--muted);
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .card{transition:none}
+  .btn{transition:none}
 }
 
 @media (max-width:640px){
@@ -242,11 +288,13 @@ hr{
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="https://satoshium.link/components/topbar-loader.js"></script>
 
-<main class="wrap content">
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+<main id="main-content" class="wrap content">
 
-  <section class="hero">
+  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
+  <section class="hero" aria-labelledby="hero-heading">
     <div class="pill">Verification Ledger • Audit Records • Anchor-Ready Outputs</div>
-    <h1>SATOSHIUM Verification Ledger</h1>
+    <h1 id="hero-heading">SATOSHIUM Verification Ledger</h1>
     <p class="muted" style="margin-top:-4px; margin-bottom:10px;">
       SATOSHIUM Verification Ledger Engine v0.1
     </p>
@@ -262,9 +310,9 @@ hr{
     </div>
   </section>
 
-  <section>
+  <section aria-labelledby="availability-heading">
     <div class="card">
-      <h2 style="margin-top:0;">Service availability</h2>
+      <h2 id="availability-heading" style="margin-top:0;">Service availability</h2>
       <p>
   SATOSHIUM Verification Ledger is available as a companion verification layer for
   agent governance workflows inside the Satoshium platform. The service is designed to
@@ -278,10 +326,10 @@ hr{
     </div>
   </section>
 
-  <section>
+  <section aria-label="Service capabilities">
     <div class="wrap grid two-up">
-      <div class="card">
-        <h2>What this service provides</h2>
+      <div class="card" aria-labelledby="provides-heading">
+        <h2 id="provides-heading">What this service provides</h2>
         <ul class="steps">
           <li>Generation of timestamped verification ledger entries</li>
           <li>Tamper-evident execution records for agent decisions</li>
@@ -291,8 +339,8 @@ hr{
         </ul>
       </div>
 
-      <div class="card">
-        <h2>Why it matters</h2>
+      <div class="card" aria-labelledby="why-heading">
+        <h2 id="why-heading">Why it matters</h2>
         <p>
           Most governance interfaces stop at decisions. The Verification Ledger extends that process by
           producing durable trust artifacts that can be reviewed, exported, compared, and later anchored
@@ -303,9 +351,9 @@ hr{
     </div>
   </section>
 
-  <section id="workflow">
+  <section id="workflow" aria-labelledby="workflow-heading">
     <div class="card">
-      <h2>Current verification workflow</h2>
+      <h2 id="workflow-heading">Current verification workflow</h2>
       <ol class="steps">
         <li>Receive a governance decision or execution event from an upstream agent workflow.</li>
         <li>Generate a structured verification record including the decision, timestamp, and input references.</li>
@@ -315,10 +363,10 @@ hr{
     </div>
   </section>
 
-<section>
+<section aria-label="Examples and tools">
   <div class="wrap grid two-up">
-    <div class="card">
-      <h2>Example verification record</h2>
+    <div class="card" aria-labelledby="example-heading">
+      <h2 id="example-heading">Example verification record</h2>
       <div class="code-sample">SATOSHIUM Verification Record
 
 Agent: compliance_agent_alpha
@@ -329,8 +377,8 @@ Hash: SHA256: 9FD2A...
 Anchor-ready: TRUE</div>
     </div>
 
-    <div class="card">
-      <h2>Launch Verification Ledger Tool</h2>
+    <div class="card" aria-labelledby="launch-heading">
+      <h2 id="launch-heading">Launch Verification Ledger Tool</h2>
       <p>
         The interactive verification interface is now available for creating, viewing, exporting,
         and validating ledger-style records tied to decentralized agent workflows.
@@ -345,9 +393,9 @@ Anchor-ready: TRUE</div>
     </div>
   </div>
 </section>
-  <section>
+  <section aria-labelledby="access-heading">
     <div class="card">
-      <h2 style="margin-top:0;">Request early access</h2>
+      <h2 id="access-heading" style="margin-top:0;">Request early access</h2>
       <p>
         Request early access to SATOSHIUM Verification Ledger pilot deployments.
       </p>
@@ -363,9 +411,9 @@ Anchor-ready: TRUE</div>
     </div>
   </section>
 
-  <section>
+  <section aria-labelledby="privacy-heading">
     <div class="card">
-      <h2 style="margin-top:0;">Privacy notice</h2>
+      <h2 id="privacy-heading" style="margin-top:0;">Privacy notice</h2>
       <p class="muted">
         This service page describes verification ledger workflows and does not collect, transmit,
         or permanently store submitted verification data on the site. Future interactive versions may
