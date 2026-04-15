@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Running Nodes vs Trusting Platforms</title>
+<title>Running Nodes vs Trusting Platforms | Satoshium Verification Layer</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Running a Bitcoin node as a practical expression of sovereignty — independent verification versus platform trust, and why distributed validation sustains long-horizon credibility within the Satoshium framework." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Running Nodes vs Trusting Platforms | Satoshium Verification Layer" />
+<meta property="og:description" content="Independent verification versus platform trust — why running Bitcoin nodes sustains distributed credibility and supports visible verification pathways for decentralized intelligence systems." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/bitcoin/running-nodes-vs-trusting-platforms.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Running Nodes vs Trusting Platforms | Satoshium Verification Layer" />
+<meta name="twitter:description" content="Independent verification versus platform trust — why running Bitcoin nodes sustains distributed credibility and supports visible verification pathways for decentralized intelligence systems." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/bitcoin/running-nodes-vs-trusting-platforms.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -50,6 +75,12 @@ a:active {
     color: #ffd166;
 }
 
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #f2a900;
+    outline-offset: 2px;
+}
+
 p {
     line-height: 1.6;
     margin-bottom: 18px;
@@ -58,10 +89,22 @@ p {
 .footer-note {
     margin-top: 28px;
 }
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .meta {
+        text-shadow: none;
+    }
+}
 </style>
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main + article landmarks -->
+<main>
+
+<article>
 
 <h1>Running Nodes vs Trusting Platforms</h1>
 
@@ -70,7 +113,7 @@ p {
 <div class="rule"></div>
 
 <p>
-One of Bitcoin’s most important distinctions is that participants can verify the system
+One of Bitcoin's most important distinctions is that participants can verify the system
 independently. This is what separates Bitcoin from financial products, custodial abstractions,
 and platform-mediated experiences that merely reference Bitcoin while asking users to outsource
 verification.
@@ -89,7 +132,7 @@ ease of access at the cost of verification independence.
 </p>
 
 <p>
-This tradeoff matters because Bitcoin’s credibility depends on a distributed culture of
+This tradeoff matters because Bitcoin's credibility depends on a distributed culture of
 validation. The more verification is concentrated into a small number of institutions, the
 more the system begins to resemble the trust structures it was designed to reduce.
 </p>
@@ -100,13 +143,19 @@ trust should favor visible verification pathways over opaque dependency. Bitcoin
 of the clearest examples of this principle in practice.
 </p>
 
+</article>
+
 <div class="rule"></div>
 
-<p><a href="../bitcoin.html">← Back to Bitcoin Signal Board</a></p>
+<nav aria-label="Page navigation">
+  <p><a href="../bitcoin.html">&larr; Back to Bitcoin Signal Board</a></p>
+</nav>
 
 <p class="footer-note">
 Archival discussion layer inspired by early Bitcoin-era forums.
 </p>
+
+</main>
 
 </body>
 </html>
