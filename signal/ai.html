@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>AI Alignment Signal Board</title>
+<title>AI Alignment Signal Board | Satoshium Constitutional AI and Agent Governance</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="AI Alignment Signal Board — archival discussion layer for constitutional AI, agent governance, verification frameworks, explainability systems, and cryptographic trust infrastructure within the Satoshium decentralized intelligence network." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="AI Alignment Signal Board | Satoshium Constitutional AI and Agent Governance" />
+<meta property="og:description" content="AI Alignment Signal Board — archival discussion layer for constitutional AI, agent governance, verification frameworks, explainability systems, and cryptographic trust infrastructure within the Satoshium decentralized intelligence network." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/ai.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Alignment Signal Board | Satoshium Constitutional AI and Agent Governance" />
+<meta name="twitter:description" content="AI Alignment Signal Board — archival discussion layer for constitutional AI, agent governance, verification frameworks, explainability systems, and cryptographic trust infrastructure within the Satoshium decentralized intelligence network." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/ai.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -25,6 +50,24 @@ h1 {
 a {
     color: #9d7bff;
     text-decoration: none;
+}
+
+a:visited {
+    color: #9d7bff;
+}
+
+a:hover {
+    color: #c6b7ff;
+}
+
+a:active {
+    color: #c6b7ff;
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #9d7bff;
+    outline-offset: 2px;
 }
 
 .thread {
@@ -54,11 +97,31 @@ a {
     color: #7CFCB2;
     text-shadow: 0 0 4px rgba(124, 252, 178, 0.4);
 }
-    
+
+p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.reflection {
+    margin-top: 28px;
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .pinned-label,
+    .archival-label,
+    .open-label {
+        text-shadow: none;
+    }
+}
 </style>
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main landmark -->
+<main>
 
 <h1>AI Alignment Signal Board</h1>
 
@@ -70,6 +133,8 @@ cryptographic trust infrastructure for autonomous agents.
 
 <hr>
 
+<!-- TIER 3 — ACCESSIBILITY: thread list wrapped in nav landmark -->
+<nav aria-label="AI signal threads">
 <div class="thread"><span class="pinned-label">[PINNED SIGNAL]</span> <a href="ai/constitutional-ai-and-public-trust.html">Constitutional AI and Public Trust</a></div>
 <div class="thread"><span class="pinned-label">[PINNED SIGNAL]</span> <a href="ai/agent-governance-rule-structures.html">Agent Governance Rule Structures</a></div>
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="ai/explainability-vs-black-box-systems.html">Explainability vs Black-Box Systems</a></div>
@@ -77,8 +142,7 @@ cryptographic trust infrastructure for autonomous agents.
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="ai/cryptographic-automation-architectures.html">Cryptographic Automation Architectures</a></div>
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="ai/human-ai-trust-models-for-open-systems.html">Human-AI Trust Models for Open Systems</a></div>
 <div class="thread"><span class="open-label">[OPEN THREAD]</span> <a href="ai/open-signals-for-constitutional-ai-and-agent-governance-infrastructure.html">Signals for Constitutional AI and Agent Governance Infrastructure</a></div>
-
-<br>
+</nav>
 
 <p>
 Future versions may integrate Canon snapshots and governance proposals
@@ -89,19 +153,21 @@ Signal Boards operate as an archival discussion layer within the Satoshium netwo
 </p>
 
 <p style="margin-top: 10px;">
-<a href="participation.html">Read participation guidelines →</a>
+<a href="participation.html">Read participation guidelines &rarr;</a>
 </p>
-<p></p>
-<p><a href="index.html">← Back to Signal Boards</a></p>
+<!-- TIER 3 — HTML: removed empty <p></p> tag -->
+<p><a href="index.html">&larr; Back to Signal Boards</a></p>
 
 <div id="footer-container"></div>
 <div class="wrap reflection">
 <hr />
-<div class="muted" style="margin-bottom:14px; max-width:760px;">
-  Archival discussion layer inspired by early Bitcoin-era forums.
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
 </div>
 <hr />
-    
-    
+</div>
+
+</main>
+
 </body>
 </html>
