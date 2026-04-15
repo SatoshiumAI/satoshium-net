@@ -8,6 +8,33 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
 <title>Satoshium — Network Layer</title>
+ 
+<!-- TIER 3 — SEO: meta description (was missing) -->
+<meta name="description" content="Satoshium Net is the infrastructure and connectivity surface of the Satoshium ecosystem — where systems, services, nodes, signals, and intelligence pathways coordinate across a networked environment." />
+ 
+<!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
+<meta property="og:title" content="Satoshium — Network Layer" />
+<meta property="og:description" content="Infrastructure and connectivity surface of the Satoshium ecosystem — systems, services, nodes, signals, and intelligence pathways." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/" />
+<meta property="og:image" content="https://satoshium.net/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+ 
+<!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Satoshium — Network Layer" />
+<meta name="twitter:description" content="Infrastructure and connectivity surface of the Satoshium ecosystem — systems, services, nodes, signals, and intelligence pathways." />
+<meta name="twitter:image" content="https://satoshium.net/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+ 
+<!-- TIER 3 — SEO: canonical URL (was missing) -->
+<link rel="canonical" href="https://satoshium.net/" />
+ 
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external topbar/footer origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
+ 
 <style>
 :root{
  --card-wm: url('https://satoshium.link/assets/seal.png');
@@ -20,6 +47,10 @@
  --line:rgba(214,163,74,.18);
 }
 *{box-sizing:border-box}
+html{
+  /* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+  scroll-behavior:smooth;
+}
 html,body{
   margin:0;
   padding:0;
@@ -38,15 +69,21 @@ body{
 }
 a{color:var(--gold2);text-decoration:none}
 a:hover{color:var(--gold)}
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
+}
 .wrap{max-width:1080px;margin:0 auto;padding:0 18px}
 .content{padding:34px 18px 60px}
-
+ 
  .wrap.content{
   opacity:0;
   transform:translateY(6px);
   animation:pageEnter .28s cubic-bezier(.22,.61,.36,1) forwards;
 }
-
+ 
 @keyframes pageEnter{
  to{
  opacity:1;
@@ -60,7 +97,7 @@ h2{font-size:22px;color:var(--gold2);margin-top:0}
 h3{font-size:15px;color:var(--text)}
 p,li{color:var(--text)}
 hr{border:none;border-top:1px solid var(--line);margin:22px 0}
-
+ 
 .hero{
   position:relative;
   overflow:hidden;
@@ -87,12 +124,13 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
   z-index:0;
 }
 .hero > *{position:relative;z-index:1}
-
+ 
+/* TIER 3 — CSS: consolidated duplicate .card blocks (was split across two declarations) */
 .card{
   position:relative;
   overflow:hidden;
   background:linear-gradient(to bottom right,rgba(12,16,24,.94),rgba(12,16,24,.88));
-  border:1px solid var(--line);
+  border:1px solid rgba(214,163,74,.15);
   border-radius:16px;
   padding:16px 16px;
   margin:16px 0;
@@ -117,10 +155,7 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
   transform:translateY(-3px);
   box-shadow:0 10px 25px rgba(0,0,0,.35);
 }
-.card{
-  border:1px solid rgba(214,163,74,.15);
-}
-
+ 
 .muted{color:var(--muted)}
 .pill{
   display:inline-flex;
@@ -184,10 +219,47 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
  .span-2{
   grid-column: 1 / -1;
 }
-
+ 
 .mini{font-size:13px}
 ul{margin:8px 0 0 18px}
-
+ 
+/* TIER 3 — CSS: added missing .layer-link definition (referenced in Signal Layer card) */
+.layer-link{
+  display:inline-block;
+  margin-top:8px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--gold2);
+}
+.layer-link:hover{
+  color:var(--gold);
+}
+ 
+/* TIER 3 — CSS: added missing .mini-links definition (referenced in Signal Layer card) */
+.mini-links{
+  margin-top:6px;
+  font-size:12px;
+}
+.mini-links a{
+  color:var(--muted);
+}
+.mini-links a:hover{
+  color:var(--gold2);
+}
+ 
+/* TIER 3 — ACCESSIBILITY: screen-reader-only utility class */
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+ 
 @media (max-width:900px){
   .grid-3{grid-template-columns:1fr}
 }
@@ -195,39 +267,47 @@ ul{margin:8px 0 0 18px}
   .grid-2{grid-template-columns:1fr}
   h1{font-size:30px}
 }
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .card{transition:none}
+}
 </style>
 </head>
 <body id="top">
 <div id="topbar-slot" data-topbar="universe"></div>
 <script src="/components/topbar-loader.js"></script>
-
-<main class="wrap content">
-
-<section class="hero">
+ 
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+<main id="main-content" class="wrap content">
+ 
+<section class="hero" aria-labelledby="hero-heading">
   <div class="pill">🌐 Satoshium Net • Network Layer</div>
-
-  <h1 style="margin-top:14px;">The future network infrastructure layer of Satoshium.</h1>
-
+ 
+  <h1 id="hero-heading" style="margin-top:14px;">The future network infrastructure layer of Satoshium.</h1>
+ 
   <p class="muted" style="max-width:900px;">
     Satoshium Net is the infrastructure and connectivity surface of the Satoshium ecosystem.
     It represents the layer where systems, services, nodes, signals, and future intelligence
     pathways may eventually coordinate across a broader networked environment.
   </p>
-
+ 
   <p class="muted" style="max-width:900px;">
     If Satoshium AI becomes the public-facing platform, and Satoshium Info becomes the knowledge layer,
     then Satoshium Net becomes the place where operational structure, infrastructure visibility,
     and network-level design can be understood over time.
   </p>
-
+ 
   <div class="hero-actions">
-   <a class="pill pill-link" href="https://satoshium.net/systems/">View Systems</a> 
+   <a class="pill pill-link" href="https://satoshium.net/systems/">View Systems</a>
    <a class="pill pill-link" href="https://satoshium.net/services/">View Services</a>
    <a class="pill pill-link" href="https://satoshium.ai/architecture/">View Architecture</a>
-   <a class="pill pill-link" href="https://satoshium.info" target="_blank" rel="noopener">View Info</a>
+   <!-- TIER 3 — SECURITY: upgraded rel="noopener" → rel="noopener noreferrer" -->
+   <a class="pill pill-link" href="https://satoshium.info" target="_blank" rel="noopener noreferrer">View Info</a>
    <a class="pill pill-link" href="https://satoshium.info/workspace/">Open Workspace</a>
    </div>
-
+ 
   <div class="statline">
     <span class="stat">🌐 Network Layer</span>
     <span class="stat">🛰️ Infrastructure Surface</span>
@@ -235,9 +315,10 @@ ul{margin:8px 0 0 18px}
     <span class="stat">📡 Long-Horizon Coordination</span>
   </div>
 </section>
-
-  <div class="card">
-    <h2>Why Satoshium Net Exists</h2>
+ 
+  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on card sections -->
+  <section class="card" aria-labelledby="why-heading">
+    <h2 id="why-heading">Why Satoshium Net Exists</h2>
     <p class="muted">
       Every serious ecosystem eventually needs an infrastructure layer. Satoshium Net exists to define
       that future layer for Satoshium — the place where services, systems, communication paths, network
@@ -246,10 +327,10 @@ ul{margin:8px 0 0 18px}
     <div class="note">
       This domain is not just another page. It is the emerging network surface of Satoshium.
     </div>
-  </div>
-
-  <div class="card">
-    <h2>The 2035 Role</h2>
+  </section>
+ 
+  <section class="card" aria-labelledby="role-2035-heading">
+    <h2 id="role-2035-heading">The 2035 Role</h2>
     <p class="muted">
       By 2035, this site could serve as the visible network layer of the ecosystem — a place where
       infrastructure maps, node relationships, service pathways, routing concepts, and system connections
@@ -258,14 +339,14 @@ ul{margin:8px 0 0 18px}
     <div class="note">
       In that future, Satoshium Net becomes less like a placeholder domain and more like a living network map.
     </div>
-  </div>
-
-</div>
-
-<div class="card">
-  <h2>What This Site Can Grow Into</h2>
+  </section>
+ 
+<!-- TIER 3 — FIX: removed stray </div> that had no matching opening tag (was line 263) -->
+ 
+<section class="card" aria-labelledby="grow-heading">
+  <h2 id="grow-heading">What This Site Can Grow Into</h2>
   <div class="grid-3">
-
+ 
     <div>
       <h3>🛰️ Infrastructure Hub</h3>
       <p class="muted mini">
@@ -273,7 +354,7 @@ ul{margin:8px 0 0 18px}
         across the Satoshium ecosystem.
       </p>
     </div>
-
+ 
     <div>
       <h3>🗺️ Network Map</h3>
       <p class="muted mini">
@@ -281,7 +362,7 @@ ul{margin:8px 0 0 18px}
         over time across the broader network layer.
       </p>
     </div>
-
+ 
     <div>
       <h3>🏛️ Topology Archive</h3>
       <p class="muted mini">
@@ -289,7 +370,7 @@ ul{margin:8px 0 0 18px}
         and system relationships as the ecosystem evolves.
       </p>
     </div>
-
+ 
     <div>
   <h3>📡 Signal Layer</h3>
   <p class="muted mini">
@@ -297,18 +378,18 @@ ul{margin:8px 0 0 18px}
     and Satoshium architecture. Signal Boards support proposal intake, archival tracking,
     and long-horizon platform coordination.
   </p>
-
+ 
   <a href="/signal/" class="layer-link">
     Explore Signal Boards →
   </a>
-
+ 
   <div class="mini-links">
     <a href="/signal/satoshium/">Satoshium</a> ·
     <a href="/signal/bitcoin/">Bitcoin</a> ·
     <a href="/signal/ai/">AI Alignment</a>
   </div>
 </div>
-
+ 
     <div>
       <h3>🔧 Operational Surface</h3>
       <p class="muted mini">
@@ -316,7 +397,7 @@ ul{margin:8px 0 0 18px}
         service design, and future systems coordination.
       </p>
     </div>
-
+ 
     <div>
       <h3>📈 Institutional Backbone</h3>
       <p class="muted mini">
@@ -324,17 +405,17 @@ ul{margin:8px 0 0 18px}
         connect, scale, and interact over years of development.
       </p>
     </div>
-
+ 
   </div>
-</div>
-
-<div class="card">
-  <h2>The Satoshium Domain Architecture</h2>
+</section>
+ 
+<section class="card" aria-labelledby="domain-arch-heading">
+  <h2 id="domain-arch-heading">The Satoshium Domain Architecture</h2>
   <p class="muted">
     Satoshium Net is one layer within a broader multi-domain ecosystem. Each domain has a distinct role,
     allowing the project to separate public presence, experiments, infrastructure, knowledge, and commerce.
   </p>
-
+ 
   <ul>
     <li><strong>satoshium.ai</strong> — public-facing platform and primary brand surface</li>
     <li><strong>satoshium-progress</strong> — public build surface and visible development progress</li>
@@ -343,16 +424,16 @@ ul{margin:8px 0 0 18px}
     <li><strong>satoshium.net</strong> — network, infrastructure, and future service visibility</li>
     <li><strong>satoshium.store</strong> — merchandise and economic/brand layer</li>
   </ul>
-
+ 
   <div class="note">
     Together, these domains form a layered ecosystem rather than a single flat website.
   </div>
-</div>
-
+</section>
+ 
 <div class="grid-2">
-
-  <div class="card">
-    <h2>Current Workspace Functions</h2>
+ 
+  <section class="card" aria-labelledby="workspace-heading">
+    <h2 id="workspace-heading">Current Workspace Functions</h2>
     <p class="muted">
       Today, Satoshium Net includes a structured workspace for active planning and development.
       That workspace provides a place to organize infrastructure thinking before the full network layer exists.
@@ -365,10 +446,10 @@ ul{margin:8px 0 0 18px}
       <li><strong>Temp</strong> — short-term staging area for active sessions</li>
     </ul>
     <p><a href="https://satoshium.info/workspace/">Enter Workspace →</a></p>
-  </div>
-
-  <div class="card">
-    <h2>Likely Future Sections</h2>
+  </section>
+ 
+  <section class="card" aria-labelledby="future-sections-heading">
+    <h2 id="future-sections-heading">Likely Future Sections</h2>
     <p class="muted">
       Within reason, this site could gradually expand to include additional infrastructure and network-focused layers
       as the ecosystem matures.
@@ -383,20 +464,20 @@ ul{margin:8px 0 0 18px}
       <li>Network research and essays</li>
       <li>Infrastructure onboarding references</li>
     </ul>
-  </div>
-
+  </section>
+ 
 </div>
-
-<div class="card">
-  <h2>Possible Future Layers</h2>
+ 
+<section class="card" aria-labelledby="future-layers-heading">
+  <h2 id="future-layers-heading">Possible Future Layers</h2>
   <p class="muted">
-    As Satoshium Net matures, this domain can expand beyond today’s workspace and become a broader
+    As Satoshium Net matures, this domain can expand beyond today's workspace and become a broader
     infrastructure reference surface for the entire ecosystem. These are plausible future layers that could be added
     over time without changing the core purpose of the site.
   </p>
-
+ 
   <div class="grid-3">
-
+ 
     <div>
       <h3>🧭 Service Topology</h3>
       <p class="muted mini">
@@ -404,7 +485,7 @@ ul{margin:8px 0 0 18px}
         across the ecosystem.
       </p>
     </div>
-
+ 
     <div>
       <h3>🕸️ Network Evolution</h3>
       <p class="muted mini">
@@ -412,7 +493,7 @@ ul{margin:8px 0 0 18px}
         domain relationships, and network planning over time.
       </p>
     </div>
-
+ 
     <div>
       <h3>📡 Signal / Routing Models</h3>
       <p class="muted mini">
@@ -420,7 +501,7 @@ ul{margin:8px 0 0 18px}
         and coordination between distributed intelligence services.
       </p>
     </div>
-
+ 
     <div>
       <h3>🧪 Infrastructure Research</h3>
       <p class="muted mini">
@@ -428,7 +509,7 @@ ul{margin:8px 0 0 18px}
         and infrastructure planning inside the Satoshium vision.
       </p>
     </div>
-
+ 
     <div>
       <h3>🛠️ Builder Onboarding</h3>
       <p class="muted mini">
@@ -436,7 +517,7 @@ ul{margin:8px 0 0 18px}
         naming patterns, network planning, and system boundaries.
       </p>
     </div>
-
+ 
     <div>
       <h3>📊 Public Infrastructure Logs</h3>
       <p class="muted mini">
@@ -444,49 +525,49 @@ ul{margin:8px 0 0 18px}
         and long-horizon infrastructure development.
       </p>
     </div>
-
+ 
   </div>
-
+ 
   <div class="note">
     These layers do not all need to exist now. The purpose of listing them is to show how
     satoshium.net can grow into a durable infrastructure and network-visibility domain by 2035.
   </div>
-</div>
-
-<div class="card">
-  <h2>A Big-Picture View of 2035</h2>
+</section>
+ 
+<section class="card" aria-labelledby="big-picture-heading">
+  <h2 id="big-picture-heading">A Big-Picture View of 2035</h2>
   <p class="muted">
-    In the long run, Satoshium Net could become the place where the ecosystem’s infrastructure explains itself
+    In the long run, Satoshium Net could become the place where the ecosystem's infrastructure explains itself
     to the world: not through hype, but through visible structure. A future visitor might come here not only to
     inspect network concepts and service relationships, but to understand how decentralized intelligence systems,
     cryptographic coordination, and long-horizon infrastructure design came together in one coherent architecture.
   </p>
-
+ 
   <p class="muted">
     That is the larger role of this site. It is where the project learns how its systems connect.
   </p>
-</div>
-
-<div class="card">
-  <h2>Current Status</h2>
+</section>
+ 
+<section class="card" aria-labelledby="status-heading">
+  <h2 id="status-heading">Current Status</h2>
   <p class="muted">
     Satoshium Net is now live as an independent domain and has begun establishing its initial structure,
     workspace, and role within the wider ecosystem. The foundation is in place. Over time, this site can evolve
     from a practical development surface into a durable network and infrastructure layer for the broader Satoshium project.
   </p>
-</div>
-
+</section>
+ 
 </main>
-
+ 
 <div class="wrap reflection">
 <hr />
 <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
   Satoshium is being built slowly, in public, and with architectural discipline.
 </div>
 <hr />
-
+ 
 <div id="footer-container"></div>
-
+ 
 <script src="https://satoshium.link/assets/sayings.js"></script>
 <script>
 fetch("https://satoshium.link/components/footer.html")
