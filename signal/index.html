@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Satoshium Signal Boards</title>
+<title>Satoshium Signal Boards | Archival Discussion Layer for Decentralized Intelligence</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Satoshium Signal Boards — public archival discussion layer for long-horizon thinking across decentralized intelligence infrastructure, Bitcoin trust systems, and constitutional AI agent governance." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Satoshium Signal Boards | Archival Discussion Layer for Decentralized Intelligence" />
+<meta property="og:description" content="Satoshium Signal Boards — public archival discussion layer for long-horizon thinking across decentralized intelligence infrastructure, Bitcoin trust systems, and constitutional AI agent governance." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/index.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Satoshium Signal Boards | Archival Discussion Layer for Decentralized Intelligence" />
+<meta name="twitter:description" content="Satoshium Signal Boards — public archival discussion layer for long-horizon thinking across decentralized intelligence infrastructure, Bitcoin trust systems, and constitutional AI agent governance." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/index.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -24,6 +49,7 @@ h1 {
 
 p {
     line-height: 1.45;
+    margin-bottom: 18px;
 }
 
 a {
@@ -43,6 +69,12 @@ a:active {
     color: #7bdfff;
 }
 
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #4cc9f0;
+    outline-offset: 2px;
+}
+
 /* Board containers */
 .board {
     border: 1px solid #233044;
@@ -60,17 +92,10 @@ a:active {
     margin-bottom: 0;
 }
 
+/* TIER 3 — CSS: consolidated duplicate .board-satoshium:hover blocks into one */
 /* Satoshium */
 .board-satoshium h2 a {
     color: #4cc9f0;
-}
-
-.board-satoshium:hover {
-    border-color: #4cc9f0;
-}
-
-.board-satoshium:hover h2 a {
-    color: #7bdfff;
 }
 
 .board-satoshium:hover {
@@ -80,17 +105,14 @@ a:active {
     inset 0 0 3px #4cc9f022;
 }
 
+.board-satoshium:hover h2 a {
+    color: #7bdfff;
+}
+
+/* TIER 3 — CSS: consolidated duplicate .board-bitcoin:hover blocks into one */
 /* Bitcoin */
 .board-bitcoin h2 a {
     color: #f2a900;
-}
-
-.board-bitcoin:hover {
-    border-color: #f2a900;
-}
-
-.board-bitcoin:hover h2 a {
-    color: #ffd166;
 }
 
 .board-bitcoin:hover {
@@ -99,18 +121,15 @@ a:active {
     0 0 6px #f2a90033,
     inset 0 0 3px #f2a90022;
 }
-    
+
+.board-bitcoin:hover h2 a {
+    color: #ffd166;
+}
+
+/* TIER 3 — CSS: consolidated duplicate .board-ai:hover blocks into one */
 /* AI */
 .board-ai h2 a {
     color: #9d7bff;
-}
-
-.board-ai:hover {
-    border-color: #9d7bff;
-}
-
-.board-ai:hover h2 a {
-    color: #c6b7ff;
 }
 
 .board-ai:hover {
@@ -119,7 +138,11 @@ a:active {
     0 0 6px #9d7bff33,
     inset 0 0 3px #9d7bff22;
 }
-   
+
+.board-ai:hover h2 a {
+    color: #c6b7ff;
+}
+
 /* Footer treatment */
 .footer-note {
     margin-top: 18px;
@@ -130,19 +153,31 @@ a:active {
     border-top: 1px solid #d6e2f0;
     margin: 12px 0;
 }
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .board {
+        transition: none;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- TIER 3 — ACCESSIBILITY: semantic main landmark -->
+<main>
+
 <h1>Satoshium Signal Boards</h1>
 
 <p>
-Inspired by the early forums and mailing lists that shaped Bitcoin’s emergence,
+Inspired by the early forums and mailing lists that shaped Bitcoin's emergence,
 Signal Boards provide a public discussion layer for long-horizon thinking across
 Satoshium, Bitcoin infrastructure, and constitutional AI systems.
 </p>
 
+<!-- TIER 3 — ACCESSIBILITY: board listing wrapped in nav landmark -->
+<nav aria-label="Signal board directory">
 <div class="board board-satoshium">
     <h2><a href="satoshium.html">Satoshium Board</a></h2>
     <p>
@@ -166,8 +201,7 @@ Satoshium, Bitcoin infrastructure, and constitutional AI systems.
         constitutional AI models, and cryptographic automation research.
     </p>
 </div>
-
-<br>
+</nav>
 
 <p>
 Signal Boards are currently operating in archival mode.
@@ -179,7 +213,7 @@ Signal Boards operate as an archival discussion layer within the Satoshium netwo
 </p>
 
 <p style="margin-top: 10px;">
-<a href="participation.html">Read participation guidelines →</a>
+<a href="participation.html">Read participation guidelines &rarr;</a>
 </p>
 
 <hr class="footer-rule">
@@ -187,6 +221,8 @@ Signal Boards operate as an archival discussion layer within the Satoshium netwo
     Archival discussion layer inspired by early Bitcoin-era forums.
 </div>
 <hr class="footer-rule">
+
+</main>
 
 </body>
 </html>
