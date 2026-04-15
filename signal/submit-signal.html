@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Submit a Signal Proposal</title>
+<title>Submit a Signal Proposal | Satoshium Curated Intake Layer</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Submit a signal proposal to the Satoshium Signal Boards — curated intake for structured contributions to platform architecture, Bitcoin infrastructure, and constitutional AI agent governance discussion." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Submit a Signal Proposal | Satoshium Curated Intake Layer" />
+<meta property="og:description" content="Submit a signal proposal to the Satoshium Signal Boards — curated intake for structured contributions to platform architecture, Bitcoin infrastructure, and constitutional AI agent governance discussion." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/submit-signal.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Submit a Signal Proposal | Satoshium Curated Intake Layer" />
+<meta name="twitter:description" content="Submit a signal proposal to the Satoshium Signal Boards — curated intake for structured contributions to platform architecture, Bitcoin infrastructure, and constitutional AI agent governance discussion." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/submit-signal.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -44,6 +69,16 @@ input, textarea, select {
     color: #d6e2f0;
     padding: 8px;
     font-family: monospace;
+    /* TIER 3 — CSS: added font-size to prevent mobile zoom on iOS */
+    font-size: 16px;
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for form controls */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #4cc9f0;
+    outline-offset: 2px;
 }
 
 button {
@@ -54,10 +89,18 @@ button {
     color: #0b0f14;
     font-family: monospace;
     cursor: pointer;
+    /* TIER 3 — CSS: added font-size for consistency */
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #7bdfff;
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for button */
+button:focus-visible {
+    outline: 2px solid #7bdfff;
+    outline-offset: 2px;
 }
 
 a {
@@ -77,6 +120,12 @@ a:active {
     color: #7bdfff;
 }
 
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #4cc9f0;
+    outline-offset: 2px;
+}
+
 .checkbox-row {
     display: flex;
     align-items: flex-start;
@@ -93,14 +142,29 @@ a:active {
     display: block;
     line-height: 1.5;
 }
-    
+
+p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
 .footer-note {
     margin-top: 28px;
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
 }
 </style>
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main landmark -->
+<main>
 
 <h1>Submit a Signal Proposal</h1>
 
@@ -115,8 +179,8 @@ alignment, or structure.
 </p>
 <p>
 Signal submission intake is being prepared for direct Satoshium review. Public form delivery is not yet active.
-</p>   
-    
+</p>
+
 <form action="https://formspree.io/f/mzdjlrjj" method="POST">
     <input type="hidden" name="source" value="Satoshium Signal Board">
     <input type="hidden" name="category" value="Signal Submission">
@@ -124,25 +188,25 @@ Signal submission intake is being prepared for direct Satoshium review. Public f
     <input type="hidden" name="_redirect" value="https://satoshium.net/signal/submitted.html">
     <input type="text" name="_gotcha" style="display:none">
 
-    <label>Your Name or Alias (optional)</label>
-    <input type="text" name="name">
+    <label for="signal-name">Your Name or Alias (optional)</label>
+    <input type="text" name="name" id="signal-name">
 
-    <label>Email (optional)</label>
-    <input type="email" name="email">
+    <label for="signal-email">Email (optional)</label>
+    <input type="email" name="email" id="signal-email">
 
-    <label>Suggested Signal Title</label>
-    <input type="text" name="title" required>
+    <label for="signal-title">Suggested Signal Title</label>
+    <input type="text" name="title" id="signal-title" required>
 
-    <label>Relevant Board</label>
-    <select name="board" required>
+    <label for="signal-board">Relevant Board</label>
+    <select name="board" id="signal-board" required>
         <option value="">Select board...</option>
         <option value="Satoshium Board">Satoshium Board</option>
         <option value="Bitcoin Board">Bitcoin Board</option>
         <option value="AI Alignment Board">AI Alignment Board</option>
     </select>
 
-    <label>Your Signal Proposal</label>
-    <textarea name="proposal" rows="10" required></textarea>
+    <label for="signal-proposal">Your Signal Proposal</label>
+    <textarea name="proposal" id="signal-proposal" rows="10" required></textarea>
 
     <label class="checkbox-row">
         <input type="checkbox" name="guidelines_acknowledged" value="yes" required>
@@ -151,22 +215,26 @@ Signal submission intake is being prepared for direct Satoshium review. Public f
 
     <button type="submit">Submit Signal</button>
 </form>
-    
+
 <div class="rule"></div>
 
-<p>
-Return to participation guidelines:
-<a href="participation.html">Signal Board Participation Guidelines</a>
-</p>
+<nav aria-label="Page navigation">
+  <p>
+  Return to participation guidelines:
+  <a href="participation.html">Signal Board Participation Guidelines</a>
+  </p>
 
-<p>
-Return to Signal Boards:
-<a href="index.html">Signal Boards Index</a>
-</p>
+  <p>
+  Return to Signal Boards:
+  <a href="index.html">Signal Boards Index</a>
+  </p>
+</nav>
 
 <p class="footer-note">
 Archival discussion layer inspired by early Bitcoin-era forums.
 </p>
+
+</main>
 
 </body>
 </html>
