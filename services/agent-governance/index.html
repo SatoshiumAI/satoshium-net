@@ -7,9 +7,33 @@
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-  <title>SATOSHIUM Agent Governance & Cryptographic Automation Services</title>
-  <meta name="description" content="SATOSHIUM Agent Governance & Cryptographic Automation Services provides governance design, policy evaluation, and cryptographic verification workflows for decentralized AI agents." />
- <style>
+<title>SATOSHIUM Agent Governance & Cryptographic Automation Services</title>
+<meta name="description" content="SATOSHIUM Agent Governance & Cryptographic Automation Services provides governance design, policy evaluation, and cryptographic verification workflows for decentralized AI agents." />
+
+<!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
+<meta property="og:title" content="SATOSHIUM Agent Governance & Cryptographic Automation Services" />
+<meta property="og:description" content="Governance design, policy evaluation, and cryptographic verification workflows for decentralized AI agents within the Satoshium trust-layer architecture." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/services/agent-governance/" />
+<meta property="og:image" content="https://satoshium.net/services/agent-governance/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SATOSHIUM Agent Governance & Cryptographic Automation Services" />
+<meta name="twitter:description" content="Governance design, policy evaluation, and cryptographic verification workflows for decentralized AI agents within the Satoshium trust-layer architecture." />
+<meta name="twitter:image" content="https://satoshium.net/services/agent-governance/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL (was missing) -->
+<link rel="canonical" href="https://satoshium.net/services/agent-governance/" />
+
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
+
+<style>
 
 /* ===== Core Theme ===== */
 
@@ -29,6 +53,11 @@
 }
 
 *{box-sizing:border-box}
+
+/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+html{
+  scroll-behavior:smooth;
+}
 
 html,body{
 margin:0;
@@ -52,6 +81,13 @@ text-decoration:none;
 
 a:hover{
 color:var(--gold);
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
 }
 
 /* ===== Layout ===== */
@@ -243,6 +279,9 @@ margin-bottom:8px;
 
 .reflection{
 margin-top:40px;
+/* TIER 3 — CSS: added margin-bottom and color for consistency with other pages */
+margin-bottom:40px;
+color:var(--muted);
 }
 
 .footer{
@@ -261,18 +300,29 @@ margin:28px 0;
 color:var(--muted);
 }
 
-</style>
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .card{transition:none}
+}
 
-  <body id="top">
+</style>
+<!-- TIER 3 — FIX: added missing </head> tag (was absent — <body> followed directly after </style>) -->
+</head>
+
+<body id="top">
 
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="https://satoshium.link/components/topbar-loader.js"></script>
- 
-<main class="wrap content">
 
-    <section class="hero">
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+<main id="main-content" class="wrap content">
+
+    <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
+    <section class="hero" aria-labelledby="hero-heading">
        <div class="pill">Governance • Verification • Cryptographic Automation</div>
-        <h1>SATOSHIUM Agent Governance & Cryptographic Automation Services</h1>
+        <h1 id="hero-heading">SATOSHIUM Agent Governance & Cryptographic Automation Services</h1>
         <p>
           SATOSHIUM Agent Governance & Cryptographic Automation Services provides
           governance design, policy evaluation, and cryptographic verification workflows
@@ -287,10 +337,10 @@ color:var(--muted);
         </div>
      </section>
 
-    <section>
+    <section aria-label="Service overview">
       <div class="wrap grid two-up">
- <div class="card">
-          <h2>What this service provides</h2>
+ <div class="card" aria-labelledby="provides-heading">
+          <h2 id="provides-heading">What this service provides</h2>
           <ul>
             <li>Design and development of governance logic for decentralized AI agents</li>
             <li>Ruleset-based evaluation of agent actions and decision workflows</li>
@@ -300,8 +350,8 @@ color:var(--muted);
           </ul>
         </div>
 
-<div class="card">
-          <h2>Who this is for</h2>
+<div class="card" aria-labelledby="audience-heading">
+          <h2 id="audience-heading">Who this is for</h2>
           <ul>
             <li>Builders testing AI agent governance models</li>
             <li>Teams exploring verifiable agent execution records</li>
@@ -312,10 +362,10 @@ color:var(--muted);
       </div>
     </section>
 
-    <section id="workflow">
+    <section id="workflow" aria-labelledby="workflow-heading">
       <div class="wrap grid">
   <div class="card">
-          <h2>Current service workflow</h2>
+          <h2 id="workflow-heading">Current service workflow</h2>
           <ol class="steps">
             <li>Submit or define a governance ruleset for an AI agent or automation workflow.</li>
             <li>Evaluate a proposed agent action against the selected rules and policy conditions.</li>
@@ -327,10 +377,10 @@ color:var(--muted);
       </div>
     </section>
 
-    <section>
+    <section aria-label="Service details">
       <div class="wrap grid two-up">
-<div class="card">
-          <h2>Service positioning</h2>
+<div class="card" aria-labelledby="positioning-heading">
+          <h2 id="positioning-heading">Service positioning</h2>
           <p>
             This service is part of the broader SATOSHIUM ecosystem and is being developed
             as a practical governance and verification layer for decentralized intelligence systems.
@@ -339,9 +389,9 @@ color:var(--muted);
           </p>
         </div>
 
-<div class="card">
+<div class="card" aria-labelledby="availability-heading">
 
-<h2>Service availability</h2>
+<h2 id="availability-heading">Service availability</h2>
 
 <p>
 SATOSHIUM Agent Governance & Cryptographic Automation Services is publicly available through
@@ -355,13 +405,15 @@ and extended verification infrastructure will be introduced as the service layer
 </div>
 
 </div>
+<!-- TIER 3 — FIX: added missing </div> to close the grid wrapper (was unclosed on original line 331) -->
+</div>
     </section>
 
-    <section id="launch">
+    <section id="launch" aria-labelledby="launch-heading">
       <div class="wrap grid">
 <div class="card">
 
-<h2>Launch Governance Evaluation Service</h2>
+<h2 id="launch-heading">Launch Governance Evaluation Service</h2>
 
 <p>
 The interface below exposes the operational evaluation surface for
@@ -384,11 +436,10 @@ Launch Governance Tool →
 <div class="pill">Operational Service Interface</div>
 
 </div>
-          </p>
-        </div>
+<!-- TIER 3 — FIX: removed stray </p> and extra </div> (were lines 387, 389) -->
       </div>
     </section>
- </main>                     
+ </main>
 <div class="wrap reflection">
 <hr />
 <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
@@ -407,5 +458,6 @@ fetch("https://satoshium.link/components/footer.html")
  });
 </script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1f9a86c180684740a44ffb9899e98888"}'></script><!-- End Cloudflare Web Analytics -->
+</div>
 </body>
 </html>
