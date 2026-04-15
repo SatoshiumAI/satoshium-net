@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Bitcoin Signal Board</title>
+<title>Bitcoin Signal Board | Satoshium Bitcoin Infrastructure and Trust Layer</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Bitcoin Signal Board — archival discussion layer for Bitcoin as the global base layer of trust, including infrastructure signals, Lightning identity systems, mining verification, and sovereign treasury adoption pathways within the Satoshium network." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Bitcoin Signal Board | Satoshium Bitcoin Infrastructure and Trust Layer" />
+<meta property="og:description" content="Bitcoin Signal Board — archival discussion layer for Bitcoin as the global base layer of trust, including infrastructure signals, Lightning identity systems, mining verification, and sovereign treasury adoption pathways within the Satoshium network." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/bitcoin.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bitcoin Signal Board | Satoshium Bitcoin Infrastructure and Trust Layer" />
+<meta name="twitter:description" content="Bitcoin Signal Board — archival discussion layer for Bitcoin as the global base layer of trust, including infrastructure signals, Lightning identity systems, mining verification, and sovereign treasury adoption pathways within the Satoshium network." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/bitcoin.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -37,6 +62,12 @@ a:hover {
 
 a:active {
     color: #ffd166;
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #f2a900;
+    outline-offset: 2px;
 }
 
 .thread {
@@ -66,11 +97,31 @@ a:active {
     color: #7CFCB2;
     text-shadow: 0 0 4px rgba(124, 252, 178, 0.4);
 }
-    
+
+p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.reflection {
+    margin-top: 28px;
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .pinned-label,
+    .archival-label,
+    .open-label {
+        text-shadow: none;
+    }
+}
 </style>
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main landmark -->
+<main>
 
 <h1>Bitcoin Signal Board</h1>
 
@@ -82,6 +133,8 @@ and sovereign treasury adoption pathways.
 
 <hr>
 
+<!-- TIER 3 — ACCESSIBILITY: thread list wrapped in nav landmark -->
+<nav aria-label="Bitcoin signal threads">
 <div class="thread"><span class="pinned-label">[PINNED SIGNAL]</span> <a href="bitcoin/bitcoin-as-the-base-layer-of-trust.html">Bitcoin as the Base Layer of Trust</a></div>
 <div class="thread"><span class="pinned-label">[PINNED SIGNAL]</span> <a href="bitcoin/running-nodes-vs-trusting-platforms.html">Running Nodes vs Trusting Platforms</a></div>
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="bitcoin/lightning-identity-for-autonomous-agents.html">Lightning Identity for Autonomous Agents</a></div>
@@ -89,8 +142,7 @@ and sovereign treasury adoption pathways.
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="bitcoin/mining-as-a-verification-backbone.html">Mining as a Verification Backbone</a></div>
 <div class="thread"><span class="archival-label">[ARCHIVAL SIGNAL]</span> <a href="bitcoin/layer2-expansion-and-smart-contract-layers.html">Layer-2 Expansion and Smart Contract Layers</a></div>
 <div class="thread"><span class="open-label">[OPEN THREAD]</span> <a href="bitcoin/open-signals-for-bitcoin-infrastructure-and-coordination-systems.html">Signals for Bitcoin-Aligned Infrastructure and Coordination Systems</a></div>
-
-<br>
+</nav>
 
 <p>
 Signal Boards track structural developments across the Bitcoin ecosystem
@@ -101,20 +153,21 @@ Signal Boards operate as an archival discussion layer within the Satoshium netwo
 </p>
 
 <p style="margin-top: 10px;">
-<a href="participation.html">Read participation guidelines →</a>
+<a href="participation.html">Read participation guidelines &rarr;</a>
 </p>
-<p></p>
-    
-<p><a href="index.html">← Back to Signal Boards</a></p>
+
+<p><a href="index.html">&larr; Back to Signal Boards</a></p>
 
 <div id="footer-container"></div>
 <div class="wrap reflection">
 <hr />
-<div class="muted" style="margin-bottom:14px; max-width:760px;">
-  Archival discussion layer inspired by early Bitcoin-era forums.
+<div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
+  Satoshium is being built slowly, in public, and with architectural discipline.
 </div>
 <hr />
-    
-    
+</div>
+
+</main>
+
 </body>
 </html>
