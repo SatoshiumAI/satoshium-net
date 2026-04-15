@@ -8,6 +8,33 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
 <title>Aegis — The Agent Firewall</title>
+
+<!-- TIER 3 — SEO: meta description (was missing) -->
+<meta name="description" content="Aegis is Satoshium's lifecycle verification engine for evaluating autonomous agent stability across time. Inspect containment posture, routing readiness, export surfaces, and trust-layer compatibility." />
+
+<!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
+<meta property="og:title" content="Aegis — The Agent Firewall" />
+<meta property="og:description" content="Satoshium's lifecycle verification engine for evaluating autonomous agent stability — inspection, export, routing readiness, and trust-layer compatibility surfaces." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/services/aegis/" />
+<meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aegis — The Agent Firewall" />
+<meta name="twitter:description" content="Satoshium's lifecycle verification engine for evaluating autonomous agent stability — inspection, export, routing readiness, and trust-layer compatibility surfaces." />
+<meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL (was missing) -->
+<link rel="canonical" href="https://satoshium.net/services/aegis/" />
+
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
+
 <style>
 :root{
   --card-wm: url('https://satoshium.link/assets/seal.png');
@@ -21,12 +48,20 @@
   --glow:rgba(244,195,106,.16);
 }
 *{box-sizing:border-box}
+
+/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+html{
+  scroll-behavior:smooth;
+}
+
 html,body{
   margin:0;
   padding:0;
   background:radial-gradient(circle at top, #101722 0%, var(--bg) 46%, #05070b 100%);
   color:var(--text);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  /* TIER 3 — CSS: added missing line-height for readability consistency */
+  line-height:1.55;
 }
 body{padding-top:80px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
@@ -59,7 +94,12 @@ body{padding-top:80px}
   opacity:.04;
   pointer-events:none;
   filter:blur(1px);
+  /* TIER 3 — CSS: added z-index for proper watermark stacking */
+  z-index:0;
 }
+/* TIER 3 — CSS: added z-index lift for hero content above watermark */
+.hero > *{position:relative;z-index:1}
+
 .pill{
   display:inline-flex;
   align-items:center;
@@ -121,6 +161,14 @@ h1{
   background:rgba(255,255,255,.02);
   color:var(--text);
 }
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
+}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -146,6 +194,8 @@ h1{
   background-position:right -150px center;
   opacity:.025;
   pointer-events:none;
+  /* TIER 3 — CSS: added z-index for proper watermark stacking */
+  z-index:0;
 }
 .card > *{position:relative;z-index:1}
 h2{margin:0 0 10px;color:var(--gold2);font-size:21px}
@@ -189,18 +239,27 @@ li{margin:6px 0}
   padding-left:12px;
   margin-top:12px;
 }
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .button{transition:none}
+}
 </style>
 </head>
 <body id="top">
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="/components/topbar-loader.js"></script>
 
-<main class="wrap content">
-  <section class="hero" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+<main id="main-content" class="wrap content">
+  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
+  <section class="hero" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="hero-heading">
     <div class="pill">Satoshium Services • Public Evaluation Surface</div>
-    <h1>Aegis — The Agent Firewall</h1>
+    <h1 id="hero-heading">Aegis — The Agent Firewall</h1>
     <p class="hero-sub">
-      Aegis is Satoshium’s lifecycle verification engine for evaluating whether autonomous agents remain safe, unstable, or hostile across time. It exposes structured inspection, export, routing-readiness, and compatibility surfaces so researchers, builders, and infrastructure teams can examine how agent stability is modeled inside the trust layer.
+      Aegis is Satoshium's lifecycle verification engine for evaluating whether autonomous agents remain safe, unstable, or hostile across time. It exposes structured inspection, export, routing-readiness, and compatibility surfaces so researchers, builders, and infrastructure teams can examine how agent stability is modeled inside the trust layer.
     </p>
     <div class="pill-row">
       <div class="pill">Operational</div>
@@ -212,20 +271,21 @@ li{margin:6px 0}
     <div class="hero-actions">
       <a href="https://satoshium.net/services/aegis/architecture.html" class="button primary">View Architecture Overview →</a>
       <a href="https://satoshium.net/services/aegis/aegis-service-panel.html" class="button primary">Open Aegis Service Panel →</a>
-      <a href="https://youtube.com/shorts/9BGYohR8tI4" class="button secondary">Watch Aegis Short Video →</a>
+      <!-- TIER 3 — SECURITY: added target="_blank" rel="noopener noreferrer" for external link -->
+      <a href="https://youtube.com/shorts/9BGYohR8tI4" class="button secondary" target="_blank" rel="noopener noreferrer">Watch Aegis Short Video →</a>
     </div>
   </section>
 
-  <section class="grid">
-    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Why It Matters</h2>
+  <section class="grid" aria-label="Aegis overview cards">
+    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why It Matters</h2>
       <p>
         In the age of autonomous agents, trust cannot rely only on post-incident reactions. Systems need a way to inspect behavior over time, understand stability, and compare whether agent activity appears safe, unstable, or hostile before higher-trust coordination layers depend on it.
       </p>
     </div>
 
-    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Core Capability Surfaces</h2>
+    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="core-heading">
+      <h2 id="core-heading">Core Capability Surfaces</h2>
       <div class="list">
         <div><span>Lifecycle intelligence</span> for stability posture, persistence, and transition detection</div>
         <div><span>Registry participation readiness</span> for indexing, discovery, and coordination surfaces</div>
@@ -236,17 +296,17 @@ li{margin:6px 0}
       </div>
     </div>
 
-    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Current State</h2>
+    <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="state-heading">
+      <h2 id="state-heading">Current State</h2>
       <p>
         Aegis is now presented as a public evaluation and inspection entry point within Satoshium. The service panel, architecture overview, canonical bundle, and related surfaces are intended to help others explore how the subsystem works rather than market it as a finished mass-market enforcement product.
       </p>
     </div>
   </section>
 
-  <section class="capabilities-section">
+  <section class="capabilities-section" aria-labelledby="service-heading">
     <div class="card capabilities-card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Service Surface Capabilities</h2>
+      <h2 id="service-heading">Service Surface Capabilities</h2>
       <div class="capabilities-list">
         <div><span>Explorer mode</span> exposes read-only inspection across agent lifecycle states</div>
         <div><span>Readiness modeling</span> projects compatibility and participation signals without activation behavior</div>
@@ -255,9 +315,9 @@ li{margin:6px 0}
     </div>
   </section>
 
-  <section class="capabilities-section">
+  <section class="capabilities-section" aria-labelledby="bundle-heading">
     <div class="card capabilities-card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>Exportable Aegis Bundle</h2>
+      <h2 id="bundle-heading">Exportable Aegis Bundle</h2>
       <p>
         Aegis exposes a deterministic subsystem bundle surface designed for inspection and technical review, including:
       </p>
@@ -279,9 +339,9 @@ li{margin:6px 0}
     </div>
   </section>
 
-  <section class="capabilities-section">
+  <section class="capabilities-section" aria-labelledby="engage-heading">
     <div class="card capabilities-card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
-      <h2>How To Engage With Aegis</h2>
+      <h2 id="engage-heading">How To Engage With Aegis</h2>
       <p>
         Aegis is available for inspection, experimentation, and technical feedback. If you are exploring agent governance, lifecycle verification, or trust-layer coordination systems, you are invited to review the subsystem, test its public surfaces, and reach out with thoughtful questions or collaboration ideas.
       </p>
