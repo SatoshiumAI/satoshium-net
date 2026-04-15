@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Signal Board Participation</title>
+<title>Signal Board Participation | Satoshium Participation Guidelines</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Signal Board participation guidelines for the Satoshium network — how submissions are reviewed, what signal types are encouraged, moderation approach, and current phase of curated archival discussion." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Signal Board Participation | Satoshium Participation Guidelines" />
+<meta property="og:description" content="Signal Board participation guidelines for the Satoshium network — how submissions are reviewed, what signal types are encouraged, moderation approach, and current phase of curated archival discussion." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/participation.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Signal Board Participation | Satoshium Participation Guidelines" />
+<meta name="twitter:description" content="Signal Board participation guidelines for the Satoshium network — how submissions are reviewed, what signal types are encouraged, moderation approach, and current phase of curated archival discussion." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/participation.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -32,8 +57,30 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: #4cc9f0;
+}
+
+a:hover {
+    color: #7bdfff;
+}
+
+a:active {
+    color: #7bdfff;
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #4cc9f0;
+    outline-offset: 2px;
+}
+
 p, li {
     line-height: 1.5;
+}
+
+p {
+    margin-bottom: 18px;
 }
 
 .rule {
@@ -44,6 +91,11 @@ p, li {
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main + article landmarks -->
+<main>
+
+<article>
 
 <h1>Signal Board Participation</h1>
 
@@ -96,15 +148,21 @@ of the Signal Boards.
 Phase 1 participation is curator-reviewed. Expanded participation methods may be introduced
 in future releases.
 </p>
-<p></p>
+
 <p>
 Ready to submit a signal proposal?
-<a href="submit-signal.html">Submit a signal →</a>
-</p>    
-<p></p>
+<a href="submit-signal.html">Submit a signal &rarr;</a>
+</p>
+
+</article>
+
 <div class="rule"></div>
 
-<p><a href="index.html">← Back to Signal Boards</a></p>
+<nav aria-label="Page navigation">
+  <p><a href="index.html">&larr; Back to Signal Boards</a></p>
+</nav>
+
+</main>
 
 </body>
 </html>
