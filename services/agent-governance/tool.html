@@ -10,6 +10,29 @@
 <title>SATOSHIUM Agent Governance Tool</title>
 <meta name="description" content="Governance tool for SATOSHIUM Agent Governance & Cryptographic Automation Services." />
 
+<!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
+<meta property="og:title" content="SATOSHIUM Agent Governance Tool" />
+<meta property="og:description" content="Interactive governance evaluation tool for decentralized AI agents — ruleset definition, policy evaluation, and cryptographic verification record generation." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/services/agent-governance/tool.html" />
+<meta property="og:image" content="https://satoshium.net/services/agent-governance/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SATOSHIUM Agent Governance Tool" />
+<meta name="twitter:description" content="Interactive governance evaluation tool for decentralized AI agents — ruleset definition, policy evaluation, and cryptographic verification record generation." />
+<meta name="twitter:image" content="https://satoshium.net/services/agent-governance/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL (was missing) -->
+<link rel="canonical" href="https://satoshium.net/services/agent-governance/tool.html" />
+
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
+
 <style>
 :root{
   --card-wm: url('https://satoshium.link/assets/seal.png');
@@ -32,6 +55,11 @@
 
 *{box-sizing:border-box}
 
+/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+html{
+  scroll-behavior:smooth;
+}
+
 html,body{
   margin:0;
   padding:0;
@@ -52,6 +80,16 @@ a{
 
 a:hover{
   color:var(--gold);
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
 }
 
 .wrap{
@@ -241,7 +279,7 @@ textarea:focus{
 textarea::placeholder{
   color:rgba(232,237,247,.42);
 }
-  
+
 textarea{
   min-height:130px;
   resize:vertical;
@@ -250,7 +288,7 @@ textarea{
 .rules-box{
   min-height:220px;
 }
-  
+
 .form-grid{
   display:grid;
   gap:14px;
@@ -278,12 +316,13 @@ textarea{
   background:rgba(255,255,255,.02);
 }
 
+/* TIER 3 — CSS: consolidated duplicate .result-value blocks (were defined twice) */
 .result-value{
   font-size:14px;
   word-break:break-word;
-  line-height:1.5;
+  line-height:1.55;
 }
-  
+
 .status-pill{
   display:inline-flex;
   align-items:center;
@@ -317,11 +356,13 @@ textarea{
   margin-top:12px;
 }
 
+/* TIER 3 — CSS: consolidated duplicate .result-item blocks (were defined twice) */
 .result-item{
   background:rgba(255,255,255,.02);
   border:1px solid rgba(214,163,74,.12);
   border-radius:10px;
   padding:12px;
+  min-height:92px;
 }
 
 .result-label{
@@ -333,21 +374,7 @@ textarea{
   margin-bottom:6px;
 }
 
-.result-value{
-  font-size:14px;
-  word-break:break-word;
-  line-height:1.55;
-}
-
-.result-item{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(214,163,74,.12);
-  border-radius:10px;
-  padding:12px;
-  min-height:92px;
-}
-
-  .hash-value{
+.hash-value{
   font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size:12px;
   line-height:1.55;
@@ -368,11 +395,21 @@ hr{
 
 .reflection{
   margin-top:40px;
+  /* TIER 3 — CSS: added margin-bottom and color for consistency */
+  margin-bottom:40px;
+  color:var(--muted);
 }
 
 @media (max-width:640px){
   h1{font-size:26px}
   .content{padding-top:34px}
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .card,.btn{transition:none}
 }
 </style>
 </head>
@@ -381,12 +418,14 @@ hr{
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="https://satoshium.link/components/topbar-loader.js"></script>
 
- <main class="wrap content">
-  
-  <section class="hero">
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+ <main id="main-content" class="wrap content">
+
+  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
+  <section class="hero" aria-labelledby="hero-heading">
 
    <div class="pill">Reference Tool • Ruleset Evaluation • Verification Record</div>
-<h1>SATOSHIUM Agent Governance Tool</h1>
+<h1 id="hero-heading">SATOSHIUM Agent Governance Tool</h1>
 <p class="muted" style="margin-top:-4px; margin-bottom:10px;">
   SATOSHIUM Agent Governance Engine v0.1
 </p>
@@ -432,10 +471,10 @@ Request Pilot Access
 </a>
 
 </div>
-       
-  <section id="tool-form">
+
+  <section id="tool-form" aria-labelledby="tester-heading">
     <div class="card">
-      <h2>Tester / client information</h2>
+      <h2 id="tester-heading">Tester / client information</h2>
       <div class="form-grid">
         <div class="form-two">
           <div>
@@ -464,8 +503,8 @@ Request Pilot Access
       </div>
     </div>
 
-    <div class="card">
-      <h2>Ruleset definition</h2>
+    <div class="card" aria-labelledby="ruleset-heading">
+      <h2 id="ruleset-heading">Ruleset definition</h2>
       <div class="form-grid">
         <div class="form-two">
           <div>
@@ -498,8 +537,8 @@ Request Pilot Access
       </div>
     </div>
 
-    <div class="card">
-      <h2>Proposed agent action</h2>
+    <div class="card" aria-labelledby="action-heading">
+      <h2 id="action-heading">Proposed agent action</h2>
       <div class="form-grid">
         <div class="form-two">
           <div>
@@ -543,13 +582,13 @@ Transfer 0.50 BTC to a newly submitted external wallet for emergency operating e
       </div>
     </div>
 
-    <div class="card" id="results">
+    <div class="card" id="results" aria-labelledby="governance-result">
       <div class="muted" style="margin-bottom:8px;">
   Service: <strong>SATOSHIUM Agent Governance & Cryptographic Automation Services</strong>
 </div>
 <h2 id="governance-result">Governance result</h2>
       <div class="result-box">
-        <div id="statusWrap">
+        <div id="statusWrap" role="status" aria-live="polite">
           <span class="status-pill status-review">Awaiting Evaluation</span>
         </div>
 <div class="note">
@@ -564,12 +603,6 @@ This governance record can be exported for audit review, collaboration, and futu
   <span class="result-label">Protocol version</span>
   <div class="result-value" id="protocolVersion">sat-agr-protocol-v1</div>
 </div>
-<div class="result-item">
-  <span class="result-label">Execution output record</span>
-  <div class="result-value" id="executionOutputRecord">
-    No execution record generated yet
-  </div>
-</div>          
           <div class="result-item">
             <span class="result-label">Record ID</span>
             <div class="result-value" id="recordId">Not generated yet</div>
@@ -610,6 +643,7 @@ This governance record can be exported for audit review, collaboration, and futu
             <span class="result-label">Verification Reference (SHA-256)</span>
             <div class="result-value hash-value" id="hashValue">Not generated yet</div>
           </div>
+          <!-- TIER 3 — FIX: removed first duplicate id="executionOutputRecord" block; kept this single instance -->
           <div class="result-item">
             <span class="result-label">Execution output record</span>
             <div class="result-value" id="executionOutputRecord">
@@ -620,12 +654,13 @@ This governance record can be exported for audit review, collaboration, and futu
             <span class="result-label">Evaluation engine</span>
             <div class="result-value" id="engineValue">SATOSHIUM Agent Governance Reference Evaluator</div>
           </div>
-        
+
                   </div>
 
         <div class="actions-row">
   <button class="btn btn-secondary" type="button" id="downloadJson">Download JSON Record</button>
-  <button id="downloadTxtBtn">Download Execution Report (.txt)</button>
+  <!-- TIER 3 — FIX: added missing btn class to download button -->
+  <button class="btn btn-secondary" type="button" id="downloadTxtBtn">Download Execution Report (.txt)</button>
   <button class="btn btn-primary" type="button" id="openReceipt">Open Execution Receipt</button>
   <button class="btn btn-primary" type="button" id="verifyJson">Verify Governance Record Integrity</button>
         </div>
@@ -634,15 +669,15 @@ This governance record can be exported for audit review, collaboration, and futu
     </div>
   </section>
 
-<div class="card">
-  <h2 style="margin-top:0;">Privacy notice</h2>
+<div class="card" aria-labelledby="privacy-heading">
+  <h2 id="privacy-heading" style="margin-top:0;">Privacy notice</h2>
   <p class="muted">
     This reference tool does not collect, transmit, or permanently store submitted governance data on the site.
     Evaluations are processed locally in the browser for demonstration, collaboration, and verification workflow purposes.
   </p>
 </div>
-   
-</main>                     
+
+</main>
 <div class="wrap reflection">
 <hr />
 <div id="random-saying" class="muted" style="margin-bottom:14px; max-width:760px;">
@@ -660,8 +695,9 @@ fetch("https://satoshium.link/components/footer.html")
  document.getElementById("footer-container").innerHTML = data;
  });
 </script>
+</div>
 
-<script>  
+<script>
 const state = {
   lastRecord: null
 };
@@ -710,7 +746,7 @@ function getValues() {
     actionText: document.getElementById("actionText").value.trim()
   };
 }
-  
+
 function openReceipt() {
   if (!state.lastRecord) {
     alert("Run an evaluation first so an execution receipt exists to open.");
@@ -1037,7 +1073,7 @@ ${r.verification_reference_sha256Hash}
 
   receiptWindow.document.close();
 }
-  
+
 function evaluateRecord(data) {
   const action = (data.actionText + " " + data.actionType).toLowerCase();
   const rules = data.rulesetText.toLowerCase();
@@ -1077,7 +1113,7 @@ function evaluateRecord(data) {
 
   return { decision, summary, reason, policyTriggered };
 }
-  
+
 function setStatus(decision) {
   const wrap = document.getElementById("statusWrap");
   let className = "status-review";
@@ -1297,13 +1333,13 @@ ${record.evaluation_engine}
 
   link.click();
 }
-  
+
 function downloadJson() {
   if (!state.lastRecord) {
     alert("Run an evaluation first so a record exists to download.");
     return;
   }
- 
+
   const filenameBase = slugify(state.lastRecord.ruleset_name || state.lastRecord.agent_name || "governance-record");
   const blob = new Blob([JSON.stringify(state.lastRecord, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -1391,7 +1427,7 @@ async function verifyUploadedJson(event) {
 
   event.target.value = "";
 }
-  
+
 </script>
   <script>
 
@@ -1406,5 +1442,12 @@ function satoshiumTrack(eventName, details = {}) {
 
 </script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1f9a86c180684740a44ffb9899e98888"}'></script><!-- End Cloudflare Web Analytics -->
+
+<!-- TIER 3 — ACCESSIBILITY: noscript fallback for JS-dependent governance tool -->
+<noscript>
+  <p style="color:#e8edf7;background:#07090d;padding:40px;font-family:system-ui,sans-serif;text-align:center;">
+    The SATOSHIUM Agent Governance Tool requires JavaScript to run. Please enable JavaScript in your browser settings.
+  </p>
+</noscript>
 </body>
 </html>
