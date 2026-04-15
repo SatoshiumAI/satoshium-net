@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- TIER 3 — FIX: added missing viewport meta (was absent) -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="alternate icon" href="/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
-<title>Open Signals for Improving Satoshium</title>
+<title>Open Signals for Improving Satoshium | Satoshium Participation Layer</title>
+<!-- TIER 3 — SEO: added meta description (was missing) -->
+<meta name="description" content="Open signal thread inviting structured contributions to strengthen Satoshium — architectural suggestions, verification-layer concepts, governance tooling, simulation proposals, and coordination mechanisms for decentralized intelligence infrastructure." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="Open Signals for Improving Satoshium | Satoshium Participation Layer" />
+<meta property="og:description" content="Open signal thread inviting structured contributions to strengthen Satoshium — architectural suggestions, verification-layer concepts, governance tooling, simulation proposals, and coordination mechanisms for decentralized intelligence infrastructure." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.ai/satoshium/open-signals-for-improving-satoshium.html" />
+<meta property="og:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Open Signals for Improving Satoshium | Satoshium Participation Layer" />
+<meta name="twitter:description" content="Open signal thread inviting structured contributions to strengthen Satoshium — architectural suggestions, verification-layer concepts, governance tooling, simulation proposals, and coordination mechanisms for decentralized intelligence infrastructure." />
+<meta name="twitter:image" content="https://satoshium.ai/assets/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.ai/satoshium/open-signals-for-improving-satoshium.html" />
 
 <style>
 body {
@@ -16,6 +39,8 @@ body {
     max-width: 900px;
     margin: auto;
     padding: 40px;
+    /* TIER 3 — CSS: added line-height for consistent readability */
+    line-height: 1.6;
 }
 
 h1 {
@@ -25,6 +50,8 @@ h1 {
 .meta {
     color: #7CFCB2;
     text-shadow: 0 0 4px rgba(124, 252, 178, 0.4);
+    /* TIER 3 — CSS: added missing margin-bottom for spacing consistency */
+    margin-bottom: 24px;
 }
 
 .rule {
@@ -49,13 +76,36 @@ a:active {
     color: #7bdfff;
 }
 
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible {
+    outline: 2px solid #4cc9f0;
+    outline-offset: 2px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
 .footer-note {
     margin-top: 28px;
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .meta {
+        text-shadow: none;
+    }
 }
 </style>
 </head>
 
 <body>
+
+<!-- TIER 3 — ACCESSIBILITY: semantic main + article landmarks -->
+<main>
+
+<article>
 
 <h1>Open Signals for Improving Satoshium</h1>
 
@@ -88,25 +138,33 @@ Constructive signals that strengthen Canon references, Curator structure, govern
 interfaces, simulation environments, or cryptographic automation services are encouraged.
 </p>
 
+</article>
+
 <div class="rule"></div>
 
-See participation guidelines:
-<a href="../participation.html">Signal Board Participation Guidelines</a>
+<!-- TIER 3 — HTML: wrapped nav links in <nav>, fixed bare text outside <p>, removed empty <p> tags -->
+<nav aria-label="Page navigation">
+  <p>
+  See participation guidelines:
+  <a href="../participation.html">Signal Board Participation Guidelines</a>
+  </p>
 
-<p>
-Submit a signal proposal:
-<a href="../submit-signal.html?board=satoshium">Submit a signal →</a>
-</p>
-    <p></p>
+  <p>
+  Submit a signal proposal:
+  <a href="../submit-signal.html?board=satoshium">Submit a signal &rarr;</a>
+  </p>
 
-<p>
-Return to board:
-<a href="../satoshium.html">Satoshium Signal Board</a>
-</p>
-<p></p>
+  <p>
+  Return to board:
+  <a href="../satoshium.html">Satoshium Signal Board</a>
+  </p>
+</nav>
+
 <p class="footer-note">
 Archival discussion layer inspired by early Bitcoin-era forums.
 </p>
+
+</main>
 
 </body>
 </html>
