@@ -8,8 +8,31 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#d6a34a">
 
-<title>SATOSHIUM Verification Ledger Tool</title>
+<title>SATOSHIUM Verification Ledger Tool | Tamper-Evident Record Generator</title>
 <meta name="description" content="SATOSHIUM Verification Ledger Tool generates tamper-evident ledger records for decentralized AI agents, producing anchor-ready verification outputs for audit and future blockchain workflows." />
+
+<!-- TIER 3 — SEO: Open Graph metadata -->
+<meta property="og:title" content="SATOSHIUM Verification Ledger Tool | Tamper-Evident Record Generator" />
+<meta property="og:description" content="Generate tamper-evident ledger records for decentralized AI agents — anchor-ready verification outputs for audit workflows and future blockchain anchoring." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://satoshium.net/services/verification-ledger/tool.html" />
+<meta property="og:image" content="https://satoshium.net/services/verification-ledger/opengraph.jpg" />
+<meta property="og:site_name" content="Satoshium Net" />
+<meta property="og:locale" content="en_US" />
+
+<!-- TIER 3 — SEO: Twitter Card metadata -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SATOSHIUM Verification Ledger Tool | Tamper-Evident Record Generator" />
+<meta name="twitter:description" content="Generate tamper-evident ledger records for decentralized AI agents — anchor-ready verification outputs for audit workflows and future blockchain anchoring." />
+<meta name="twitter:image" content="https://satoshium.net/services/verification-ledger/opengraph.jpg" />
+<meta name="twitter:site" content="@SatoshiumAI" />
+
+<!-- TIER 3 — SEO: canonical URL -->
+<link rel="canonical" href="https://satoshium.net/services/verification-ledger/tool.html" />
+
+<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
+<link rel="preconnect" href="https://satoshium.link">
+<link rel="dns-prefetch" href="https://satoshium.link">
 
 <style>
 :root{
@@ -27,6 +50,11 @@
 }
 
 *{box-sizing:border-box}
+
+/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
+html{
+  scroll-behavior:smooth;
+}
 
 html,body{
   margin:0;
@@ -48,6 +76,16 @@ a{
 
 a:hover{
   color:var(--gold);
+}
+
+/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid var(--gold2);
+  outline-offset:2px;
 }
 
 .wrap{
@@ -332,6 +370,18 @@ hr{
 
 .reflection{
   margin-top:40px;
+  /* TIER 3 — CSS: added margin-bottom and color for consistency with other pages */
+  margin-bottom:40px;
+  color:var(--muted);
+}
+
+/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wrap.content{animation:none;opacity:1;transform:none}
+  .card{transition:none}
+  .btn{transition:none}
+  input,select,textarea{transition:none}
 }
 
 @media (max-width:640px){
@@ -345,11 +395,21 @@ hr{
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="https://satoshium.link/components/topbar-loader.js"></script>
 
-<main class="wrap content">
+<!-- TIER 3 — ACCESSIBILITY: noscript fallback for JS-dependent tool -->
+<noscript>
+  <div style="max-width:980px;margin:100px auto;padding:0 18px;color:#e8edf7;font-family:system-ui,sans-serif;">
+    <h1 style="color:#f4c36a;">JavaScript required</h1>
+    <p>The SATOSHIUM Verification Ledger Tool requires JavaScript to generate and verify ledger records. Please enable JavaScript and reload the page.</p>
+  </div>
+</noscript>
 
-  <section class="hero">
+<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
+<main id="main-content" class="wrap content">
+
+  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
+  <section class="hero" aria-labelledby="hero-heading">
     <div class="pill">Reference Tool • Ledger Entries • Anchor-Ready Outputs</div>
-    <h1>SATOSHIUM Verification Ledger Tool</h1>
+    <h1 id="hero-heading">SATOSHIUM Verification Ledger Tool</h1>
     <p class="muted" style="margin-top:-4px; margin-bottom:10px;">
       SATOSHIUM Verification Ledger Engine v0.1
     </p>
@@ -368,17 +428,19 @@ hr{
     </div>
   </section>
 
-  <div class="card">
-    <h2 style="margin-top:0;">Privacy notice</h2>
-    <p class="muted">
-      This reference tool does not collect, transmit, or permanently store submitted verification data on the site.
-      Ledger records are generated locally in the browser for demonstration, collaboration, and export workflows.
-    </p>
-  </div>
-
-  <section id="tool-form">
+  <section aria-labelledby="privacy-heading">
     <div class="card">
-      <h2>Verification entry input</h2>
+      <h2 id="privacy-heading" style="margin-top:0;">Privacy notice</h2>
+      <p class="muted">
+        This reference tool does not collect, transmit, or permanently store submitted verification data on the site.
+        Ledger records are generated locally in the browser for demonstration, collaboration, and export workflows.
+      </p>
+    </div>
+  </section>
+
+  <section id="tool-form" aria-labelledby="input-heading">
+    <div class="card">
+      <h2 id="input-heading">Verification entry input</h2>
       <div class="form-grid">
 
         <div class="form-two">
@@ -423,11 +485,12 @@ Ledger entry created for a governance denial event related to an external access
       </div>
     </div>
 
-    <div class="card" id="results">
+    <!-- TIER 3 — ACCESSIBILITY: role="region" + aria-live on dynamic result area -->
+    <div class="card" id="results" role="region" aria-labelledby="result-heading" aria-live="polite">
       <div class="muted" style="margin-bottom:8px;">
         Service: <strong>SATOSHIUM Verification Ledger</strong>
       </div>
-      <h2>Verification ledger result</h2>
+      <h2 id="result-heading">Verification ledger result</h2>
 
       <div class="result-box">
         <div id="statusWrap">
@@ -508,8 +571,8 @@ Ledger entry created for a governance denial event related to an external access
   <button class="btn btn-secondary" type="button" id="verifyJson">Verify Ledger Record Integrity</button>
 </div>
 
-        <input type="file" id="jsonFileInput" accept=".json" style="display:none;">
-        <input type="file" id="governanceFileInput" accept=".json" style="display:none;">
+        <input type="file" id="jsonFileInput" accept=".json" style="display:none;" aria-hidden="true">
+        <input type="file" id="governanceFileInput" accept=".json" style="display:none;" aria-hidden="true">
       </div>
     </div>
   </section>
@@ -698,6 +761,7 @@ function downloadExecutionTxt() {
 
   const record = state.lastRecord;
 
+  /* TIER 3 — FIX: added missing closing backtick for template literal (was unclosed — const blob was inside the string) */
   const report =
 `SATOSHIUM Verification Ledger Report
 
@@ -742,6 +806,7 @@ ${record.source_record_id || "none"}
 
 Source Verification Hash:
 ${record.source_verification_hash || "none"}
+`;
 
   const blob = new Blob([report], { type: "text/plain" });
   const link = document.createElement("a");
@@ -782,6 +847,9 @@ async function verifyUploadedJson(event) {
     anchor_ready: record.anchor_ready,
     notes: record.notes,
     entry_digest_sha256Hash: recomputedEntryDigest,
+    source_import: record.source_import,
+    source_record_id: record.source_record_id,
+    source_verification_hash: record.source_verification_hash,
     summary: record.summary
   };
 
@@ -813,7 +881,7 @@ async function importGovernanceRecord(event) {
   record.ruleset_name ||
   record.rule_id ||
   "";
- 
+
   if (record.decision === "APPROVED") {
     document.getElementById("decisionValue").value = "allowed";
   } else if (record.decision === "BLOCKED") {
@@ -844,7 +912,7 @@ state.importedSource =
 state.importedRecordId = record.record_id || null;
 state.importedVerificationHash =
   record.verification_reference_sha256Hash || null;
-  
+
   event.target.value = "";
 }
 
