@@ -11,11 +11,11 @@
 <title>Aegis Architecture Overview</title>
 
 <!-- TIER 3 — SEO: meta description (was missing) -->
-<meta name="description" content="Architecture overview of Aegis, Satoshium's lifecycle verification engine for evaluating autonomous agent stability, containment posture, and trust-layer readiness across time." />
+<meta name="description" content="Architecture overview of Aegis, Satoshium's AI agent inspection and lifecycle verification tool for reviewing agent stability, containment posture, service boundaries, and export surfaces." />
 
 <!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
 <meta property="og:title" content="Aegis Architecture Overview" />
-<meta property="og:description" content="Architecture overview of Aegis — Satoshium's lifecycle verification engine for evaluating autonomous agent stability, containment posture, and trust-layer readiness." />
+<meta property="og:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification tool for reviewing stability, containment posture, service boundaries, and export surfaces." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://satoshium.net/services/aegis/architecture/" />
 <meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
@@ -25,7 +25,7 @@
 <!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Aegis Architecture Overview" />
-<meta name="twitter:description" content="Architecture overview of Aegis — Satoshium's lifecycle verification engine for evaluating autonomous agent stability, containment posture, and trust-layer readiness." />
+<meta name="twitter:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification tool for reviewing stability, containment posture, service boundaries, and export surfaces." />
 <meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
 <meta name="twitter:site" content="@SatoshiumAI" />
 
@@ -214,18 +214,18 @@ ul{margin:8px 0 0 18px}
 <h1 id="hero-heading" style="margin-top:12px;">Aegis: The Agent Firewall</h1>
 
 <p class="muted" style="max-width:900px;">
-Aegis is Satoshium's lifecycle verification engine for evaluating whether autonomous agents remain safe, unstable, or hostile across time. It is designed as a layered, deterministic, read-only subsystem that exposes inspection, routing-readiness, export, and compatibility surfaces without claiming premature execution authority or external enforcement.
+Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This architecture page explains the current read-only service boundary: Aegis receives inspection inputs, returns structured lifecycle and readiness information, exposes export surfaces, and does not claim execution authority, routing authority, registry mutation, or ledger mutation.
 </p>
 
 <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on card sections -->
 <section class="card" aria-labelledby="purpose-heading">
   <h2 id="purpose-heading" style="margin-top:0;">System Purpose</h2>
   <p>
-    Aegis exists to make agent stability visible. Rather than marketing a finished enforcement product, Satoshium publishes Aegis as an inspectable subsystem that produces structured readiness signals other systems, researchers, and infrastructure teams can review, test, and compare.
+    Aegis exists to make agent stability visible through a current Satoshium service surface. Users can review the public panel, run sample read-only inspections, compare response payloads, and examine how lifecycle verification is separated from execution, routing, registry mutation, and ledger writes.
   </p>
   <div class="grid-3">
     <div class="feature-box">
-      <strong>Read-only by default</strong>
+      <strong>Read-only service boundary</strong>
       Aegis describes posture, transitions, compatibility, and export readiness without granting execution rights.
     </div>
     <div class="feature-box">
@@ -233,8 +233,8 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
       Classification and readiness outputs are derived from explicit lifecycle conditions rather than hidden heuristics.
     </div>
     <div class="feature-box">
-      <strong>Trust-layer alignment</strong>
-      Outputs are structured to interoperate with Registry, Chronicle, and future Anchor commitment layers.
+      <strong>Service-layer clarity</strong>
+      Outputs are structured for inspection, documentation, screenshots, and technical review without implying automatic certification or enforcement.
     </div>
   </div>
 </section>
@@ -245,13 +245,13 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
 → containment lifecycle evaluation
 → stability posture
 → registry participation readiness
-→ coordination routing readiness
+→ service boundary classification
 → exportable bundle surfaces
-→ Chronicle handshake preview
-→ Anchor compatibility preview
+→ documentation and review surfaces
+→ compatibility preview surfaces
 → deterministic hash identity</div>
   <p class="muted small note">
-    The architecture is intentionally layered. Each surface builds on prior surfaces so evaluation stays inspectable, portable, and auditable across the trust layer.
+    The architecture is intentionally layered. Each surface builds on prior surfaces so evaluation stays inspectable, portable, auditable, and clearly separated from execution authority.
   </p>
 </section>
 
@@ -263,24 +263,24 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
       Tracks stability posture, transitions, persistence, and long-horizon agent behavior across containment lifecycles.
     </div>
     <div class="feature-box">
-      <strong>Registry participation readiness</strong>
-      Produces deterministic signals for indexing, discovery, snapshotting, and future governance coordination.
+      <strong>Service inspection readiness</strong>
+      Produces structured signals for review, screenshots, documentation, and comparison across sample actor states.
     </div>
     <div class="feature-box">
-      <strong>Coordination routing surfaces</strong>
-      Exposes participation classes, readiness reasons, and future certification-surface compatibility projections.
+      <strong>Boundary and readiness surfaces</strong>
+      Exposes participation classes, readiness reasons, and inspection-safe compatibility projections without granting routing authority.
     </div>
     <div class="feature-box">
       <strong>Artifact exportability</strong>
       Supports manifest descriptors, bundle inspection, ZIP schema, and deterministic hash identity for portable review.
     </div>
     <div class="feature-box">
-      <strong>Chronicle compatibility</strong>
-      Provides preview-level handshake readiness for Chronicle logging and state tracking.
+      <strong>Documentation compatibility</strong>
+      Provides review-friendly structures that can be documented, compared, screenshotted, and inspected over time.
     </div>
     <div class="feature-box">
-      <strong>Anchor preparation</strong>
-      Exposes compatibility previews and commitment-shape surfaces without performing external Bitcoin writes.
+      <strong>Anchor-safe boundary</strong>
+      Exposes compatibility preview shapes without performing external Bitcoin writes or ledger mutation.
     </div>
   </div>
 </section>
@@ -289,7 +289,7 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
   <h2 id="trust-heading" style="margin-top:0;">Trust Boundaries</h2>
   <ul>
     <li><strong>Evaluation surfaces are declarative.</strong> They describe state and readiness but do not grant authority.</li>
-    <li><strong>Compatibility previews are non-operative.</strong> They announce readiness for future Chronicle or Anchor interaction without triggering external actions.</li>
+    <li><strong>Compatibility previews are non-operative.</strong> They show review shapes without triggering external actions.</li>
     <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis may be packaged, inspected, downloaded, and hashed without mutating evaluation logic.</li>
     <li><strong>Hashes identify published artifacts.</strong> Deterministic bundle identity supports comparison and verification, not automatic trust assignment.</li>
   </ul>
@@ -308,7 +308,7 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
     </div>
     <div class="feature-box">
       <strong>Coordination surfaces</strong>
-      Routing compatibility, participation classes, and future higher-trust interoperability projections.
+      Boundary compatibility, participation classes, and review-safe interoperability projections.
     </div>
     <div class="feature-box">
       <strong>Export surfaces</strong>
@@ -334,7 +334,7 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
   <div class="codeblock">aegis-lifecycle-verification.bundle.zip</div>
   <p class="muted small">
     This bundle is designed to be portable, inspectable, and hash-addressable while preserving strict separation between
-    artifact publication and future Chronicle or Anchor execution layers.
+    artifact publication and Chronicle-style documentation or Anchor-style commitment layers.
   </p>
 </section>
 
@@ -346,17 +346,17 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
     <li><strong>Manifest access endpoint</strong> — returns manifest.json directly from the written bundle</li>
     <li><strong>Bundle download endpoint</strong> — streams the canonical Aegis bundle</li>
     <li><strong>Hash surface endpoint</strong> — exposes deterministic bundle identity and content fingerprints</li>
-    <li><strong>Compatibility preview endpoint</strong> — provides future Chronicle and Anchor-facing shapes without external writes</li>
+    <li><strong>Compatibility preview endpoint</strong> — provides Chronicle-style and Anchor-style review shapes without external writes</li>
   </ul>
 </section>
 
 <section class="card" aria-labelledby="eval-heading">
   <h2 id="eval-heading" style="margin-top:0;">Evaluation Positioning</h2>
   <p>
-    Aegis is published for inspection, experimentation, and technical review. Researchers, developers, and infrastructure teams can use the public surfaces, canonical bundle, and demo environment to evaluate how Aegis models agent lifecycle stability inside Satoshium's trust layer.
+    Aegis is published as a current inspection, experimentation, and technical review service surface. Researchers, developers, and infrastructure teams can use the public panel, documentation links, canonical bundle references, and JSON output examples to evaluate how Satoshium models agent lifecycle stability.
   </p>
   <p class="muted small note">
-    This page positions Aegis as inspectable infrastructure rather than a finished mass-market product. That is the right posture for an early subsystem intended to earn trust through visibility, artifacts, and feedback.
+    This page positions Aegis as an inspectable service surface rather than a finished mass-market enforcement product. The claim is intentionally narrow: inspection, lifecycle verification, documentation, and review.
   </p>
 
   <div class="pill-row">
@@ -368,14 +368,14 @@ Aegis is Satoshium's lifecycle verification engine for evaluating whether autono
 <section class="card" aria-labelledby="status-heading">
   <h2 id="status-heading" style="margin-top:0;">Status</h2>
   <p>
-    Aegis is now represented as an operational and exportable subsystem within Satoshium's trust-layer architecture, with machine-readable readiness, inspection, packaging, hashing, and compatibility-preview surfaces.
+    Aegis is represented as an operational public service surface within Satoshium, with machine-readable readiness, inspection, packaging, hashing, and compatibility-preview surfaces.
   </p>
   <div class="pill-row">
     <div class="pill">Operational</div>
     <div class="pill">Inspectable</div>
     <div class="pill">Exportable</div>
-    <div class="pill">Chronicle-Compatible</div>
-    <div class="pill">Anchor-Preview Ready</div>
+    <div class="pill">Service-Boundary Clear</div>
+    <div class="pill">Review Ready</div>
   </div>
 </section>
 
