@@ -7,29 +7,29 @@
     <link rel="alternate icon" href="/assets/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <meta name="theme-color" content="#d6a34a">
-    <title>Aegis — Certification Authority Inspection Service</title>
+    <title>Aegis — AI Agent Inspection Service</title>
  
     <!-- TIER 3 — SEO: meta description (was missing) -->
-    <meta name="description" content="Read-only certification-authority inspection surface for the Satoshium OS Aegis service. Exposes lifecycle transport visibility for actors in canon-participation certification flows." />
+    <meta name="description" content="Read-only AI agent inspection service for Satoshium Aegis. Run sample lifecycle verification requests, review JSON outputs, and inspect service boundaries without activation behavior." />
  
     <!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
-    <meta property="og:title" content="Aegis — Certification Authority Inspection Service" />
-    <meta property="og:description" content="Read-only certification-authority inspection surface for the Satoshium OS Aegis service. Lifecycle transport visibility for canon-participation certification flows." />
+    <meta property="og:title" content="Aegis — AI Agent Inspection Service" />
+    <meta property="og:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation behavior." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://satoshium.net/services/aegis/panel/" />
+    <meta property="og:url" content="https://satoshium.net/services/aegis/aegis-service-panel.html" />
     <meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
     <meta property="og:site_name" content="Satoshium Net" />
     <meta property="og:locale" content="en_US" />
  
     <!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Aegis — Certification Authority Inspection Service" />
-    <meta name="twitter:description" content="Read-only certification-authority inspection surface for the Satoshium OS Aegis service. Lifecycle transport visibility for canon-participation certification flows." />
+    <meta name="twitter:title" content="Aegis — AI Agent Inspection Service" />
+    <meta name="twitter:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation behavior." />
     <meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
     <meta name="twitter:site" content="@SatoshiumAI" />
  
     <!-- TIER 3 — SEO: canonical URL (was missing) -->
-    <link rel="canonical" href="https://satoshium.net/services/aegis/panel/" />
+    <link rel="canonical" href="https://satoshium.net/services/aegis/aegis-service-panel.html" />
  
     <!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origins -->
     <link rel="preconnect" href="https://satoshium.link">
@@ -429,17 +429,17 @@ body{padding-top:80px}
     <!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
     <main id="main-content" class="shell">
       <section class="hero" aria-labelledby="hero-heading">
-        <div class="eyebrow">Satoshium OS / Aegis Service Surface</div>
-        <h1 id="hero-heading">Aegis — Certification Authority Inspection Service</h1>
+        <div class="eyebrow">Satoshium Services / Aegis Inspection Surface</div>
+        <h1 id="hero-heading">Aegis — AI Agent Inspection Service</h1>
         <p>
-          Read-only certification-authority readiness inspection surface exposing lifecycle
-          transport visibility for actors participating in canon-participation certification
-          flows. Designed for dashboards, consoles, service inspection tooling, and screenshot
-          evidence without enabling activation behavior.
+          Satoshium provides AI agent inspection and lifecycle verification tools through this
+          read-only Aegis service panel. Visitors can choose an inspection mode, enter sample
+          actor IDs, run an inspection request, and review structured JSON output without
+          enabling activation, routing, registry mutation, or ledger mutation.
         </p>
         <div class="hero-meta">
           <span class="pill">READ-ONLY INSPECTION SURFACE</span>
-          <span class="state-note">Certification authority inspection endpoint active</span>
+          <span class="state-note">AI agent inspection endpoint active</span>
         </div>
       </section>
  
@@ -448,7 +448,7 @@ body{padding-top:80px}
           <div class="panel-header">
             <h2 id="control-heading">Inspection Control Panel</h2>
             <p>
-              Live read-only panel wired to the certification-authority inspection endpoint.
+              Live read-only panel wired to the Aegis inspection endpoint. Use the controls below to run a sample lifecycle verification request and review the returned JSON.
             </p>
           </div>
  
@@ -488,7 +488,7 @@ body{padding-top:80px}
             <div class="terminal-dots" aria-hidden="true">
               <span></span><span></span><span></span>
             </div>
-            <div id="terminal-label">certification-authority :: response-viewer :: read-only</div>
+            <div id="terminal-label">aegis-inspection :: response-viewer :: read-only</div>
           </div>
           <pre id="responseOutput" role="log" aria-live="polite">{
   "service": "certificationAuthority",
@@ -510,11 +510,11 @@ body{padding-top:80px}
  
         <section class="grid-two">
           <div class="docs" aria-labelledby="guarantees-heading">
-            <h3 id="guarantees-heading">Lifecycle Guarantees</h3>
+            <h3 id="guarantees-heading">Service Boundary Guarantees</h3>
             <ul class="clean">
               <li>read-only inspection surface</li>
               <li>no receipt issuance</li>
-              <li>no canon binding</li>
+              <li>no certification or canon binding</li>
               <li>no routing authority</li>
               <li>no execution authority</li>
               <li>no persistence</li>
@@ -526,8 +526,7 @@ body{padding-top:80px}
           <div class="docs" aria-labelledby="docs-heading">
             <h3 id="docs-heading">Service Contract / Docs References</h3>
             <p>
-              Reference the documented contract and panel definition for service consumers and UI
-              implementers.
+              Reference the documented contract and panel definition for service consumers, UI implementers, and reviewers evaluating Aegis as a current public inspection surface.
             </p>
             <!-- TIER 3 — FIX: removed empty <p></p> tags (were lines 458, 464) -->
             <div class="docs-links">
@@ -545,7 +544,7 @@ body{padding-top:80px}
         </section>
  
         <section class="request" aria-labelledby="request-heading">
-          <h3 id="request-heading">Example Request</h3>
+          <h3 id="request-heading">Example Inspection Request</h3>
           <p>
             <code class="inline">GET /certification-authority?viewMode=explorer&amp;actorIds=actor-a,actor-b</code>
           </p>
@@ -630,7 +629,7 @@ fetch("https://satoshium.link/components/footer.html")
     <!-- TIER 3 — ACCESSIBILITY: noscript fallback for JS-dependent service panel -->
     <noscript>
       <p style="color:#d9fffb;background:#061014;padding:40px;font-family:system-ui,sans-serif;text-align:center;">
-        The Aegis Certification Authority Inspection Service requires JavaScript to run. Please enable JavaScript in your browser settings.
+        The Aegis Aegis AI Agent Inspection Service requires JavaScript to run. Please enable JavaScript in your browser settings.
       </p>
     </noscript>
   </body>
