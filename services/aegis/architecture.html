@@ -15,9 +15,9 @@
 
 <!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
 <meta property="og:title" content="Aegis Architecture Overview" />
-<meta property="og:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification tool for reviewing stability, containment posture, service boundaries, and export surfaces." />
+<meta property="og:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification service for reviewing stability, containment posture, service boundaries, and export surfaces." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://satoshium.net/services/aegis/architecture/" />
+<meta property="og:url" content="https://satoshium.net/services/aegis/architecture.html" />
 <meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
 <meta property="og:site_name" content="Satoshium Net" />
 <meta property="og:locale" content="en_US" />
@@ -25,12 +25,12 @@
 <!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Aegis Architecture Overview" />
-<meta name="twitter:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification tool for reviewing stability, containment posture, service boundaries, and export surfaces." />
+<meta name="twitter:description" content="Architecture overview of Aegis — Satoshium's AI agent inspection and lifecycle verification service for reviewing stability, containment posture, service boundaries, and export surfaces." />
 <meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
 <meta name="twitter:site" content="@SatoshiumAI" />
 
 <!-- TIER 3 — SEO: canonical URL (was missing) -->
-<link rel="canonical" href="https://satoshium.net/services/aegis/architecture/" />
+<link rel="canonical" href="https://satoshium.net/services/aegis/architecture.html" />
 
 <!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
 <link rel="preconnect" href="https://satoshium.link">
@@ -214,7 +214,7 @@ ul{margin:8px 0 0 18px}
 <h1 id="hero-heading" style="margin-top:12px;">Aegis: The Agent Firewall</h1>
 
 <p class="muted" style="max-width:900px;">
-Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This architecture page explains the current read-only service boundary: Aegis receives inspection inputs, returns structured lifecycle and readiness information, exposes export surfaces, and does not claim execution authority, routing authority, registry mutation, or ledger mutation.
+Aegis is Satoshium's AI agent inspection and lifecycle verification service. This architecture page explains the current read-only service boundary: Aegis receives inspection inputs, returns structured lifecycle and readiness information, exposes export surfaces, and does not claim execution authority, routing authority, registry mutation, or ledger mutation.
 </p>
 
 <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on card sections -->
@@ -244,7 +244,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
   <div class="codeblock">agent signals
 → containment lifecycle evaluation
 → stability posture
-→ registry participation readiness
+→ inspection compatibility readiness
 → service boundary classification
 → exportable bundle surfaces
 → documentation and review surfaces
@@ -260,7 +260,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
   <div class="grid-2">
     <div class="feature-box">
       <strong>Lifecycle intelligence</strong>
-      Tracks stability posture, transitions, persistence, and long-horizon agent behavior across containment lifecycles.
+      Tracks stability posture, transitions, persistence, and multi-state lifecycle behavior across containment lifecycles.
     </div>
     <div class="feature-box">
       <strong>Service inspection readiness</strong>
@@ -290,7 +290,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
   <ul>
     <li><strong>Evaluation surfaces are declarative.</strong> They describe state and readiness but do not grant authority.</li>
     <li><strong>Compatibility previews are non-operative.</strong> They show review shapes without triggering external actions.</li>
-    <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis may be packaged, inspected, downloaded, and hashed without mutating evaluation logic.</li>
+    <li><strong>Export surfaces are artifact-focused.</strong> They define how Aegis is packaged for inspection, documentation review, download, and hash comparison without mutating evaluation logic.</li>
     <li><strong>Hashes identify published artifacts.</strong> Deterministic bundle identity supports comparison and verification, not automatic trust assignment.</li>
   </ul>
 </section>
@@ -334,7 +334,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
   <div class="codeblock">aegis-lifecycle-verification.bundle.zip</div>
   <p class="muted small">
     This bundle is designed to be portable, inspectable, and hash-addressable while preserving strict separation between
-    artifact publication and Chronicle-style documentation or Anchor-style commitment layers.
+    artifact publication and documentation review surfaces or verification review surfaces.
   </p>
 </section>
 
@@ -346,7 +346,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
     <li><strong>Manifest access endpoint</strong> — returns manifest.json directly from the written bundle</li>
     <li><strong>Bundle download endpoint</strong> — streams the canonical Aegis bundle</li>
     <li><strong>Hash surface endpoint</strong> — exposes deterministic bundle identity and content fingerprints</li>
-    <li><strong>Compatibility preview endpoint</strong> — provides Chronicle-style and Anchor-style review shapes without external writes</li>
+    <li><strong>Compatibility preview endpoint</strong> — provides documentation and verification review shapes without external writes</li>
   </ul>
 </section>
 
@@ -360,7 +360,7 @@ Aegis is Satoshium's AI agent inspection and lifecycle verification tool. This a
   </p>
 
   <div class="pill-row">
-    <a class="pill" href="https://satoshium.net/services/aegis/">Open the Aegis Service Panel →</a>
+    <a class="pill" href="https://satoshium.net/services/aegis/aegis-service-panel.html">Open the Aegis Service Panel →</a>
     <a class="pill" href="mailto:contact@satoshium.ai?subject=Aegis%20Evaluation%20or%20Research%20Inquiry">Contact Satoshium About Aegis Evaluation →</a>
   </div>
 </section>
