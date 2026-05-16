@@ -9,29 +9,24 @@
 <meta name="theme-color" content="#d6a34a">
 <title>Aegis — The Agent Firewall</title>
 
-<!-- TIER 3 — SEO: meta description (was missing) -->
-<meta name="description" content="Satoshium provides AI agent inspection and lifecycle verification tools through Aegis, a public service surface for reviewing autonomous-agent stability, containment posture, export readiness, and trust-layer compatibility." />
+<meta name="description" content="Satoshium provides AI agent inspection and lifecycle verification tools through Aegis, a public service surface for reviewing autonomous-agent stability, containment posture, export readiness, and verification compatibility." />
 
-<!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
 <meta property="og:title" content="Aegis — The Agent Firewall" />
-<meta property="og:description" content="AI agent inspection and lifecycle verification tools for reviewing autonomous-agent stability, containment posture, export readiness, and trust-layer compatibility." />
+<meta property="og:description" content="AI agent inspection and lifecycle verification tools for reviewing autonomous-agent stability, containment posture, export readiness, and verification compatibility." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://satoshium.net/services/aegis/" />
 <meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
 <meta property="og:site_name" content="Satoshium Net" />
 <meta property="og:locale" content="en_US" />
 
-<!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Aegis — The Agent Firewall" />
-<meta name="twitter:description" content="AI agent inspection and lifecycle verification tools for reviewing autonomous-agent stability, containment posture, export readiness, and trust-layer compatibility." />
+<meta name="twitter:description" content="AI agent inspection and lifecycle verification tools for reviewing autonomous-agent stability, containment posture, export readiness, and verification compatibility." />
 <meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
 <meta name="twitter:site" content="@SatoshiumAI" />
 
-<!-- TIER 3 — SEO: canonical URL (was missing) -->
 <link rel="canonical" href="https://satoshium.net/services/aegis/" />
 
-<!-- TIER 3 — PERFORMANCE: preconnect + dns-prefetch for external origin -->
 <link rel="preconnect" href="https://satoshium.link">
 <link rel="dns-prefetch" href="https://satoshium.link">
 
@@ -49,7 +44,6 @@
 }
 *{box-sizing:border-box}
 
-/* TIER 3 — ACCESSIBILITY: smooth scrolling for anchor links */
 html{
   scroll-behavior:smooth;
 }
@@ -60,7 +54,6 @@ html,body{
   background:radial-gradient(circle at top, #101722 0%, var(--bg) 46%, #05070b 100%);
   color:var(--text);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  /* TIER 3 — CSS: added missing line-height for readability consistency */
   line-height:1.55;
 }
 body{padding-top:80px}
@@ -94,10 +87,8 @@ body{padding-top:80px}
   opacity:.04;
   pointer-events:none;
   filter:blur(1px);
-  /* TIER 3 — CSS: added z-index for proper watermark stacking */
   z-index:0;
 }
-/* TIER 3 — CSS: added z-index lift for hero content above watermark */
 .hero > *{position:relative;z-index:1}
 
 .pill{
@@ -162,7 +153,6 @@ h1{
   color:var(--text);
 }
 
-/* TIER 3 — ACCESSIBILITY: visible focus ring for keyboard navigation */
 a:focus-visible,
 button:focus-visible{
   outline:2px solid var(--gold2);
@@ -194,7 +184,6 @@ button:focus-visible{
   background-position:right -150px center;
   opacity:.025;
   pointer-events:none;
-  /* TIER 3 — CSS: added z-index for proper watermark stacking */
   z-index:0;
 }
 .card > *{position:relative;z-index:1}
@@ -244,7 +233,6 @@ li{margin:6px 0}
   margin-top:12px;
 }
 
-/* TIER 3 — ACCESSIBILITY: reduce motion for users who prefer it */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .wrap.content{animation:none;opacity:1;transform:none}
@@ -256,14 +244,12 @@ li{margin:6px 0}
 <div id="topbar-slot" data-topbar="platform"></div>
 <script src="/components/topbar-loader.js"></script>
 
-<!-- TIER 3 — ACCESSIBILITY: id="main-content" landmark for assistive technology -->
 <main id="main-content" class="wrap content">
-  <!-- TIER 3 — ACCESSIBILITY: aria-labelledby on sections -->
   <section class="hero" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="hero-heading">
     <div class="pill">Satoshium Services • AI Agent Inspection Tool</div>
     <h1 id="hero-heading">Aegis — The Agent Firewall</h1>
     <p class="hero-sub">
-      Satoshium provides AI agent inspection and lifecycle verification tools through Aegis. Visitors can open the live service panel, run read-only inspection requests against sample actor IDs, review structured JSON outputs, and examine the architecture and export surfaces that document how Aegis models agent stability.
+      Satoshium provides AI agent inspection and lifecycle verification tools through Aegis. Visitors can open the live service panel, run read-only inspection requests against sample actor IDs, review structured JSON outputs, and examine the architecture and export surfaces that document how Aegis reviews agent lifecycle stability.
     </p>
     <div class="pill-row">
       <div class="pill">Available Today</div>
@@ -275,7 +261,6 @@ li{margin:6px 0}
     <div class="hero-actions">
       <a href="https://satoshium.net/services/aegis/architecture.html" class="button primary">Review the Aegis Architecture →</a>
       <a href="https://satoshium.net/services/aegis/aegis-service-panel.html" class="button primary">Try the live Aegis Service Panel →</a>
-      <!-- TIER 3 — SECURITY: added target="_blank" rel="noopener noreferrer" for external link -->
       <a href="https://youtube.com/shorts/9BGYohR8tI4" class="button secondary" target="_blank" rel="noopener noreferrer">Watch Aegis Short Video →</a>
     </div>
   </section>
@@ -300,7 +285,7 @@ li{margin:6px 0}
 
       <div>
         <span>Inspect compatibility surfaces</span>
-        and routing-readiness layers
+        and lifecycle readiness states
       </div>
 
       <div>
@@ -326,7 +311,7 @@ li{margin:6px 0}
     <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="why-heading">
       <h2 id="why-heading">Why It Matters</h2>
       <p>
-        Autonomous agents need inspection before trust is extended. Aegis gives Satoshium a public way to show how agent lifecycle states, containment posture, readiness signals, and response payloads can be reviewed before a system relies on them.
+        Autonomous agents need inspection before trust is extended. Aegis gives Satoshium a public way to show how agent lifecycle states, containment posture, readiness signals, and response payloads can be reviewed before they are used in a broader workflow.
       </p>
     </div>
 
@@ -345,7 +330,7 @@ li{margin:6px 0}
     <div class="card" style="--card-wm:url('https://satoshium.link/assets/seal.png');" aria-labelledby="state-heading">
       <h2 id="state-heading">Current State</h2>
       <p>
-Aegis is presented as a public evaluation and inspection service within Satoshium. The service panel, architecture overview, canonical bundle, and related inspection surfaces are available for researchers, developers, and infrastructure teams to evaluate how agent lifecycle verification operates within the trust layer.
+Aegis is presented as a public evaluation and inspection service within Satoshium. The service panel, architecture overview, canonical bundle, and related inspection surfaces are available for researchers, developers, and infrastructure teams to evaluate how agent lifecycle verification operates within the lifecycle verification layer.
 </p>
     </div>
   </section>
@@ -381,7 +366,7 @@ Aegis is presented as a public evaluation and inspection service within Satoshiu
         The canonical Aegis bundle is presented as a portable, hash-addressable subsystem artifact suitable for inspection, comparison, and verification-oriented review.
       </p>
       <p style="margin-top:10px;">
-        These surfaces help Aegis function as an inspectable trust-layer subsystem rather than a local demo only.
+        These surfaces help Aegis function as an inspectable lifecycle verification subsystem rather than a local demo only.
       </p>
     </div>
   </section>
@@ -390,7 +375,7 @@ Aegis is presented as a public evaluation and inspection service within Satoshiu
     <div class="card capabilities-card" style="--card-wm:url('https://satoshium.link/assets/seal.png');">
       <h2 id="engage-heading">How To Engage With Aegis</h2>
       <p>
-        Aegis is available for inspection, experimentation, and technical feedback. Visitors can open the service panel, run sample inspections, review JSON output, study the architecture overview, and contact Satoshium with evaluation questions or collaboration ideas.
+        Aegis is available for inspection, experimentation, and technical feedback. Visitors can open the service panel, run sample inspections, review JSON output, study the architecture overview, and contact Satoshium with evaluation questions or technical review or evaluation questions.
       </p>
       <p class="note small">
         This page intentionally keeps the claim narrow and defensible: Aegis is a current, public, read-only inspection and lifecycle verification surface, not an enforcement authority or production deployment gate.
