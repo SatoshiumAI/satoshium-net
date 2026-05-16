@@ -10,11 +10,11 @@
     <title>Aegis — AI Agent Inspection Service</title>
  
     <!-- TIER 3 — SEO: meta description (was missing) -->
-    <meta name="description" content="Read-only AI agent inspection service for Satoshium Aegis. Run sample lifecycle verification requests, review JSON outputs, and inspect service boundaries without activation behavior." />
+    <meta name="description" content="Read-only AI agent inspection service for Satoshium Aegis. Run sample lifecycle verification requests, review JSON outputs, and inspect service boundaries without activation, routing, registry mutation, or ledger mutation." />
  
     <!-- TIER 3 — SEO: Open Graph (was missing entirely) -->
     <meta property="og:title" content="Aegis — AI Agent Inspection Service" />
-    <meta property="og:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation behavior." />
+    <meta property="og:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation, routing, registry mutation, or ledger mutation." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://satoshium.net/services/aegis/aegis-service-panel.html" />
     <meta property="og:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
@@ -24,7 +24,7 @@
     <!-- TIER 3 — SEO: Twitter Card (was missing entirely) -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Aegis — AI Agent Inspection Service" />
-    <meta name="twitter:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation behavior." />
+    <meta name="twitter:description" content="Read-only AI agent inspection service for Satoshium Aegis. Sample lifecycle verification requests, JSON outputs, and clear service boundaries without activation, routing, registry mutation, or ledger mutation." />
     <meta name="twitter:image" content="https://satoshium.net/services/aegis/opengraph.jpg" />
     <meta name="twitter:site" content="@SatoshiumAI" />
  
@@ -439,7 +439,7 @@ body{padding-top:80px}
         </p>
         <div class="hero-meta">
           <span class="pill">READ-ONLY INSPECTION SURFACE</span>
-          <span class="state-note">AI agent inspection endpoint active</span>
+          <span class="state-note">AI agent inspection endpoint available</span>
         </div>
       </section>
  
@@ -448,7 +448,7 @@ body{padding-top:80px}
           <div class="panel-header">
             <h2 id="control-heading">Inspection Control Panel</h2>
             <p>
-              Live read-only panel wired to the Aegis inspection endpoint. Use the controls below to run a sample lifecycle verification request and review the returned JSON.
+              Public read-only panel connected to the Aegis inspection endpoint. Use the controls below to run a sample lifecycle verification request and review the returned JSON.
             </p>
           </div>
  
@@ -494,7 +494,7 @@ body{padding-top:80px}
   "service": "certificationAuthority",
   "version": "v1",
   "mode": "explorer",
-  "timestamp": "2026-04-06T18:21:00.000Z",
+  "sampleTimestamp": "2026-04-06T18:21:00.000Z",
   "data": {
     "certificationAuthorityExplorerProjection": {
       "certificationAuthoritySurfaceAvailable": true,
@@ -526,7 +526,7 @@ body{padding-top:80px}
           <div class="docs" aria-labelledby="docs-heading">
             <h3 id="docs-heading">Service Contract / Docs References</h3>
             <p>
-              Reference the documented contract and panel definition for service consumers, UI implementers, and reviewers evaluating Aegis as a current public inspection surface.
+              Reference the documented contract and panel definition for reviewers evaluating Aegis as a current public inspection surface.
             </p>
             <!-- TIER 3 — FIX: removed empty <p></p> tags (were lines 458, 464) -->
             <div class="docs-links">
@@ -543,6 +543,14 @@ body{padding-top:80px}
            </div>
         </section>
  
+
+        <section class="request" aria-labelledby="service-scope-heading">
+          <h3 id="service-scope-heading">Service Scope</h3>
+          <p>
+            Aegis is offered as a current public inspection and lifecycle verification service surface for evaluating sample autonomous-agent states. The panel is designed for review, documentation, screenshots, and technical evaluation; it does not activate agents, issue certificates, bind canon, route activity, persist user data, mutate registries, or write to ledgers.
+          </p>
+        </section>
+
         <section class="request" aria-labelledby="request-heading">
           <h3 id="request-heading">Example Inspection Request</h3>
           <p>
@@ -601,6 +609,9 @@ fetch("https://satoshium.link/components/footer.html")
  
         try {
           const res = await fetch(url);
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+          }
           const data = await res.json();
           output.textContent = JSON.stringify(data, null, 2);
         } catch (err) {
@@ -629,7 +640,7 @@ fetch("https://satoshium.link/components/footer.html")
     <!-- TIER 3 — ACCESSIBILITY: noscript fallback for JS-dependent service panel -->
     <noscript>
       <p style="color:#d9fffb;background:#061014;padding:40px;font-family:system-ui,sans-serif;text-align:center;">
-        The Aegis Aegis AI Agent Inspection Service requires JavaScript to run. Please enable JavaScript in your browser settings.
+        The Aegis AI Agent Inspection Service requires JavaScript to run. Please enable JavaScript in your browser settings.
       </p>
     </noscript>
   </body>
