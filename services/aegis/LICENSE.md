@@ -3,6 +3,8 @@
 **Subsystem:** Satoshium Aegis
 **License:** MIT License
 
+Copyright Holder: Christopher D. Burris — Satoshium™ Intelligence Systems
+
 ---
 
 # Overview
