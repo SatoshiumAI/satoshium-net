@@ -1,7 +1,9 @@
 # License
 
 **Project:** Satoshium Net
+
 **License:** MIT License
+
 **Copyright Holder:** Christopher D. Burris — Satoshium™ Intelligence Systems
 
 ---
