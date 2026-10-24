@@ -8,7 +8,7 @@
 
 This is an optional evaluation of public **demonstration** services, not an operational certification process. Use sample or fictional information only: no personal credentials, private keys, confidential records, production agent identifiers, real financial actions or institutional approval tokens.
 
-Aegis sends provided sample actor identifiers to its public inspection API. Agent Governance and Verification Ledger compute their demo records locally in the browser. These pages use Cloudflare Web Analytics for general pageview measurement and request a shared footer from satoshium.link. Associated infrastructure logging and retention have not yet been verified for the proposed pilot. Analytics cannot prove who participated or whether a task was completed. Participation and any feedback are optional; you may stop at any time.
+Aegis sends provided sample actor identifiers to its public inspection API. Agent Governance and Verification Ledger compute their demo records locally in the browser. These pages use Cloudflare Web Analytics for general pageview measurement, request a shared footer from satoshium.link, and make requests to satoshium.ai. Associated infrastructure logging and retention have not yet been verified for the proposed pilot. Analytics cannot prove who participated or whether a task was completed. Participation and any feedback are optional; you may stop at any time.
 
 **Task-sheet distribution and actual consent have not been authorized by this document.** If this notice is presented to real participants, it must first be finalized with an approved feedback channel, privacy arrangement and contact/withdrawal process.
 
