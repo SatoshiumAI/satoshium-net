@@ -1,0 +1,35 @@
+name: Services Pilot Privacy Preflight
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-pilot-preflight.yml'
+      - 'services/reviews/services-pilot-preflight.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify visible disclosures and one beacon
+        run: timeout 145s node services/reviews/services-pilot-preflight.cjs
+      - name: Preserve actual observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-pilot-preflight
+          path: services-pilot-preflight.json
+          if-no-files-found: warn
