@@ -1,0 +1,28 @@
+name: Services Review 013 Host Resource Classification
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - 'services/reviews/services-review013-host-resource.cjs'
+      - '.github/workflows/services-review013-host-resource.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  host-resources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Classify observed resource paths
+        run: timeout 150s node services/reviews/services-review013-host-resource.cjs
