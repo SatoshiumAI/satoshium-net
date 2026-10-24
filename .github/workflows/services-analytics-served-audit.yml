@@ -6,6 +6,13 @@ on:
     paths:
       - 'services/reviews/services-analytics-served-audit.cjs'
       - '.github/workflows/services-analytics-served-audit.yml'
+      - 'services/index.html'
+      - 'services/aegis/index.html'
+      - 'services/aegis/aegis-service-panel.html'
+      - 'services/agent-governance/index.html'
+      - 'services/agent-governance/tool.html'
+      - 'services/verification-ledger/index.html'
+      - 'services/verification-ledger/tool.html'
   workflow_dispatch:
 
 permissions:
