@@ -925,52 +925,96 @@ async function verifyUploadedJson(event) {
   event.target.value = "";
 }
 
+// Import verifies the same ordered v1 reference-record fields exported by
+// the Governance tool. This is a SHA-256 consistency check, NOT a signature,
+// source authentication, institutional approval, or blockchain anchoring.
+async function verifyGovernanceImport(record) {
+  if (!record || typeof record !== "object" || Array.isArray(record)) return false;
+  if (record.record_type !== "Agent Governance Evaluation") return false;
+  if (record.protocol_version !== "sat-agr-protocol-v1") return false;
+  if (typeof record.verification_reference_sha256Hash !== "string" ||
+      !/^[0-9A-Fa-f]{64}$/.test(record.verification_reference_sha256Hash)) return false;
+  const rulesetHash = await sha256Hash(record.ruleset_text || "");
+  const actionHash = await sha256Hash(
+    (record.action_text || "") + "|" +
+    (record.action_type || "") + "|" +
+    (record.amount_value || "")
+  );
+  const ordered = {
+    record_type: record.record_type,
+    service: record.service,
+    tool: record.tool,
+    service_url: record.service_url,
+    tool_url: record.tool_url,
+    evaluation_engine: record.evaluation_engine,
+    protocol_version: record.protocol_version,
+    record_id: record.record_id,
+    timestamp_utc: record.timestamp_utc,
+    tester_name: record.tester_name,
+    tester_email: record.tester_email,
+    tester_org: record.tester_org,
+    tester_location: record.tester_location,
+    evaluation_purpose: record.evaluation_purpose,
+    ruleset_name: record.ruleset_name,
+    risk_level: record.risk_level,
+    ruleset_text: record.ruleset_text,
+    ruleset_digest_sha256Hash: rulesetHash,
+    agent_name: record.agent_name,
+    action_type: record.action_type,
+    amount_value: record.amount_value,
+    approval_token: record.approval_token,
+    action_text: record.action_text,
+    action_digest_sha256Hash: actionHash,
+    decision: record.decision,
+    summary: record.summary,
+    reason: record.reason,
+    policy_triggered: record.policy_triggered
+  };
+  const digest = await sha256Hash(JSON.stringify(ordered));
+  return rulesetHash === record.ruleset_digest_sha256Hash &&
+    actionHash === record.action_digest_sha256Hash &&
+    digest === record.verification_reference_sha256Hash.toUpperCase();
+}
+
 async function importGovernanceRecord(event) {
   const file = event.target.files[0];
   if (!file) return;
+  try {
+    const record = JSON.parse(await file.text());
+    if (!await verifyGovernanceImport(record)) {
+      alert("Import rejected: Governance record integrity could not be verified.");
+      return;
+    }
 
-  const text = await file.text();
-  const record = JSON.parse(text);
+    // Only verified, well-formed Governance records may populate the ledger form.
+    document.getElementById("agentName").value = record.agent_name || "";
+    document.getElementById("ruleId").value =
+      record.policy_triggered || record.ruleset_name || record.rule_id || "";
 
-  document.getElementById("agentName").value = record.agent_name || "";
-  document.getElementById("ruleId").value =
-  record.policy_triggered ||
-  record.ruleset_name ||
-  record.rule_id ||
-  "";
+    if (record.decision === "APPROVED") {
+      document.getElementById("decisionValue").value = "allowed";
+    } else if (record.decision === "BLOCKED") {
+      document.getElementById("decisionValue").value = "denied";
+    } else {
+      document.getElementById("decisionValue").value = "review_required";
+    }
 
-  if (record.decision === "APPROVED") {
-    document.getElementById("decisionValue").value = "allowed";
-  } else if (record.decision === "BLOCKED") {
-    document.getElementById("decisionValue").value = "denied";
-  } else {
-    document.getElementById("decisionValue").value = "review_required";
+    document.getElementById("anchorReady").value = "TRUE";
+    document.getElementById("notesText").value =
+      "Imported from SATOSHIUM Agent Governance record " +
+      (record.record_id || "") +
+      " with verification reference " +
+      record.verification_reference_sha256Hash + ".";
+
+    state.importedSource = "agent_governance";
+    state.importedRecordId = record.record_id || null;
+    state.importedVerificationHash = record.verification_reference_sha256Hash;
+    alert("Governance record integrity checked. This does not authenticate its issuer or grant institutional authority.");
+  } catch (err) {
+    alert("Import rejected: Invalid or unreadable Governance JSON file.");
+  } finally {
+    event.target.value = "";
   }
-
-  document.getElementById("anchorReady").value = "TRUE";
-
-  const sourceLabel =
-  record.record_type === "Verification Ledger Entry"
-    ? "SATOSHIUM Verification Ledger record "
-    : "SATOSHIUM Agent Governance record ";
-
-document.getElementById("notesText").value =
-  "Imported from " +
-  sourceLabel +
-  (record.record_id || "") +
-  " with verification reference " +
-  (record.verification_reference_sha256Hash || "unknown") + ".";
-
-state.importedSource =
-  record.record_type === "Verification Ledger Entry"
-    ? "verification_ledger"
-    : "agent_governance";
-
-state.importedRecordId = record.record_id || null;
-state.importedVerificationHash =
-  record.verification_reference_sha256Hash || null;
-
-  event.target.value = "";
 }
 
 document.getElementById("generateLedger").addEventListener("click", generateLedgerEntry);

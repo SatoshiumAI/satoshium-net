@@ -46,9 +46,20 @@ const URLS={
   await q.waitForTimeout(400);
   results.push({test:'ledger_tamper_detection',rejected:dialogs.some(x=>x.includes('FAILED')),messages:dialogs.slice()});
   if(govJSON){
+   let importAlerts=[];
+   q.on('dialog',d=>{importAlerts.push(d.message())});
+   const originalName=await q.locator('#agentName').inputValue();
    await q.locator('#governanceFileInput').setInputFiles({name:'tampered-gov.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({...govJSON,agent_name:'FORGED NAME'}))});
    await q.waitForTimeout(350);
-   results.push({test:'ledger_import_tampered_governance',value:await q.locator('#agentName').inputValue(),acceptedForged:await q.locator('#agentName').inputValue()==='FORGED NAME',pageErrors:ledgerErrors.slice()});
+   results.push({test:'ledger_import_tampered_governance',rejected:importAlerts.some(x=>x.includes('Import rejected')),acceptedForged:await q.locator('#agentName').inputValue()==='FORGED NAME',preservedOriginal:await q.locator('#agentName').inputValue()===originalName,pageErrors:ledgerErrors.slice()});
+   importAlerts.length=0;
+   await q.locator('#governanceFileInput').setInputFiles({name:'valid-governance.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(govJSON))});
+   await q.waitForTimeout(350);
+   results.push({test:'ledger_import_valid_governance',accepted:await q.locator('#agentName').inputValue()===govJSON.agent_name,notice:importAlerts.some(x=>x.includes('does not authenticate'))});
+   importAlerts.length=0;
+   await q.locator('#governanceFileInput').setInputFiles({name:'malformed-governance.json',mimeType:'application/json',buffer:Buffer.from('{broken')});
+   await q.waitForTimeout(350);
+   results.push({test:'ledger_import_malformed_json',rejected:importAlerts.some(x=>x.includes('Import rejected')),errors:ledgerErrors.slice()});
   }
  }catch(e){results.push({test:'ledger_workflow_error',error:String(e).slice(0,350)})}
  await q.close();
