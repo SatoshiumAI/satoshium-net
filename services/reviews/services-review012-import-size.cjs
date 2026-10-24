@@ -16,10 +16,14 @@ for(const [name,path,generate] of [['governance','agent-governance/tool.html','#
   const base=Buffer.concat(parts);
   const padded=Buffer.concat([base,Buffer.alloc(2*1024*1024,' ')]);
   alerts.length=0;
+  await p.locator('#jsonFileInput').setInputFiles({name:'normal-valid.json',mimeType:'application/json',buffer:base});
+  await p.waitForTimeout(350);
+  const normalAccepted=alerts.some(x=>x.includes('Verification SUCCESS'));
+  alerts.length=0;
   await p.locator('#jsonFileInput').setInputFiles({name:'oversized-but-valid.json',mimeType:'application/json',buffer:padded});
   await p.waitForTimeout(450);
   const accepted=alerts.some(x=>x.includes('Verification SUCCESS'));
-  const rejected=alerts.some(x=>x.includes('FAILED')||x.includes('too large'));
+  const rejected=alerts.some(x=>x.includes('exceeds 1 MiB limit'));
   let importRejected=true;
   if(name==='ledger'){
     alerts.length=0;
@@ -27,7 +31,7 @@ for(const [name,path,generate] of [['governance','agent-governance/tool.html','#
     await p.waitForTimeout(300);
     importRejected=alerts.some(x=>x.includes('exceeds 1 MiB limit'));
   }
-  const r={tool:name,baseBytes:base.length,uploadedBytes:padded.length,accepted,rejected,importRejected,dialogs:alerts,observed:true,pass:!accepted&&rejected&&importRejected};
+  const r={tool:name,baseBytes:base.length,uploadedBytes:padded.length,normalAccepted,accepted,rejected,importRejected,dialogs:alerts,observed:true,pass:normalAccepted&&!accepted&&rejected&&importRejected};
   results.push(r);console.log('REVIEW012_IMPORT_LIMIT '+JSON.stringify(r));
  }catch(e){const r={tool:name,error:String(e).slice(0,260),observed:false};results.push(r);console.log('REVIEW012_IMPORT_LIMIT '+JSON.stringify(r))}
  await ctx.close();
