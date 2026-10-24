@@ -17,7 +17,7 @@ const base='https://satoshium.net',results=[];
    try{
     const response=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:25000});
     result.http=response.status();
-    await page.evaluate(percent=>{document.documentElement.style.fontSize=percent+'%';document.body.style.fontSize=percent+'%';},percent);
+    await page.evaluate(percent=>{document.documentElement.style.fontSize=percent+'%';document.body.style.removeProperty('font-size');},percent);
     await page.waitForTimeout(100);
     Object.assign(result,await page.evaluate(()=>{
       const root=document.documentElement;const body=document.body;
