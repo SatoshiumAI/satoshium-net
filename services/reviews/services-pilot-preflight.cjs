@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const fs=require('fs');
 const base='https://satoshium.net';
 const tests=[
- {key:'hub',path:'/services/',selector:'#services-analytics-notice',terms:['Cloudflare Web Analytics','pageview','completed']},
+ {key:'hub',path:'/services/',selector:'#services-analytics-notice',terms:['Cloudflare Web Analytics','pageview','completing a tool action']},
  {key:'aegis',path:'/services/aegis/aegis-service-panel.html',selector:'#privacy-scope-heading',terms:['Privacy and usage','actor identifiers','Cloudflare']},
  {key:'governance',path:'/services/agent-governance/tool.html',selector:'#privacy-heading',terms:['processed locally','Pageview measurement','Cloudflare']},
  {key:'ledger',path:'/services/verification-ledger/tool.html',selector:'#privacy-heading',terms:['generated locally','Pageview measurement','Cloudflare']}
