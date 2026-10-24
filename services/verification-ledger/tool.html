@@ -883,6 +883,16 @@ ${record.source_verification_hash || "none"}
 async function verifyUploadedJson(event) {
   const file = event.target.files[0];
   if (!file) return;
+  if (file.size > 1024 * 1024) {
+    alert("Import rejected: Governance JSON file exceeds 1 MiB limit.");
+    event.target.value = "";
+    return;
+  }
+  if (file.size > 1024 * 1024) {
+    alert("Verification FAILED: JSON file exceeds 1 MiB limit.");
+    event.target.value = "";
+    return;
+  }
 
   try {
     const text = await file.text();

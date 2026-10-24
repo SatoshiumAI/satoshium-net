@@ -1430,6 +1430,11 @@ document.getElementById("jsonFileInput").addEventListener("change", verifyUpload
 async function verifyUploadedJson(event) {
   const file = event.target.files[0];
   if (!file) return;
+  if (file.size > 1024 * 1024) {
+    alert("Verification FAILED: JSON file exceeds 1 MiB limit.");
+    event.target.value = "";
+    return;
+  }
 
   try {
     const text = await file.text();
