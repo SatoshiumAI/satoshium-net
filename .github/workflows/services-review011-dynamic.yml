@@ -1,0 +1,35 @@
+name: Services Review 011 Dynamic Accessibility Diagnostics
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review011-dynamic.yml'
+      - 'services/reviews/services-review011-dynamic.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dynamic-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe live-region updates and reflow
+        run: timeout 180s node services/reviews/services-review011-dynamic.cjs
+      - name: Preserve actual observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review011-dynamic-accessibility
+          path: services-review011-dynamic-results.json
+          if-no-files-found: warn
