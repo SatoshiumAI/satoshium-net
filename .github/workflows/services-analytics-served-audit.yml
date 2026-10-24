@@ -1,0 +1,35 @@
+name: Services Analytics Served-Page Audit
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - 'services/reviews/services-analytics-served-audit.cjs'
+      - '.github/workflows/services-analytics-served-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analytics-observation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe seven live public pages
+        run: timeout 150s node services/reviews/services-analytics-served-audit.cjs
+      - name: Preserve observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-analytics-observations
+          path: services-analytics-observations.json
+          if-no-files-found: warn
