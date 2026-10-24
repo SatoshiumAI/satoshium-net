@@ -41,7 +41,7 @@ const results=[];
      r.liveRegions=await p.evaluate(()=>[...document.querySelectorAll('[aria-live], [role="status"],[role="alert"],[role="log"]')].map(e=>({tag:e.tagName,id:e.id,role:e.getAttribute('role'),live:e.getAttribute('aria-live')})));
     }
     r.pageErrors=errors;
-    r.diagnosticComplete=r.http===200&&!errors.length&&r.focusReached;
+    r.diagnosticComplete=r.http===200&&!errors.length&&r.focusReached&&!r.overflow&&(!r.axe||r.axe.violations.length===0);
    }catch(e){r.diagnosticComplete=false;r.error=String(e).slice(0,350)}
    results.push(r);console.log('REVIEW011 '+JSON.stringify(r));
    await context.close();
