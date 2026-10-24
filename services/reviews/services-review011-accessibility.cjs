@@ -13,7 +13,8 @@ const results=[];
  const browser=await chromium.launch({headless:true});
  for(const [name,path] of pages){
   for(const width of [320,390,1280]){
-   const context=await browser.newContext({viewport:{width,height:850}});\n   const p=await context.newPage();
+   const context=await browser.newContext({viewport:{width,height:850}});
+   const p=await context.newPage();
    p.setDefaultTimeout(8000);
    const errors=[];p.on('pageerror',e=>errors.push(String(e).slice(0,200)));
    const r={page:name,width,path};
@@ -21,7 +22,8 @@ const results=[];
     const response=await p.goto(base+path,{waitUntil:'domcontentloaded',timeout:25000});
     r.http=response.status();
     await p.waitForTimeout(250);
-    r.overflow=await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);\n    if(r.overflow)r.overflowSources=await p.evaluate(()=>[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,id:e.id,cls:String(e.className||'').slice(0,70),right:Math.round(e.getBoundingClientRect().right),scroll:e.scrollWidth})).filter(x=>x.right>innerWidth+5).slice(0,15));
+    r.overflow=await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);
+    if(r.overflow)r.overflowSources=await p.evaluate(()=>[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,id:e.id,cls:String(e.className||'').slice(0,70),right:Math.round(e.getBoundingClientRect().right),scroll:e.scrollWidth})).filter(x=>x.right>innerWidth+5).slice(0,15));
     r.landmarks=await p.evaluate(()=>({main:document.querySelectorAll('main').length,h1:document.querySelectorAll('h1').length}));
     r.keyboard=[];
     for(let i=0;i<Math.min(width===1280?18:12,30);i++){
