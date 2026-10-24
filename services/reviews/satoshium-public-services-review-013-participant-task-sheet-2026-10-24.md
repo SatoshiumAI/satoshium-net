@@ -23,7 +23,7 @@ Aegis sends provided sample actor identifiers to its public inspection API. Agen
 ## Task B — Evaluate a fictional Governance action
 
 1. Return to the Services page and open **Try Agent Governance**.
-2. Use **Load Demo** to populate synthetic example values.
+2. Select **Load Demo Example** to populate synthetic example values.
 3. Run the reference evaluation and locate its decision and explanation.
 4. Download the JSON record and try **Verify Governance Record Integrity**.
 5. In your own words: **Does an APPROVED decision authorize any real agent to execute an action?**
