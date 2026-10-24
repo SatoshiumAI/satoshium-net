@@ -6,6 +6,10 @@ on:
     paths:
       - '.github/workflows/services-review011-accessibility.yml'
       - 'services/reviews/services-review011-accessibility.cjs'
+      - 'services/index.html'
+      - 'services/aegis/aegis-service-panel.html'
+      - 'services/agent-governance/tool.html'
+      - 'services/verification-ledger/tool.html'
   workflow_dispatch:
 
 permissions:
