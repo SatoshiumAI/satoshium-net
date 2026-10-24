@@ -1,0 +1,35 @@
+name: Services Review 011 Keyboard Interaction
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review011-keyboard.yml'
+      - 'services/reviews/services-review011-keyboard.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  keyboard-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify keyboard focus and safe tool actions
+        run: timeout 180s node services/reviews/services-review011-keyboard.cjs
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-review011-keyboard
+          path: services-review011-keyboard-results.json
+          if-no-files-found: warn
