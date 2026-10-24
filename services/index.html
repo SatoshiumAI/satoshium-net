@@ -262,6 +262,19 @@ margin-top:14px
   .card{transition:none}
 }
 
+
+/* Visitor-first service paths; existing institutional descriptions remain below */
+.service-picker{margin:24px 0 30px}
+.service-picker>p{max-width:830px}
+.service-choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.service-choice{display:flex;flex-direction:column;justify-content:space-between;min-width:0;border:1px solid var(--line);background:rgba(214,163,74,.045);border-radius:16px;padding:18px}
+.service-choice h3{font-size:16px;margin:0 0 8px;text-transform:none}
+.service-choice p{margin:0 0 10px}
+.service-choice .service-action{display:inline-block;margin-top:6px;padding:10px 12px;border-radius:9px;border:1px solid var(--gold);font-weight:700}
+.service-choice .small{color:var(--muted)}
+.service-choice .service-action:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+@media(max-width:520px){.service-choice-grid{grid-template-columns:minmax(0,1fr)}}
+
 </style>
 </head>
 
@@ -280,8 +293,40 @@ margin-top:14px
 <h1 id="hero-heading" style="margin-top:12px;">Satoshium Services</h1>
 
 <p class="muted">
-Public-facing software services for AI agent inspection, lifecycle verification, governance evaluation, and cryptographic verification workflows.
+Try three focused services: inspect sample AI-agent states, evaluate a proposed agent action, or create and verify a local integrity record. Each tool has a specific purpose and documented limits.
 </p>
+</section>
+
+<section class="service-picker" aria-labelledby="service-picker-heading">
+  <h2 id="service-picker-heading">Choose a tool to try</h2>
+  <p class="muted">No account is required for these sample workflows. Use demonstration inputs rather than confidential data. Each link opens an existing public service; these are not automatic approvals or on-chain transactions.</p>
+  <div class="service-choice-grid">
+    <article class="service-choice" aria-labelledby="try-aegis-heading">
+      <div>
+        <h3 id="try-aegis-heading">1. Inspect an AI agent</h3>
+        <p>Select a sample actor preset, run a read-only Aegis inspection, and examine the live JSON response.</p>
+        <p class="small">Uses a public inspection API. Does not activate, certify, or modify an agent.</p>
+      </div>
+      <a class="service-action" href="/services/aegis/aegis-service-panel.html">Try Aegis Inspection →</a>
+    </article>
+    <article class="service-choice" aria-labelledby="try-governance-heading">
+      <div>
+        <h3 id="try-governance-heading">2. Evaluate an agent action</h3>
+        <p>Load the built-in example, run a browser-based governance evaluation, and export its review record.</p>
+        <p class="small">Reference evaluation only. Does not enforce rules on an external agent.</p>
+      </div>
+      <a class="service-action" href="/services/agent-governance/tool.html">Try Agent Governance →</a>
+    </article>
+    <article class="service-choice" aria-labelledby="try-ledger-heading">
+      <div>
+        <h3 id="try-ledger-heading">3. Create and verify an integrity record</h3>
+        <p>Generate a local Verification Ledger record, download JSON, and check its SHA-256 consistency.</p>
+        <p class="small">Does not publish to Bitcoin or authenticate who created the record.</p>
+      </div>
+      <a class="service-action" href="/services/verification-ledger/tool.html">Try Verification Ledger →</a>
+    </article>
+  </div>
+  <p class="muted small">Are you evaluating these tools for research or development? <a href="mailto:contact@satoshium.ai?subject=Public%20Services%20Feedback">Send feedback or describe what you tried →</a></p>
 </section>
 
 <section aria-labelledby="orientation-heading">

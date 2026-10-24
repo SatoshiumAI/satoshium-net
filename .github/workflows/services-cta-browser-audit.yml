@@ -1,0 +1,36 @@
+name: Services Landing CTA Browser Audit
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - 'services/index.html'
+      - 'services/reviews/services-cta-browser-audit.cjs'
+      - '.github/workflows/services-cta-browser-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cta-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Review served CTAs
+        run: node services/reviews/services-cta-browser-audit.cjs
+      - name: Preserve observed results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-cta-browser-results
+          path: services-cta-audit.json
+          if-no-files-found: warn
