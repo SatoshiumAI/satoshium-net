@@ -10,7 +10,7 @@ https://satoshium.net/
 
 ---
 
-# 🧭 Purpose
+## 🧭 Purpose
 
 Infrastructure documentation explains how operational services participate in
 structured governance, verification, registry alignment, and signal coordination
@@ -26,7 +26,7 @@ This includes documentation for:
 
 ---
 
-# 🧱 Infrastructure Layer Context
+## 🧱 Infrastructure Layer Context
 
 Within the Satoshium platform architecture:
 
@@ -40,7 +40,7 @@ This documentation applies specifically to the infrastructure coordination layer
 
 ---
 
-# 📄 Documents in This Directory
+## 📄 Documents in This Directory
 
 Current infrastructure-layer documentation includes:
 
@@ -54,7 +54,7 @@ Additional documentation may be introduced as infrastructure services expand.
 
 ---
 
-# ⚙️ Relationship to Systems and Services
+## ⚙️ Relationship to Systems and Services
 
 Documents in this directory support infrastructure surfaces defined in:
 
@@ -68,7 +68,7 @@ intelligence workflows.
 
 ---
 
-# 📡 Registry Alignment
+## 📡 Registry Alignment
 
 Infrastructure documentation supports alignment with:
 
@@ -81,7 +81,7 @@ Registry alignment enables consistent coordination across repositories.
 
 ---
 
-# 🔗 Relationship to Platform Documentation
+## 🔗 Relationship to Platform Documentation
 
 Conceptual architecture documentation is maintained separately at:
 
@@ -92,7 +92,7 @@ systems operate in practice.
 
 ---
 
-# 📡 Documentation Status
+## 📡 Documentation Status
 
 Status: Active
 
