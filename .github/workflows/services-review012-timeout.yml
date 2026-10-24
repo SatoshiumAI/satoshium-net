@@ -1,0 +1,36 @@
+name: Services Review 012 Aegis Request Timeout
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review012-timeout.yml'
+      - 'services/reviews/services-review012-timeout.cjs'
+      - 'services/aegis/aegis-service-panel.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  timeout-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test stalled and valid mocked API responses
+        run: timeout 140s node services/reviews/services-review012-timeout.cjs
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review012-aegis-timeout
+          path: services-review012-timeout-results.json
+          if-no-files-found: warn
