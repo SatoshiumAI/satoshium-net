@@ -1,0 +1,35 @@
+name: Services Review 012 Links and Aegis API Failure
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review012-links-api.yml'
+      - 'services/reviews/services-review012-links-api.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links-and-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Audit local public links and mocked read-only Aegis responses
+        run: timeout 210s node services/reviews/services-review012-links-api.cjs
+      - name: Save observed link and failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review012-link-api-evidence
+          path: services-review012-link-api-results.json
+          if-no-files-found: warn
