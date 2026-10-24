@@ -494,9 +494,9 @@ Researchers, developers, and infrastructure teams can inspect the service surfac
 <h2 id="ledger-heading" style="margin-top:0;">Verification Ledger & Integrity Infrastructure</h2>
 
 <p>
-Structured verification ledger interfaces for generating tamper-evident execution records,
-supporting deterministic audit trails, decentralized agent validation workflows,
-and cryptographic outputs for verification-oriented review workflows.
+Structured local verification-reference tools for generating SHA-256 integrity records,
+supporting reproducible documentation and review workflows. These unsigned records
+check internal consistency; they do not authenticate their issuer or prove external ledger publication.
 </p>
 
 <ul class="small">
@@ -510,8 +510,8 @@ Produce reproducible entry digests supporting tamper-evident verification workfl
 <li><strong>Verification reference hash chaining</strong>
 Generate secondary integrity hashes suitable for audit pipelines and verification review.</li>
 
-<li><strong>Cross-tool provenance tracking</strong>
-Import governance outputs and preserve lineage across verification infrastructure layers.</li>
+<li><strong>Cross-tool reference linkage</strong>
+Import governance outputs and preserve their claimed local reference identifiers; importing does not authenticate provenance.</li>
 
 <li><strong>Independent ledger integrity validation</strong>
 Verify exported ledger JSON using deterministic recomputation of verification hashes.</li>
@@ -519,8 +519,7 @@ Verify exported ledger JSON using deterministic recomputation of verification ha
 </ul>
 
 <p class="muted small">
-This service provides the operational verification ledger interface supporting
-Satoshium's cryptographic audit infrastructure layer.
+This public reference tool demonstrates local verification-record generation and self-consistency checks; it does not certify actions, authenticate issuers, or write to Bitcoin.
 </p>
 
 <div class="pill-row">
