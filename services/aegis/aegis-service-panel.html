@@ -621,8 +621,10 @@ fetch("https://satoshium.link/components/sou_footer.html")
         runButton.textContent = "Loading...";
         output.textContent = "Loading...";
  
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
         try {
-          const res = await fetch(url);
+          const res = await fetch(url, { signal: controller.signal });
           if (!res.ok) {
             throw new Error(`HTTP ${res.status}`);
           }
@@ -634,10 +636,13 @@ fetch("https://satoshium.link/components/sou_footer.html")
             version: "v1",
             mode: viewMode,
             data: null,
-            error: "Request failed",
-            details: String(err)
+            error: err && err.name === "AbortError" ? "Request timed out" : "Request failed",
+            details: err && err.name === "AbortError"
+              ? "Inspection exceeded the 10-second response limit. Retry or contact support."
+              : String(err)
           }, null, 2);
         } finally {
+          clearTimeout(timeout);
           runButton.disabled = false;
           runButton.textContent = "Run Inspection";
         }
