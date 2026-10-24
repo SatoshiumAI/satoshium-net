@@ -1,0 +1,35 @@
+name: Services Usability and Integrity Audit
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-usability-integrity-audit.yml'
+      - 'services/reviews/services-usability-audit.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  usability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute live usability observations
+        run: node services/reviews/services-usability-audit.cjs
+      - name: Preserve audit data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-usability-evidence
+          path: services-usability-results.json
+          if-no-files-found: warn
