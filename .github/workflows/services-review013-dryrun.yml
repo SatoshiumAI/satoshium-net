@@ -1,0 +1,35 @@
+name: Services Review 013 Internal Task Dry-run
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review013-dryrun.yml'
+      - 'services/reviews/services-review013-dryrun.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dryrun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run private simulated participant tasks
+        run: timeout 180s node services/reviews/services-review013-dryrun.cjs
+      - name: Save synthetic observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review013-internal-dryrun
+          path: services-review013-internal-dryrun.json
+          if-no-files-found: warn
