@@ -15,7 +15,7 @@ const {chromium}=require('playwright'),fs=require('fs');
   const popup=await popupPromise;await popup.waitForLoadState('domcontentloaded');
   const inserted=await popup.locator('#review012-safe-marker').count();
   const receipt=await popup.locator('body').innerText();
-  out.push({name:'receipt_markup',markerParsedAsDom:inserted>0,plainTextPresent:receipt.includes('Probe'),riskReproduced:inserted>0});
+  out.push({name:'receipt_markup',markerParsedAsDom:inserted>0,plainTextPresent:receipt.includes('Probe'),safeTextOnly:inserted===0});
   await popup.close();
  }catch(e){out.push({name:'receipt_exception',error:String(e).slice(0,300)})}
  await p.close();
@@ -25,10 +25,10 @@ const {chromium}=require('playwright'),fs=require('fs');
   await q.locator('#ruleId').fill('Demo <span id="review012-ledger-marker">TEST</span>');
   await q.locator('#generateLedger').click();
   await q.waitForFunction(()=>document.querySelector('#hashValue')?.textContent?.length>30);
-  out.push({name:'ledger_summary_markup',markerParsedAsDom:await q.locator('#review012-ledger-marker').count()>0,riskReproduced:await q.locator('#review012-ledger-marker').count()>0});
+  out.push({name:'ledger_summary_markup',markerParsedAsDom:await q.locator('#review012-ledger-marker').count()>0,safeTextOnly:await q.locator('#review012-ledger-marker').count()===0});
  }catch(e){out.push({name:'ledger_exception',error:String(e).slice(0,300)})}
  await q.close();await b.close();
  for(const v of out)console.log('REVIEW012_BASELINE '+JSON.stringify(v));
  fs.writeFileSync('services-review012-baseline.json',JSON.stringify({date:new Date().toISOString(),harmlessMarkupOnly:true,observations:out},null,2));
- if(out.length!==2||out.some(x=>x.error))process.exitCode=1;
+ if(out.length!==2||out.some(x=>x.error||!x.safeTextOnly))process.exitCode=1;
 })().catch(e=>{console.error(e);process.exit(1)});
