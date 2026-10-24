@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/services-review012-import-size.yml'
       - 'services/reviews/services-review012-import-size.cjs'
+      - 'services/agent-governance/tool.html'
+      - 'services/verification-ledger/tool.html'
   workflow_dispatch:
 
 permissions:
