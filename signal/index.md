@@ -43,11 +43,6 @@ Base-layer trust systems, Lightning identity, sovereign infrastructure, treasury
 
 Agent governance, explainability, verification frameworks, constitutional AI models, and cryptographic automation research.
 
-
-## AI Alignment Board
-
-Agent governance, explainability, verification frameworks, constitutional AI models, and cryptographic automation research.
-
 /signal/ai/
 
 ---
