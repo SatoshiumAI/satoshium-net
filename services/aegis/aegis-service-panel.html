@@ -410,8 +410,10 @@ body{padding-top:80px}
       }
  
       @media (max-width: 960px) {
+        /* Review 011: permit narrow grid tracks and controls to shrink at 320px. */
+        .panel, .terminal, .controls, .controls > div { min-width: 0; }
         .controls, .grid-two {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr);
         }
  
         .shell {
