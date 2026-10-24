@@ -1,0 +1,35 @@
+name: Services Review 011 Text Enlargement Diagnostic
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review011-textscale.yml'
+      - 'services/reviews/services-review011-textscale.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  textscale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Check simulated inherited font enlargement and reflow
+        run: timeout 170s node services/reviews/services-review011-textscale.cjs
+      - name: Preserve complete observed findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-review011-textscale
+          path: services-review011-textscale-results.json
+          if-no-files-found: warn
