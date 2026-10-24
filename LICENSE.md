@@ -14,7 +14,7 @@ Satoshium Net is released under the MIT License.
 
 The MIT License is a permissive open-source license that allows individuals and organizations to use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the software, subject to the conditions contained within the license.
 
-The official legal license governing this repository is contained in the repository's `LICENSE` file.
+The official legal license governing this repository is contained in the repository's `LICENSE.txt` file.
 
 This document exists to provide additional context regarding licensing philosophy and intended usage.
 
@@ -197,7 +197,7 @@ Where repository-specific guidance exists, it supplements this infrastructure-le
 For the legally binding license terms governing this repository, see:
 
 ```text
-LICENSE
+LICENSE.txt
 ```
 
 located at the root of the repository.
