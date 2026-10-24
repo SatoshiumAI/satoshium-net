@@ -23,6 +23,7 @@ const results=[];
     r.http=response.status();
     await p.waitForTimeout(250);
     r.overflow=await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+5);
+    if(r.overflow)r.layoutProbe=await p.evaluate(()=>['html','body','main.shell','.layout','.panel','.controls','.controls > div','select#mode','input#actors'].map(sel=>{const e=document.querySelector(sel);if(!e)return {sel,missing:true};const c=getComputedStyle(e),b=e.getBoundingClientRect();return {sel,width:c.width,minWidth:c.minWidth,maxWidth:c.maxWidth,grid:c.gridTemplateColumns,overflowX:c.overflowX,rect:[Math.round(b.left),Math.round(b.right)],scrollWidth:e.scrollWidth,clientWidth:e.clientWidth}}));
     if(r.overflow)r.overflowSources=await p.evaluate(()=>[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,id:e.id,cls:String(e.className||'').slice(0,70),right:Math.round(e.getBoundingClientRect().right),scroll:e.scrollWidth})).filter(x=>x.right>innerWidth+5).slice(0,15));
     r.landmarks=await p.evaluate(()=>({main:document.querySelectorAll('main').length,h1:document.querySelectorAll('h1').length}));
     r.keyboard=[];
