@@ -1,0 +1,35 @@
+name: Public Services Browser Smoke
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/public-services-browser-smoke.yml'
+      - 'services/reviews/service-browser-smoke.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-services-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe public service interactions
+        run: node services/reviews/service-browser-smoke.cjs
+      - name: Preserve smoke results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: satoshium-service-browser-smoke
+          path: service-browser-smoke-results.json
+          if-no-files-found: warn
