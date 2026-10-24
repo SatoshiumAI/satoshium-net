@@ -876,8 +876,12 @@ async function verifyUploadedJson(event) {
   const file = event.target.files[0];
   if (!file) return;
 
-  const text = await file.text();
-  const record = JSON.parse(text);
+  try {
+    const text = await file.text();
+    const record = JSON.parse(text);
+    if (!record || typeof record !== "object" || Array.isArray(record)) {
+      throw new TypeError("Invalid JSON record");
+    }
 
   const recomputedEntryDigest = await sha256Hash(
     (record.agent_name || "") + "|" +
@@ -922,7 +926,11 @@ async function verifyUploadedJson(event) {
     alert("Verification FAILED: Verification ledger record integrity could not be confirmed.");
   }
 
-  event.target.value = "";
+  } catch (error) {
+    alert("Verification FAILED: Invalid or unreadable JSON record.");
+  } finally {
+    event.target.value = "";
+  }
 }
 
 // Import verifies the same ordered v1 reference-record fields exported by
