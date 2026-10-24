@@ -1,0 +1,35 @@
+name: Services Review 012 HTML Boundary Diagnostic
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review012-html.yml'
+      - 'services/reviews/services-review012-html.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe harmless HTML rendering boundaries
+        run: timeout 150s node services/reviews/services-review012-html.cjs
+      - name: Preserve observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review012-html-boundary
+          path: services-review012-baseline.json
+          if-no-files-found: warn
