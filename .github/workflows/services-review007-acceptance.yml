@@ -1,0 +1,35 @@
+name: Review 007 Post-deploy Acceptance
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review007-acceptance.yml'
+      - 'services/reviews/review-007-postdeploy.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review007:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe deployed service errors
+        run: timeout 120s node services/reviews/review-007-postdeploy.cjs
+      - name: Preserve results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review007-deployed-browser-results
+          path: review-007-browser-results.json
+          if-no-files-found: warn
