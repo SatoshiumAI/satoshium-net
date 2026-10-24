@@ -1,0 +1,35 @@
+name: Services Negative Path and Accessibility Audit
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-negative-path-audit.yml'
+      - 'services/reviews/services-negative-path-audit.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  negative-and-accessibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe live error and focus states
+        run: node services/reviews/services-negative-path-audit.cjs
+      - name: Preserve test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: services-negative-path-evidence
+          path: negative-path-audit.json
+          if-no-files-found: warn
