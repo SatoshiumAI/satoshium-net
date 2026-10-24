@@ -884,11 +884,6 @@ async function verifyUploadedJson(event) {
   const file = event.target.files[0];
   if (!file) return;
   if (file.size > 1024 * 1024) {
-    alert("Import rejected: Governance JSON file exceeds 1 MiB limit.");
-    event.target.value = "";
-    return;
-  }
-  if (file.size > 1024 * 1024) {
     alert("Verification FAILED: JSON file exceeds 1 MiB limit.");
     event.target.value = "";
     return;
@@ -1005,6 +1000,11 @@ async function verifyGovernanceImport(record) {
 async function importGovernanceRecord(event) {
   const file = event.target.files[0];
   if (!file) return;
+  if (file.size > 1024 * 1024) {
+    alert("Import rejected: Governance JSON file exceeds 1 MiB limit.");
+    event.target.value = "";
+    return;
+  }
   try {
     const record = JSON.parse(await file.text());
     if (!await verifyGovernanceImport(record)) {
