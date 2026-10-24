@@ -1,0 +1,35 @@
+name: Services Review 013 Browser Network Evidence
+
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/services-review013-network-evidence.yml'
+      - 'services/reviews/services-review013-network-evidence.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-network-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Observe public browser request origins with fictional data
+        run: timeout 180s node services/reviews/services-review013-network-evidence.cjs
+      - name: Preserve sanitized network-origin observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review013-network-evidence
+          path: review013-network-observations.json
+          if-no-files-found: warn
