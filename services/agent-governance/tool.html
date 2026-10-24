@@ -801,6 +801,12 @@ function getValues() {
   };
 }
 
+function escapeServiceHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[ch]));
+}
+
 function openReceipt() {
   if (!state.lastRecord) {
     alert("Run an evaluation first so an execution receipt exists to open.");
@@ -832,7 +838,7 @@ color:#888;
 ">
 Verification reference (SHA-256):<br>
 <strong style="color:#d4a94f;">
-${r.verification_reference_sha256Hash}
+${escapeServiceHtml(r.verification_reference_sha256Hash)}
 </strong>
 </div>
 
@@ -1051,55 +1057,55 @@ ${r.verification_reference_sha256Hash}
         verification analysis, and cryptographic integrity documentation workflows.
       </p>
 
-      <div class="status">${r.decision}</div>
+      <div class="status">${escapeServiceHtml(r.decision)}</div>
 
       <div class="summary">
         <strong>Decision Summary:</strong><br />
-        ${r.summary || "No summary generated."}
+        ${escapeServiceHtml(r.summary || "No summary generated.")}
       </div>
 
       <h2>Receipt Information</h2>
       <div class="grid">
-        <div class="item"><span class="label">Record Type</span><div class="value">${r.record_type || ""}</div></div>
-        <div class="item"><span class="label">Record ID</span><div class="value">${r.record_id || ""}</div></div>
-        <div class="item"><span class="label">Timestamp (UTC)</span><div class="value">${r.timestamp_utc || ""}</div></div>
-        <div class="item"><span class="label">Protocol Version</span><div class="value">${r.protocol_version || ""}</div></div>
+        <div class="item"><span class="label">Record Type</span><div class="value">${escapeServiceHtml(r.record_type || "")}</div></div>
+        <div class="item"><span class="label">Record ID</span><div class="value">${escapeServiceHtml(r.record_id || "")}</div></div>
+        <div class="item"><span class="label">Timestamp (UTC)</span><div class="value">${escapeServiceHtml(r.timestamp_utc || "")}</div></div>
+        <div class="item"><span class="label">Protocol Version</span><div class="value">${escapeServiceHtml(r.protocol_version || "")}</div></div>
       </div>
 
       <h2>Service Context</h2>
       <div class="grid">
-        <div class="item"><span class="label">Service</span><div class="value">${r.service || ""}</div></div>
-        <div class="item"><span class="label">Tool</span><div class="value">${r.tool || ""}</div></div>
-        <div class="item"><span class="label">Service URL</span><div class="value">${r.service_url || ""}</div></div>
-        <div class="item"><span class="label">Tool URL</span><div class="value">${r.tool_url || ""}</div></div>
-        <div class="item"><span class="label">Evaluation Engine</span><div class="value">${r.evaluation_engine || ""}</div></div>
-        <div class="item"><span class="label">Risk Level</span><div class="value">${r.risk_level || ""}</div></div>
+        <div class="item"><span class="label">Service</span><div class="value">${escapeServiceHtml(r.service || "")}</div></div>
+        <div class="item"><span class="label">Tool</span><div class="value">${escapeServiceHtml(r.tool || "")}</div></div>
+        <div class="item"><span class="label">Service URL</span><div class="value">${escapeServiceHtml(r.service_url || "")}</div></div>
+        <div class="item"><span class="label">Tool URL</span><div class="value">${escapeServiceHtml(r.tool_url || "")}</div></div>
+        <div class="item"><span class="label">Evaluation Engine</span><div class="value">${escapeServiceHtml(r.evaluation_engine || "")}</div></div>
+        <div class="item"><span class="label">Risk Level</span><div class="value">${escapeServiceHtml(r.risk_level || "")}</div></div>
       </div>
 
       <h2>Tester Information</h2>
       <div class="grid">
-        <div class="item"><span class="label">Tester Name</span><div class="value">${r.tester_name || ""}</div></div>
-        <div class="item"><span class="label">Tester Email</span><div class="value">${r.tester_email || ""}</div></div>
-        <div class="item"><span class="label">Organization / Project</span><div class="value">${r.tester_org || ""}</div></div>
-        <div class="item"><span class="label">Tester Location</span><div class="value">${r.tester_location || ""}</div></div>
-        <div class="item"><span class="label">Evaluation Purpose</span><div class="value">${r.evaluation_purpose || ""}</div></div>
+        <div class="item"><span class="label">Tester Name</span><div class="value">${escapeServiceHtml(r.tester_name || "")}</div></div>
+        <div class="item"><span class="label">Tester Email</span><div class="value">${escapeServiceHtml(r.tester_email || "")}</div></div>
+        <div class="item"><span class="label">Organization / Project</span><div class="value">${escapeServiceHtml(r.tester_org || "")}</div></div>
+        <div class="item"><span class="label">Tester Location</span><div class="value">${escapeServiceHtml(r.tester_location || "")}</div></div>
+        <div class="item"><span class="label">Evaluation Purpose</span><div class="value">${escapeServiceHtml(r.evaluation_purpose || "")}</div></div>
       </div>
 
       <h2>Governance Inputs</h2>
       <div class="grid">
-        <div class="item"><span class="label">Ruleset Name</span><div class="value">${r.ruleset_name || ""}</div></div>
-        <div class="item"><span class="label">Agent Name</span><div class="value">${r.agent_name || ""}</div></div>
-        <div class="item"><span class="label">Action Type</span><div class="value">${r.action_type || ""}</div></div>
-        <div class="item"><span class="label">Amount Value</span><div class="value">${r.amount_value || ""}</div></div>
-        <div class="item"><span class="label">Approval Token</span><div class="value">${r.approval_token || "(none)"}</div></div>
-        <div class="item"><span class="label">Decision Rationale</span><div class="value">${r.reason || ""}</div></div>
+        <div class="item"><span class="label">Ruleset Name</span><div class="value">${escapeServiceHtml(r.ruleset_name || "")}</div></div>
+        <div class="item"><span class="label">Agent Name</span><div class="value">${escapeServiceHtml(r.agent_name || "")}</div></div>
+        <div class="item"><span class="label">Action Type</span><div class="value">${escapeServiceHtml(r.action_type || "")}</div></div>
+        <div class="item"><span class="label">Amount Value</span><div class="value">${escapeServiceHtml(r.amount_value || "")}</div></div>
+        <div class="item"><span class="label">Approval Token</span><div class="value">${escapeServiceHtml(r.approval_token || "(none)")}</div></div>
+        <div class="item"><span class="label">Decision Rationale</span><div class="value">${escapeServiceHtml(r.reason || "")}</div></div>
       </div>
 
       <h2>Cryptographic Verification</h2>
       <div class="grid">
-        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${r.ruleset_digest_sha256Hash || ""}</div></div>
-        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${r.action_digest_sha256Hash || ""}</div></div>
-        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${r.verification_reference_sha256Hash || ""}</div></div>
+        <div class="item"><span class="label">Ruleset Digest (SHA-256)</span><div class="value mono">${escapeServiceHtml(r.ruleset_digest_sha256Hash || "")}</div></div>
+        <div class="item"><span class="label">Action Digest (SHA-256)</span><div class="value mono">${escapeServiceHtml(r.action_digest_sha256Hash || "")}</div></div>
+        <div class="item"><span class="label">Verification Reference (SHA-256)</span><div class="value mono">${escapeServiceHtml(r.verification_reference_sha256Hash || "")}</div></div>
       </div>
 
       <hr style="margin-top:40px;border:none;border-top:1px solid #444;">
