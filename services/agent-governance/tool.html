@@ -438,7 +438,7 @@ hr{
   This public browser reference tool supports local governance evaluation and SHA-256 record self-consistency checks. Users can define demonstration rulesets, evaluate proposed agent actions, and export deterministic audit references. The resulting unsigned records do not authenticate their issuer, certify an agent, or authorize execution.
 </p>
     <div class="muted" style="margin-top:6px;">
-    Evaluation engine: SATOSHIUM Agent Governance Reference Evaluator (deterministic ruleset execution mode)
+    Evaluation engine: SATOSHIUM Agent Governance Reference Evaluator (fixed demonstration checks; free-text rules are not enforced)
     </div>
 
     <div class="hero-actions">
@@ -537,7 +537,7 @@ Request Governance Workflow Access
         </div>
 
         <div class="note">
-          This governance evaluation interface applies deterministic ruleset logic and generates structured SHA-256 verification references for review, documentation, and audit-oriented governance workflows.
+          This reference evaluator applies fixed demonstration heuristics to action type, description and amount. Entered rules text is recorded and hashed, not enforced as policy. A fictional demo override bypasses elevated-risk review, but never bypasses sensitive-data blocking.
         </div>
       </div>
     </div>
@@ -568,8 +568,8 @@ Request Governance Workflow Access
             <input id="amountValue" type="number" min="0" step="0.0001" placeholder="0.50" />
           </div>
           <div>
-            <label for="approvalToken">Approval token / override (optional)</label>
-            <input id="approvalToken" type="text" placeholder="APPROVED-OPS-001" />
+            <label for="approvalToken">Demo override (fictional; optional — never enter real credentials)</label>
+            <input id="approvalToken" type="text" placeholder="DEMO-OVERRIDE-FICTIONAL" />
           </div>
         </div>
 
@@ -1062,6 +1062,7 @@ ${escapeServiceHtml(r.verification_reference_sha256Hash)}
         Human-readable receipt generated from the SATOSHIUM Agent Governance Tool for audit review,
         verification analysis, and cryptographic integrity documentation workflows.
       </p>
+      <p class="muted"><strong>Reference-only demonstration:</strong> This unsigned receipt does not authenticate an issuer or authorize any agent execution. Rules text is recorded, not enforced.</p>
 
       <div class="status">${escapeServiceHtml(r.decision)}</div>
 
@@ -1129,7 +1130,7 @@ ${escapeServiceHtml(r.verification_reference_sha256Hash)}
       </pre>
 
       <div class="footer">
-        SATOSHIUM Agent Governance & Cryptographic Automation Services • Execution receipt generated from live evaluation record.
+        SATOSHIUM Agent Governance & Cryptographic Automation Services • Execution receipt generated from local reference evaluation record; not an execution authorization.
       </div>
     </div>
   </div>
@@ -1142,7 +1143,6 @@ ${escapeServiceHtml(r.verification_reference_sha256Hash)}
 
 function evaluateRecord(data) {
   const action = (data.actionText + " " + data.actionType).toLowerCase();
-  const rules = data.rulesetText.toLowerCase();
   const amount = parseFloat(data.amountValue || "0");
   const hasApproval = data.approvalToken.length > 0;
 
@@ -1155,26 +1155,21 @@ function evaluateRecord(data) {
   const mentionsExternal = /external|wallet|third-party|api|publish/.test(action);
   const highTransfer = amount > 0.10 || /0\.5 btc|0.50 btc|1 btc|transfer/.test(action);
 
-  if (mentionsSensitive && !hasApproval) {
+  if (mentionsSensitive) {
     decision = "BLOCKED";
-    summary = "The submitted action was blocked due to sensitive or protected data handling without approval.";
-    reason = "Sensitive data handling detected without explicit approval token.";
+    summary = "Sensitive-data demonstration check triggered; this local reference outcome does not grant or revoke any external authority.";
+    reason = "Sensitive-data demonstration check triggered; demo override cannot bypass this BLOCKED decision.";
     policyTriggered = "sensitive_data_protection_rule";
   } else if ((highTransfer || mentionsExternal) && !hasApproval) {
     decision = "REVIEW REQUIRED";
     summary = "The submitted action requires human review because it appears to involve elevated risk or external execution.";
     reason = "External action or elevated transfer detected without approval token.";
     policyTriggered = "financial_threshold_rule";
-  } else if ((rules.includes("block") || rules.includes("require human review")) && mentionsExternal && !hasApproval) {
-    decision = "REVIEW REQUIRED";
-    summary = "The submitted action aligns with a ruleset that calls for review before higher-risk execution.";
-    reason = "Ruleset language indicates manual review before external or sensitive operations.";
-    policyTriggered = "external_execution_review_rule";
-  } else {
+    } else {
     decision = "APPROVED";
-    summary = "The submitted action passed governance evaluation under the current ruleset conditions.";
-    reason = "No blocking condition triggered under the current governance evaluator.";
-    policyTriggered = "baseline_allow_rule";
+    summary = "No built-in demonstration check requires review. This is not execution permission.";
+    reason = hasApproval ? "Fictional demo override bypassed elevated-risk review; sensitive-data blocking remains active." : "No built-in demonstration check triggered; entered rules text was not interpreted.";
+    policyTriggered = hasApproval ? "demo_token_override" : "baseline_allow_rule";
   }
 
   return { decision, summary, reason, policyTriggered };
@@ -1354,6 +1349,8 @@ function downloadExecutionTxt() {
 
   const report =
 `SATOSHIUM Agent Governance Execution Report
+
+REFERENCE-ONLY DEMONSTRATION — This unsigned report does not authenticate an issuer or authorize execution. Rules text is recorded, not enforced.
 
 Service:
 SATOSHIUM Agent Governance & Cryptographic Automation Services

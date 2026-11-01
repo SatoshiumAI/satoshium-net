@@ -18,7 +18,7 @@ Protocol version:
 sat-agr-protocol-v1
 
 Evaluation engine:
-SATOSHIUM Agent Governance Reference Evaluator (deterministic ruleset execution mode)
+SATOSHIUM Agent Governance Reference Evaluator (fixed heuristic demonstration mode; entered rules are not interpreted)
 
 The interface simulates governance decision workflows using structured rule evaluation logic.
 
@@ -65,7 +65,7 @@ Outputs are generated deterministically using browser-local evaluation logic.
 Pilot governance evaluations produce one of three decision states:
 
 APPROVED  
-The action satisfies the current ruleset conditions.
+No built-in demonstration check required review. This does not mean the user-entered rules were enforced or that execution is authorized.
 
 REVIEW REQUIRED  
 The action requires manual confirmation before execution.
@@ -148,3 +148,7 @@ It supports:
 - reproducible governance evaluation records
 
 These mechanisms form part of the broader SATOSHIUM agent coordination architecture.
+
+## Interpretation boundary (Review 013 correction)
+
+The browser reference evaluator uses fixed checks against action type/description and amount. The user-entered rules text is recorded and hashed but is not interpreted as enforceable policy. A nonempty fictional demo override bypasses elevated-risk review and is marked `demo_token_override`; it does **not** bypass the sensitive-data BLOCK. Exported records and receipts are unsigned demonstration material and never authorize execution or authenticate the issuer.
