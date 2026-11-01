@@ -428,7 +428,17 @@ body{padding-top:80px}
         .wrap.content { animation: none; opacity: 1; transform: none; }
         .button { transition: none; }
       }
-    </style>
+    
+/* Review 011: prevent the shared fixed navigation from obscuring focus at high zoom. */
+@media (max-width:640px) {
+  #topbar-slot .topbar { position:static !important; }
+  body { padding-top:0 !important; }
+  #topbar-slot .topbar .wrap { padding-left:18px; padding-right:18px; }
+}
+
+/* Review 011: specific Run Inspection focus indicator overrides button.button outline reset. */
+button.button:focus-visible { outline:3px solid #52f3df !important; outline-offset:3px; }
+</style>
 </head>
 <body id="top">
 <div id="topbar-slot" data-topbar="platform"></div>

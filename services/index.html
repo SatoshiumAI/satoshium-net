@@ -275,6 +275,13 @@ margin-top:14px
 .service-choice .service-action:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
 @media(max-width:520px){.service-choice-grid{grid-template-columns:minmax(0,1fr)}}
 
+
+/* Review 011: prevent the shared fixed navigation from obscuring focus at high zoom. */
+@media (max-width:640px) {
+  #topbar-slot .topbar { position:static !important; }
+  body { padding-top:0 !important; }
+  #topbar-slot .topbar .wrap { padding-left:18px; padding-right:18px; }
+}
 </style>
 </head>
 

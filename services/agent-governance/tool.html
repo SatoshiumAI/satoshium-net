@@ -409,6 +409,13 @@ hr{
   .wrap.content{animation:none;opacity:1;transform:none}
   .card,.btn{transition:none}
 }
+
+/* Review 011: prevent the shared fixed navigation from obscuring focus at high zoom. */
+@media (max-width:640px) {
+  #topbar-slot .topbar { position:static !important; }
+  body { padding-top:0 !important; }
+  #topbar-slot .topbar .wrap { padding-left:18px; padding-right:18px; }
+}
 </style>
 </head>
 <body id="top">
