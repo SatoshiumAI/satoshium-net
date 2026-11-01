@@ -24,7 +24,7 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Check simulated inherited font enlargement and reflow
+      - name: Check reflow proxies and report 400% stress observations
         run: timeout 170s node services/reviews/services-review011-textscale.cjs
       - name: Preserve complete observed findings
         if: always()

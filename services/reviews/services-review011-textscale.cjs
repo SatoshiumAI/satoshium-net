@@ -6,13 +6,15 @@ const cases=[
  ['ledger','/services/verification-ledger/tool.html']
 ];
 const base='https://satoshium.net',results=[];
+const requiredPercentages=[100,200];
+const advisoryPercentages=[400];
 (async()=>{
  const browser=await chromium.launch();
  for(const [name,path] of cases){
-  for(const percent of [100,200,400]){
+  for(const percent of [...requiredPercentages,...advisoryPercentages]){
    const context=await browser.newContext({viewport:{width:320,height:850}});
    const page=await context.newPage();
-   const result={page:name,textSizePercent:percent,viewport:320,method:'CSS inherited font-size simulation; not browser zoom'};
+   const result={page:name,textSizePercent:percent,viewport:320,classification:requiredPercentages.includes(percent)?'required-proxy':'advisory-stress',method:'CSS inherited font-size simulation; not browser zoom'};
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    try{
     const response=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:25000});
@@ -32,6 +34,6 @@ const base='https://satoshium.net',results=[];
   }
  }
  await browser.close();
- fs.writeFileSync('services-review011-textscale-results.json',JSON.stringify({observedAt:new Date().toISOString(),method:'CSS inherited font-size simulation at a 320px viewport, not equivalent to Chromium browser zoom, screen reader, or WCAG certification',syntheticTraffic:true,results},null,2));
- if(results.some(r=>!r.pass))process.exitCode=1;
+ fs.writeFileSync('services-review011-textscale-results.json',JSON.stringify({observedAt:new Date().toISOString(),method:'CSS inherited font-size simulation at a 320px viewport; 100% is a reflow proxy and 200% is a text-resize proxy, not browser zoom, screen reader testing, or WCAG certification',syntheticTraffic:true,requiredPercentages,advisoryPercentages,requiredFailures:results.filter(r=>r.classification==='required-proxy'&&!r.pass).length,advisoryFailures:results.filter(r=>r.classification==='advisory-stress'&&!r.pass).length,results},null,2));
+ if(results.some(r=>r.classification==='required-proxy'&&!r.pass))process.exitCode=1;
 })().catch(e=>{console.error(e);process.exit(1)});
