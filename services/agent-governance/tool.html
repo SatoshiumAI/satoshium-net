@@ -475,25 +475,26 @@ Request Governance Workflow Access
   <section id="tool-form" aria-labelledby="tester-heading">
     <div class="card">
       <h2 id="tester-heading">Tester / client information</h2>
+      <p class="muted small">Load Demo Example uses fictional identity details. Use sample information only; do not enter personal or confidential data for demonstration evaluations.</p>
       <div class="form-grid">
         <div class="form-two">
           <div>
             <label for="testerName">Tester name</label>
-            <input id="testerName" type="text" placeholder="Christopher Burris" />
+            <input id="testerName" type="text" placeholder="Demo Tester" />
           </div>
           <div>
             <label for="testerEmail">Email</label>
-            <input id="testerEmail" type="email" placeholder="contact@satoshium.ai" />
+            <input id="testerEmail" type="email" placeholder="demo@example.invalid" />
           </div>
         </div>
 <div>
 <label for="testerLocation">Tester location (city / state)</label>
-<input id="testerLocation" type="text" placeholder="Austin, Texas" />
+<input id="testerLocation" type="text" placeholder="Demo City" />
 </div>
         <div class="form-two">
           <div>
             <label for="testerOrg">Organization / project</label>
-            <input id="testerOrg" type="text" placeholder="Satoshium" />
+            <input id="testerOrg" type="text" placeholder="Fictional Test Organization" />
           </div>
           <div>
             <label for="testerPurpose">Purpose of evaluation</label>
@@ -1289,11 +1290,11 @@ record.policy_triggered = result.policyTriggered;
 }
 
 function loadDemo() {
-  document.getElementById("testerName").value = "Christopher Burris";
-  document.getElementById("testerEmail").value = "contact@satoshium.ai";
-  document.getElementById("testerLocation").value = "Austin, Texas";
-  document.getElementById("testerOrg").value = "Satoshium";
-  document.getElementById("testerPurpose").value = "Governance evaluation review";
+  document.getElementById("testerName").value = "Demo Tester";
+  document.getElementById("testerEmail").value = "demo@example.invalid";
+  document.getElementById("testerLocation").value = "Demo City";
+  document.getElementById("testerOrg").value = "Fictional Test Organization";
+  document.getElementById("testerPurpose").value = "Demonstration governance evaluation";
   document.getElementById("rulesetName").value = "wallet-ops-v1";
   document.getElementById("riskLevel").value = "restricted";
   document.getElementById("rulesetText").value =
