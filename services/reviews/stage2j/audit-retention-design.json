@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-07",
+  "classification": "FICTIONAL_DESIGN_ONLY_NOT_ADOPTED",
+  "canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "proposed_layers": [
+    {
+      "name": "identity",
+      "must_verify": "authenticated issuer, recipient, source-event and stable full identifiers"
+    },
+    {
+      "name": "representation",
+      "must_verify": "deterministic canonical bytes, version and actual digest against actual artifact"
+    },
+    {
+      "name": "signing",
+      "must_verify": "signature, issuer identity, key validity, scope, revocation and rotation"
+    },
+    {
+      "name": "durable_audit",
+      "must_verify": "atomic tamper-evident append, retention, crash recovery and cross-process deduplication"
+    },
+    {
+      "name": "governance",
+      "must_verify": "independent receiving institutional rules, approval and resulting object readback"
+    }
+  ],
+  "conclusions_not_inferred": [
+    "valid digest ≠ issuer approval",
+    "valid signature ≠ governance authority",
+    "claimed predecessor hash ≠ durable audit",
+    "acknowledgement ≠ substantive decision"
+  ],
+  "all_production_acceptances_open": true
+}

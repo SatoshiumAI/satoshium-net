@@ -1,0 +1,40 @@
+'use strict';
+const inspect=function inspect(p){
+ const base={noncanonical:true,cryptography_verified:false,signature_verified:false,authority_verified:false,archive_persisted:false,write_performed:false,production_acceptance:false};
+ const result=(status,reason,details={})=>({...base,status,reason,...details});
+ const obj=x=>x!==null&&typeof x==="object"&&!Array.isArray(x);
+ const str=x=>typeof x==="string"&&x.trim().length>0;
+ const dt=x=>str(x)&&/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/.test(x)&&Number.isFinite(Date.parse(x));
+ if(!obj(p)||!obj(p.event)||!obj(p.evidence)||!obj(p.archive)||!Array.isArray(p.archive.prior))return result("REJECTED","INVALID_PACKET");
+ const e=p.event,v=p.evidence,a=p.archive;
+ if(![e.ack_id,e.audit_event_id,e.source_event_id,e.source_id,e.source_version,e.reference_id,e.owner,e.object_type,e.disposition,e.observed_at,e.correlation_id,e.attempt_id,v.representation_id,v.representation_version,v.algorithm,v.digest_claim,v.signer_claim,v.key_ref,v.signature_claim,a.correlation_id,a.previous_digest,a.retention_rule,a.capture_time].every(str)||!dt(e.observed_at)||!dt(a.capture_time))return result("REJECTED","MISSING_CONTEXT");
+ if(({SREG:"Registry",CHR:"Chronicle",ANCH:"Anchor",BEAC:"Beacon",ATT:"Attestor",TRST:"Attestor"})[e.object_type]!==e.owner)return result("REJECTED","OWNER_MISMATCH");
+ if(e.source_owner!=="Certifier")return result("REJECTED","SOURCE_AUTHORITY_MISMATCH");
+ if(!["receipt","review-pending","deferred","rejected","unknown"].includes(e.disposition))return result("REJECTED","DISPOSITION_NOT_ADOPTED");
+ if(e.approved===true||e.write_claim===true||e.conclusion!==null||e.source_mutation===true)return result("REJECTED","ACK_AUTHORITY_ESCALATION");
+ if(v.algorithm!=="fictional-digest-v1"||v.verification_basis!=="claim-only")return result("REJECTED","UNVERIFIED_CRYPTO_CLAIM");
+ if(v.representation_id!==e.audit_event_id||v.representation_version!==e.source_version)return result("REJECTED","REPRESENTATION_MISMATCH");
+ if(v.signer_claim!==e.owner)return result("REJECTED","SIGNER_OWNER_MISMATCH");
+ if(a.correlation_id!==e.correlation_id)return result("REJECTED","CORRELATION_MISMATCH");
+ if(a.retention_rule!=="fictional:preserve-history")return result("REJECTED","RETENTION_RULE_MISMATCH");
+ if(a.erase_prior===true||a.rewrite_prior===true)return result("REJECTED","HISTORY_REWRITE");
+ const auditIds=new Set(),ackIds=new Set(),past=[];
+ for(const h of a.prior){
+  if(!obj(h)||![h.audit_event_id,h.ack_id,h.reference_id,h.owner,h.digest_claim,h.capture_time].every(str)||!dt(h.capture_time))return result("REJECTED","INVALID_PRIOR");
+  if(auditIds.has(h.audit_event_id)||ackIds.has(h.ack_id))return result("REJECTED","DUPLICATE_PRIOR");
+  auditIds.add(h.audit_event_id);ackIds.add(h.ack_id);
+  if(h.owner!==e.owner||h.reference_id!==e.reference_id)return result("REJECTED","HISTORY_OWNER_MISMATCH");
+  past.push({audit_event_id:h.audit_event_id,ack_id:h.ack_id,digest_claim:h.digest_claim});
+ }
+ if(auditIds.has(e.audit_event_id)||ackIds.has(e.ack_id))return result("REJECTED","HISTORY_COLLISION");
+ if(a.prior.length&&a.previous_digest!==a.prior[a.prior.length-1].digest_claim)return result("REJECTED","PREDECESSOR_MISMATCH");
+ if(!a.prior.length&&a.previous_digest!=="fictional:genesis")return result("REJECTED","GENESIS_MISMATCH");
+ if(a.prior.length&&Date.parse(a.capture_time)<Date.parse(a.prior[a.prior.length-1].capture_time))return result("HOLD_REVIEW","CAPTURE_OUT_OF_ORDER");
+ if(v.verified===true||v.signature_verified===true||a.persisted===true)return result("REJECTED","UNVERIFIED_SUCCESS_ASSERTED");
+ if(v.digest_claim==="fictional:mismatch")return result("HOLD_INTEGRITY","CLAIMED_DIGEST_CONFLICT",{past});
+ if(v.digest_claim==="fictional:unknown"||e.disposition==="unknown")return result("HOLD_UNKNOWN","EVIDENCE_UNKNOWN",{past});
+ if(["partial","unknown"].includes(a.recovery))return result("HOLD_RECOVERY","RECOVERY_UNVERIFIED",{past});
+ if(a.recovery!=="fictional-complete")return result("REJECTED","UNRECOGNIZED_RECOVERY");
+ return result("CONTEXT_ONLY","INTEGRITY_AND_AUTHORITY_UNVERIFIED",{prior:past,representation:v.representation_id});
+};
+module.exports={inspect};

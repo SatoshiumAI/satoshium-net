@@ -23,6 +23,7 @@ on:
       - 'services/reviews/stage2g/**'
       - 'services/reviews/stage2h/**'
       - 'services/reviews/stage2i/**'
+      - 'services/reviews/stage2j/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,6 +40,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 2J fictional claimed-audit context checks
+        run: node services/reviews/stage2j/audit-gate.test.cjs
       - name: Stage 2I fictional acknowledgement identity and replay checks
         run: node services/reviews/stage2i/replay-identity-gate.test.cjs
       - name: Stage 2H fictional owner acknowledgement self-tests

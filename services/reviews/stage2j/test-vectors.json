@@ -1,0 +1,410 @@
+[
+  {
+    "name": "valid claim-only context",
+    "path": "",
+    "value": null,
+    "status": "CONTEXT_ONLY",
+    "reason": "INTEGRITY_AND_AUTHORITY_UNVERIFIED"
+  },
+  {
+    "name": "claimed digest mismatch",
+    "path": "evidence.digest_claim",
+    "value": "fictional:mismatch",
+    "status": "HOLD_INTEGRITY",
+    "reason": "CLAIMED_DIGEST_CONFLICT"
+  },
+  {
+    "name": "unknown digest",
+    "path": "evidence.digest_claim",
+    "value": "fictional:unknown",
+    "status": "HOLD_UNKNOWN",
+    "reason": "EVIDENCE_UNKNOWN"
+  },
+  {
+    "name": "unknown acknowledgement",
+    "path": "event.disposition",
+    "value": "unknown",
+    "status": "HOLD_UNKNOWN",
+    "reason": "EVIDENCE_UNKNOWN"
+  },
+  {
+    "name": "partial recovery",
+    "path": "archive.recovery",
+    "value": "partial",
+    "status": "HOLD_RECOVERY",
+    "reason": "RECOVERY_UNVERIFIED"
+  },
+  {
+    "name": "unknown recovery",
+    "path": "archive.recovery",
+    "value": "unknown",
+    "status": "HOLD_RECOVERY",
+    "reason": "RECOVERY_UNVERIFIED"
+  },
+  {
+    "name": "invalid recovery state",
+    "path": "archive.recovery",
+    "value": "recovered",
+    "status": "REJECTED",
+    "reason": "UNRECOGNIZED_RECOVERY"
+  },
+  {
+    "name": "missing event source_id",
+    "path": "event.source_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event ack_id",
+    "path": "event.ack_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event audit_event_id",
+    "path": "event.audit_event_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event reference_id",
+    "path": "event.reference_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event source_version",
+    "path": "event.source_version",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event observed_at",
+    "path": "event.observed_at",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event attempt_id",
+    "path": "event.attempt_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing event correlation_id",
+    "path": "event.correlation_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "owner mismatch",
+    "path": "event.owner",
+    "value": "Registry",
+    "status": "REJECTED",
+    "reason": "OWNER_MISMATCH"
+  },
+  {
+    "name": "wrong object type",
+    "path": "event.object_type",
+    "value": "SREG",
+    "status": "REJECTED",
+    "reason": "OWNER_MISMATCH"
+  },
+  {
+    "name": "foreign source owner",
+    "path": "event.source_owner",
+    "value": "Beacon",
+    "status": "REJECTED",
+    "reason": "SOURCE_AUTHORITY_MISMATCH"
+  },
+  {
+    "name": "unsupported disposition",
+    "path": "event.disposition",
+    "value": "approved",
+    "status": "REJECTED",
+    "reason": "DISPOSITION_NOT_ADOPTED"
+  },
+  {
+    "name": "claimed authority approved",
+    "path": "event.approved",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "claimed authority write_claim",
+    "path": "event.write_claim",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "claimed authority source_mutation",
+    "path": "event.source_mutation",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "claimed conclusion",
+    "path": "event.conclusion",
+    "value": "trusted",
+    "status": "REJECTED",
+    "reason": "ACK_AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "unapproved crypto algorithm",
+    "path": "evidence.algorithm",
+    "value": "SHA-256",
+    "status": "REJECTED",
+    "reason": "UNVERIFIED_CRYPTO_CLAIM"
+  },
+  {
+    "name": "verified basis claimed",
+    "path": "evidence.verification_basis",
+    "value": "verified",
+    "status": "REJECTED",
+    "reason": "UNVERIFIED_CRYPTO_CLAIM"
+  },
+  {
+    "name": "representation ID mismatch",
+    "path": "evidence.representation_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "REPRESENTATION_MISMATCH"
+  },
+  {
+    "name": "representation version mismatch",
+    "path": "evidence.representation_version",
+    "value": "2.0",
+    "status": "REJECTED",
+    "reason": "REPRESENTATION_MISMATCH"
+  },
+  {
+    "name": "signer mismatch",
+    "path": "evidence.signer_claim",
+    "value": "Registry",
+    "status": "REJECTED",
+    "reason": "SIGNER_OWNER_MISMATCH"
+  },
+  {
+    "name": "correlation mismatch",
+    "path": "archive.correlation_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "CORRELATION_MISMATCH"
+  },
+  {
+    "name": "retention rule mismatch",
+    "path": "archive.retention_rule",
+    "value": "discard",
+    "status": "REJECTED",
+    "reason": "RETENTION_RULE_MISMATCH"
+  },
+  {
+    "name": "erase history",
+    "path": "archive.erase_prior",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "HISTORY_REWRITE"
+  },
+  {
+    "name": "rewrite history",
+    "path": "archive.rewrite_prior",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "HISTORY_REWRITE"
+  },
+  {
+    "name": "invalid old event",
+    "path": "archive.prior.0.audit_event_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "INVALID_PRIOR"
+  },
+  {
+    "name": "duplicate old event",
+    "path": "archive.prior",
+    "value": [
+      {
+        "audit_event_id": "fictional:audit-1",
+        "ack_id": "fictional:ack-1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "digest_claim": "fictional:digest-1",
+        "capture_time": "2099-09-02T00:00:00Z"
+      },
+      {
+        "audit_event_id": "fictional:audit-1",
+        "ack_id": "fictional:ack-1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "digest_claim": "fictional:digest-1",
+        "capture_time": "2099-09-02T00:00:00Z"
+      }
+    ],
+    "status": "REJECTED",
+    "reason": "DUPLICATE_PRIOR"
+  },
+  {
+    "name": "old owner mismatch",
+    "path": "archive.prior.0.owner",
+    "value": "Beacon",
+    "status": "REJECTED",
+    "reason": "HISTORY_OWNER_MISMATCH"
+  },
+  {
+    "name": "old reference mismatch",
+    "path": "archive.prior.0.reference_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "HISTORY_OWNER_MISMATCH"
+  },
+  {
+    "name": "old ack identity collides",
+    "path": "event.ack_id",
+    "value": "fictional:ack-1",
+    "status": "REJECTED",
+    "reason": "HISTORY_COLLISION"
+  },
+  {
+    "name": "old event identity collides with matched representation",
+    "path": "__whole__",
+    "value": {
+      "event": {
+        "ack_id": "fictional:ack-2",
+        "audit_event_id": "fictional:audit-1",
+        "source_event_id": "fictional:change-1",
+        "source_id": "SC-CERT-2099-0001",
+        "source_owner": "Certifier",
+        "source_version": "1.1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "object_type": "ATT",
+        "disposition": "review-pending",
+        "observed_at": "2099-09-03T00:00:00Z",
+        "correlation_id": "fictional:corr-1",
+        "attempt_id": "fictional:attempt-2",
+        "approved": false,
+        "write_claim": false,
+        "conclusion": null,
+        "source_mutation": false
+      },
+      "evidence": {
+        "representation_id": "fictional:audit-1",
+        "representation_version": "1.1",
+        "algorithm": "fictional-digest-v1",
+        "digest_claim": "fictional:digest-2",
+        "signer_claim": "Attestor",
+        "key_ref": "fictional:key",
+        "signature_claim": "fictional:signature",
+        "verification_basis": "claim-only",
+        "verified": false,
+        "signature_verified": false
+      },
+      "archive": {
+        "correlation_id": "fictional:corr-1",
+        "previous_digest": "fictional:digest-1",
+        "retention_rule": "fictional:preserve-history",
+        "capture_time": "2099-09-03T00:00:01Z",
+        "recovery": "fictional-complete",
+        "persisted": false,
+        "erase_prior": false,
+        "rewrite_prior": false,
+        "prior": [
+          {
+            "audit_event_id": "fictional:audit-1",
+            "ack_id": "fictional:ack-1",
+            "reference_id": "fictional:ATT-1",
+            "owner": "Attestor",
+            "digest_claim": "fictional:digest-1",
+            "capture_time": "2099-09-02T00:00:00Z"
+          }
+        ]
+      }
+    },
+    "status": "REJECTED",
+    "reason": "HISTORY_COLLISION"
+  },
+  {
+    "name": "previous digest mismatch",
+    "path": "archive.previous_digest",
+    "value": "wrong",
+    "status": "REJECTED",
+    "reason": "PREDECESSOR_MISMATCH"
+  },
+  {
+    "name": "out of order capture",
+    "path": "archive.capture_time",
+    "value": "2099-09-01T00:00:00Z",
+    "status": "HOLD_REVIEW",
+    "reason": "CAPTURE_OUT_OF_ORDER"
+  },
+  {
+    "name": "claimed verified digest",
+    "path": "evidence.verified",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "UNVERIFIED_SUCCESS_ASSERTED"
+  },
+  {
+    "name": "claimed verified signature",
+    "path": "evidence.signature_verified",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "UNVERIFIED_SUCCESS_ASSERTED"
+  },
+  {
+    "name": "claimed persisted archive",
+    "path": "archive.persisted",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "UNVERIFIED_SUCCESS_ASSERTED"
+  },
+  {
+    "name": "missing prior and genesis",
+    "path": "archive.prior",
+    "value": [],
+    "status": "REJECTED",
+    "reason": "GENESIS_MISMATCH"
+  },
+  {
+    "name": "valid fictional genesis",
+    "path": "archive",
+    "value": {
+      "correlation_id": "fictional:corr-1",
+      "previous_digest": "fictional:genesis",
+      "retention_rule": "fictional:preserve-history",
+      "capture_time": "2099-09-03T00:00:01Z",
+      "recovery": "fictional-complete",
+      "persisted": false,
+      "erase_prior": false,
+      "rewrite_prior": false,
+      "prior": []
+    },
+    "status": "CONTEXT_ONLY",
+    "reason": "INTEGRITY_AND_AUTHORITY_UNVERIFIED"
+  },
+  {
+    "name": "missing event object",
+    "path": "event",
+    "value": null,
+    "status": "REJECTED",
+    "reason": "INVALID_PACKET"
+  },
+  {
+    "name": "missing archive object",
+    "path": "archive",
+    "value": null,
+    "status": "REJECTED",
+    "reason": "INVALID_PACKET"
+  }
+]

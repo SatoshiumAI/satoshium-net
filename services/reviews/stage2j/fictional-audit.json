@@ -1,0 +1,53 @@
+{
+  "event": {
+    "ack_id": "fictional:ack-2",
+    "audit_event_id": "fictional:audit-2",
+    "source_event_id": "fictional:change-1",
+    "source_id": "SC-CERT-2099-0001",
+    "source_owner": "Certifier",
+    "source_version": "1.1",
+    "reference_id": "fictional:ATT-1",
+    "owner": "Attestor",
+    "object_type": "ATT",
+    "disposition": "review-pending",
+    "observed_at": "2099-09-03T00:00:00Z",
+    "correlation_id": "fictional:corr-1",
+    "attempt_id": "fictional:attempt-2",
+    "approved": false,
+    "write_claim": false,
+    "conclusion": null,
+    "source_mutation": false
+  },
+  "evidence": {
+    "representation_id": "fictional:audit-2",
+    "representation_version": "1.1",
+    "algorithm": "fictional-digest-v1",
+    "digest_claim": "fictional:digest-2",
+    "signer_claim": "Attestor",
+    "key_ref": "fictional:key",
+    "signature_claim": "fictional:signature",
+    "verification_basis": "claim-only",
+    "verified": false,
+    "signature_verified": false
+  },
+  "archive": {
+    "correlation_id": "fictional:corr-1",
+    "previous_digest": "fictional:digest-1",
+    "retention_rule": "fictional:preserve-history",
+    "capture_time": "2099-09-03T00:00:01Z",
+    "recovery": "fictional-complete",
+    "persisted": false,
+    "erase_prior": false,
+    "rewrite_prior": false,
+    "prior": [
+      {
+        "audit_event_id": "fictional:audit-1",
+        "ack_id": "fictional:ack-1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "digest_claim": "fictional:digest-1",
+        "capture_time": "2099-09-02T00:00:00Z"
+      }
+    ]
+  }
+}
