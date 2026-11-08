@@ -1,0 +1,73 @@
+{
+  "record_type": "STAGE2A_DESIGN_DECISIONS",
+  "date": "2026-11-07",
+  "canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "status": "DESIGN_ONLY_NOT_ADOPTED",
+  "production_acceptance": "11_NOT_VERIFIED",
+  "decisions": [
+    {
+      "id": "D-2A-01",
+      "title": "Authoritative Certifier producer representation",
+      "status": "OPEN",
+      "issue": "Toolkit generator JSON vs current canonical package-version representation; no approved transport/wire binding",
+      "evidence": [
+        "certifier/tools/ops-toolkit/schema/certification_package.schema.json",
+        "certifier/certifications/SC-CERT-2026-0001/README.md"
+      ]
+    },
+    {
+      "id": "D-2A-02",
+      "title": "Registry intake and ownership",
+      "status": "OPEN",
+      "issue": "Output SREG schemas and historical entry do not identify an authenticated approved SREG-creation endpoint",
+      "evidence": [
+        "registry/schemas/sreg-base-schema.json",
+        "registry/schemas/certification-record-profile.json"
+      ]
+    },
+    {
+      "id": "D-2A-03",
+      "title": "Version/status and lifecycle separation",
+      "status": "OPEN",
+      "issue": "Package v1.1 vs sample schema v1.0.0 and historical SREG source/status labels require independent provenance; published lifecycle to be checked with controlled-value rules",
+      "evidence": [
+        "registry/registered-items/SREG-2026-0001/record.json",
+        "certifier/tools/ops-toolkit/examples/SC-CERT-2026-0000/certification_package.json"
+      ]
+    },
+    {
+      "id": "D-2A-04",
+      "title": "Native registers and Suite relationship predicate",
+      "status": "OPEN",
+      "issue": "Registry requires native 'registers'; no blanket rule converting to Suite 'references'",
+      "evidence": [
+        "registry/schemas/certification-record-profile.json",
+        "suite/interoperability/satoshium-interoperability-review-relationship-serialization-2026-10-03.md"
+      ]
+    },
+    {
+      "id": "D-2A-05",
+      "title": "Recipient authority/trace and write audit",
+      "status": "OPEN",
+      "issue": "Authentication, institutional approval, duplicate suppression, durable audit and actual outcome readback unverified",
+      "evidence": [
+        "suite/interoperability/satoshium-suite-interoperability-implementation-queue-2026-10-03.md"
+      ]
+    },
+    {
+      "id": "D-2A-06",
+      "title": "Historical and current representation parity",
+      "status": "OPEN",
+      "issue": "No end-to-end live issuer human/JSON/Registry parity or correction propagation tests this stage",
+      "evidence": [
+        "registry/registered-items/SREG-2026-0001/README.md"
+      ]
+    }
+  ],
+  "caveats": [
+    "No canonical writes",
+    "No externally verified endpoint or source readback",
+    "Historical July Certifier interoperability draft non-controlling",
+    "Output-record schemas do not imply intake authorization"
+  ]
+}

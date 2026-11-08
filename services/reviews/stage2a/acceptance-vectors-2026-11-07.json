@@ -1,0 +1,149 @@
+{
+  "schema_version": "stage2a-acceptance-design-v1",
+  "date": "2026-11-07",
+  "classification": "PROPOSED_NOT_EXECUTED",
+  "production_approval": false,
+  "interface": "Certifier Certification Package source reference -> Registry Certification Record-Type candidate intake",
+  "vectors": [
+    {
+      "id": "V-2A-01",
+      "case_name": "complete, typed source-reference context",
+      "expected_reaction": "context_only",
+      "required_evidence": [
+        "source_owner",
+        "source_native_id",
+        "source_object_type",
+        "source_version_at_use",
+        "Registry receiving owner"
+      ],
+      "guardrail": "No SREG issued; review required"
+    },
+    {
+      "id": "V-2A-02",
+      "case_name": "missing native source ID",
+      "expected_reaction": "reject",
+      "required_evidence": [
+        "source_native_id"
+      ],
+      "guardrail": "No inferred numeric-suffix identity"
+    },
+    {
+      "id": "V-2A-03",
+      "case_name": "unavailable authoritative source",
+      "expected_reaction": "hold_unknown",
+      "required_evidence": [
+        "last_known_source_version",
+        "current_source_state"
+      ],
+      "guardrail": "Last known version not promoted to current"
+    },
+    {
+      "id": "V-2A-04",
+      "case_name": "source version differs from source-at-use",
+      "expected_reaction": "hold_review",
+      "required_evidence": [
+        "source_version_at_use",
+        "observed_source_version"
+      ],
+      "guardrail": "No silent refresh or historical rewrite"
+    },
+    {
+      "id": "V-2A-05",
+      "case_name": "toolkit sample compared to published 1.1 package",
+      "expected_reaction": "hold_review",
+      "required_evidence": [
+        "fixture_identity",
+        "source_provenance",
+        "source_version"
+      ],
+      "guardrail": "Sample not treated as current issued package"
+    },
+    {
+      "id": "V-2A-06",
+      "case_name": "non-native predicate 'references' substituted for 'registers'",
+      "expected_reaction": "reject_or_decision",
+      "required_evidence": [
+        "native_registry_predicate",
+        "candidate_suite_predicate"
+      ],
+      "guardrail": "No automatic synonym claim"
+    },
+    {
+      "id": "V-2A-07",
+      "case_name": "technical access without receiving Registry approval",
+      "expected_reaction": "reject",
+      "required_evidence": [
+        "caller_identity",
+        "receiving_policy",
+        "approval_evidence"
+      ],
+      "guardrail": "No cross-institution write"
+    },
+    {
+      "id": "V-2A-08",
+      "case_name": "source decision copied into Registry lifecycle field",
+      "expected_reaction": "reject",
+      "required_evidence": [
+        "certification_status",
+        "registry_lifecycle"
+      ],
+      "guardrail": "Independent owner/state dimensions"
+    },
+    {
+      "id": "V-2A-09",
+      "case_name": "unknown certification status",
+      "expected_reaction": "hold_unknown",
+      "required_evidence": [
+        "source_status",
+        "status_namespace"
+      ],
+      "guardrail": "Unknown not CERTIFIED/active/supported"
+    },
+    {
+      "id": "V-2A-10",
+      "case_name": "withdrawn or superseded source reference",
+      "expected_reaction": "hold_review",
+      "required_evidence": [
+        "source_status_at_use",
+        "current_source_status",
+        "source_version"
+      ],
+      "guardrail": "Historical identifier resolvable; current action not inferred"
+    },
+    {
+      "id": "V-2A-11",
+      "case_name": "duplicate attempted registration",
+      "expected_reaction": "hold_or_reject",
+      "required_evidence": [
+        "idempotency_key",
+        "prior_registry_response",
+        "source_version"
+      ],
+      "guardrail": "No duplicate SREG action"
+    },
+    {
+      "id": "V-2A-12",
+      "case_name": "claimed successful registration without owner readback",
+      "expected_reaction": "hold_unknown",
+      "required_evidence": [
+        "reported_result",
+        "actual_sreg_record",
+        "registry_audit"
+      ],
+      "guardrail": "Reported success not production proof"
+    },
+    {
+      "id": "V-2A-13",
+      "case_name": "Registry-produced result with separate authoritative readback",
+      "expected_reaction": "governed_verification_required",
+      "required_evidence": [
+        "receiving_rule",
+        "attributable_sreg",
+        "source_lineage",
+        "audit_trace"
+      ],
+      "guardrail": "Only verified actual institution-issued object can support acceptance"
+    }
+  ],
+  "important": "Expected reactions are design hypotheses, not executed tests or approved recipient behavior."
+}
