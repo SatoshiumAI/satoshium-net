@@ -1,0 +1,274 @@
+[
+  {
+    "id": "E-01",
+    "mutate": {},
+    "classification": "MACHINE_VALUE_RECOGNIZED",
+    "reason": "VALUE_PRESENT_IN_PUBLISHED_SET"
+  },
+  {
+    "id": "E-02",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "published",
+        "label": "Published"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-03",
+    "mutate": {
+      "value": {
+        "code": "pending",
+        "label": "Pending"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "VALUE_NOT_IN_PUBLISHED_MACHINE_SET"
+  },
+  {
+    "id": "E-04",
+    "mutate": {
+      "value": {
+        "code": "active",
+        "label": "Pending"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "CODE_LABEL_MISMATCH"
+  },
+  {
+    "id": "E-05",
+    "mutate": {
+      "value": {
+        "code": "pending",
+        "label": "Active"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "CODE_LABEL_MISMATCH"
+  },
+  {
+    "id": "E-06",
+    "mutate": {
+      "value": {
+        "code": "foobar",
+        "label": "Foobar"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "NOT_SCHEMA_ENUMERATED"
+  },
+  {
+    "id": "E-07",
+    "mutate": {
+      "value": {
+        "code": "active",
+        "label": "Foo"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "NOT_SCHEMA_ENUMERATED"
+  },
+  {
+    "id": "E-08",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "active",
+        "label": "Active"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "NOT_SCHEMA_ENUMERATED"
+  },
+  {
+    "id": "E-09",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "proposed",
+        "label": "Proposed"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-10",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "under_review",
+        "label": "Under Review"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-11",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "registered",
+        "label": "Registered"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-12",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "updated",
+        "label": "Updated"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-13",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "archived",
+        "label": "Archived"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-14",
+    "mutate": {
+      "value": {
+        "code": "revoked",
+        "label": "Revoked"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "VALUE_NOT_IN_PUBLISHED_MACHINE_SET"
+  },
+  {
+    "id": "E-15",
+    "mutate": {
+      "source_domain": "Certifier"
+    },
+    "classification": "REJECTED",
+    "reason": "CROSS_DOMAIN_MAPPING_FORBIDDEN"
+  },
+  {
+    "id": "E-16",
+    "mutate": {
+      "source_domain": "registry_lifecycle_state"
+    },
+    "classification": "REJECTED",
+    "reason": "CROSS_DOMAIN_MAPPING_FORBIDDEN"
+  },
+  {
+    "id": "E-17",
+    "mutate": {
+      "requested_transition": true
+    },
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "NO_TRANSITION_OR_PUBLICATION_AUTHORITY"
+  },
+  {
+    "id": "E-18",
+    "mutate": {
+      "requested_publication": true
+    },
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "NO_TRANSITION_OR_PUBLICATION_AUTHORITY"
+  },
+  {
+    "id": "E-19",
+    "mutate": {
+      "domain": "Certification Status",
+      "source_domain": "Certification Status"
+    },
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_DOMAIN"
+  },
+  {
+    "id": "E-20",
+    "mutate": {
+      "value": {
+        "code": "active"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "INVALID_CODE_LABEL"
+  },
+  {
+    "id": "E-21",
+    "mutate": {
+      "value": null
+    },
+    "classification": "REJECTED",
+    "reason": "INVALID_CODE_LABEL"
+  },
+  {
+    "id": "E-22",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "Published",
+        "label": "Published"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "NOT_SCHEMA_ENUMERATED"
+  },
+  {
+    "id": "E-23",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "retired",
+        "label": "Retired"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "MACHINE_VALUE_SET_NOT_PUBLISHED"
+  },
+  {
+    "id": "E-24",
+    "mutate": {
+      "value": {
+        "code": "archived",
+        "label": "Archived"
+      }
+    },
+    "classification": "SCHEMA_ONLY",
+    "reason": "VALUE_NOT_IN_PUBLISHED_MACHINE_SET"
+  },
+  {
+    "id": "E-25",
+    "mutate": {
+      "domain": "registry_lifecycle_state",
+      "source_domain": "registry_lifecycle_state",
+      "value": {
+        "code": "published",
+        "label": "Registered"
+      }
+    },
+    "classification": "REJECTED",
+    "reason": "CODE_LABEL_MISMATCH"
+  }
+]

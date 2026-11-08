@@ -18,6 +18,7 @@ on:
       - 'services/reviews/stage1r/**'
       - 'services/reviews/stage1s/**'
       - 'services/reviews/stage2b/**'
+      - 'services/reviews/stage2e/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -34,6 +35,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 2E pinned controlled values conformance tests
+        run: node services/reviews/stage2e/value-inspector.test.cjs
       - name: Stage 2B fictional Certifier Registry bridge contract checks
         run: node services/reviews/stage2b/candidate-bridge.test.cjs
       - name: Stage 1S IQ-011 cross-institution write audit tests

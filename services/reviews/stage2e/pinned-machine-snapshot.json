@@ -1,0 +1,81 @@
+{
+  "origin": {
+    "repository": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "schema_sha": "2405f6cb448cb8432fb5ad0787339cffb49ef854",
+    "values_sha": "155ce281fc8daf42eaf8031a1895f59b1c81efe6",
+    "sreg_sha": "9faf4401ec432ae1367aec5207a6eb08da308f99"
+  },
+  "schema": {
+    "registry_status": {
+      "codes": [
+        "pending",
+        "active",
+        "restricted",
+        "disputed",
+        "superseded",
+        "revoked",
+        "retired",
+        "archived"
+      ],
+      "labels": [
+        "Pending",
+        "Active",
+        "Restricted",
+        "Disputed",
+        "Superseded",
+        "Revoked",
+        "Retired",
+        "Archived"
+      ]
+    },
+    "registry_lifecycle_state": {
+      "codes": [
+        "proposed",
+        "under_review",
+        "registered",
+        "published",
+        "updated",
+        "superseded",
+        "revoked",
+        "retired",
+        "archived"
+      ],
+      "labels": [
+        "Proposed",
+        "Under Review",
+        "Registered",
+        "Published",
+        "Updated",
+        "Superseded",
+        "Revoked",
+        "Retired",
+        "Archived"
+      ]
+    }
+  },
+  "published_controlled_values": {
+    "version": "1.0",
+    "value_sets": {
+      "registry_status": [
+        {
+          "code": "active",
+          "label": "Active"
+        }
+      ]
+    }
+  },
+  "historical_sreg": {
+    "registry_status": {
+      "code": "active",
+      "label": "Active"
+    },
+    "registry_lifecycle_state": {
+      "code": "published",
+      "label": "Published"
+    },
+    "registry_entry_version": "1.0",
+    "source_record_version": "1.1"
+  }
+}
