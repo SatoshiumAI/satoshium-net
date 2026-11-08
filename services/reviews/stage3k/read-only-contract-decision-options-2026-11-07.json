@@ -1,0 +1,193 @@
+{
+  "schema_version": "stage3k-decision-options-v1",
+  "date": "2026-11-07",
+  "classification": "PROPOSED_OWNER_DECISION_OPTIONS_UNADOPTED",
+  "canonical_repo": "SatoshiumAI/satoshium-us",
+  "canonical_head": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "read_only": true,
+  "prior_stage3j_blob": "299664c41de9187bd66c467071290782f18dbda7",
+  "source_pins": [
+    {
+      "path": "certifier/governance/README.md",
+      "sha": "86299c5a27e94c232458ac3ffb82fc0610966dae",
+      "role": "Canonical Certifier package stewardship and downstream authority separation"
+    },
+    {
+      "path": "certifier/certifications/SC-CERT-2026-0001/README.md",
+      "sha": "867d555d384d647bf490e22d0df8de6fca5f1ac7",
+      "role": "Existing canonical certification and downstream references; historical source facts"
+    },
+    {
+      "path": "registry/governance/README.md",
+      "sha": "bd640f7f03dc656d6ab476076e88ad5ab78947f9",
+      "role": "Registry Founder/steward authority option and evidence/decision record obligations"
+    },
+    {
+      "path": "registry/policies/record-creation-policy.md",
+      "sha": "7f2cb6bc48a13759b351dfd97412dc936410d887",
+      "role": "Registry-created SREG governed by separate creation/registrability"
+    },
+    {
+      "path": "registry/registrability/README.md",
+      "sha": "a826cf416b7456ed5b1a2a11a916ccf63e09908e",
+      "role": "Registrant eligibility distinct from source authority and validation"
+    },
+    {
+      "path": "registry/schemas/certification-record-profile.json",
+      "sha": "269a1062898645552681868416c13cd3701e51bc",
+      "role": "Schema of completed SREG; not machine intake contract"
+    }
+  ],
+  "options": [
+    {
+      "id": "K-A",
+      "name": "Maintain existing human-governed historical reference only",
+      "type": "NO_NEW_AUTOMATION",
+      "effect": "Keep canonical existing SC-CERT and SREG references with existing authority and source-owned meanings; do not adopt a new machine protocol",
+      "requires": [
+        "No new owner adoption needed for treating historical existing records as historical facts",
+        "Any new downstream interpretation or record action still separately governed"
+      ],
+      "recommended": true,
+      "approved_now": false
+    },
+    {
+      "id": "K-B",
+      "name": "Approve documentary read-only source-reference profile",
+      "type": "CONTRACT_DECISION_REQUIRED",
+      "effect": "A narrowly defined consumer profile containing full issuer identity, canonical URL, source version-at-use, captured-at time, issuer status as quoted source fact, and provenance evidence. No issuance endpoint, automated live lookup, or currentness claim.",
+      "requires": [
+        "Verified Certifier owner contract adoption",
+        "Registry owner acceptance of this read-only consumption profile",
+        "Explicit schema and source-version semantics; stale/unknown/unavailable refusal",
+        "Versioned governance decision by actual authorized roles"
+      ],
+      "recommended_for_future": true,
+      "approved_now": false
+    },
+    {
+      "id": "K-C",
+      "name": "Approve automatic Registry receiving or creation API",
+      "type": "SEPARATE_EXPLICIT_AUTHORIZATION_REQUIRED",
+      "effect": "Authenticated integration with potentially privileged Registry actions, idempotency, durable audit, decision and publication controls",
+      "requires": [
+        "Close D-2A-01/02/03/05/06 with approved owner evidence",
+        "Separate founder and receiving-institution authorization",
+        "Independent authenticated nonproduction testing and fault-recovery evidence"
+      ],
+      "recommended": false,
+      "approved_now": false
+    }
+  ],
+  "proposed_read_only_fields": [
+    {
+      "field": "source_institution",
+      "owner": "Certifier",
+      "type": "attributed_identity",
+      "rule": "Preserve source authority, not arbitrary caller name"
+    },
+    {
+      "field": "source_system_identifier",
+      "owner": "Certifier",
+      "type": "full_native_identifier",
+      "rule": "Retain complete SC-CERT identifier, never suffix"
+    },
+    {
+      "field": "canonical_source_reference",
+      "owner": "Certifier",
+      "type": "canonical_uri",
+      "rule": "No toolkit-stub replacement"
+    },
+    {
+      "field": "source_record_type",
+      "owner": "Certifier",
+      "type": "source_native_object_type",
+      "rule": "Certification Package, not SREG or SCRD"
+    },
+    {
+      "field": "source_version_at_use",
+      "owner": "Certifier",
+      "type": "historical_version",
+      "rule": "Historical value; never silently relabel current"
+    },
+    {
+      "field": "observed_at",
+      "owner": "reviewer_or_recipient",
+      "type": "observation_time",
+      "rule": "Capture time is not signed issuance or real-time currency proof"
+    },
+    {
+      "field": "source_status_claim",
+      "owner": "Certifier",
+      "type": "quoted_native_status",
+      "rule": "Issued · Active is source fact at-use; not Registry lifecycle"
+    },
+    {
+      "field": "provenance_reference",
+      "owner": "Certifier",
+      "type": "source_path_and_pin",
+      "rule": "Full Git pin and provenance; signed authenticity separately verified"
+    },
+    {
+      "field": "recipient_context",
+      "owner": "Registry",
+      "type": "read_only_observation",
+      "rule": "No SREG created, updated or published"
+    },
+    {
+      "field": "verification_state",
+      "owner": "Registry",
+      "type": "UNVERIFIED_UNLESS_PROVEN",
+      "rule": "No implied authenticated verification from reference"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "BLOCK-01",
+      "decision": "D-2A-01",
+      "owner": "Certifier",
+      "blocker": "Named adopting authority and machine producer format/version not verified",
+      "required_evidence": "Certifier-controlled decision record and adopted representation"
+    },
+    {
+      "id": "BLOCK-02",
+      "decision": "D-2A-02",
+      "owner": "Registry",
+      "blocker": "Receiving profile not approved; Registry may expressly decline automated intake",
+      "required_evidence": "Founder/steward or authorized Registry decision with effective scope and no-write boundary"
+    },
+    {
+      "id": "BLOCK-03",
+      "decision": "D-2A-03",
+      "owner": "Certifier/Registry",
+      "blocker": "Machine status/lifecycle/transition crosswalk not adopted",
+      "required_evidence": "Separate namespaces and approved controlled values"
+    },
+    {
+      "id": "BLOCK-04",
+      "decision": "D-2A-05",
+      "owner": "Registry",
+      "blocker": "Authenticated caller, operational role, atomic audit and readback not verified",
+      "required_evidence": "Separate permission and tests; not implied by documentary profile"
+    },
+    {
+      "id": "BLOCK-05",
+      "decision": "D-2A-06",
+      "owner": "Certifier/Registry",
+      "blocker": "Full source/human parity and current issuer state unverified",
+      "required_evidence": "Owner-reviewed exception and independently verified current/historical readback"
+    }
+  ],
+  "decision_status": {
+    "D-2A-01": "OPEN",
+    "D-2A-02": "OPEN",
+    "D-2A-03": "OPEN_NARROWED",
+    "D-2A-04": "OPEN",
+    "D-2A-05": "OPEN",
+    "D-2A-06": "OPEN_NARROWED"
+  },
+  "owner_adoptions_recorded": 0,
+  "write_or_authenticated_work_authorized": false,
+  "p0_verified": 0,
+  "baseline_offline_checks": 722
+}
