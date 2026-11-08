@@ -4,9 +4,11 @@
   "scope": "DOCUMENTATION-ONLY / NO SUITE RUNTIME CERTIFICATION",
   "record_date": "2026-11-07",
   "source_provenance": {
-    "record": "Founder-preserved Satoshium journal, October 3 2026, Step 24",
-    "source_class": "secondary approved-review journal",
-    "source_limit": "Workstream titles confirmed; official IQ identifier mapping and acceptance language not retrieved"
+    "record": "Founder-supplied original October 3 2026 Step 24 queue",
+    "source_class": "authoritative uploaded approved implementation queue document",
+    "source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+    "source_filename": "satoshium-suite-interoperability-implementation-queue-2026-10-03(1).md",
+    "source_limit": "Source identifies official IQ IDs and acceptance criteria; no deployed or canonical item-level implementation validation was performed"
   },
   "expected_p0_count": 11,
   "workstreams": [
@@ -14,7 +16,7 @@
       "local_id": "P0-01-LOCAL",
       "title": "Cross-Institution Reference Envelope Enforcement",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-001",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -25,13 +27,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-001"
     },
     {
       "local_id": "P0-02-LOCAL",
       "title": "Stable Identifier & Reference Resolver",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-002",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -42,13 +47,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-002"
     },
     {
       "local_id": "P0-03-LOCAL",
       "title": "Lifecycle / Publication State Mapping",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-003",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -60,13 +68,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-003"
     },
     {
       "local_id": "P0-04-LOCAL",
       "title": "Relationship Predicate Serialization",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-004",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -79,13 +90,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-004"
     },
     {
       "local_id": "P0-05-LOCAL",
-      "title": "evaluates / results-in Subject Profiles",
+      "title": "`evaluates` / `results-in` Subject Profiles",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-005",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -96,13 +110,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-005"
     },
     {
       "local_id": "P0-06-LOCAL",
       "title": "Controlled Outcome Namespacing",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-006",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -114,13 +131,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-006"
     },
     {
       "local_id": "P0-07-LOCAL",
       "title": "Failure / Unknown-State Machine Handling",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-007",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -132,13 +152,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-007"
     },
     {
       "local_id": "P0-08-LOCAL",
       "title": "Navigator Handoff Contract Implementation",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-008",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -149,13 +172,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-008"
     },
     {
       "local_id": "P0-09-LOCAL",
       "title": "Navigator Retry / Idempotency Controls",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-009",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -165,13 +191,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-009"
     },
     {
       "local_id": "P0-10-LOCAL",
       "title": "Technical Authorization / Institutional Authority Enforcement",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-010",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -182,13 +211,16 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-010"
     },
     {
       "local_id": "P0-11-LOCAL",
       "title": "Cross-Institution Write Audit Controls",
       "priority": "P0",
-      "official_iq_id": null,
+      "official_iq_id": "IQ-011",
       "canonical_contract_sha": null,
       "producer": null,
       "consumer": null,
@@ -201,7 +233,10 @@
       ],
       "evidence": [],
       "verification_status": "NOT_VERIFIED",
-      "reviewer_disposition": "NOT_ASSESSED"
+      "reviewer_disposition": "NOT_ASSESSED",
+      "official_queue_source_sha256": "5d07bad6529f30fdf86d921f6ae72298e7d367d40151e4d1d8dc8164c2cc0a72",
+      "original_queue_disposition": "QUEUED",
+      "acceptance_criteria_reference": "original source § 2, IQ-011"
     }
   ]
 }

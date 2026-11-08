@@ -25,7 +25,7 @@ function validate(m) {
       if (!/^IQ-\d{3}$/.test(w.official_iq_id||''))err('OFFICIAL_ID_FORMAT',at);
       if (official.has(w.official_iq_id))err('DUPLICATE_OFFICIAL_ID',at);
       official.add(w.official_iq_id);
-      if (!w.canonical_contract_sha)err('OFFICIAL_ID_NEEDS_PROVENANCE',at);
+      if (!/^[a-f0-9]{64}$/.test(w.official_queue_source_sha256||'') || w.official_queue_source_sha256!==m.source_provenance.source_sha256)err('OFFICIAL_ID_NEEDS_PROVENANCE',at);
     }
     if (!VALID_STATUS.has(w.verification_status))err('BAD_STATUS',at);
     if (!Array.isArray(w.test_vector_ids)||!w.test_vector_ids.length||w.test_vector_ids.some(x=>!/^D\d{2}$/.test(x)))err('TEST_VECTOR_IDS',at);
