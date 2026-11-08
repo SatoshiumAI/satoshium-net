@@ -1,0 +1,207 @@
+{
+  "manifest_version": "stage1e-review-v1",
+  "title": "Satoshium Suite P0 evidence readiness register",
+  "scope": "DOCUMENTATION-ONLY / NO SUITE RUNTIME CERTIFICATION",
+  "record_date": "2026-11-07",
+  "source_provenance": {
+    "record": "Founder-preserved Satoshium journal, October 3 2026, Step 24",
+    "source_class": "secondary approved-review journal",
+    "source_limit": "Workstream titles confirmed; official IQ identifier mapping and acceptance language not retrieved"
+  },
+  "expected_p0_count": 11,
+  "workstreams": [
+    {
+      "local_id": "P0-01-LOCAL",
+      "title": "Cross-Institution Reference Envelope Enforcement",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D02",
+        "D03"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-02-LOCAL",
+      "title": "Stable Identifier & Reference Resolver",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D01",
+        "D02"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-03-LOCAL",
+      "title": "Lifecycle / Publication State Mapping",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D06",
+        "D07",
+        "D11"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-04-LOCAL",
+      "title": "Relationship Predicate Serialization",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D04",
+        "D05",
+        "D17",
+        "D18"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-05-LOCAL",
+      "title": "evaluates / results-in Subject Profiles",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D05",
+        "D18"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-06-LOCAL",
+      "title": "Controlled Outcome Namespacing",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D09",
+        "D10",
+        "D11"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-07-LOCAL",
+      "title": "Failure / Unknown-State Machine Handling",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D08",
+        "D11",
+        "D14"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-08-LOCAL",
+      "title": "Navigator Handoff Contract Implementation",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D13",
+        "D14"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-09-LOCAL",
+      "title": "Navigator Retry / Idempotency Controls",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D14"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-10-LOCAL",
+      "title": "Technical Authorization / Institutional Authority Enforcement",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D15",
+        "D16"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    },
+    {
+      "local_id": "P0-11-LOCAL",
+      "title": "Cross-Institution Write Audit Controls",
+      "priority": "P0",
+      "official_iq_id": null,
+      "canonical_contract_sha": null,
+      "producer": null,
+      "consumer": null,
+      "implementation_location": null,
+      "test_vector_ids": [
+        "D06",
+        "D12",
+        "D14",
+        "D15"
+      ],
+      "evidence": [],
+      "verification_status": "NOT_VERIFIED",
+      "reviewer_disposition": "NOT_ASSESSED"
+    }
+  ]
+}
