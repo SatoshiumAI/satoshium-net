@@ -1,0 +1,33 @@
+name: Stage 4C Public Suite Routes — Read-Only Browser Evidence
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/stage4c-suite-route-observer.yml'
+      - 'services/reviews/stage4c/**'
+      - 'services/reviews/satoshium-suite-stage4c-public-route-observer-2026-11-07.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read-only-route-observer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Chromium observer
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Capture eight read-only observations
+        run: node services/reviews/stage4c/route-observer.cjs
+      - name: Preserve raw observed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4c-suite-route-observations
+          path: stage4c-observations.json
+          if-no-files-found: warn
