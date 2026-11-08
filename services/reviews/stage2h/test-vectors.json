@@ -1,0 +1,297 @@
+[
+  {
+    "name": "valid receipt context",
+    "path": null,
+    "value": null,
+    "classification": "ACK_CONTEXT_ONLY",
+    "reason": "ACKNOWLEDGEMENTS_UNVERIFIED"
+  },
+  {
+    "name": "no owner responses yet",
+    "path": "acknowledgements",
+    "value": [],
+    "classification": "REVIEW_PENDING",
+    "reason": "NO_ACKNOWLEDGEMENTS"
+  },
+  {
+    "name": "source unknown",
+    "path": "source_event.observed_state",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "SOURCE_OBSERVATION_UNVERIFIED"
+  },
+  {
+    "name": "source unavailable",
+    "path": "source_event.observed_state",
+    "value": "unavailable",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "SOURCE_OBSERVATION_UNVERIFIED"
+  },
+  {
+    "name": "unverified provenance",
+    "path": "source_event.provenance",
+    "value": "unverified",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "SOURCE_OBSERVATION_UNVERIFIED"
+  },
+  {
+    "name": "source owner mismatch",
+    "path": "source_event.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "SOURCE_OWNER_MISMATCH"
+  },
+  {
+    "name": "missing source event id",
+    "path": "source_event.event_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "SOURCE_EVENT_INCOMPLETE"
+  },
+  {
+    "name": "missing source version",
+    "path": "source_event.version_at_use",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "SOURCE_EVENT_INCOMPLETE"
+  },
+  {
+    "name": "missing observation time",
+    "path": "source_event.observation_time",
+    "value": "bad",
+    "classification": "REJECTED",
+    "reason": "SOURCE_EVENT_INCOMPLETE"
+  },
+  {
+    "name": "source forces downstream update",
+    "path": "source_event.override_downstream",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "FORBIDDEN_SOURCE_TO_OWNER_ESCALATION"
+  },
+  {
+    "name": "source asserts certification rewrite",
+    "path": "source_event.override_certifier_conclusion",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "FORBIDDEN_SOURCE_TO_OWNER_ESCALATION"
+  },
+  {
+    "name": "owner changed",
+    "path": "targets.2.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "TARGET_OWNER_OR_SOURCE_CONFLICT"
+  },
+  {
+    "name": "object type mismatch",
+    "path": "targets.4.object_type",
+    "value": "SREG",
+    "classification": "REJECTED",
+    "reason": "TARGET_OWNER_OR_SOURCE_CONFLICT"
+  },
+  {
+    "name": "target source mismatch",
+    "path": "targets.1.source_identifier",
+    "value": "other",
+    "classification": "REJECTED",
+    "reason": "TARGET_OWNER_OR_SOURCE_CONFLICT"
+  },
+  {
+    "name": "target missing id",
+    "path": "targets.3.reference_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "TARGET_INCOMPLETE"
+  },
+  {
+    "name": "duplicate target",
+    "path": "targets.1.reference_id",
+    "value": "fictional:SREG-01",
+    "classification": "REJECTED",
+    "reason": "DUPLICATE_TARGET"
+  },
+  {
+    "name": "source version-at-use mismatch",
+    "path": "targets.0.source_version_at_use",
+    "value": "1.0",
+    "classification": "HOLD_REVIEW",
+    "reason": "REFERENCE_AT_USE_VERSION_CONFLICT"
+  },
+  {
+    "name": "ack event mismatch",
+    "path": "acknowledgements.0.source_event_id",
+    "value": "other",
+    "classification": "REJECTED",
+    "reason": "ACK_ROUTING_OR_EVENT_MISMATCH"
+  },
+  {
+    "name": "ack owner mismatch",
+    "path": "acknowledgements.0.owner",
+    "value": "Beacon",
+    "classification": "REJECTED",
+    "reason": "ACK_ROUTING_OR_EVENT_MISMATCH"
+  },
+  {
+    "name": "ack target mismatch",
+    "path": "acknowledgements.0.reference_id",
+    "value": "missing",
+    "classification": "REJECTED",
+    "reason": "ACK_ROUTING_OR_EVENT_MISMATCH"
+  },
+  {
+    "name": "ack missing trace",
+    "path": "acknowledgements.0.audit_ref",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "ACK_INCOMPLETE"
+  },
+  {
+    "name": "ack invalid date",
+    "path": "acknowledgements.0.observed_at",
+    "value": "invalid",
+    "classification": "REJECTED",
+    "reason": "ACK_INCOMPLETE"
+  },
+  {
+    "name": "ack disposition unknown",
+    "path": "acknowledgements.0.disposition",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "ACKNOWLEDGEMENT_STATE_UNKNOWN"
+  },
+  {
+    "name": "ack deferred",
+    "path": "acknowledgements.0.disposition",
+    "value": "deferred",
+    "classification": "ACK_CONTEXT_ONLY",
+    "reason": "ACKNOWLEDGEMENTS_UNVERIFIED"
+  },
+  {
+    "name": "ack rejected",
+    "path": "acknowledgements.0.disposition",
+    "value": "rejected",
+    "classification": "ACK_CONTEXT_ONLY",
+    "reason": "ACKNOWLEDGEMENTS_UNVERIFIED"
+  },
+  {
+    "name": "ack review pending",
+    "path": "acknowledgements.0.disposition",
+    "value": "review-pending",
+    "classification": "ACK_CONTEXT_ONLY",
+    "reason": "ACKNOWLEDGEMENTS_UNVERIFIED"
+  },
+  {
+    "name": "ack illegal approval",
+    "path": "acknowledgements.0.approved",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "ACK_MUST_NOT_CLAIM_INSTITUTIONAL_RESULT"
+  },
+  {
+    "name": "ack fake write",
+    "path": "acknowledgements.0.canonical_write",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "ACK_MUST_NOT_CLAIM_INSTITUTIONAL_RESULT"
+  },
+  {
+    "name": "ack claims updated object",
+    "path": "acknowledgements.0.updated_object",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "ACK_MUST_NOT_CLAIM_INSTITUTIONAL_RESULT"
+  },
+  {
+    "name": "ack claims trust conclusion",
+    "path": "acknowledgements.0.resulting_conclusion",
+    "value": "trusted",
+    "classification": "REJECTED",
+    "reason": "ACK_MUST_NOT_CLAIM_INSTITUTIONAL_RESULT"
+  },
+  {
+    "name": "ack requests source rewrite",
+    "path": "acknowledgements.0.requested_source_rewrite",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "ACK_CANNOT_REWRITE_SOURCE"
+  },
+  {
+    "name": "ack bad disposition",
+    "path": "acknowledgements.0.disposition",
+    "value": "approved",
+    "classification": "REJECTED",
+    "reason": "ACK_DISPOSITION_NOT_ALLOWED"
+  },
+  {
+    "name": "invalid root",
+    "path": "__root__",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  },
+  {
+    "name": "ack collection missing",
+    "path": "acknowledgements",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  },
+  {
+    "name": "target collection missing",
+    "path": "targets",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  },
+  {
+    "name": "all six targets preserved",
+    "path": "targets",
+    "value": [
+      {
+        "reference_id": "fictional:SREG-01",
+        "owner": "Registry",
+        "object_type": "SREG",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      },
+      {
+        "reference_id": "fictional:CHR-01",
+        "owner": "Chronicle",
+        "object_type": "CHR",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      },
+      {
+        "reference_id": "fictional:ANCH-01",
+        "owner": "Anchor",
+        "object_type": "ANCH",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      },
+      {
+        "reference_id": "fictional:BEAC-01",
+        "owner": "Beacon",
+        "object_type": "BEAC",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      },
+      {
+        "reference_id": "fictional:ATT-01",
+        "owner": "Attestor",
+        "object_type": "ATT",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      },
+      {
+        "reference_id": "fictional:TRST-01",
+        "owner": "Attestor",
+        "object_type": "TRST",
+        "source_identifier": "SC-CERT-2099-0001",
+        "source_version_at_use": "1.1"
+      }
+    ],
+    "classification": "ACK_CONTEXT_ONLY",
+    "reason": "ACKNOWLEDGEMENTS_UNVERIFIED"
+  }
+]

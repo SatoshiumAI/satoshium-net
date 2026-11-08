@@ -1,0 +1,74 @@
+{
+  "source_event": {
+    "event_id": "fictional:change-001",
+    "owner": "Certifier",
+    "source_identifier": "SC-CERT-2099-0001",
+    "version_at_use": "1.1",
+    "observed_version": "1.2",
+    "observation_time": "2099-09-01T00:00:00Z",
+    "observed_state": "updated",
+    "provenance": "fictional:source-observation",
+    "override_downstream": false,
+    "override_certifier_conclusion": false
+  },
+  "targets": [
+    {
+      "reference_id": "fictional:SREG-01",
+      "owner": "Registry",
+      "object_type": "SREG",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    },
+    {
+      "reference_id": "fictional:CHR-01",
+      "owner": "Chronicle",
+      "object_type": "CHR",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    },
+    {
+      "reference_id": "fictional:ANCH-01",
+      "owner": "Anchor",
+      "object_type": "ANCH",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    },
+    {
+      "reference_id": "fictional:BEAC-01",
+      "owner": "Beacon",
+      "object_type": "BEAC",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    },
+    {
+      "reference_id": "fictional:ATT-01",
+      "owner": "Attestor",
+      "object_type": "ATT",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    },
+    {
+      "reference_id": "fictional:TRST-01",
+      "owner": "Attestor",
+      "object_type": "TRST",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1"
+    }
+  ],
+  "acknowledgements": [
+    {
+      "ack_id": "fictional:ack-001",
+      "reference_id": "fictional:SREG-01",
+      "owner": "Registry",
+      "source_event_id": "fictional:change-001",
+      "disposition": "receipt",
+      "observed_at": "2099-09-02T00:00:00Z",
+      "audit_ref": "fictional:audit-001",
+      "approved": false,
+      "updated_object": false,
+      "canonical_write": false,
+      "resulting_conclusion": null,
+      "requested_source_rewrite": false
+    }
+  ]
+}
