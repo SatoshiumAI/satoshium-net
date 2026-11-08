@@ -4,7 +4,7 @@
 function validateEnvelope(value,policy={}) {
  const errors=[],uncertainties=[];
  const fail=(code,field)=>errors.push({code,field});
- if(!value||typeof value!=="object"||Array.isArray(value))return {status:"FAIL",errors:[{code:"NOT_OBJECT",field:"$"}],uncertainties};
+ if(!value||typeof value!=="object"||Array.isArray(value))return {status:"FAIL",errors:[{code:"NOT_OBJECT",field:"$"}],uncertainties,noncanonical:true,authority_granted:false};
  const required=["identifier","source_institution","object_type","provenance","relationship_type","authority_context","accessibility"];
  for(const k of required){if(!Object.hasOwn(value,k)||value[k]===null||value[k]==="")fail("MISSING_REQUIRED",k)}
  for(const k of ["version","lifecycle_state","publication_state"]){
