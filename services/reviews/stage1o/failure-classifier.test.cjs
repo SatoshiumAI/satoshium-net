@@ -56,5 +56,5 @@ for(const claimed of ['PASS','VALID','SUPPORTED','TRUSTED','CURRENT','success','
 }
 assert.equal(guardPromotion('UNRESOLVED_CONDITION','unknown').allowed,false);n++;
 assert.equal(guardPromotion('REJECTED','PASS').allowed,false);n++;
-assert.equal(n,40,'verify explicit number of cases');
+assert.equal(n,41,'verify explicit number of cases');
 console.log('PASS '+n+'/'+n+' synthetic IQ-007 failure/unknown checks; no real institutional operations');

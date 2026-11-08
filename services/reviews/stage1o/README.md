@@ -16,7 +16,7 @@ Read-only `SatoshiumAI/satoshium-us` `phase004` at `da8333ddb85face8ee499abe93ef
 node services/reviews/stage1o/failure-classifier.test.cjs
 ```
 
-Forty synthetic checks cover 14 official failure/uncertainty categories, missing context/evidence, contradictory metadata preservation, unavailable institutions, unknown current state, retry-class hints, and the prohibition on favorable outcome coercions.
+Forty-one synthetic checks cover 14 official failure/uncertainty categories, missing context/evidence, contradictory metadata preservation, unavailable institutions, unknown current state, retry-class hints, and the prohibition on favorable outcome coercions.
 
 Every accepted input remains an `UNRESOLVED_CONDITION`: it is not a successful institution evaluation or a determination of source invalidity. `last_known` stays historical; `current_state` and `current_version` remain unknown. The classifier returns only a **candidate** retry classification, with `retry_authorized:false`, `retry_executed:false`, and no side effects. This is not a policy engine: actual retry/review/terminal decisions must be made by receiving institution and approved workflow, with traceability.
 
