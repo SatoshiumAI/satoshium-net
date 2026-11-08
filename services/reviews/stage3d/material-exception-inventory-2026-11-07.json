@@ -1,0 +1,249 @@
+{
+  "schema_version": "stage3d-exception-inventory-v1",
+  "date": "2026-11-07",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "source_mode": "READ_ONLY"
+  },
+  "prior_stage3c": {
+    "commit": "59964e8cc007cae94bc25e78d87b659ac9bdf1a7",
+    "selected_checks": 22,
+    "matches": 22,
+    "scope": "SELECTED_SOURCE_CHECKPOINTS"
+  },
+  "source_blobs": {
+    "scrd": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/scrd_json.json",
+      "sha": "f1aedbc2899aaa94a59dcbef7d9438869adb62bc"
+    },
+    "sreg": {
+      "path": "registry/registered-items/SREG-2026-0001/record.json",
+      "sha": "9faf4401ec432ae1367aec5207a6eb08da308f99"
+    },
+    "scrdHtml": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/index.html",
+      "sha": "268902a45b064d0405851778a113048f6b55adde"
+    },
+    "sregHtml": {
+      "path": "registry/registered-items/SREG-2026-0001/registry-entry.html",
+      "sha": "0415ec937b5449b8d305e6f20eff20163dc29f3f"
+    },
+    "sregOverview": {
+      "path": "registry/registered-items/SREG-2026-0001/index.html",
+      "sha": "cbfa5b617ec710dfeeba8a46bc18ba3e7952b224"
+    },
+    "certifierCanonical": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/index.html",
+      "sha": "0e54deb0c42de3396a4c13c9058da5739a2b0ce4"
+    },
+    "certifierReadme": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/README.md",
+      "sha": "867d555d384d647bf490e22d0df8de6fca5f1ac7"
+    },
+    "registryReadme": {
+      "path": "registry/registered-items/SREG-2026-0001/README.md",
+      "sha": "8bc661a4ca245a081c0b569d64f34289e9a29a07"
+    }
+  },
+  "summary": {
+    "inventory_items": 16,
+    "confirmed_presentation_or_format_differences": 2,
+    "material_sections_not_fully_checked": 6,
+    "owner_scope_or_registry_specific": 6,
+    "currentness_or_contract_gaps": 2,
+    "confirmed_substantive_conflicts": 0,
+    "full_parity_verified": false,
+    "current_source_verified": false,
+    "owner_approved": false,
+    "production_p0_verified": 0
+  },
+  "items": [
+    {
+      "id": "3D-01",
+      "category": "PRESENTATION_DIFFERENCE",
+      "topic": "Registry overview headline vs explicit field",
+      "evidence": "Overview contains \"Registered · Published\"; machine registry_status active/Active, lifecycle published/Published.",
+      "disposition": "NO_CONFIRMED_CONFLICT",
+      "followup": "Do not parse headline as Registry Status; compare labeled fields with canonical machine values.",
+      "owner": "Registry",
+      "priority": "P2",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-02",
+      "category": "LEXICAL_FORMAT_DIFFERENCE",
+      "topic": "Certifier date vs Registry source-certification date",
+      "evidence": "SCRD certification_date \"July 5, 2026\" and SREG source_certification.certification_date \"2026-07-05\".",
+      "disposition": "SAME_HISTORICAL_CALENDAR_DATE",
+      "followup": "Date normalization is format-only; do not infer timestamp, timezone or current source validity.",
+      "owner": "Certifier + Registry",
+      "priority": "P2",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-03",
+      "category": "OBJECT_SCOPE_DIFFERENCE",
+      "topic": "Source derivative versus Registry canonical object",
+      "evidence": "SCRD record_type \"SCRD\" ID \"SCRD-SC-CERT-2026-0001\" vs SREG record_type \"SREG\" ID \"SREG-2026-0001\".",
+      "disposition": "DISTINCT_OBJECTS_NOT_PARITY_FAILURE",
+      "followup": "Preserve different object identities, versions and authorities; derive explicit allowed source fields only.",
+      "owner": "Certifier + Registry",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-04",
+      "category": "OBJECT_SCOPE_DIFFERENCE",
+      "topic": "Certifier assessment detail and Registry historical assessment",
+      "evidence": "SCRD assessment keys assessment_type, total_score, prototype_trust_level, confidence_posture, assessment_categories; SREG historical prototype assessment keys assessment_type, score, prototype_trust_level, status.",
+      "disposition": "DIFFERENT_REPRESENTATION_DEPTH",
+      "followup": "Compare score, historical trust level and labels under owner-approved semantics; do not equate numerical prototype and certification class.",
+      "owner": "Certifier",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-05",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Certifier evidence sources",
+      "evidence": "SCRD evidence_sources has 8 items; SREG does not expose an evidence_sources array at top level. Registry source_artifacts are a different concept.",
+      "disposition": "NOT_ASSESSED_NOT_AUTOMATIC_MISMATCH",
+      "followup": "Confirm source evidence references and scope in canonical package and derivative; do not require Registry to replicate an entire Certifier evidence inventory absent Registry policy.",
+      "owner": "Certifier + Registry",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-06",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Source artifacts and generated derivatives",
+      "evidence": "SCRD generated_artifacts has 5 keys; SREG source_artifacts has 5 keys.",
+      "disposition": "NOT_ASSESSED",
+      "followup": "Compare artifact identities, URLs, canonical/derivative designations and version semantics individually; historical stubs cannot issue Registry objects.",
+      "owner": "Certifier + Registry",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-07",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Governing Suite framework",
+      "evidence": "SCRD governance keys: standards_version, methodology_version, applicable_standards, applicable_methodology_components; SREG governing_framework keys: suite_standards, suite_methodology.",
+      "disposition": "NOT_ASSESSED",
+      "followup": "Verify standard/methodology versions and reference scope; no claim of mapping all governance fields.",
+      "owner": "Suite + Certifier + Registry",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-08",
+      "category": "REGISTRY_OWNED_NOT_SOURCE_PARITY",
+      "topic": "Registry validation evidence",
+      "evidence": "SREG registry_validation contains 9 check entries; SCRD has no Registry validation section.",
+      "disposition": "VALID_DISTINCT_AUTHORITY",
+      "followup": "Validate against Registry owner rules separately; a structural pass does not issue or publish SREG.",
+      "owner": "Registry",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-09",
+      "category": "REGISTRY_OWNED_NOT_SOURCE_PARITY",
+      "topic": "Registry publication evidence",
+      "evidence": "SREG registry_publication status \"Published\" and 2 published representation references; Certifier SCRD has no Registry publication section.",
+      "disposition": "VALID_DISTINCT_AUTHORITY",
+      "followup": "Verify Registry HTML/JSON publication scope and actual served content before claiming current parity.",
+      "owner": "Registry",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-10",
+      "category": "REGISTRY_OWNED_NOT_SOURCE_PARITY",
+      "topic": "Registry relationship inventory",
+      "evidence": "SREG lists 4 relationships, including native registers; SCRD is not the governing Registry relationship record.",
+      "disposition": "VALID_DISTINCT_AUTHORITY",
+      "followup": "Check each direction, identifier domain, owner and authority; do not silently replace registers with Suite references.",
+      "owner": "Registry + Suite",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-11",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Registry provenance and history",
+      "evidence": "SREG provenance contains 6 chain entries and 3 historical events.",
+      "disposition": "NOT_ASSESSED",
+      "followup": "Field-level source-owner chronology, historical versions, corrections and no destructive edits require separate verification.",
+      "owner": "Registry + Certifier",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-12",
+      "category": "REGISTRY_OWNED_NOT_SOURCE_PARITY",
+      "topic": "Registry schema and maintenance",
+      "evidence": "SREG includes schema_profile, maintenance keys correction_policy, versioning_policy, authority_preservation_policy and 7 notices.",
+      "disposition": "VALID_DISTINCT_AUTHORITY",
+      "followup": "Check human Registry entry for policy references and complete field parity; not an issuer-owned attribute.",
+      "owner": "Registry",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-13",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Source identity and authority deeper fields",
+      "evidence": "SCRD subject keys: subject_name, subject_system, subject_type, jurisdiction, primary_record; SREG registered_subject keys: subject_name, subject_system, subject_authority, subject_type, jurisdiction, subject_state_date, canonical_subject_url, authority_statement.",
+      "disposition": "NOT_ASSESSED",
+      "followup": "Verify jurisdiction, subject state date, primary URL, subject type, Atlas authority; do not infer equivalence from name alone.",
+      "owner": "Atlas + Certifier + Registry",
+      "priority": "P1",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-14",
+      "category": "MATERIAL_NOT_FULLY_CHECKED",
+      "topic": "Human-readable semantic field pairing",
+      "evidence": "Canonical SREG HTML has detailed sections; Stage 3C checked field/text presence but not complete value-to-specific-DOM-label pairs. Source HTML also not a frozen wire payload.",
+      "disposition": "NOT_ASSESSED",
+      "followup": "Perform owner-approved DOM-level field pairing or manually reviewed full field-by-field comparison; avoid reporting all fields as matching.",
+      "owner": "Registry + Certifier",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-15",
+      "category": "CURRENT_STATE_UNVERIFIED",
+      "topic": "Real-time currentness and served bytes",
+      "evidence": "Source pin da8333ddb85face8ee499abe93ef4bc4f555e867 proves repository snapshot, not current live URL response or issuer state at present.",
+      "disposition": "UNKNOWN_NO_FRESHNESS_CLAIM",
+      "followup": "With separate read-only owner-authorized current-source procedure, compare deployed bytes, response date/currentness and historical at-use object.",
+      "owner": "Certifier + Registry",
+      "priority": "P0",
+      "production_acceptance": false
+    },
+    {
+      "id": "3D-16",
+      "category": "GOVERNANCE_CONTRACT_OPEN",
+      "topic": "Producer/receiver contract status",
+      "evidence": "SCRD is derived; SREG output schema/profile not intake. Stage 3B shows six owner decisions OPEN.",
+      "disposition": "NOT_APPROVED",
+      "followup": "Resolve D-2A-01–06 under institutional owner approval; no automated exchange until accepted.",
+      "owner": "Certifier + Registry + Suite",
+      "priority": "P0",
+      "production_acceptance": false
+    }
+  ],
+  "open_decisions": [
+    "D-2A-01",
+    "D-2A-02",
+    "D-2A-03",
+    "D-2A-04",
+    "D-2A-05",
+    "D-2A-06"
+  ],
+  "note": "Zero confirmed substantive conflicts means none established by this bounded inventory, NOT absence of all conflicts."
+}
