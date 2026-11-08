@@ -1,0 +1,26 @@
+name: Suite IQ-001 Offline Evidence (noncanonical)
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/suite-iq001-offline-evidence.yml'
+      - 'services/reviews/stage1e/**'
+      - 'services/reviews/stage1h/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Stage 1E P0 evidence register self-tests
+        run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
+      - name: Stage 1E P0 evidence register completeness check
+        run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 1H normalized reference envelope prototype self-tests
+        run: node services/reviews/stage1h/reference-envelope-prototype.test.cjs
