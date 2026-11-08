@@ -1,0 +1,110 @@
+{
+  "notice": "SYNTHETIC SOURCE RECORDS: no real Satoshium production state or identifier.",
+  "records": [
+    {
+      "identifier": "SC-CERT-2099-0042",
+      "source_institution": "Certifier",
+      "object_type": "Certification Package",
+      "current": {
+        "availability": "available",
+        "version": "1.1",
+        "lifecycle_state": "active",
+        "publication_state": "published"
+      },
+      "history": [
+        {
+          "version": "1.0",
+          "lifecycle_state": "active",
+          "publication_state": "published",
+          "recorded_at": "2099-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "identifier": "SREG-2099-0042",
+      "source_institution": "Registry",
+      "object_type": "Registry Entry",
+      "current": {
+        "availability": "available",
+        "version": "1.0",
+        "lifecycle_state": "active",
+        "publication_state": "published"
+      },
+      "history": []
+    },
+    {
+      "identifier": "CHR-2099-0045",
+      "source_institution": "Chronicle",
+      "object_type": "Chronicle Entry",
+      "current": {
+        "availability": "unavailable"
+      },
+      "last_known": {
+        "version": "1.0",
+        "lifecycle_state": "active",
+        "checked_at": "2099-01-01T00:00:00Z"
+      },
+      "history": [
+        {
+          "version": "1.0",
+          "lifecycle_state": "active",
+          "publication_state": "published",
+          "recorded_at": "2099-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "identifier": "ANCH-2099-0046",
+      "source_institution": "Anchor",
+      "object_type": "Integrity Reference",
+      "current": {
+        "availability": "broken-reference"
+      },
+      "last_known": {
+        "version": "1.0",
+        "lifecycle_state": "active",
+        "checked_at": "2099-01-01T00:00:00Z"
+      },
+      "history": []
+    },
+    {
+      "identifier": "BEAC-2099-0047",
+      "source_institution": "Beacon",
+      "object_type": "Discovery Signal",
+      "current": {
+        "availability": "available",
+        "version": "2.0",
+        "lifecycle_state": "superseded",
+        "publication_state": "published",
+        "successor_identifier": "BEAC-2099-0049"
+      },
+      "history": [
+        {
+          "version": "1.0",
+          "lifecycle_state": "active",
+          "publication_state": "published",
+          "recorded_at": "2099-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "identifier": "ATT-2099-0048",
+      "source_institution": "Attestor",
+      "object_type": "Attestation",
+      "current": {
+        "availability": "available",
+        "version": "1.0",
+        "lifecycle_state": "withdrawn",
+        "publication_state": "unpublished"
+      },
+      "history": [
+        {
+          "version": "1.0",
+          "lifecycle_state": "active",
+          "publication_state": "published",
+          "recorded_at": "2099-01-01T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}

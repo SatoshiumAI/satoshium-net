@@ -1,0 +1,35 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {resolveReference}=require('./resolver.cjs');
+const catalog=require('./fictional-catalog.json');
+let n=0;
+function check(label,request,want,fn,using=catalog){
+ const r=resolveReference(using,request);
+ assert.equal(r.resolution_status,want,label);
+ assert.equal(r.authority_granted,false,label);
+ assert.equal(r.source_verified,false,label);
+ assert.equal(r.noncanonical,true,label);
+ if(fn)fn(r);
+ n++;
+}
+check('exact',{identifier:'SC-CERT-2099-0042'},'resolved',r=>assert.equal(r.current_version,'1.1'));
+check('same suffix other issuer',{identifier:'SREG-2099-0042'},'resolved',r=>assert.equal(r.source_institution,'Registry'));
+check('suffix alone',{identifier:'2099-0042'},'unresolved');
+check('missing ID',{identifier:''},'unresolved');
+check('unknown ID',{identifier:'TRST-2099-0099'},'unresolved');
+check('mismatch institution',{identifier:'SC-CERT-2099-0042',source_institution:'Registry'},'unresolved');
+check('mismatch type',{identifier:'SREG-2099-0042',object_type:'Certification Package'},'unresolved');
+check('unavailable, last known',{identifier:'CHR-2099-0045',version_at_use:'1.0'},'unavailable',r=>{assert.equal(r.current_state,'unknown');assert.equal(r.current_version,'unknown');assert.equal(r.last_known.lifecycle_state,'active');assert.equal(r.historical_at_use.version_at_use,'1.0')});
+check('broken link',{identifier:'ANCH-2099-0046'},'broken-reference',r=>assert.equal(r.current_state,'unknown'));
+check('superseded history',{identifier:'BEAC-2099-0047',version_at_use:'1.0'},'superseded',r=>{assert.equal(r.historical_at_use.state_at_use,'active');assert.equal(r.successor_identifier,'BEAC-2099-0049')});
+check('withdrawn history',{identifier:'ATT-2099-0048',version_at_use:'1.0'},'withdrawn',r=>assert.equal(r.historical_at_use.state_at_use,'active'));
+check('stale known',{identifier:'SC-CERT-2099-0042',version_at_use:'1.0'},'stale',r=>{assert.equal(r.current_version,'1.1');assert.equal(r.historical_at_use.version_at_use,'1.0')});
+check('stale not confirmed',{identifier:'SC-CERT-2099-0042',version_at_use:'0.5'},'stale',r=>{assert.equal(r.historical_at_use,null);assert.equal(r.reason,'requested-version-not-confirmed')});
+check('requested current',{identifier:'SC-CERT-2099-0042',version_at_use:'1.1'},'resolved');
+check('empty catalog',{identifier:'SC-CERT-2099-0042'},'unresolved',null,{records:[]});
+check('duplicate identifier',{identifier:'SREG-2099-0042'},'unresolved',r=>assert.equal(r.reason,'ambiguous-identifier'),{records:[catalog.records[1],catalog.records[1]]});
+check('catalog not available',{identifier:'SREG-2099-0042'},'unresolved',r=>assert.equal(r.reason,'catalog-unavailable'),null);
+check('no current not borrowed',{identifier:'SREG-2099-0042'},'unavailable',r=>assert.equal(r.current_state,'unknown'),{records:[{...catalog.records[1],current:null,last_known:{version:'1.0'}}]});
+check('invalid availability',{identifier:'SREG-2099-0042'},'unresolved',null,{records:[{...catalog.records[1],current:{availability:'somewhere'}}]});
+check('incomplete current',{identifier:'SREG-2099-0042'},'unresolved',null,{records:[{...catalog.records[1],current:{availability:'available',version:null,lifecycle_state:'active'}}]});
+console.log('PASS '+n+'/'+n+' fictional IQ-002 in-memory resolver tests; no real reference resolution');
