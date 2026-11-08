@@ -1,0 +1,33 @@
+{
+  "notice": "SYNTHETIC fictional Registry-shaped fixture. Not actual SREG-2026-0001.",
+  "registry_identifier": "SREG-2099-0017",
+  "registry_status": {
+    "code": "active",
+    "label": "Active"
+  },
+  "registry_lifecycle_state": {
+    "code": "published",
+    "label": "Published"
+  },
+  "registry_relationships": [
+    {
+      "relationship_type": "registers",
+      "source": {
+        "identifier": "SREG-2099-0017"
+      },
+      "target": {
+        "identifier": "SC-CERT-2099-0042"
+      }
+    }
+  ],
+  "source_authority": {
+    "source_institution": "Satoshium Certifier",
+    "source_authority": "Satoshium Certifier",
+    "source_system_identifier": "SC-CERT-2099-0042",
+    "source_record_type": "Certification Package",
+    "authoritative_source_record": "Fictional Certification Package SC-CERT-2099-0042",
+    "source_record_version": "1.0",
+    "canonical_source_url": "https://example.invalid/certifier/fictional/SC-CERT-2099-0042/",
+    "authority_statement": "Fictional Certifier retains authority over the fictional certification."
+  }
+}
