@@ -1,0 +1,14 @@
+{
+  "source_institution": "Satoshium Certifier",
+  "source_system_identifier": "SC-CERT-2026-0000",
+  "canonical_source_reference": "https://satoshium.us/certifier/certifications/SC-CERT-2026-0000/",
+  "source_record_type": "Certification Package",
+  "source_version_at_use": "1.1",
+  "observed_at": "2026-11-07T00:00:00Z",
+  "source_status_claim": "FICTIONAL_STATUS_NOT_INSTITUTIONAL",
+  "provenance_reference": "0000000000000000000000000000000000000000",
+  "recipient_context": "documentary-only",
+  "verification_state": "unverified",
+  "authority_claim": false,
+  "readback_state": "fictional-historical-only"
+}
