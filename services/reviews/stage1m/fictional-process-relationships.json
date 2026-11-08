@@ -1,0 +1,49 @@
+{
+  "notice": "Entirely fictional process and target identities; not an adopted Satoshium contract.",
+  "evaluates": {
+    "process": {
+      "local_process_id": "SIM-EVAL-2099-04",
+      "owning_institution": "Attestor",
+      "governed_context_ref": "SIM-CONTEXT-2099-01",
+      "profile_version": "experimental-0.1",
+      "canonical_object": false
+    },
+    "relationship": {
+      "type": "evaluates",
+      "direction": "process-to-target",
+      "subject_process_ref": "SIM-EVAL-2099-04",
+      "target_identifier": "SC-CERT-2099-0042",
+      "asserting_institution": "Attestor",
+      "provenance_basis": "fictional-review-context"
+    },
+    "target": {
+      "identifier": "SC-CERT-2099-0042",
+      "owning_institution": "Certifier",
+      "object_type": "Certification Package",
+      "canonical_object": true
+    }
+  },
+  "results_in": {
+    "process": {
+      "local_process_id": "SIM-EVAL-2099-04",
+      "owning_institution": "Attestor",
+      "governed_context_ref": "SIM-CONTEXT-2099-01",
+      "profile_version": "experimental-0.1",
+      "canonical_object": false
+    },
+    "relationship": {
+      "type": "results-in",
+      "direction": "process-to-target",
+      "subject_process_ref": "SIM-EVAL-2099-04",
+      "target_identifier": "ATT-2099-0055",
+      "asserting_institution": "Attestor",
+      "provenance_basis": "fictional-result-context"
+    },
+    "target": {
+      "identifier": "ATT-2099-0055",
+      "owning_institution": "Attestor",
+      "object_type": "Attestation",
+      "canonical_object": true
+    }
+  }
+}
