@@ -1,0 +1,50 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {inspectRetry,RESULTS}=require('./retry-gate.cjs');
+const fixture=require('./fictional-retry.json');
+let count=0;
+function check(name,mutate,classification,reason){
+ const x=structuredClone(fixture);const alt=mutate(x);const r=inspectRetry(alt===undefined?x:alt);
+ assert.equal(r.classification,classification,name+' '+JSON.stringify(r.errors));
+ for(const k of ['authority_granted','retry_authorized','retry_executed','canonical_write_performed'])assert.equal(r[k],false,name+' '+k);
+ assert.equal(r.institutional_outcome,'NOT_DETERMINED',name);
+ assert.equal(r.noncanonical,true,name);
+ if(reason){assert.ok(r.reason===reason||r.errors.some(e=>e.code===reason),name+' expected '+reason+' '+JSON.stringify(r));}
+ count++;return r;
+}
+const good=check('transient candidate',x=>x,'CANDIDATE_FOR_GOVERNED_REVIEW');
+assert.equal(good.branches['beacon-branch'].workflow_state,'completed');
+assert.equal(good.branches['registry-branch'].workflow_state,'awaiting-response');
+for(const result of RESULTS){const cls=result==='completed'||result==='institutional-rejection'||result==='failed-terminal'?'BLOCKED':result==='unknown'?'HOLD_UNKNOWN':'CANDIDATE_FOR_GOVERNED_REVIEW';check('prior '+result,x=>{x.attempts[0].result=result},cls)}
+for(const key of ['workflow_definition','handoff_identifier','receiving_institution','requested_action','operation_key'])check('missing '+key,x=>{delete x[key]},'REJECTED','MISSING_CONTEXT');
+for(const key of ['attempt_id','attempted_at','result','handoff_identifier','receiving_institution','operation_key','idempotency_key','branch_id'])check('missing historical '+key,x=>{delete x.attempts[0][key]},'REJECTED','MISSING_ATTEMPT_FIELD');
+for(const key of ['attempt_id','attempted_at','reason','idempotency_key','branch_id','handoff_identifier'])check('missing proposal '+key,x=>{delete x.proposal[key]},'REJECTED','MISSING_PROPOSAL_FIELD');
+check('no root',()=>null,'REJECTED','INVALID_ROOT');
+check('attempt missing result',x=>{x.attempts[0].result=''},'REJECTED');
+check('wrong attempt sequence',x=>{x.attempts[0].sequence=2},'REJECTED','INVALID_SEQUENCE');
+check('bad attempt time',x=>{x.attempts[0].attempted_at='bad'},'REJECTED','INVALID_ATTEMPT_TIME');
+check('bad input snapshot',x=>{delete x.attempts[0].input_snapshot.version},'REJECTED','INVALID_INPUT_SNAPSHOT');
+check('changed version',x=>{x.proposal.input_snapshot.version='2.0'},'NEW_HANDOFF_BASIS_REQUIRED','INPUT_REFRESH_NOT_AUTHORIZED');
+check('refresh allowed still new handoff',x=>{x.workflow_allows_refresh=true;x.proposal.input_snapshot.version='2.0'},'NEW_HANDOFF_BASIS_REQUIRED','EXPLICIT_REFRESH_REQUIRES_NEW_HANDOFF');
+check('changed state',x=>{x.proposal.input_snapshot.state='active'},'NEW_HANDOFF_BASIS_REQUIRED');
+check('duplicate action result',x=>{x.attempts[0].result='completed'},'BLOCKED','POSSIBLE_DUPLICATE_INSTITUTIONAL_ACTION');
+check('unknown not success',x=>{x.attempts[0].result='unknown'},'HOLD_UNKNOWN');
+check('different idempotency key',x=>{x.proposal.idempotency_key='other'},'BLOCKED','IDEMPOTENCY_KEY_CHANGED');
+check('branch changed',x=>{x.proposal.branch_id='beacon-branch'},'BLOCKED','BRANCH_ID_CHANGED');
+check('attempt ID repeated',x=>{x.proposal.attempt_id=x.attempts[0].attempt_id},'BLOCKED','DUPLICATE_ATTEMPT_ID');
+check('nonsequential proposal',x=>{x.proposal.sequence=4},'BLOCKED','NONCONTIGUOUS_NEXT_SEQUENCE');
+check('nonincreasing time',x=>{x.proposal.attempted_at='2026-11-07T11:00:00Z'},'BLOCKED','ATTEMPT_TIME_NOT_INCREASING');
+check('unknown branch',x=>{x.proposal.branch_id='missing'},'REJECTED','UNKNOWN_BRANCH');
+check('bad branch status',x=>{x.branches['beacon-branch'].workflow_state='published'},'REJECTED','INVALID_BRANCH');
+check('missing ledger',x=>{delete x.branches},'REJECTED','BRANCH_LEDGER_REQUIRED');
+check('missing proposal',x=>{delete x.proposal},'REJECTED','PROPOSAL_REQUIRED');
+check('missing history',x=>{delete x.attempts},'REJECTED','ATTEMPT_HISTORY_REQUIRED');
+check('missing policy',x=>{delete x.workflow_allows_refresh},'REJECTED','REFRESH_POLICY_REQUIRED');
+check('wrong original handoff',x=>{x.attempts[0].handoff_identifier='another'},'REJECTED','HISTORY_HANDOFF_CONFLICT');
+check('wrong original receiver',x=>{x.attempts[0].receiving_institution='Beacon'},'REJECTED','HISTORY_RECEIVER_CONFLICT');
+check('new handoff in same retry',x=>{x.proposal.handoff_identifier='new'},'REJECTED','NEW_HANDOFF_BASIS');
+check('first proposal',x=>{x.attempts=[];x.proposal.sequence=1},'CANDIDATE_FOR_GOVERNED_REVIEW','INITIAL_ATTEMPT_CANDIDATE');
+const imm=structuredClone(fixture);inspectRetry(imm);assert.deepEqual(imm,fixture);count++;
+const isolated=inspectRetry(fixture);isolated.branches['beacon-branch'].workflow_state='failed';assert.equal(fixture.branches['beacon-branch'].workflow_state,'completed');count++;
+assert.equal(count,55,'verify actual count before submission');
+console.log('PASS '+count+'/'+count+' synthetic IQ-009 retry/idempotency checks; no real retries');

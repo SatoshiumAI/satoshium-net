@@ -1,0 +1,54 @@
+{
+  "workflow_definition": "fictional:NAV-WF-ALPHA@1.0",
+  "handoff_identifier": "fictional:handoff-001",
+  "receiving_institution": "Registry",
+  "requested_action": "consider registration under Registry rules",
+  "operation_key": "fictional:operation-001",
+  "workflow_allows_refresh": false,
+  "attempts": [
+    {
+      "attempt_id": "fictional:attempt-001",
+      "sequence": 1,
+      "attempted_at": "2026-11-07T12:00:00Z",
+      "result": "timeout",
+      "handoff_identifier": "fictional:handoff-001",
+      "receiving_institution": "Registry",
+      "operation_key": "fictional:operation-001",
+      "idempotency_key": "fictional:idem-001",
+      "branch_id": "registry-branch",
+      "input_snapshot": {
+        "identifier": "FICTIONAL-SC-CERT-001",
+        "version": "1.0",
+        "state": "unknown"
+      }
+    }
+  ],
+  "proposal": {
+    "attempt_id": "fictional:attempt-002",
+    "sequence": 2,
+    "attempted_at": "2026-11-07T12:10:00Z",
+    "reason": "timeout review",
+    "idempotency_key": "fictional:idem-001",
+    "branch_id": "registry-branch",
+    "handoff_identifier": "fictional:handoff-001",
+    "input_snapshot": {
+      "identifier": "FICTIONAL-SC-CERT-001",
+      "version": "1.0",
+      "state": "unknown"
+    }
+  },
+  "branches": {
+    "registry-branch": {
+      "workflow_state": "awaiting-response",
+      "events": [
+        "timeout observed"
+      ]
+    },
+    "beacon-branch": {
+      "workflow_state": "completed",
+      "events": [
+        "separate branch retained"
+      ]
+    }
+  }
+}
