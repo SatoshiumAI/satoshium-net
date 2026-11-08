@@ -1,0 +1,176 @@
+{
+  "schema_version": "stage2d-contract-difference-v1",
+  "date": "2026-11-07",
+  "classification": "READ_ONLY_CANONICAL_MACHINE_VOCABULARY_REVIEW",
+  "canonical": {
+    "repository": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867"
+  },
+  "machine_contracts": {
+    "controlled_values": {
+      "path": "registry/controlled-values/controlled-values.json",
+      "sha": "155ce281fc8daf42eaf8031a1895f59b1c81efe6",
+      "value_set_names": [
+        "registry_status"
+      ],
+      "registry_status_codes": [
+        "active"
+      ],
+      "lifecycle_set_published": false
+    },
+    "base_schema": {
+      "path": "registry/schemas/sreg-base-schema.json",
+      "sha": "2405f6cb448cb8432fb5ad0787339cffb49ef854",
+      "registry_status_codes": [
+        "pending",
+        "active",
+        "restricted",
+        "disputed",
+        "superseded",
+        "revoked",
+        "retired",
+        "archived"
+      ],
+      "registry_lifecycle_codes": [
+        "proposed",
+        "under_review",
+        "registered",
+        "published",
+        "updated",
+        "superseded",
+        "revoked",
+        "retired",
+        "archived"
+      ]
+    },
+    "published_example": {
+      "path": "registry/registered-items/SREG-2026-0001/record.json",
+      "sha": "9faf4401ec432ae1367aec5207a6eb08da308f99",
+      "registry_status": "active",
+      "registry_lifecycle": "published",
+      "registry_version": "1.0",
+      "certifier_source_version": "1.1"
+    }
+  },
+  "narrative_lifecycle_lists": {
+    "controlled_values_readme": [
+      "Proposed",
+      "Under Review",
+      "Registered",
+      "Published",
+      "Updated",
+      "Superseded",
+      "Revoked",
+      "Retired",
+      "Archived"
+    ],
+    "lifecycle_readme": [
+      "Pending Registration",
+      "Registered",
+      "Active",
+      "Updated",
+      "Superseded",
+      "Revoked",
+      "Archived"
+    ]
+  },
+  "findings": [
+    {
+      "id": "2D-001",
+      "category": "MACHINE_VOCABULARY_COVERAGE",
+      "severity": "INTEGRATION_BLOCKER",
+      "finding": "Machine controlled-values.json v1.0 publishes a single registry_status active value; it does not publish registry_lifecycle_state vocabulary or transition rules.",
+      "evidence": [
+        "registry/controlled-values/controlled-values.json",
+        "registry/controlled-values/README.md"
+      ],
+      "impact": "Do not treat a documented lifecycle list as a published machine controlled-value set.",
+      "action": "Registry approval of machine lifecycle value publication and governed versioning; keep existing Base Schema profile unchanged until separately approved."
+    },
+    {
+      "id": "2D-002",
+      "category": "SCHEMA_VOCABULARY_ALIGNMENT",
+      "severity": "REQUIRES_GOVERNANCE_RECONCILIATION",
+      "finding": "Production SREG Base Schema lifecycle codes are proposed, under_review, registered, published, updated, superseded, revoked, retired and archived; Lifecycle README's initial list uses Pending Registration, Registered, Active, Updated, Superseded, Revoked, Archived.",
+      "evidence": [
+        "registry/schemas/sreg-base-schema.json",
+        "registry/lifecycle/README.md"
+      ],
+      "impact": "Proposed/under_review/published/retired and the Active/Pending Registration terminology require a formally documented equivalence or distinction; do not auto-map.",
+      "action": "Institutional owner records controlled lexical mapping or clarifies separate semantic layer, including transition policy."
+    },
+    {
+      "id": "2D-003",
+      "category": "PUBLISHED_COMPATIBILITY",
+      "severity": "CONFIRMED",
+      "finding": "Published SREG-2026-0001 uses registry_status code active and registry_lifecycle_state code published. Both codes appear in production SREG Base Schema v1.0, and active appears in machine controlled-values.json v1.0.",
+      "evidence": [
+        "registry/registered-items/SREG-2026-0001/record.json",
+        "registry/schemas/sreg-base-schema.json",
+        "registry/controlled-values/controlled-values.json"
+      ],
+      "impact": "No unsupported claim that historical published code is inherently invalid; no modification warranted on this basis.",
+      "action": "Preserve historical source intact; do not infer complete schema-conformance or lifecycle-history test from this point check."
+    },
+    {
+      "id": "2D-004",
+      "category": "REGISTRY_VS_SOURCE_STATE",
+      "severity": "REQUIRED_SEPARATION",
+      "finding": "SREG stores Certifier source_record_version 1.1 and source-owned outcome/status independently of Registry entry version 1.0, registry status active and registry lifecycle published.",
+      "evidence": [
+        "registry/registered-items/SREG-2026-0001/record.json",
+        "registry/status/status.md",
+        "registry/rules/README.md"
+      ],
+      "impact": "Current source-state and historical state-at-use cannot be derived from Registry lifecycle; toolkit example 1.0.0 does not prove live package version.",
+      "action": "Specify source-attested version at use, independent current-state observation, provenance and unavailable/unknown handling before production bridge."
+    },
+    {
+      "id": "2D-005",
+      "category": "TRANSITION_ENFORCEMENT",
+      "severity": "UNVERIFIED",
+      "finding": "Lifecycle README calls its transition sequences illustrative and explicitly delegates authoritative transitions to Registry Policy, Procedure and machine validation. No adopted executable transition rule was established in reviewed machine controlled values or schema enum.",
+      "evidence": [
+        "registry/lifecycle/README.md",
+        "registry/controlled-values/controlled-values.json",
+        "registry/schemas/sreg-base-schema.json"
+      ],
+      "impact": "Schema enum membership is insufficient to approve a lifecycle state transition or publication.",
+      "action": "Design governed state transition matrix, effective dates, source event and approval provenance, refusal and audit semantics."
+    },
+    {
+      "id": "2D-006",
+      "category": "SCOPE_OF_MACHINE_VALIDATION",
+      "severity": "UNVERIFIED",
+      "finding": "A Base Schema declares separate code/label enumerations, but lexical membership alone is not a full institutional validation, approval, issuance or publication check.",
+      "evidence": [
+        "registry/schemas/sreg-base-schema.json",
+        "registry/validation/README.md"
+      ],
+      "impact": "No automatic Registry activation, SREG issuance or source certification may be inferred from schema checks.",
+      "action": "Use separate schema, code/label pair, institutional rule, provenance and publication authorization checks; verify both human-readable and JSON representations independently."
+    }
+  ],
+  "decisions": {
+    "open": [
+      "D-2A-01",
+      "D-2A-02",
+      "D-2A-03",
+      "D-2A-04",
+      "D-2A-05",
+      "D-2A-06"
+    ],
+    "narrowed": [
+      "D-2A-03"
+    ],
+    "production_acceptance": 0,
+    "not_verified": 11
+  },
+  "prior_ci": {
+    "pass": 436,
+    "commit": "313c1fafb31fde37baab03a7f42db5a88ba116b6"
+  },
+  "no_new_executable_tests": true,
+  "no_canonical_writes": true
+}
