@@ -1,0 +1,45 @@
+{
+  "snapshot_class": "HISTORICAL_SELECTED_FIELDS_FROM_PINNED_CANONICAL_GIT_BLOBS",
+  "date": "2026-11-07",
+  "source_repo": "SatoshiumAI/satoshium-us",
+  "canonical_head": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "certifier": {
+    "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/scrd_json.json",
+    "blob_sha": "f1aedbc2899aaa94a59dcbef7d9438869adb62bc",
+    "scrd_record_id": "SCRD-SC-CERT-2026-0001",
+    "record_version": "1.1",
+    "package_id": "SC-CERT-2026-0001",
+    "canonical_url": "https://satoshium.us/certifier/certifications/SC-CERT-2026-0001/",
+    "status": "Issued · Active",
+    "outcome": "Certified",
+    "class": "Operational",
+    "confidence": "Supported",
+    "decision_authority": "Satoshium Certifier",
+    "certification_date": "July 5, 2026",
+    "subject_name": "Atlas Jurisdiction Record — El Salvador"
+  },
+  "registry": {
+    "path": "registry/registered-items/SREG-2026-0001/record.json",
+    "blob_sha": "9faf4401ec432ae1367aec5207a6eb08da308f99",
+    "registry_identifier": "SREG-2026-0001",
+    "entry_version": "1.0",
+    "registry_status": "active",
+    "registry_lifecycle": "published",
+    "source_system_identifier": "SC-CERT-2026-0001",
+    "source_version": "1.1",
+    "source_canonical_url": "https://satoshium.us/certifier/certifications/SC-CERT-2026-0001/",
+    "source_status": "Issued · Active",
+    "source_outcome": "Certified",
+    "source_class": "Operational",
+    "source_confidence": "Supported",
+    "source_decision_authority": "Satoshium Certifier",
+    "source_date": "2026-07-05",
+    "subject_name": "Atlas Jurisdiction Record — El Salvador",
+    "native_relationship": {
+      "type": "registers",
+      "source": "SREG-2026-0001",
+      "target": "SC-CERT-2026-0001",
+      "authority": "Satoshium Registry"
+    }
+  }
+}

@@ -26,6 +26,7 @@ on:
       - 'services/reviews/stage2j/**'
       - 'services/reviews/stage2k/**'
       - 'services/reviews/stage3l/**'
+      - 'services/reviews/stage3m/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -42,6 +43,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 3M SHA-attributed historical source snapshot checks
+        run: node services/reviews/stage3m/historical-reference.test.cjs
       - name: Stage 3L fictional read-only reference profile checks
         run: node services/reviews/stage3l/reference-gate.test.cjs
       - name: Stage 2K fictional audit failure recovery checks
