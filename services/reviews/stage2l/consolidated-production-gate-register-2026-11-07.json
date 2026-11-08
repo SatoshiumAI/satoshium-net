@@ -1,0 +1,345 @@
+{
+  "schema_version": "stage2l-v1",
+  "date": "2026-11-07",
+  "disposition": "DOCUMENTARY_REASSESSMENT_ONLY",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "queue": "suite/interoperability/satoshium-suite-interoperability-implementation-queue-2026-10-03.md",
+    "queue_blob": "b8d0688a5a33d2feb3902e0a20b9b089a537eddf",
+    "access": "READ_ONLY"
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "commit": "3691f4dd78bedc523802a727e549536dadf475d7",
+    "workflow_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42449872005",
+    "pages_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42449871665",
+    "iq_checks": 394,
+    "manifest_checks": 9,
+    "stage2_checks": 319,
+    "total_checks": 722
+  },
+  "production_p0": {
+    "total": 11,
+    "accepted": 0,
+    "not_verified": 11
+  },
+  "release_authorized": false,
+  "contract_decisions_open": 6,
+  "p0": [
+    {
+      "id": "IQ-001",
+      "name": "Reference envelope",
+      "prototype_stage": "1H+1I",
+      "prototype_checks": 28,
+      "original_acceptance_intent": [
+        "missing required reference fields fail",
+        "unknown remains unknown",
+        "no inferred source authority",
+        "envelope noncanonical"
+      ],
+      "remaining_gap": "Adopted, authenticated issuer/recipient field contract and validator absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-002",
+      "name": "Identifier resolution",
+      "prototype_stage": "1J",
+      "prototype_checks": 20,
+      "original_acceptance_intent": [
+        "native ID intact",
+        "no suffix identity",
+        "unavailable distinct from invalid",
+        "superseded historically resolvable",
+        "last-known not current"
+      ],
+      "remaining_gap": "Authoritative source-resolution API, verified currentness and historical readback absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-003",
+      "name": "Lifecycle/publication separation",
+      "prototype_stage": "1K",
+      "prototype_checks": 24,
+      "original_acceptance_intent": [
+        "lifecycle independent of publication",
+        "Published only if issuer governed",
+        "unknown mapping flagged",
+        "historical/current distinct"
+      ],
+      "remaining_gap": "Receiver-approved state mapping/transition rules, machine lifecycle set and current-source verification absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-004",
+      "name": "Relationship serialization",
+      "prototype_stage": "1L",
+      "prototype_checks": 29,
+      "original_acceptance_intent": [
+        "explicit direction",
+        "strongest supported predicate",
+        "unsupported predicate stays unsupported",
+        "no related-to coercion",
+        "multiple true predicates coexist"
+      ],
+      "remaining_gap": "Receiver-approved native registers / Suite predicate bridging and evidence-strength rule absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-005",
+      "name": "Process subject profiles",
+      "prototype_stage": "1M",
+      "prototype_checks": 31,
+      "original_acceptance_intent": [
+        "unambiguous subject",
+        "deterministic direction",
+        "process reference not canonical"
+      ],
+      "remaining_gap": "Approved process-subject wire profile and authenticated issuance absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-006",
+      "name": "Outcome namespaces",
+      "prototype_stage": "1N",
+      "prototype_checks": 28,
+      "original_acceptance_intent": [
+        "outcome namespaced to institution",
+        "same word not same authority",
+        "unknown outcome explicit"
+      ],
+      "remaining_gap": "Fully verified issuer-local controlled outcome namespaces and mapping absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-007",
+      "name": "Failure and unknown handling",
+      "prototype_stage": "1O",
+      "prototype_checks": 41,
+      "original_acceptance_intent": [
+        "unknown not pass/valid/supported/trusted/current",
+        "contradiction not resolved favorably",
+        "unavailable not issuer failure",
+        "terminal/retryable distinct"
+      ],
+      "remaining_gap": "Production fault injection and approved retry/terminal classifications absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-008",
+      "name": "Navigator handoff",
+      "prototype_stage": "1P",
+      "prototype_checks": 47,
+      "original_acceptance_intent": [
+        "Navigator no authority",
+        "workflow state independent",
+        "traceable handoff"
+      ],
+      "remaining_gap": "Adopted Navigator recipient contract, authenticated execution and durable trace absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-009",
+      "name": "Retry and idempotency",
+      "prototype_stage": "1Q",
+      "prototype_checks": 55,
+      "original_acceptance_intent": [
+        "attempt identity/time/result",
+        "version pinned",
+        "duplicate prevented/detected",
+        "branch-specific partial completion"
+      ],
+      "remaining_gap": "Durable receiver idempotency, distributed concurrency and actual attempt results absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-010",
+      "name": "Technical/institutional authority",
+      "prototype_stage": "1R",
+      "prototype_checks": 53,
+      "original_acceptance_intent": [
+        "technical authentication not institution authorization",
+        "privileged action authority context",
+        "unauthorized write rejected",
+        "caller and resulting object auditable"
+      ],
+      "remaining_gap": "Authenticated receiver policy enforcement and real resulting object readback absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    },
+    {
+      "id": "IQ-011",
+      "name": "Write audit",
+      "prototype_stage": "1S",
+      "prototype_checks": 38,
+      "original_acceptance_intent": [
+        "no unauthorized cross-institution substantive write",
+        "every privileged write attributable"
+      ],
+      "remaining_gap": "Atomic append-only privileged-write logging and actual institutional write evidence absent",
+      "experimental": "CI_PASS",
+      "production": "NOT_VERIFIED"
+    }
+  ],
+  "stage2": [
+    {
+      "stage": "2A",
+      "checks": 0,
+      "focus": "canonical contract discovery and vectors",
+      "source_review_only": true
+    },
+    {
+      "stage": "2B",
+      "checks": 33,
+      "focus": "fictional source/recipient context",
+      "source_review_only": false
+    },
+    {
+      "stage": "2C",
+      "checks": 0,
+      "focus": "governance reconciliation",
+      "source_review_only": true
+    },
+    {
+      "stage": "2D",
+      "checks": 0,
+      "focus": "Registry machine lifecycle comparison",
+      "source_review_only": true
+    },
+    {
+      "stage": "2E",
+      "checks": 28,
+      "focus": "controlled-value conformance",
+      "source_review_only": false
+    },
+    {
+      "stage": "2F",
+      "checks": 35,
+      "focus": "fictional historical transitions",
+      "source_review_only": false
+    },
+    {
+      "stage": "2G",
+      "checks": 39,
+      "focus": "source-change impact",
+      "source_review_only": false
+    },
+    {
+      "stage": "2H",
+      "checks": 39,
+      "focus": "owner acknowledgements",
+      "source_review_only": false
+    },
+    {
+      "stage": "2I",
+      "checks": 46,
+      "focus": "replay safety context",
+      "source_review_only": false
+    },
+    {
+      "stage": "2J",
+      "checks": 50,
+      "focus": "claimed audit provenance",
+      "source_review_only": false
+    },
+    {
+      "stage": "2K",
+      "checks": 49,
+      "focus": "failure-recovery gate context",
+      "source_review_only": false
+    }
+  ],
+  "contract_decisions": [
+    {
+      "id": "D-2A-01",
+      "name": "Certifier producer wire representation",
+      "closure": "Approve issuer source serialization, version/freshness and attributable origin",
+      "status": "OPEN"
+    },
+    {
+      "id": "D-2A-02",
+      "name": "Registry receiving contract",
+      "closure": "Approve receiver API/fields, refusal/decision policy and independent SREG ownership",
+      "status": "OPEN"
+    },
+    {
+      "id": "D-2A-03",
+      "name": "Status/version/lifecycle",
+      "closure": "Reconcile machine schema versus partial published values and narrative lifecycle; state-at-use remains distinct",
+      "status": "OPEN_NARROWED"
+    },
+    {
+      "id": "D-2A-04",
+      "name": "Native predicate bridge",
+      "closure": "Keep Registry native registers and govern any separate Suite relationship",
+      "status": "OPEN"
+    },
+    {
+      "id": "D-2A-05",
+      "name": "Authentication, authority and audit",
+      "closure": "Approve receiving identity/policy, tamper-evident audit, retries and verifiable result",
+      "status": "OPEN"
+    },
+    {
+      "id": "D-2A-06",
+      "name": "Historical/current parity",
+      "closure": "Verify published JSON/human SREG and issuer current/historical source readback",
+      "status": "OPEN"
+    }
+  ],
+  "approval_gates": [
+    {
+      "id": "G0",
+      "name": "Founder scope",
+      "requirement": "Document one bounded Certifier→Registry nonproduction work package; no production writes",
+      "status": "NOT_SATISFIED"
+    },
+    {
+      "id": "G1",
+      "name": "Issuer and recipient contracts",
+      "requirement": "Resolve D-2A-01 and D-2A-02 with owner approval and pinned machine fields",
+      "status": "NOT_SATISFIED"
+    },
+    {
+      "id": "G2",
+      "name": "Semantics and history",
+      "requirement": "Resolve D-2A-03, D-2A-04 and D-2A-06 under institutional governance",
+      "status": "NOT_SATISFIED"
+    },
+    {
+      "id": "G3",
+      "name": "Authorization",
+      "requirement": "Resolve D-2A-05; authenticate principal and enforce recipient rules before any write-capable test",
+      "status": "NOT_SATISFIED"
+    },
+    {
+      "id": "G4",
+      "name": "Real execution evidence",
+      "requirement": "Exercise approved nonproduction endpoint and durable replay/audit/negative/fault cases with real readback, only after separate authorization",
+      "status": "NOT_SATISFIED"
+    },
+    {
+      "id": "G5",
+      "name": "Independent acceptance",
+      "requirement": "Governed review for every IQ acceptance criterion; release only on explicit approval",
+      "status": "NOT_SATISFIED"
+    }
+  ],
+  "caveats": [
+    "Pages success is experimental publishing, not Suite release",
+    "Existing canonical institution-specific production records retain bounded validity",
+    "No actual authenticated cross-owner integration, durable audit, crypto signatures, source currentness or issued-object readback",
+    "P1 IQ-012–019 and P2 IQ-020–023 remain original queue deferred",
+    "No GB2 compute, canonical changes, or production authority from this assessment"
+  ]
+}
