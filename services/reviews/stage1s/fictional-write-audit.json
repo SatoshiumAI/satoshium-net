@@ -1,0 +1,39 @@
+{
+  "events": [
+    {
+      "event_id": "fictional:event-1",
+      "trace_id": "fictional:trace-1",
+      "caller_identity": "fictional:actor-1",
+      "requested_action": "write-canonical-object",
+      "receiving_institution": "Registry",
+      "target_identifier": "FICTIONAL-SREG-1",
+      "target_object_type": "SREG",
+      "timestamp": "2026-11-07T16:00:00Z",
+      "event_type": "proposed",
+      "authority_context": {
+        "governing_rule": "fictional:rule",
+        "approval_reference": "fictional:approval",
+        "approved_principal": "fictional:actor-1",
+        "approved_action": "write-canonical-object",
+        "approved_target": "FICTIONAL-SREG-1",
+        "owning_institution": "Registry",
+        "approved": true
+      },
+      "input_references": [
+        {
+          "identifier": "FICTIONAL-CERT-1",
+          "source_institution": "Certifier",
+          "object_type": "Certification Package",
+          "provenance": "fictional"
+        }
+      ],
+      "resulting_object": null,
+      "reported_result": "not-executed",
+      "audit_trace": {
+        "correlation_id": "fictional:correlation",
+        "recorded_by": "fictional:actor-1",
+        "recorded_at": "2026-11-07T16:00:00Z"
+      }
+    }
+  ]
+}
