@@ -1,0 +1,268 @@
+{
+  "schema_version": "stage3o-navigator-registry-readiness-v1",
+  "date": "2026-11-07",
+  "type": "DOCUMENTARY_CROSSWALK_NOT_ADOPTED_RECEIVING_CONTRACT",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "read_only": true
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "previous_sha": "c433efce1aca06508c575d9a9e993593cabcf855"
+  },
+  "source_blobs": [
+    {
+      "path": "navigator/integration/README.md",
+      "sha": "be101abd249e45301b4b52fabfb6c9165d4a41cb",
+      "scope": "Suite-approved handoff semantics, non-adopted exact receiving serialization"
+    },
+    {
+      "path": "navigator/workflow-orchestration/README.md",
+      "sha": "784894aac3c04bc1b0e87fb109e8e0d59a8cb6e5",
+      "scope": "Navigator coordinates; workflow state not recipient canonical state"
+    },
+    {
+      "path": "registry/registrability/README.md",
+      "sha": "a826cf416b7456ed5b1a2a11a916ccf63e09908e",
+      "scope": "Source authority, scope, type and provenance must precede SREG construction"
+    },
+    {
+      "path": "registry/policies/record-creation-policy.md",
+      "sha": "7f2cb6bc48a13759b351dfd97412dc936410d887",
+      "scope": "Registry-created SREG, distinct native ID and status/lifecycle"
+    },
+    {
+      "path": "registry/validation/README.md",
+      "sha": "e26ca5dfcf98952573cfb9c71605ebf8998c37c9",
+      "scope": "Validation follows construction and does not itself publish"
+    },
+    {
+      "path": "registry/governance/README.md",
+      "sha": "bd640f7f03dc656d6ab476076e88ad5ab78947f9",
+      "scope": "Material institutional action requires attributable owner approval"
+    },
+    {
+      "path": "registry/schemas/certification-record-profile.json",
+      "sha": "269a1062898645552681868416c13cd3701e51bc",
+      "scope": "Completed SREG output profile, not request or auth contract"
+    }
+  ],
+  "crosswalk": [
+    {
+      "step": "N→R-01",
+      "name": "Navigator origin and workflow definition",
+      "navigator": "Navigator Workflow Definition ID, execution context and sending step",
+      "registry": "Retain reference provenance; no entry exists by virtue of workflow initiation",
+      "decision": "Navigator producer machine serialization/version",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "IQ-008"
+    },
+    {
+      "step": "N→R-02",
+      "name": "Receiving role and action class",
+      "navigator": "Receiving institution Registry and requested action distinguish review from creation",
+      "registry": "Explicit receiver intake/denial contract and permissions, not implied by documentation",
+      "decision": "Registry D-2A-02 receiving scope, accepting or refusing read-only handoffs",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "D-2A-02"
+    },
+    {
+      "step": "N→R-03",
+      "name": "Source attribution and version",
+      "navigator": "Complete input references, provenance, source version-at-use, unresolved status",
+      "registry": "Authoritative source institution + canonical source record + ID + historical version, no invented ownership",
+      "decision": "Certifier D-2A-01 if source is Certification Package",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "D-2A-01"
+    },
+    {
+      "step": "N→R-04",
+      "name": "Registrability boundary",
+      "navigator": "May request review, not decide registrable",
+      "registry": "Independent Source Authority, scope, approved Record Type, durable relevance and registrability determination",
+      "decision": "Registry registrability policy and review/denial semantics",
+      "status": "NO_AUTOMATIC_REGISTRATION",
+      "blocker": "D-2A-02"
+    },
+    {
+      "step": "N→R-05",
+      "name": "SREG creation",
+      "navigator": "Handoff does not allocate or assign SREG",
+      "registry": "Only Registry owner can create distinct SREG and Registry ID after governance",
+      "decision": "Separate Registry action approval; not included in read-only plan",
+      "status": "OUT_OF_SCOPE",
+      "blocker": "D-2A-02/D-2A-05"
+    },
+    {
+      "step": "N→R-06",
+      "name": "Validation and publication",
+      "navigator": "Never interpret validation or workflow progress as publication",
+      "registry": "Post-construction validation, distinct lifecycle activation and publication decisions",
+      "decision": "Registry rules, effective controlled values and owner-approved action",
+      "status": "OUT_OF_SCOPE",
+      "blocker": "D-2A-03/D-2A-05"
+    },
+    {
+      "step": "N→R-07",
+      "name": "Response, unknown and refusal",
+      "navigator": "Track workflow-local hold, rejection, timeout, unavailable without converting to institutional failure",
+      "registry": "Potential typed receiver response must be owner-defined; no invented machine enums",
+      "decision": "Owner approval of exact denial, no-result and not-processed meanings",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "IQ-007/IQ-008"
+    },
+    {
+      "step": "N→R-08",
+      "name": "Idempotency, trace and audit",
+      "navigator": "Attempt identity, trace context and fixed input reference/version",
+      "registry": "Durable receiving event, replay policy, authenticated acting role and resulting object readback only if authorized",
+      "decision": "Separate D-2A-05 plus IQ-009/010/011 gate",
+      "status": "UNVERIFIED_NOT_EXECUTED",
+      "blocker": "D-2A-05"
+    },
+    {
+      "step": "N→R-09",
+      "name": "Relationship and authority",
+      "navigator": "Handoff reference is orchestration context",
+      "registry": "Registry native registers SREG→source only after Registry-governed creation; no inferred Suite references",
+      "decision": "D-2A-04 independently governs any predicate bridging",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "D-2A-04"
+    },
+    {
+      "step": "N→R-10",
+      "name": "Historical/current source checks",
+      "navigator": "Retain observation date and source state-at-use separately from currentness",
+      "registry": "Historical or unavailable sources may remain reviewable with owner decisions; do not infer current state",
+      "decision": "D-2A-06 historical/current source and human/machine parity proof",
+      "status": "OWNER_APPROVAL_REQUIRED",
+      "blocker": "D-2A-06"
+    }
+  ],
+  "proposed_refusal_vectors": [
+    {
+      "id": "3O-R01",
+      "trigger": "Missing or suffix-only source identifier",
+      "suggested": "HOLD_REFERENCE",
+      "reason": "Native identifier must remain intact",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R02",
+      "trigger": "Source unavailable",
+      "suggested": "HOLD_UNAVAILABLE",
+      "reason": "Unavailability is not source-invalidity or institution failure",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R03",
+      "trigger": "Workflow asks Navigator to issue an SREG",
+      "suggested": "REJECT_AUTHORITY_ESCALATION",
+      "reason": "Navigator cannot create Registry canonical object",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R04",
+      "trigger": "Registrability unknown or denied",
+      "suggested": "HOLD_OR_DENY_REGISTRABILITY",
+      "reason": "No entry may be inferred from a handoff",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R05",
+      "trigger": "Request conflates source Issued · Active with Registry active/published",
+      "suggested": "REJECT_STATUS_CONFLATION",
+      "reason": "Status is institution-owned and independently namespaced",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R06",
+      "trigger": "Duplicate or replay of an institutional operation",
+      "suggested": "HOLD_REPLAY",
+      "reason": "No durable idempotency has been verified",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R07",
+      "trigger": "Unknown recipient policy/version",
+      "suggested": "HOLD_UNADOPTED_CONTRACT",
+      "reason": "No approved interface means no authenticated operation",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    },
+    {
+      "id": "3O-R08",
+      "trigger": "Attempted Registry publication inferred from successful validation",
+      "suggested": "REJECT_PUBLICATION_INFERENCE",
+      "reason": "Validation result does not itself publish",
+      "authority": "Registry owner must adopt actual response vocabulary"
+    }
+  ],
+  "owner_decisions": [
+    {
+      "id": "3O-D01",
+      "owner": "Navigator",
+      "decision": "Adopt or reject explicit handoff serialization, versions, trace and action classes",
+      "precondition": "Approved semantic contract is not a machine wire contract",
+      "status": "NOT_APPROVED"
+    },
+    {
+      "id": "3O-D02",
+      "owner": "Registry",
+      "decision": "Approve/decline read-only recipient context and exact typed review/hold/denial response",
+      "precondition": "Registry may also choose no automated receiving contract",
+      "status": "NOT_APPROVED"
+    },
+    {
+      "id": "3O-D03",
+      "owner": "Source institution (Certifier when relevant)",
+      "decision": "Approve source identity/version/status provenance for consumer reference",
+      "precondition": "No toolkit stub or derived SCRD treated as adopted producer exchange payload",
+      "status": "NOT_APPROVED"
+    },
+    {
+      "id": "3O-D04",
+      "owner": "Registry + Suite",
+      "decision": "Reconcile lifecycle and predicates without authority transfer",
+      "precondition": "D-2A-03/04 remain OPEN",
+      "status": "NOT_APPROVED"
+    },
+    {
+      "id": "3O-D05",
+      "owner": "Founder + recipient authority",
+      "decision": "Separately authorize any authenticated nonproduction or write-capable attempt",
+      "precondition": "No such authorization in current task",
+      "status": "NOT_APPROVED"
+    }
+  ],
+  "summary": {
+    "source_pins": 7,
+    "review_domains": 10,
+    "proposed_refusal_vectors": 8,
+    "owner_decisions_pending": 5,
+    "authenticated_calls": 0,
+    "production_p0_accepted": 0,
+    "production_p0_unverified": 11
+  },
+  "open_contract_decisions": [
+    "D-2A-01",
+    "D-2A-02",
+    "D-2A-03",
+    "D-2A-04",
+    "D-2A-05",
+    "D-2A-06"
+  ],
+  "governance": {
+    "approved_semantic_navigator_handoff": true,
+    "recipient_wire_contract_approved": false,
+    "registry_api_approved": false,
+    "live_received_response_verified": false,
+    "read_only_source_inspection": true,
+    "production_authorization": false
+  },
+  "previous_offline_ci": {
+    "checks": 783,
+    "executed_at_previous_commit": "ee28424eacc4ba593d8ef3559402d81b19eb7f25",
+    "rerun_in_stage3o": false
+  }
+}
