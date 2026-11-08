@@ -1,0 +1,186 @@
+{
+  "schema_version": "stage1t-assessment-v1",
+  "date": "2026-11-07",
+  "classification": "DOCUMENTARY GAP ASSESSMENT / NO IMPLEMENTATION ACCEPTANCE",
+  "canonical_source": {
+    "repository": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "mode": "READ_ONLY",
+    "queue": "suite/interoperability/satoshium-suite-interoperability-implementation-queue-2026-10-03.md"
+  },
+  "experimental_source": {
+    "repository": "SatoshiumAI/satoshium-net",
+    "branch": "phase004",
+    "evaluated_commit": "0b05f561e3b545582b8072fc33ab059112e1a388",
+    "workflow_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42446439766",
+    "pages_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42446439577",
+    "test_total": 403,
+    "evidence_register_checks": 9,
+    "experimental_iq_checks": 394
+  },
+  "interpretation": {
+    "experimental_foundations": "11 of 11 with offline CI evidence",
+    "production_accepted": 0,
+    "production_not_verified": 11,
+    "release_authorized": false,
+    "gb2_used": false
+  },
+  "workstreams": [
+    {
+      "id": "IQ-001",
+      "priority": "P0",
+      "title": "Cross-Institution Reference Envelope Enforcement",
+      "stage": "1H + 1I",
+      "test_count": 28,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Semantic envelope validation and fictional Registry-shaped adapter",
+      "remaining_gap": "Field/materiality and per-recipient mapping not adopted; no issuer-authenticated provenance, production validator, or recipient exchange",
+      "proposed_next_evidence": "Map selected Certifier→Registry source contract, machine field requirements, version rules, missing/unknown negative tests"
+    },
+    {
+      "id": "IQ-002",
+      "priority": "P0",
+      "title": "Stable Identifier & Reference Resolver",
+      "stage": "1J",
+      "test_count": 20,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Seven fictional resolution outcomes, full native identifiers and historical preservation",
+      "remaining_gap": "No authoritative issuer resolver, freshness guarantees, stale/superseded cross-institution integration, or network fault evidence",
+      "proposed_next_evidence": "Define authoritative resolution service/API and typed terminal/unavailable outcomes; test historical readback"
+    },
+    {
+      "id": "IQ-003",
+      "priority": "P0",
+      "title": "Lifecycle / Publication State Mapping",
+      "stage": "1K",
+      "test_count": 24,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Fictional historical state-at-use distinct from present state, lifecycle separate from publication",
+      "remaining_gap": "No verified issuer-native state mapping, current-state service, correction propagation, or receiving-institution rules",
+      "proposed_next_evidence": "Adopt source/recipient versioned state semantics and compare real source-shaped fictional records"
+    },
+    {
+      "id": "IQ-004",
+      "priority": "P0",
+      "title": "Relationship Predicate Serialization",
+      "stage": "1L",
+      "test_count": 29,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Eight controlled predicates, explicit direction, no silent unknown predicate coercion",
+      "remaining_gap": "Evidence-based strongest correct predicate unverified; native Registry 'registers' reconciliation and institutional relationship matrices open",
+      "proposed_next_evidence": "Approve producer/consumer predicate adapters, source provenance and evidence-strength policy, adversarial relationship tests"
+    },
+    {
+      "id": "IQ-005",
+      "priority": "P0",
+      "title": "evaluates / results-in Subject Profiles",
+      "stage": "1M",
+      "test_count": 31,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Noncanonical process-subject profile and deterministic direction in fictional cases",
+      "remaining_gap": "No adopted process-subject identifiers/schema across institutional recipients or issuer-authenticated process metadata",
+      "proposed_next_evidence": "Define process subject/version/reference profile at specific receiving boundary; test no canonical-object promotion"
+    },
+    {
+      "id": "IQ-006",
+      "priority": "P0",
+      "title": "Controlled Outcome Namespacing",
+      "stage": "1N",
+      "test_count": 28,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Typed institutional outcome context; Attestor-controlled outcome values partly source-verified",
+      "remaining_gap": "Other issuer-local vocabularies/versions and Trust Statement conclusion domains not fully source-verified or adopted",
+      "proposed_next_evidence": "Obtain each issuer's versioned controlled outcomes and receiver namespace mapping; test unknown as unknown"
+    },
+    {
+      "id": "IQ-007",
+      "priority": "P0",
+      "title": "Failure / Unknown-State Machine Handling",
+      "stage": "1O",
+      "test_count": 41,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Fourteen fictional failure conditions and unknown→success guard; retry hints",
+      "remaining_gap": "Full governed terminal vs retryable policy absent; real faults, partial transport and contradictory current source evidence untested",
+      "proposed_next_evidence": "Adopt recipient failure policy and timed fault-injection for missing/timeout/conflict/unknown, preserving evidence"
+    },
+    {
+      "id": "IQ-008",
+      "priority": "P0",
+      "title": "Navigator Handoff Contract Implementation",
+      "stage": "1P",
+      "test_count": 47,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Eighteen context fields, no authority transfer, workflow state separated",
+      "remaining_gap": "No approved wire/recipient contract, authenticated handoff, orchestration trace store or live execution",
+      "proposed_next_evidence": "Choose recipient API and verified workflow definition; define handoff serialization, trace and refusal contracts"
+    },
+    {
+      "id": "IQ-009",
+      "priority": "P0",
+      "title": "Navigator Retry / Idempotency Controls",
+      "stage": "1Q",
+      "test_count": 55,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Fictional attempt ledger, duplicate candidate blocking, version pinning and branch isolation",
+      "remaining_gap": "No receiver idempotency acknowledgement, distributed lock/atomic reservation, concurrency, durable attempts or true retry execution",
+      "proposed_next_evidence": "Design durable attempt/identity ledger and recipient-owned idempotency semantics; concurrency/replay tests"
+    },
+    {
+      "id": "IQ-010",
+      "priority": "P0",
+      "title": "Technical Authorization / Institutional Authority Enforcement",
+      "stage": "1R",
+      "test_count": 53,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Fail-closed review of declared caller, recipient ownership, approval context and source/audit fields",
+      "remaining_gap": "Assertions are untrusted; no real authentication, verified rule/approval, write authorization or enforcement point",
+      "proposed_next_evidence": "Select actual approval/identity and receiving-institution policy gate; deny cross-institution writes at endpoint"
+    },
+    {
+      "id": "IQ-011",
+      "priority": "P0",
+      "title": "Cross-Institution Write Audit Controls",
+      "stage": "1S",
+      "test_count": 38,
+      "experimental_ci": "PASS",
+      "production_acceptance": "NOT_VERIFIED",
+      "verified_offline": "Fictional proposed/reported write audit-context completeness and attribution checks",
+      "remaining_gap": "No tamper-evident durable append log, verified result readback, all-interface interception, replay protection or failure atomicity",
+      "proposed_next_evidence": "Specify append-only audit events and immutable trace linkage; instrument one guarded write path in test environment"
+    }
+  ],
+  "next_phase": {
+    "recommended_scope": "ONE CONTROLLED FICTIONAL CERTIFIER→REGISTRY PRODUCER/CONSUMER INTEGRATION SLICE",
+    "not_authorized_yet": [
+      "canonical writes",
+      "production deployment",
+      "live institutional decisions",
+      "Suite 1.0 public integrated release"
+    ],
+    "ordered_gates": [
+      "Confirm issuer and receiver machine contracts with commit/version pins",
+      "Approve narrow test-only adapter contract preserving source identity/authority",
+      "Wire IQ-001–004 and selected IQ-005–007 semantics through a nonproduction offline integration",
+      "Specify governed Navigator handoff/retry boundary and actual receiving policy for IQ-008–010",
+      "Exercise owner-attributed tamper-evident audit receipt for IQ-011",
+      "Independently test positive, negative, unknown, concurrency and historical cases",
+      "Record founder disposition and only then consider production adoption"
+    ]
+  },
+  "caveats": [
+    "403 passing checks comprise 9 evidence-register hygiene self-tests plus 394 synthetic IQ checks",
+    "Prior individual stage reports marked CI pending at submission; Stage 1S exact-commit CI now provides combined reexecution",
+    "No claims of source authentication, IAM, network integration, or actual resulting objects"
+  ]
+}
