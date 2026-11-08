@@ -1,0 +1,41 @@
+{
+  "request_id": "fictional:req-001",
+  "requested_at": "2026-11-07T14:00:00Z",
+  "requested_action": "write-canonical-object",
+  "requested_object_type": "SREG",
+  "receiving_institution": "Registry",
+  "target_identifier": "FICTIONAL-SREG-001",
+  "caller_identity": "fictional:operator-001",
+  "technical_access": {
+    "authenticated": true,
+    "permitted": true,
+    "mechanism": "fictional signed session assertion"
+  },
+  "institutional_authority": {
+    "owning_institution": "Registry",
+    "governing_rule": "fictional Registry admission rule",
+    "approval_reference": "fictional:approval-001",
+    "authorized_principal": "fictional:operator-001",
+    "approved_action": "write-canonical-object",
+    "approved_target": "FICTIONAL-SREG-001",
+    "approved": true
+  },
+  "provenance": {
+    "source_institution": "Certifier",
+    "source_identifier": "FICTIONAL-CERT-001",
+    "source_object_type": "Certification Package"
+  },
+  "input_references": [
+    {
+      "identifier": "FICTIONAL-CERT-001",
+      "source_institution": "Certifier",
+      "object_type": "Certification Package"
+    }
+  ],
+  "audit_context": {
+    "trace_id": "fictional:trace-001",
+    "actor_attribution": "fictional:operator-001",
+    "expected_resulting_object_type": "SREG",
+    "result_status": "not-executed"
+  }
+}

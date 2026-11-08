@@ -1,4 +1,4 @@
-name: Suite IQ-001–009 Offline Evidence (noncanonical)
+name: Suite IQ-001–010 Offline Evidence (noncanonical)
 on:
   push:
     branches: [phase004]
@@ -15,6 +15,7 @@ on:
       - 'services/reviews/stage1o/**'
       - 'services/reviews/stage1p/**'
       - 'services/reviews/stage1q/**'
+      - 'services/reviews/stage1r/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +32,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 1R IQ-010 technical/institutional authority self-tests
+        run: node services/reviews/stage1r/authority-gate.test.cjs
       - name: Stage 1Q IQ-009 Navigator retry/idempotency self-tests
         run: node services/reviews/stage1q/retry-gate.test.cjs
       - name: Stage 1P IQ-008 Navigator handoff contract self-tests
