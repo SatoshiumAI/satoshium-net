@@ -32,5 +32,5 @@ r=compareOutcomes(f.evaluation,f.evaluation);assert.equal(r.comparison,'SAME_TYP
 r=compareOutcomes({...f.evaluation,value:'unknown'},f.evaluation);assert.equal(r.comparison,'UNKNOWN');n++;
 r=compareOutcomes({...f.evaluation,value:'not-a-value'},f.evaluation);assert.equal(r.comparison,'REJECTED');n++;
 const original=copy(f.evaluation);classifyOutcome(f.evaluation);assert.deepEqual(f.evaluation,original);n++;
-assert.equal(n,27);
+assert.equal(n,28);
 console.log('PASS '+n+'/'+n+' fictional IQ-006 typed-outcome checks; no institutional conclusions approved');

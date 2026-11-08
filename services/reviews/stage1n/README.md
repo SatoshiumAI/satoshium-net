@@ -19,7 +19,7 @@ The above Attestor controlled values are distinct from a Trust Statement's **bou
 node services/reviews/stage1n/outcome-namespace.test.cjs
 ```
 
-Twenty-seven tests on fictional typed outcome references. The checker requires separate `institution`, `outcome_kind`, `value`, `subject_reference` and `provenance_reference`; refuses generic `status`, rejects unknown domain combinations, retains an explicit `unknown` result, and reports same lexical strings across institutional outcome domains as `DIFFERENT_AUTHORITY_DOMAIN`. Even two identical typed lexemes are **not** claimed to establish equivalent substantive authority or true conclusions.
+Twenty-eight tests on fictional typed outcome references. The checker requires separate `institution`, `outcome_kind`, `value`, `subject_reference` and `provenance_reference`; refuses generic `status`, rejects unknown domain combinations, retains an explicit `unknown` result, and reports same lexical strings across institutional outcome domains as `DIFFERENT_AUTHORITY_DOMAIN`. Even two identical typed lexemes are **not** claimed to establish equivalent substantive authority or true conclusions.
 
 `TYPED_ONLY` is structural and never `VALID`, `CERTIFIED`, `SUPPORTED`, `TRUSTED`, or authorization. No source evaluation or policy check occurs.
 
