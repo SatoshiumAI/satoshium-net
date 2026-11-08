@@ -1,0 +1,354 @@
+[
+  {
+    "name": "new context",
+    "path": null,
+    "value": null,
+    "status": "NEW_CONTEXT_REVIEW_REQUIRED",
+    "reason": "UNVERIFIED_OWNER_RESPONSE"
+  },
+  {
+    "name": "exact replay",
+    "path": "incoming",
+    "value": {
+      "ack_id": "fictional:ack-1",
+      "reference_id": "fictional:ATT-1",
+      "owner": "Attestor",
+      "source_event_id": "fictional:source-event-1",
+      "source_version_at_use": "1.1",
+      "disposition": "receipt",
+      "observed_at": "2099-09-02T00:00:00Z",
+      "audit_ref": "fictional:audit-1",
+      "correlation_id": "fictional:corr-1",
+      "attempt_id": "fictional:attempt-1",
+      "attempt_sequence": 1,
+      "approved": false,
+      "canonical_write": false,
+      "resulting_conclusion": null,
+      "source_mutation": false
+    },
+    "status": "REPLAY_CONTEXT_ONLY",
+    "reason": "EXACT_ACK_REPLAY"
+  },
+  {
+    "name": "conflicting same id",
+    "path": "incoming.ack_id",
+    "value": "fictional:ack-1",
+    "status": "REJECTED",
+    "reason": "CONFLICTING_ACK_ID"
+  },
+  {
+    "name": "reused attempt id",
+    "path": "incoming.attempt_id",
+    "value": "fictional:attempt-1",
+    "status": "REJECTED",
+    "reason": "ATTEMPT_REUSED_WITH_NEW_ACK"
+  },
+  {
+    "name": "older attempt sequence",
+    "path": "incoming.attempt_sequence",
+    "value": 1,
+    "status": "STALE_CONTEXT",
+    "reason": "OLDER_OR_NONMONOTONIC_ATTEMPT"
+  },
+  {
+    "name": "delayed observation",
+    "path": "incoming.observed_at",
+    "value": "2099-09-01T00:00:00Z",
+    "status": "STALE_CONTEXT",
+    "reason": "DELAYED_OBSERVATION"
+  },
+  {
+    "name": "source version changed",
+    "path": "source.observed_version",
+    "value": "1.2",
+    "status": "HOLD_REVIEW",
+    "reason": "SOURCE_CURRENTNESS_UNVERIFIED"
+  },
+  {
+    "name": "source unknown",
+    "path": "source.current_state",
+    "value": "unknown",
+    "status": "HOLD_REVIEW",
+    "reason": "SOURCE_CURRENTNESS_UNVERIFIED"
+  },
+  {
+    "name": "unknown acknowledgement",
+    "path": "incoming.disposition",
+    "value": "unknown",
+    "status": "HOLD_UNKNOWN",
+    "reason": "OWNER_ACK_UNKNOWN"
+  },
+  {
+    "name": "accepted context deferred",
+    "path": "incoming.disposition",
+    "value": "deferred",
+    "status": "NEW_CONTEXT_REVIEW_REQUIRED",
+    "reason": "UNVERIFIED_OWNER_RESPONSE"
+  },
+  {
+    "name": "accepted context rejected",
+    "path": "incoming.disposition",
+    "value": "rejected",
+    "status": "NEW_CONTEXT_REVIEW_REQUIRED",
+    "reason": "UNVERIFIED_OWNER_RESPONSE"
+  },
+  {
+    "name": "accepted context receipt",
+    "path": "incoming.disposition",
+    "value": "receipt",
+    "status": "NEW_CONTEXT_REVIEW_REQUIRED",
+    "reason": "UNVERIFIED_OWNER_RESPONSE"
+  },
+  {
+    "name": "no historical ack",
+    "path": "prior",
+    "value": [],
+    "status": "NEW_CONTEXT_REVIEW_REQUIRED",
+    "reason": "UNVERIFIED_OWNER_RESPONSE"
+  },
+  {
+    "name": "wrong source owner",
+    "path": "source.owner",
+    "value": "Registry",
+    "status": "REJECTED",
+    "reason": "SOURCE_REFERENCE_MISMATCH"
+  },
+  {
+    "name": "wrong source target",
+    "path": "target.source_identifier",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "SOURCE_REFERENCE_MISMATCH"
+  },
+  {
+    "name": "wrong target owner",
+    "path": "target.owner",
+    "value": "Registry",
+    "status": "REJECTED",
+    "reason": "TARGET_OWNER_MISMATCH"
+  },
+  {
+    "name": "wrong target type",
+    "path": "target.object_type",
+    "value": "SREG",
+    "status": "REJECTED",
+    "reason": "TARGET_OWNER_MISMATCH"
+  },
+  {
+    "name": "ack wrong owner",
+    "path": "incoming.owner",
+    "value": "Beacon",
+    "status": "REJECTED",
+    "reason": "ACK_IDENTITY_OR_ROUTING_CONFLICT"
+  },
+  {
+    "name": "ack wrong ref",
+    "path": "incoming.reference_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "ACK_IDENTITY_OR_ROUTING_CONFLICT"
+  },
+  {
+    "name": "ack wrong event",
+    "path": "incoming.source_event_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "ACK_IDENTITY_OR_ROUTING_CONFLICT"
+  },
+  {
+    "name": "ack wrong source version",
+    "path": "incoming.source_version_at_use",
+    "value": "2.0",
+    "status": "HOLD_REVIEW",
+    "reason": "ACK_VERSION_AT_USE_CONFLICT"
+  },
+  {
+    "name": "missing audit_ref",
+    "path": "incoming.audit_ref",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "missing correlation_id",
+    "path": "incoming.correlation_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "missing attempt_id",
+    "path": "incoming.attempt_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "mismatched correlation",
+    "path": "incoming.correlation_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "HISTORY_LINEAGE_CONFLICT"
+  },
+  {
+    "name": "noninteger attempt",
+    "path": "incoming.attempt_sequence",
+    "value": "2",
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "zero attempt",
+    "path": "incoming.attempt_sequence",
+    "value": 0,
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "bad timestamp",
+    "path": "incoming.observed_at",
+    "value": "bad",
+    "status": "REJECTED",
+    "reason": "INCOMPLETE_ACK_CONTEXT"
+  },
+  {
+    "name": "bad disposition",
+    "path": "incoming.disposition",
+    "value": "approved",
+    "status": "REJECTED",
+    "reason": "UNSUPPORTED_ACK_DISPOSITION"
+  },
+  {
+    "name": "claimed approval",
+    "path": "incoming.approved",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_ASSERTS_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "claimed write",
+    "path": "incoming.canonical_write",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_ASSERTS_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "claimed conclusion",
+    "path": "incoming.resulting_conclusion",
+    "value": "trusted",
+    "status": "REJECTED",
+    "reason": "ACK_ASSERTS_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "claimed source rewrite",
+    "path": "incoming.source_mutation",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "ACK_ASSERTS_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "duplicate history ids",
+    "path": "prior",
+    "value": [
+      {
+        "ack_id": "fictional:ack-1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "source_event_id": "fictional:source-event-1",
+        "source_version_at_use": "1.1",
+        "disposition": "receipt",
+        "observed_at": "2099-09-02T00:00:00Z",
+        "audit_ref": "fictional:audit-1",
+        "correlation_id": "fictional:corr-1",
+        "attempt_id": "fictional:attempt-1",
+        "attempt_sequence": 1,
+        "approved": false,
+        "canonical_write": false,
+        "resulting_conclusion": null,
+        "source_mutation": false
+      },
+      {
+        "ack_id": "fictional:ack-1",
+        "reference_id": "fictional:ATT-1",
+        "owner": "Attestor",
+        "source_event_id": "fictional:source-event-1",
+        "source_version_at_use": "1.1",
+        "disposition": "receipt",
+        "observed_at": "2099-09-02T00:00:00Z",
+        "audit_ref": "fictional:audit-1",
+        "correlation_id": "fictional:corr-1",
+        "attempt_id": "fictional:attempt-1",
+        "attempt_sequence": 1,
+        "approved": false,
+        "canonical_write": false,
+        "resulting_conclusion": null,
+        "source_mutation": false
+      }
+    ],
+    "status": "REJECTED",
+    "reason": "DUPLICATE_HISTORICAL_ACK_ID"
+  },
+  {
+    "name": "history wrong owner",
+    "path": "prior.0.owner",
+    "value": "Beacon",
+    "status": "REJECTED",
+    "reason": "HISTORY_LINEAGE_CONFLICT"
+  },
+  {
+    "name": "history wrong version",
+    "path": "prior.0.source_version_at_use",
+    "value": "1.0",
+    "status": "REJECTED",
+    "reason": "HISTORY_LINEAGE_CONFLICT"
+  },
+  {
+    "name": "history missing audit",
+    "path": "prior.0.audit_ref",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "INVALID_HISTORICAL_ACK"
+  },
+  {
+    "name": "history claims write",
+    "path": "prior.0.canonical_write",
+    "value": true,
+    "status": "REJECTED",
+    "reason": "HISTORY_ASSERTS_OPERATION"
+  },
+  {
+    "name": "history wrong correlation",
+    "path": "prior.0.correlation_id",
+    "value": "other",
+    "status": "REJECTED",
+    "reason": "HISTORY_LINEAGE_CONFLICT"
+  },
+  {
+    "name": "history collection missing",
+    "path": "prior",
+    "value": null,
+    "status": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  },
+  {
+    "name": "incoming missing",
+    "path": "incoming",
+    "value": null,
+    "status": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  },
+  {
+    "name": "source event missing",
+    "path": "source.event_id",
+    "value": "",
+    "status": "REJECTED",
+    "reason": "MISSING_REFERENCE_CONTEXT"
+  },
+  {
+    "name": "target type unknown",
+    "path": "target.object_type",
+    "value": "UNKNOWN",
+    "status": "REJECTED",
+    "reason": "TARGET_OWNER_MISMATCH"
+  }
+]
