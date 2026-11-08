@@ -1,0 +1,223 @@
+{
+  "schema_version": "stage3a-certifier-registry-owner-decisions-v1",
+  "date": "2026-11-07",
+  "classification": "SOURCE_PINNED_CONTRACT_DECISION_PROPOSAL_NOT_ADOPTED",
+  "canonical_pin": {
+    "repository": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "mode": "READ_ONLY"
+  },
+  "source_pins": [
+    {
+      "institution": "Certifier",
+      "path": "certifier/certifications/SC-CERT-2026-0001/README.md",
+      "sha": "867d555d384d647bf490e22d0df8de6fca5f1ac7",
+      "role": "Canonical source package v1.1 and issuer-controlled certification facts"
+    },
+    {
+      "institution": "Certifier Toolkit",
+      "path": "certifier/tools/ops-toolkit/README.md",
+      "sha": "d09b2efdb3f8442388dd9aab9b0c2bf72b9f6c75",
+      "role": "Toolkit artifact generation and explicit non-issuer boundary"
+    },
+    {
+      "institution": "Certifier Toolkit",
+      "path": "certifier/tools/ops-toolkit/schema/certification_package.schema.json",
+      "sha": "5efffd83e7f19a062755eca49735dbc167da3849",
+      "role": "Toolkit JSON schema with enum status values"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/registered-items/SREG-2026-0001/record.json",
+      "sha": "9faf4401ec432ae1367aec5207a6eb08da308f99",
+      "role": "Historical machine SREG v1.0 and source version-at-use v1.1"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/registered-items/SREG-2026-0001/README.md",
+      "sha": "8bc661a4ca245a081c0b569d64f34289e9a29a07",
+      "role": "Human/machine representation relationship and owner separation"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/schemas/sreg-base-schema.json",
+      "sha": "2405f6cb448cb8432fb5ad0787339cffb49ef854",
+      "role": "SREG base output schema and Registry status/lifecycle codes"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/schemas/certification-record-profile.json",
+      "sha": "269a1062898645552681868416c13cd3701e51bc",
+      "role": "Certification SREG output profile and native registers relationship"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/governance/README.md",
+      "sha": "bd640f7f03dc656d6ab476076e88ad5ab78947f9",
+      "role": "Institutional decision roles and approved process requirements"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/validation/README.md",
+      "sha": "e26ca5dfcf98952573cfb9c71605ebf8998c37c9",
+      "role": "Validation separate from registrability, publication and certification"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/controlled-values/controlled-values.json",
+      "sha": "155ce281fc8daf42eaf8031a1895f59b1c81efe6",
+      "role": "Published machine value-set limited to registry_status active"
+    },
+    {
+      "institution": "Registry",
+      "path": "registry/lifecycle/README.md",
+      "sha": "7e7e6b16e2ec09d471001ea60b568ebeff4cdfc8",
+      "role": "Illustrative lifecycle narrative and nonfinal transition policy"
+    },
+    {
+      "institution": "Suite",
+      "path": "suite/interoperability/satoshium-interoperability-review-relationship-serialization-2026-10-03.md",
+      "sha": "c979c63ff578b0fcd14a883e4b63dc45cae90c0c",
+      "role": "Governed Suite relationship semantics, not native Registry predicate replacement"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D-2A-01",
+      "title": "Producer serialization",
+      "owner": "Certifier",
+      "status": "OPEN",
+      "source_confirmed": "Certifier Package v1.1 canonical; toolkit JSON generated-artifact schema exists but is not independently approved exchange contract",
+      "required": "Adopt a source-owned machine payload/identifier, schema/version, issuer provenance, current state access and archival format",
+      "proof": "Exact pinned approved producer interface and origin-authorized sample plus negative/unknown behavior"
+    },
+    {
+      "id": "D-2A-02",
+      "title": "Receiving Registry intake",
+      "owner": "Registry",
+      "status": "OPEN",
+      "source_confirmed": "SREG Base Schema and certification profile are output shape; governance defines decision authority separately",
+      "required": "Approve recipient intake schema/API, operation, role, refusal classifications, request-to-SREG construction boundary",
+      "proof": "Approved Registry receiving contract with effective rule and nonproduction operating scope"
+    },
+    {
+      "id": "D-2A-03",
+      "title": "Status, version, lifecycle",
+      "owner": "Certifier + Registry",
+      "status": "OPEN_NARROWED",
+      "source_confirmed": "Historical source v1.1, SREG v1.0 and permitted published code; machine controlled-values JSON publishes only registry_status active",
+      "required": "Approve separate historical/current source version resolution; lifecycle code/label vocabulary, effective transition rules, no status collapse",
+      "proof": "Versioned Registry and Certifier decisions and controlled-values/transition crosswalk"
+    },
+    {
+      "id": "D-2A-04",
+      "title": "Predicate authority",
+      "owner": "Registry + Suite interoperability governance",
+      "status": "OPEN",
+      "source_confirmed": "Native SREG registers relationship has Registry authority; Suite predicate review is distinct",
+      "required": "Approve if/how native registers is represented in any separate Suite envelope without synonym substitution",
+      "proof": "Directionality, evidence strength, owner, allowed predicate namespaces and inverse-mapping policy"
+    },
+    {
+      "id": "D-2A-05",
+      "title": "Authentication and audit",
+      "owner": "Registry",
+      "status": "OPEN",
+      "source_confirmed": "Registry governance permits documented approved controls, not any assumed caller credential",
+      "required": "Approved principal, receiver authorization checks, trace, refusal, durable idempotency and readback; no automatic write",
+      "proof": "Owner-signed governance/policy decision and independent nonproduction enforcement evidence"
+    },
+    {
+      "id": "D-2A-06",
+      "title": "Representation parity",
+      "owner": "Certifier + Registry",
+      "status": "OPEN",
+      "source_confirmed": "Canonical human-readable SREG and record.json preserve registry/source status and versions",
+      "required": "Plan independent read-only parity/currentness/history tests with effective source/object SHA and correction lineage",
+      "proof": "Executed source-authoritative/read-only parity report with timestamp, issuer version and Registry owner verification"
+    }
+  ],
+  "approval_questions": [
+    {
+      "owner": "Certifier",
+      "question": "Which canonical current package machine representation and status/version namespace does Certifier expressly adopt for prospective reference consumers?",
+      "must_not_assume": "Toolkit sample/schema alone is approved issuer wire format"
+    },
+    {
+      "owner": "Registry",
+      "question": "What Registry-owned intake method, receiving decision and refusal policy applies to certification source records?",
+      "must_not_assume": "SREG output profile creates an endpoint or permits external issuance"
+    },
+    {
+      "owner": "Registry",
+      "question": "Which machine lifecycle values, code/label pair rules and transitions are controlling, and how is historical published represented?",
+      "must_not_assume": "Prose Active and schema published are synonyms"
+    },
+    {
+      "owner": "Registry + Suite",
+      "question": "Does the native registers relationship need any second Suite-normalized representation, with which direction and authority?",
+      "must_not_assume": "Suite references is a synonym for native registers"
+    },
+    {
+      "owner": "Registry",
+      "question": "Which authenticated principal, explicit approval and durable readback are required for one nonproduction attempt?",
+      "must_not_assume": "Access, reported success or a synthetic trace confers approval"
+    },
+    {
+      "owner": "Certifier + Registry",
+      "question": "What evidence confirms historical and current source/SREG representation parity and version-safe corrections?",
+      "must_not_assume": "Stored source v1.1 proves live currentness"
+    }
+  ],
+  "approval_record": {
+    "certifier_approved": false,
+    "registry_approved": false,
+    "suite_semantic_bridge_approved": false,
+    "founder_authenticated_integration_authorized": false,
+    "canonical_write_authorized": false
+  },
+  "production": {
+    "p0_verified": 0,
+    "p0_not_verified": 11,
+    "previous_offline_checks": 722
+  },
+  "next_actions": [
+    {
+      "id": "3A-G01",
+      "status": "SOURCE_READY_CONTRACT_UNAPPROVED",
+      "name": "Pin issuer's actual canonical machine form",
+      "needed": "Certifier decides approved exchange representation distinct from toolkit example and SCRD derivative"
+    },
+    {
+      "id": "3A-G02",
+      "status": "OPEN_OWNER_DECISION",
+      "name": "Approve Registry typed intake and refusal policy",
+      "needed": "Registry identifies accepted request and authority; output profile not equivalent to intake"
+    },
+    {
+      "id": "3A-G03",
+      "status": "OPEN_OWNER_DECISION",
+      "name": "Approve lifecycle and predicate semantic bridge",
+      "needed": "Owners reconcile documented lifecycle vocabulary and native registers, no coercion"
+    },
+    {
+      "id": "3A-G04",
+      "status": "OPEN_OWNER_DECISION",
+      "name": "Approve identity, trace and source-state verification",
+      "needed": "Authorized receiver principal and independent result verification method"
+    },
+    {
+      "id": "3A-G05",
+      "status": "SAFE_DOCUMENTARY_NEXT",
+      "name": "Design read-only comparison vectors",
+      "needed": "Draft source-pinned mapping/refusal vectors in experimental repo; no service calls"
+    },
+    {
+      "id": "3A-G06",
+      "status": "SEPARATE_AUTHORIZATION_REQUIRED",
+      "name": "Any actual nonproduction integration",
+      "needed": "Requires new named authorization, owner-approved contract, bounded permissions and security review"
+    }
+  ]
+}

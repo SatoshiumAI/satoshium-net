@@ -1,0 +1,126 @@
+{
+  "schema_version": "stage3a-source-to-sreg-crosswalk-v1",
+  "date": "2026-11-07",
+  "classification": "HISTORICAL_SOURCE_COMPARISON_NOT_PRODUCER_CONSUMER_CONTRACT",
+  "canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "source_identity": "SC-CERT-2026-0001",
+  "historical_registry_identity": "SREG-2026-0001",
+  "source_package_version": "1.1",
+  "historical_registry_version": "1.0",
+  "field_rows": [
+    {
+      "id": "F01",
+      "concept": "Source native identity",
+      "certifier": "SC-CERT-2026-0001 (canonical package)",
+      "registry": "source_authority.source_system_identifier",
+      "status": "SOURCE_CONFIRMED",
+      "mapping": "Exact full identifier; not suffix identity",
+      "owner": "Certifier"
+    },
+    {
+      "id": "F02",
+      "concept": "Source package version",
+      "certifier": "Package Version 1.1",
+      "registry": "source_authority.source_record_version = 1.1; source_certification.certification_version = 1.1",
+      "status": "HISTORICAL_PAIR_CONFIRMED",
+      "mapping": "Historical version-at-use only; live currentness unverified",
+      "owner": "Certifier"
+    },
+    {
+      "id": "F03",
+      "concept": "Registry native identity/version",
+      "certifier": "Not issued by Certifier",
+      "registry": "SREG-2026-0001 and Registry Entry Version 1.0",
+      "status": "REGISTRY_OWNED",
+      "mapping": "Never produce SREG identifier or new version from Certifier toolkit stub",
+      "owner": "Registry"
+    },
+    {
+      "id": "F04",
+      "concept": "Certification status",
+      "certifier": "Issued · Active (canonical README); toolkit schema status enum differs",
+      "registry": "source_certification.certification_status = Issued · Active",
+      "status": "HISTORICAL_PAIR_CONFIRMED_MAPPING_UNAPPROVED",
+      "mapping": "Do not map toolkit CERTIFIED or schema_version to canonical operational state",
+      "owner": "Certifier"
+    },
+    {
+      "id": "F05",
+      "concept": "Certification outcome/class",
+      "certifier": "Canonical certification outcome/class under Certifier",
+      "registry": "source_certification.certification_outcome = Certified; certification_class = Operational",
+      "status": "SOURCE_CONTROLLED_HISTORICAL",
+      "mapping": "Separate source-domain facts; never Registry status",
+      "owner": "Certifier"
+    },
+    {
+      "id": "F06",
+      "concept": "Registry status/lifecycle",
+      "certifier": "No Registry decision authority",
+      "registry": "registry_status = active; registry_lifecycle_state = published",
+      "status": "REGISTRY_OWNED_HISTORICAL",
+      "mapping": "Separate namespaces; machine lifecycle value-set and transition rules unresolved",
+      "owner": "Registry"
+    },
+    {
+      "id": "F07",
+      "concept": "Native registration relationship",
+      "certifier": "Certification Package remains source target",
+      "registry": "registry_relationships: SREG-2026-0001 registers SC-CERT-2026-0001",
+      "status": "NATIVE_RELATIONSHIP_CONFIRMED",
+      "mapping": "Do not substitute Suite references; a bridge requires separate governance",
+      "owner": "Registry"
+    },
+    {
+      "id": "F08",
+      "concept": "Source artifacts",
+      "certifier": "SCPR, SCR, SCRD derived outputs",
+      "registry": "source_artifacts: canonical package plus derived references",
+      "status": "HISTORICAL_ARTIFACT_LINKS_CONFIRMED",
+      "mapping": "Toolkit-generated stub is not institution-issued SREG or ANCH",
+      "owner": "Certifier/each target institution"
+    },
+    {
+      "id": "F09",
+      "concept": "Provenance and subject authority",
+      "certifier": "Certifier owns certification, Atlas owns underlying jurisdiction record",
+      "registry": "source_authority, registered_subject and provenance fields",
+      "status": "HISTORICAL_BOUNDARY_CONFIRMED",
+      "mapping": "Source identity, subject origin and chain must remain attributable",
+      "owner": "Certifier/Atlas/Registry respectively"
+    },
+    {
+      "id": "F10",
+      "concept": "Receiving request contract",
+      "certifier": "No owner-adopted machine producer wire format established",
+      "registry": "SREG Base Schema + Certification Profile constrain output, not intake",
+      "status": "OPEN_OWNER_APPROVAL",
+      "mapping": "Define exact request field semantics and typed errors separately",
+      "owner": "Certifier + Registry"
+    },
+    {
+      "id": "F11",
+      "concept": "Authenticated receiving decision",
+      "certifier": "No authorized cross-institution caller proven",
+      "registry": "Governance requires institutional approval/delegation; validation not publication",
+      "status": "OPEN_OWNER_APPROVAL",
+      "mapping": "No write-capable or authenticated intake implied",
+      "owner": "Registry"
+    },
+    {
+      "id": "F12",
+      "concept": "Current/historical readback and corrections",
+      "certifier": "Canonical package v1.1 historical at reviewed pin",
+      "registry": "SREG 1.0/human-readable and JSON historical",
+      "status": "OPEN_INTEGRATION_EVIDENCE",
+      "mapping": "Separate source currentness, versions, Registry approval and non-destructive history",
+      "owner": "Certifier + Registry"
+    }
+  ],
+  "limitations": [
+    "Fields are conceptual historical joins, not a newly authorized automated map",
+    "No current live source-state readback was performed",
+    "No recipient intake, issuer serializable wire schema or Registry policy gate was adopted",
+    "Registry relationships preserve native registers; Suite predicates require separate governance"
+  ]
+}
