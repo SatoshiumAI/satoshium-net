@@ -1,0 +1,300 @@
+{
+  "schema_version": "stage4a-release-lane-reconciliation-v1",
+  "date": "2026-11-07",
+  "classification": "SOURCE_PINNED_POST_BASELINE_RELEASE_READINESS_RECONCILIATION",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "mode": "READ_ONLY"
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "branch": "phase004",
+    "previous_sha": "3845aa803aafc0f8facd998340ddc175ce9035ee"
+  },
+  "sources": [
+    {
+      "scope": "canonical",
+      "path": "suite/satoshium-suite-1-0-baseline-b8-final-disposition-2026-10-24.md",
+      "blob_sha": "e2638535af1aeb2e3a56d14f9bfd673ff1868c19"
+    },
+    {
+      "scope": "canonical",
+      "path": "suite/satoshium-suite-production-integration-final-disposition-2026-10-24.md",
+      "blob_sha": "2036e35fb467f1f206a40688c87b35cf94e0cc51"
+    },
+    {
+      "scope": "canonical",
+      "path": "suite/satoshium-suite-post-baseline-readiness-review-001-2026-10-24.md",
+      "blob_sha": "3a488be2e1bf234e62080aec1d922a4a9331a2c6"
+    },
+    {
+      "scope": "experimental",
+      "path": "services/reviews/satoshium-review011-consolidated-accessibility-acceptance-2026-11-01.md",
+      "blob_sha": "06a0a9be20f0452cade9e10da2faea71c4a452c4"
+    },
+    {
+      "scope": "experimental",
+      "path": "services/reviews/satoshium-review013-postfix-independent-acceptance-2026-11-01.md",
+      "blob_sha": "fe43da7632cb68a4b61ef5a90f412770ad23168d"
+    },
+    {
+      "scope": "experimental",
+      "path": "services/reviews/satoshium-review013-human-rehearsal-evidence-assessment-2026-11-01.md",
+      "blob_sha": "ba7a9cf81aace986d7335bbedcfd8d2e0395ef22"
+    },
+    {
+      "scope": "experimental",
+      "path": "services/reviews/satoshium-review013-founder-decision-execution-register-2026-11-01.md",
+      "blob_sha": "e64d25c051ff26ab1c18d1fe386c4c5b1c8b7e6d"
+    },
+    {
+      "scope": "experimental",
+      "path": "services/reviews/stage2l/consolidated-production-gate-register-2026-11-07.json",
+      "blob_sha": "8735f7e5438323834dab5e7908a6d16072a03dda"
+    }
+  ],
+  "evidence_keys": {
+    "B8": "suite/satoshium-suite-1-0-baseline-b8-final-disposition-2026-10-24.md",
+    "PHASE2": "suite/satoshium-suite-production-integration-final-disposition-2026-10-24.md",
+    "POST1": "suite/satoshium-suite-post-baseline-readiness-review-001-2026-10-24.md",
+    "R011": "services/reviews/satoshium-review011-consolidated-accessibility-acceptance-2026-11-01.md",
+    "R013": "services/reviews/satoshium-review013-postfix-independent-acceptance-2026-11-01.md",
+    "HR013": "services/reviews/satoshium-review013-human-rehearsal-evidence-assessment-2026-11-01.md",
+    "D013": "services/reviews/satoshium-review013-founder-decision-execution-register-2026-11-01.md",
+    "STAGE2L": "services/reviews/stage2l/consolidated-production-gate-register-2026-11-07.json"
+  },
+  "summary": {
+    "items": 18,
+    "bounded_complete": 9,
+    "p0_production_accepted": 0,
+    "p0_production_total": 11,
+    "review_013_pilot_authorized": false,
+    "suite_product_release_authorized": false,
+    "stage4a_new_tests": 0
+  },
+  "lanes": {
+    "A": "Approved bounded documentary baseline; no new release approval needed to retain historical determination",
+    "B": "Potential narrowly scoped live public website/tools release; exact claimed URLs/features require fresh tests and founder release authorization",
+    "C": "External human pilot; Review 013 G05/G06 are blockers, G09 partially evidenced, G10/G11 not authorized",
+    "D": "Generalized automated Suite interoperability; D-2A owner contracts and 11 P0 production controls unverified"
+  },
+  "entries": [
+    {
+      "id": "4A-01",
+      "domain": "audit",
+      "item": "Phase 2 Production Integration evidence audit",
+      "status": "COMPLETE_BOUNDED",
+      "release_lane": "all",
+      "evidence": [
+        "B8",
+        "PHASE2"
+      ],
+      "next": "Do not reopen as pending; distinguish audit from execution"
+    },
+    {
+      "id": "4A-02",
+      "domain": "audit",
+      "item": "Suite 1.0 Baseline B1-B8 and documentary specification",
+      "status": "COMPLETE_APPROVED_BOUNDED",
+      "release_lane": "all",
+      "evidence": [
+        "B8"
+      ],
+      "next": "Preserve approved edition; release/product decision separate"
+    },
+    {
+      "id": "4A-03",
+      "domain": "record",
+      "item": "Seven governed inaugural historical production records",
+      "status": "HISTORICALLY_EVIDENCED",
+      "release_lane": "all",
+      "evidence": [
+        "B8"
+      ],
+      "next": "No reissuance or continuous automation implied"
+    },
+    {
+      "id": "4A-04",
+      "domain": "tooling",
+      "item": "Certifier checklist fail-closed fix and Python/CLI checks (PR-OPEN-002)",
+      "status": "CLOSED_BOUNDED",
+      "release_lane": "if_certifier_tool_claimed",
+      "evidence": [
+        "B8",
+        "POST1"
+      ],
+      "next": "Maintain tested scope; no cross-system certification"
+    },
+    {
+      "id": "4A-05",
+      "domain": "routes",
+      "item": "Suite, Attestor and sampled public HTTP identity",
+      "status": "PASS_BOUNDED_11_OF_13",
+      "release_lane": "live_public",
+      "evidence": [
+        "POST1"
+      ],
+      "next": "Refresh and expand only to exact release-claim routes; two unused alternate Atlas URLs were 404"
+    },
+    {
+      "id": "4A-06",
+      "domain": "routes",
+      "item": "Attestor Generation/Publication HTTP and canonical semantics (PR-OPEN-003/004)",
+      "status": "CLOSED_FOR_BOUNDED_HTTP_ONLY",
+      "release_lane": "live_public",
+      "evidence": [
+        "POST1"
+      ],
+      "next": "Do not infer JS parity, redirect policy or origin index precedence"
+    },
+    {
+      "id": "4A-07",
+      "domain": "routes",
+      "item": "Atlas Media canonical metadata Saudi Arabia/Sweden",
+      "status": "CLOSED_CANONICAL_METADATA",
+      "release_lane": "live_public",
+      "evidence": [
+        "POST1"
+      ],
+      "next": "Alternate 404 aliases remain optional policy, not reopened canonical defect"
+    },
+    {
+      "id": "4A-08",
+      "domain": "navigation",
+      "item": "Shared topbar desktop DOM across three page samples",
+      "status": "PASS_BOUNDED",
+      "release_lane": "live_public",
+      "evidence": [
+        "POST1"
+      ],
+      "next": "Exact advertised route coverage, mobile/keyboard/fallback/CSP/CORS still scope-dependent"
+    },
+    {
+      "id": "4A-09",
+      "domain": "accessibility",
+      "item": "Review 011 core reflow and human NVDA acceptance",
+      "status": "PASS_BOUNDED",
+      "release_lane": "live_public_and_pilot",
+      "evidence": [
+        "R011"
+      ],
+      "next": "16 founder-reported NVDA PASS; optional wider WCAG/negative-case coverage not certified"
+    },
+    {
+      "id": "4A-10",
+      "domain": "tooling",
+      "item": "Review 013 Governance post-fix browser safety and exports",
+      "status": "PASS_WITH_OBSERVATIONS_BOUNDED",
+      "release_lane": "tool_claimed_or_pilot",
+      "evidence": [
+        "R013"
+      ],
+      "next": "Six fictional-browser cases plus bounded exports passed; terminology/sticky-header observations remain"
+    },
+    {
+      "id": "4A-11",
+      "domain": "pilot",
+      "item": "Review 013 G05 consent/withdrawal, G06 feedback storage/stewardship",
+      "status": "BLOCKER_FOR_HUMAN_PILOT",
+      "release_lane": "pilot_only_if_participants",
+      "evidence": [
+        "R013",
+        "D013"
+      ],
+      "next": "Founder decide monitored withdrawal contact, notice/consent, stewardship, access, retention/deletion and incident handling"
+    },
+    {
+      "id": "4A-12",
+      "domain": "pilot",
+      "item": "Review 013 G09 internal human rehearsal and G07 accommodations",
+      "status": "OPEN_PARTIAL_HUMAN_EVIDENCE",
+      "release_lane": "pilot_only_if_participants",
+      "evidence": [
+        "HR013",
+        "R011",
+        "R013"
+      ],
+      "next": "Complete remaining human accidental-secret/withdrawal/feedback rehearsal and accommodation choice; no participant claims"
+    },
+    {
+      "id": "4A-13",
+      "domain": "pilot",
+      "item": "Review 013 G08 invitation-time freshness; G10/G11 external invitations/sessions",
+      "status": "NOT_AUTHORIZED",
+      "release_lane": "pilot_only_if_participants",
+      "evidence": [
+        "R013",
+        "D013"
+      ],
+      "next": "Check G08 only before founder-approved invitations; G10/G11 require explicit authorization after other gates"
+    },
+    {
+      "id": "4A-14",
+      "domain": "tooling",
+      "item": "Certifier SCHR/SATR migration (PR-OPEN-001)",
+      "status": "DEFERRED_CONDITIONAL",
+      "release_lane": "when_migration_claimed",
+      "evidence": [
+        "B8"
+      ],
+      "next": "Approved receiving contracts and migration tests needed only if included"
+    },
+    {
+      "id": "4A-15",
+      "domain": "tooling",
+      "item": "Attestor specialized machine source/evidence profiles (PR-OPEN-005)",
+      "status": "OPEN_CONDITIONAL",
+      "release_lane": "when_special_profiles_claimed",
+      "evidence": [
+        "B8"
+      ],
+      "next": "Normative profile version and executable conformance testing before claiming support"
+    },
+    {
+      "id": "4A-16",
+      "domain": "automation",
+      "item": "IQ-001–IQ-011 cross-institution production controls (PR-OPEN-006)",
+      "status": "PRODUCTION_NOT_VERIFIED_0_OF_11",
+      "release_lane": "generalized_automation_only",
+      "evidence": [
+        "B8",
+        "STAGE2L"
+      ],
+      "next": "Close six owner contracts, implement authenticated receiving operations, independently verify retry/audit/authority and real readback"
+    },
+    {
+      "id": "4A-17",
+      "domain": "release",
+      "item": "Actual public Suite 1.0 product launch and immutable release identity",
+      "status": "NOT_AUTHORIZED",
+      "release_lane": "live_public",
+      "evidence": [
+        "B8",
+        "POST1"
+      ],
+      "next": "Founder select exact feature claims, prove runtime/route/security/accessibility, approve tag or release and rollback"
+    },
+    {
+      "id": "4A-18",
+      "domain": "release",
+      "item": "Grok Bot 1 independent targeted runtime verification",
+      "status": "OPTIONAL_NOT_REQUESTED_OR_RUN",
+      "release_lane": "only_specifically_scoped",
+      "evidence": [
+        "POST1"
+      ],
+      "next": "Use a tightly specified read-only task with pinned SHA, sanitized outputs, explicit budget/compute authorization and no production writes"
+    }
+  ],
+  "posture": {
+    "reopen_B8": false,
+    "canonical_mutation": false,
+    "production_release": false,
+    "pilot_outreach": false,
+    "grok_bot1_executed": false,
+    "gb2_compute_used": false,
+    "proposed_next": "4B narrow advertised feature and route matrix with current read-only runtime verification"
+  }
+}
