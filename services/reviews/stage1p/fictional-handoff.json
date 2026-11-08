@@ -1,0 +1,21 @@
+{
+  "workflow_definition":"fictional:NAV-WF-ALPHA@1.0",
+  "workflow_execution_context":"fictional:execution-001",
+  "handoff_identifier":"fictional:handoff-001",
+  "sending_step":"step-catalog-request",
+  "receiving_institution":"Registry",
+  "requested_action":"consider registration under Registry rules",
+  "input_references":[{"identifier":"FICTIONAL-SC-CERT-001","source_institution":"Certifier","object_type":"Certification Package","version":"1.0","lifecycle_state":"unknown","publication_state":"unknown","provenance":"synthetic fixture only"}],
+  "input_provenance":{"sender":"fictional Navigator workflow","reference_basis":"synthetic fixture","state_at_use":"unknown"},
+  "authority_context":{"requester":"Navigator coordination","receiving_authority":"Registry","authorization_status":"not established by handoff"},
+  "preconditions":{"receiving_rules_must_be_applied":true},
+  "expected_output":{"type":"Registry response or SREG reference","canonical_reference_expected":false},
+  "completion_criteria":{"workflow_only":"record receiving response without predetermined result"},
+  "failure_model":{"transport_vs_institutional":"distinct"},
+  "retry_policy":{"automatic_execution":false,"policy_status":"unspecified pending IQ-009"},
+  "timeout_unavailable_policy":{"on_timeout":"unknown; hold"},
+  "unknown_state_handling":{"assume_success":false,"on_unknown":"hold and record"},
+  "timestamp":"2026-11-07T12:00:00Z",
+  "traceability_context":{"correlation_id":"fictional:correlation-001","originating_workflow_step":"step-catalog-request"},
+  "workflow_state":"Awaiting Response"
+}
