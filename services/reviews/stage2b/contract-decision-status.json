@@ -1,0 +1,39 @@
+{
+  "schema_version": "stage2b-decision-status-v1",
+  "date": "2026-11-07",
+  "canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "status": "SIX_CONTRACT_DECISIONS_STILL_OPEN",
+  "explanation": "No issuer/Registry owner has approved an automated producer wire mapping, intake endpoint, rule/action authorization, normative predicate bridge, or live parity/readback. Prototype choices are limited to fictional local fields.",
+  "decisions": [
+    {
+      "id": "D-2A-01",
+      "status": "OPEN",
+      "evidence": "Certifier toolkit JSON schema is local artifact format, not approved current exchange contract"
+    },
+    {
+      "id": "D-2A-02",
+      "status": "OPEN",
+      "evidence": "Registry SREG Base/Certification Profile are output schemas, not approved intake API"
+    },
+    {
+      "id": "D-2A-03",
+      "status": "OPEN",
+      "evidence": "Example schema_version 1.0.0 cannot be equated to canonical package v1.1, status labels or currentness"
+    },
+    {
+      "id": "D-2A-04",
+      "status": "OPEN",
+      "evidence": "Registry-native registers preserved; Suite predicate bridge must be governed separately"
+    },
+    {
+      "id": "D-2A-05",
+      "status": "OPEN",
+      "evidence": "No verified caller/Registry approval, duplicate lock, durable write log or issued SREG readback"
+    },
+    {
+      "id": "D-2A-06",
+      "status": "OPEN",
+      "evidence": "No live historic/current source and SREG representation parity tests"
+    }
+  ]
+}

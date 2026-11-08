@@ -1,0 +1,278 @@
+{
+  "schema_version": "stage2b-scenarios-v1",
+  "date": "2026-11-07",
+  "synthetic": true,
+  "provenance": "Stage 2A proposed vectors V-2A-01–V-2A-13; additional adversarial guardrail scenarios G-01–G-18",
+  "production_acceptance": false,
+  "scenarios": [
+    {
+      "id": "V-2A-01",
+      "label": "valid fictional reference",
+      "path": null,
+      "value": null,
+      "expected": "CONTEXT_ONLY",
+      "reason": "NEEDS_REAL_ISSUER_AND_REGISTRY_VERIFICATION"
+    },
+    {
+      "id": "V-2A-02",
+      "label": "missing native id",
+      "path": "source.identifier",
+      "value": "",
+      "expected": "REJECTED",
+      "reason": "MISSING_SOURCE_IDENTIFIER"
+    },
+    {
+      "id": "V-2A-03",
+      "label": "source unavailable",
+      "path": "source.availability",
+      "value": "unavailable",
+      "expected": "HOLD_UNKNOWN",
+      "reason": "SOURCE_UNKNOWN"
+    },
+    {
+      "id": "V-2A-04",
+      "label": "changed version",
+      "path": "source.observed_version",
+      "value": "fictional-v2",
+      "expected": "HOLD_REVIEW",
+      "reason": "SOURCE_VERSION_CHANGED"
+    },
+    {
+      "id": "V-2A-05",
+      "label": "toolkit sample substituted",
+      "path": "source.source_kind",
+      "value": "toolkit-example",
+      "expected": "HOLD_REVIEW",
+      "reason": "SAMPLE_OR_UNVERIFIED_SOURCE_BASIS"
+    },
+    {
+      "id": "V-2A-06",
+      "label": "native registers replaced",
+      "path": "registry.native_predicate",
+      "value": "references",
+      "expected": "DECISION_REQUIRED",
+      "reason": "NATIVE_PREDICATE_MUST_REMAIN_REGISTERS"
+    },
+    {
+      "id": "V-2A-07",
+      "label": "technical auth without Registry approval",
+      "path": "authorization.registry_approval_declared",
+      "value": false,
+      "expected": "REJECTED",
+      "reason": "AUTHORITY_NOT_DECLARED"
+    },
+    {
+      "id": "V-2A-08",
+      "label": "source decision becomes Registry lifecycle",
+      "path": "registry.candidate_lifecycle",
+      "value": "CERTIFIED",
+      "expected": "REJECTED",
+      "reason": "SOURCE_TO_REGISTRY_AUTHORITY_ESCALATION"
+    },
+    {
+      "id": "V-2A-09",
+      "label": "source status unknown",
+      "path": "source.status",
+      "value": "unknown",
+      "expected": "HOLD_UNKNOWN",
+      "reason": "SOURCE_UNKNOWN"
+    },
+    {
+      "id": "V-2A-10",
+      "label": "source withdrawn",
+      "path": "source.status",
+      "value": "WITHDRAWN",
+      "expected": "HOLD_REVIEW",
+      "reason": "SOURCE_STATE_REQUIRES_GOVERNED_REVIEW"
+    },
+    {
+      "id": "V-2A-11",
+      "label": "duplicate attempted registration",
+      "path": "attempt.prior_registry_response",
+      "value": "unknown",
+      "expected": "HOLD_REVIEW",
+      "reason": "POSSIBLE_DUPLICATE_OR_PRIOR_INSTITUTIONAL_RESPONSE"
+    },
+    {
+      "id": "V-2A-12",
+      "label": "claimed success missing readback",
+      "path": "report.reported_result",
+      "value": "reported-success",
+      "expected": "HOLD_UNKNOWN",
+      "reason": "REPORTED_SUCCESS_WITHOUT_OWNER_READBACK"
+    },
+    {
+      "id": "V-2A-13",
+      "label": "fictional owner readback still unverified",
+      "path": "report",
+      "value": {
+        "reported_result": "reported-success",
+        "registry_readback": {
+          "source_identifier": "SC-CERT-2099-0001",
+          "issuer": "Registry",
+          "sreg_identifier": "FICTIONAL-SREG-2099-0001"
+        }
+      },
+      "expected": "GOVERNED_VERIFICATION_REQUIRED",
+      "reason": "FICTIONAL_READBACK_REQUIRES_INDEPENDENT_VERIFICATION"
+    },
+    {
+      "id": "G-01",
+      "label": "wrong source owner",
+      "path": "source.owner",
+      "value": "Registry",
+      "expected": "REJECTED",
+      "reason": "SOURCE_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "G-02",
+      "label": "wrong receiver",
+      "path": "registry.owner",
+      "value": "Certifier",
+      "expected": "REJECTED",
+      "reason": "RECEIVING_AUTHORITY_MISMATCH"
+    },
+    {
+      "id": "G-03",
+      "label": "unknown object kind",
+      "path": "source.object_type",
+      "value": "SCRD",
+      "expected": "REJECTED",
+      "reason": "SOURCE_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "G-04",
+      "label": "native suffix only",
+      "path": "source.identifier",
+      "value": "0001",
+      "expected": "REJECTED",
+      "reason": "UNRECOGNIZED_NATIVE_IDENTIFIER"
+    },
+    {
+      "id": "G-05",
+      "label": "source provenance stripped",
+      "path": "source.provenance",
+      "value": "",
+      "expected": "REJECTED",
+      "reason": "SOURCE_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "G-06",
+      "label": "version at use missing",
+      "path": "source.version_at_use",
+      "value": "",
+      "expected": "REJECTED",
+      "reason": "SOURCE_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "G-07",
+      "label": "status namespace swapped",
+      "path": "source.status_namespace",
+      "value": "Registry",
+      "expected": "REJECTED",
+      "reason": "SOURCE_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "G-08",
+      "label": "attempt identity missing",
+      "path": "attempt.idempotency_key",
+      "value": "",
+      "expected": "REJECTED",
+      "reason": "MISSING_TRACE_OR_GOVERNANCE_CONTEXT"
+    },
+    {
+      "id": "G-09",
+      "label": "no receiving governing rule",
+      "path": "authorization.governing_rule",
+      "value": "",
+      "expected": "REJECTED",
+      "reason": "MISSING_TRACE_OR_GOVERNANCE_CONTEXT"
+    },
+    {
+      "id": "G-10",
+      "label": "no technical auth",
+      "path": "authorization.technical_authenticated",
+      "value": false,
+      "expected": "REJECTED",
+      "reason": "AUTHORITY_NOT_DECLARED"
+    },
+    {
+      "id": "G-11",
+      "label": "unapproved Suite predicate",
+      "path": "registry.suite_predicate",
+      "value": "references",
+      "expected": "DECISION_REQUIRED",
+      "reason": "SUITE_PREDICATE_NOT_ADOPTED"
+    },
+    {
+      "id": "G-12",
+      "label": "invented SREG id",
+      "path": "registry.proposed_sreg_identifier",
+      "value": "SREG-2099-0001",
+      "expected": "REJECTED",
+      "reason": "SOURCE_TO_REGISTRY_AUTHORITY_ESCALATION"
+    },
+    {
+      "id": "G-13",
+      "label": "source suspended",
+      "path": "source.status",
+      "value": "SUSPENDED",
+      "expected": "HOLD_REVIEW",
+      "reason": "SOURCE_STATE_REQUIRES_GOVERNED_REVIEW"
+    },
+    {
+      "id": "G-14",
+      "label": "source superseded",
+      "path": "source.status",
+      "value": "SUPERSEDED",
+      "expected": "HOLD_REVIEW",
+      "reason": "SOURCE_STATE_REQUIRES_GOVERNED_REVIEW"
+    },
+    {
+      "id": "G-15",
+      "label": "unmapped status",
+      "path": "source.status",
+      "value": "Issued · Active",
+      "expected": "HOLD_UNKNOWN",
+      "reason": "UNMAPPED_SOURCE_STATUS"
+    },
+    {
+      "id": "G-16",
+      "label": "registry readback wrong source",
+      "path": "report",
+      "value": {
+        "reported_result": "reported-success",
+        "registry_readback": {
+          "source_identifier": "SC-CERT-2099-0002",
+          "issuer": "Registry",
+          "sreg_identifier": "FICTIONAL-SREG"
+        }
+      },
+      "expected": "HOLD_UNKNOWN",
+      "reason": "REPORTED_SUCCESS_WITHOUT_OWNER_READBACK"
+    },
+    {
+      "id": "G-17",
+      "label": "registry readback wrong issuer",
+      "path": "report",
+      "value": {
+        "reported_result": "reported-success",
+        "registry_readback": {
+          "source_identifier": "SC-CERT-2099-0001",
+          "issuer": "Certifier",
+          "sreg_identifier": "FICTIONAL-SREG"
+        }
+      },
+      "expected": "HOLD_UNKNOWN",
+      "reason": "REPORTED_SUCCESS_WITHOUT_OWNER_READBACK"
+    },
+    {
+      "id": "G-18",
+      "label": "reported institutional failure",
+      "path": "report.reported_result",
+      "value": "reported-failed",
+      "expected": "HOLD_REVIEW",
+      "reason": "OUTCOME_REQUIRES_GOVERNED_REVIEW"
+    }
+  ]
+}

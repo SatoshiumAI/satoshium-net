@@ -1,0 +1,37 @@
+{
+  "source": {
+    "identifier": "SC-CERT-2099-0001",
+    "owner": "Certifier",
+    "object_type": "Certification Package",
+    "provenance": "fictional:producer-reference",
+    "version_at_use": "fictional-v1",
+    "observed_version": "fictional-v1",
+    "status_namespace": "Certifier",
+    "status": "CERTIFIED",
+    "availability": "available",
+    "source_kind": "canonical-package-reference"
+  },
+  "registry": {
+    "owner": "Registry",
+    "receiving_institution": "Registry",
+    "native_predicate": "registers",
+    "suite_predicate": null,
+    "candidate_lifecycle": null,
+    "proposed_sreg_identifier": null
+  },
+  "authorization": {
+    "caller_identity": "fictional:caller",
+    "technical_authenticated": true,
+    "registry_approval_declared": true,
+    "governing_rule": "fictional-rule",
+    "approval_reference": "fictional-approval"
+  },
+  "attempt": {
+    "idempotency_key": "fictional-idem-1",
+    "prior_registry_response": "none"
+  },
+  "report": {
+    "reported_result": "none",
+    "registry_readback": null
+  }
+}
