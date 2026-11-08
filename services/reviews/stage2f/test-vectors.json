@@ -1,0 +1,226 @@
+[
+  {
+    "id": "F-01",
+    "path": null,
+    "value": null,
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "TRANSITION_RULE_NOT_VERIFIED"
+  },
+  {
+    "id": "F-02",
+    "path": "request.transition_rule_verified",
+    "value": true,
+    "classification": "GOVERNED_VERIFICATION_REQUIRED",
+    "reason": "DECLARED_RULE_REQUIRES_INDEPENDENT_ATTESTATION"
+  },
+  {
+    "id": "F-03",
+    "path": "request.requested_lifecycle",
+    "value": "published",
+    "classification": "CONTEXT_ONLY",
+    "reason": "NO_STATE_CHANGE_PROPOSED"
+  },
+  {
+    "id": "F-04",
+    "path": "request.requested_lifecycle",
+    "value": "Active",
+    "classification": "DECISION_REQUIRED",
+    "reason": "DOCUMENTARY_LIFECYCLE_VOCABULARY_BRIDGE"
+  },
+  {
+    "id": "F-05",
+    "path": "request.requested_lifecycle",
+    "value": "Pending Registration",
+    "classification": "DECISION_REQUIRED",
+    "reason": "DOCUMENTARY_LIFECYCLE_VOCABULARY_BRIDGE"
+  },
+  {
+    "id": "F-06",
+    "path": "request.requested_lifecycle",
+    "value": "invalid",
+    "classification": "REJECTED",
+    "reason": "LIFECYCLE_CODE_NOT_SCHEMA_ENUMERATED"
+  },
+  {
+    "id": "F-07",
+    "path": "governance.approved",
+    "value": false,
+    "classification": "REJECTED",
+    "reason": "REGISTRY_AUTHORITY_UNESTABLISHED"
+  },
+  {
+    "id": "F-08",
+    "path": "governance.receiving_institution",
+    "value": "Certifier",
+    "classification": "REJECTED",
+    "reason": "REGISTRY_AUTHORITY_UNESTABLISHED"
+  },
+  {
+    "id": "F-09",
+    "path": "request.claim_certifier_decision",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "CROSS_INSTITUTION_SOURCE_MUTATION"
+  },
+  {
+    "id": "F-10",
+    "path": "request.source_mutation",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "CROSS_INSTITUTION_SOURCE_MUTATION"
+  },
+  {
+    "id": "F-11",
+    "path": "request.requested_status_from_source",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "STATUS_DOMAIN_COLLAPSE"
+  },
+  {
+    "id": "F-12",
+    "path": "request.new_registry_id",
+    "value": "FICTIONAL-SREG-2099-0002",
+    "classification": "REJECTED",
+    "reason": "SREG_IDENTIFIER_REPLACEMENT"
+  },
+  {
+    "id": "F-13",
+    "path": "request.new_source_version",
+    "value": "2.0",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "SOURCE_VERSION_NOT_ATTESTED"
+  },
+  {
+    "id": "F-14",
+    "path": "request.current_source_state",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "CURRENT_SOURCE_STATE_UNVERIFIED"
+  },
+  {
+    "id": "F-15",
+    "path": "request.current_source_state",
+    "value": "unavailable",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "CURRENT_SOURCE_STATE_UNVERIFIED"
+  },
+  {
+    "id": "F-16",
+    "path": "request.erases_prior_history",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "NONDESTRUCTIVE_HISTORY_REQUIRED"
+  },
+  {
+    "id": "F-17",
+    "path": "request.preserve_prior_versions",
+    "value": false,
+    "classification": "REJECTED",
+    "reason": "NONDESTRUCTIVE_HISTORY_REQUIRED"
+  },
+  {
+    "id": "F-18",
+    "path": "request.new_registry_version",
+    "value": "1.0",
+    "classification": "REJECTED",
+    "reason": "REGISTRY_VERSION_NOT_ADVANCED"
+  },
+  {
+    "id": "F-19",
+    "path": "request.audit_trace",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "AUDIT_DECISION_CONTEXT_MISSING"
+  },
+  {
+    "id": "F-20",
+    "path": "request.authority_decision_record",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "AUDIT_DECISION_CONTEXT_MISSING"
+  },
+  {
+    "id": "F-21",
+    "path": "history.0.authority",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "SOURCE_HISTORY_AUTHORITY_MISMATCH"
+  },
+  {
+    "id": "F-22",
+    "path": "history.2.authority",
+    "value": "Certifier",
+    "classification": "REJECTED",
+    "reason": "REGISTRY_HISTORY_AUTHORITY_MISMATCH"
+  },
+  {
+    "id": "F-23",
+    "path": "history.1.event_id",
+    "value": "fictional:source-1",
+    "classification": "REJECTED",
+    "reason": "DUPLICATE_HISTORY_ID"
+  },
+  {
+    "id": "F-24",
+    "path": "history.0.event_at",
+    "value": "invalid",
+    "classification": "REJECTED",
+    "reason": "HISTORY_EVENT_INCOMPLETE"
+  },
+  {
+    "id": "F-25",
+    "path": "history.2.event_type",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "HISTORY_EVENT_INCOMPLETE"
+  },
+  {
+    "id": "F-26",
+    "path": "entry.source_version",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_ATTRIBUTABLE_CONTEXT"
+  },
+  {
+    "id": "F-27",
+    "path": "entry.registry_version",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_ATTRIBUTABLE_CONTEXT"
+  },
+  {
+    "id": "F-28",
+    "path": "request.reason",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_ATTRIBUTABLE_CONTEXT"
+  },
+  {
+    "id": "F-29",
+    "path": "governance.rule_ref",
+    "value": "unapproved",
+    "classification": "REJECTED",
+    "reason": "REGISTRY_AUTHORITY_UNESTABLISHED"
+  },
+  {
+    "id": "F-30",
+    "path": "request.requested_lifecycle",
+    "value": "archived",
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "TRANSITION_RULE_NOT_VERIFIED"
+  },
+  {
+    "id": "F-31",
+    "path": "request.requested_lifecycle",
+    "value": "registered",
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "TRANSITION_RULE_NOT_VERIFIED"
+  },
+  {
+    "id": "F-32",
+    "path": "request.new_source_version",
+    "value": "1.1",
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "TRANSITION_RULE_NOT_VERIFIED"
+  }
+]

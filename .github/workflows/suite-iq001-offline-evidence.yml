@@ -19,6 +19,7 @@ on:
       - 'services/reviews/stage1s/**'
       - 'services/reviews/stage2b/**'
       - 'services/reviews/stage2e/**'
+      - 'services/reviews/stage2f/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -35,6 +36,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 2F fictional historical state and transition checks
+        run: node services/reviews/stage2f/historical-transition-gate.test.cjs
       - name: Stage 2E pinned controlled values conformance tests
         run: node services/reviews/stage2e/value-inspector.test.cjs
       - name: Stage 2B fictional Certifier Registry bridge contract checks

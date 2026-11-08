@@ -1,0 +1,58 @@
+{
+  "entry": {
+    "registry_id": "FICTIONAL-SREG-2099-0001",
+    "registry_version": "1.0",
+    "source_id": "SC-CERT-2099-0001",
+    "source_version": "1.1",
+    "registry_status": "active",
+    "registry_lifecycle": "published"
+  },
+  "request": {
+    "reason": "fictional planned lifecycle review",
+    "requested_lifecycle": "superseded",
+    "source_mutation": false,
+    "claim_certifier_decision": false,
+    "requested_status_from_source": false,
+    "new_registry_id": null,
+    "new_source_version": null,
+    "source_attestation_verified": false,
+    "current_source_state": "known-historical",
+    "erases_prior_history": false,
+    "preserve_prior_versions": true,
+    "new_registry_version": "1.1",
+    "auto_equate_versions": false,
+    "audit_trace": "fictional:trace-1",
+    "authority_decision_record": "fictional:decision-1",
+    "transition_rule_verified": false
+  },
+  "governance": {
+    "receiving_institution": "Registry",
+    "caller": "fictional:registry-reviewer",
+    "rule_ref": "fictional:review-rule",
+    "approval_ref": "fictional:approval",
+    "approved": true
+  },
+  "history": [
+    {
+      "event_id": "fictional:source-1",
+      "authority": "Certifier",
+      "source_or_registry": "source",
+      "event_type": "source_certification_issued",
+      "event_at": "2026-07-05T00:00:00Z"
+    },
+    {
+      "event_id": "fictional:source-2",
+      "authority": "Certifier",
+      "source_or_registry": "source",
+      "event_type": "source_package_hardened",
+      "event_at": "2026-07-17T00:00:00Z"
+    },
+    {
+      "event_id": "fictional:registry-1",
+      "authority": "Registry",
+      "source_or_registry": "registry",
+      "event_type": "registry_entry_registered",
+      "event_at": "2026-08-02T00:00:00Z"
+    }
+  ]
+}
