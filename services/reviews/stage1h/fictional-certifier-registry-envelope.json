@@ -1,0 +1,23 @@
+{
+  "notice": "FICTIONAL DATA ONLY: no record is issued, registered, certified or published.",
+  "scenario": "Illustrative normalized Certifier reference offered to a Registry consumer. NOT derived automatically from SREG record.",
+  "material_fields": {
+    "version": true,
+    "lifecycle_state": true,
+    "publication_state": true
+  },
+  "envelope": {
+    "identifier": "SC-CERT-2099-0042",
+    "source_institution": "Certifier",
+    "object_type": "Certification Package",
+    "provenance": {
+      "source_or_origin": "fictional-fixture"
+    },
+    "relationship_type": "references",
+    "authority_context": "Certifier",
+    "accessibility": "available",
+    "version": "1.0",
+    "lifecycle_state": "active",
+    "publication_state": "published"
+  }
+}
