@@ -1,0 +1,465 @@
+{
+  "schema_version": "stage4b-bounded-release-route-matrix-v1",
+  "date": "2026-11-07",
+  "classification": "PROPOSED_UNSELECTED_RELEASE_SCOPE_MATRIX_NOT_RUNTIME_ACCEPTANCE",
+  "canonical_repo": {
+    "name": "SatoshiumAI/satoshium-us",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "access": "READ_ONLY"
+  },
+  "experimental_repo": {
+    "name": "SatoshiumAI/satoshium-net",
+    "prior_sha": "662a546aef47ce08dd6ef084ae2968a1ebff2392"
+  },
+  "source_pins": [
+    {
+      "key": "baseline",
+      "repo": "SatoshiumAI/satoshium-us",
+      "path": "suite/satoshium-suite-1-0-baseline-b8-final-disposition-2026-10-24.md",
+      "sha": "e2638535af1aeb2e3a56d14f9bfd673ff1868c19"
+    },
+    {
+      "key": "routes",
+      "repo": "SatoshiumAI/satoshium-us",
+      "path": "suite/satoshium-suite-post-baseline-readiness-review-001-2026-10-24.md",
+      "sha": "3a488be2e1bf234e62080aec1d922a4a9331a2c6"
+    },
+    {
+      "key": "stage4a",
+      "repo": "SatoshiumAI/satoshium-net",
+      "path": "services/reviews/stage4a/readiness-reconciliation-register-2026-11-07.json",
+      "sha": "b30db4d8c18b8711f8f45fbf85dc362fb05b9871"
+    },
+    {
+      "key": "accessibility",
+      "repo": "SatoshiumAI/satoshium-net",
+      "path": "services/reviews/satoshium-review011-consolidated-accessibility-acceptance-2026-11-01.md",
+      "sha": "06a0a9be20f0452cade9e10da2faea71c4a452c4"
+    },
+    {
+      "key": "governance",
+      "repo": "SatoshiumAI/satoshium-net",
+      "path": "services/reviews/satoshium-review013-postfix-independent-acceptance-2026-11-01.md",
+      "sha": "fe43da7632cb68a4b61ef5a90f412770ad23168d"
+    }
+  ],
+  "route_counts": {
+    "minimum": 4,
+    "optional_attestor": 5,
+    "optional_services": 4,
+    "total": 13
+  },
+  "routes": [
+    {
+      "id": "S-01",
+      "scope": "MINIMUM_CANDIDATE",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/suite/",
+      "route": "/suite/",
+      "source_path": "suite/index.html",
+      "source_blob": "432cb397e9f358cae022ad8d16fdc56406ff2d90",
+      "title": "Suite landing",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "DYNAMIC_TOPBAR_DESKTOP_BOUNDED",
+      "source_status": "DOC_SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh HTTP+canonical+headers, desktop/mobile navigation and stated claims",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "S-02",
+      "scope": "MINIMUM_CANDIDATE",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/suite/status/",
+      "route": "/suite/status/",
+      "source_path": "suite/status/index.html",
+      "source_blob": "f697334a033bc31d84ce508aa1c138e61f6ac57e",
+      "title": "Status",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "NOT_IN_SAMPLED_DOM",
+      "source_status": "DOC_SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh status accuracy and link audit, HTTP+canonical, mobile/keyboard",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "S-03",
+      "scope": "MINIMUM_CANDIDATE",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/suite/interoperability/",
+      "route": "/suite/interoperability/",
+      "source_path": "suite/interoperability/index.html",
+      "source_blob": "2ef63d8ffef267952e63b01c8224572ed973ceae",
+      "title": "Interoperability",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "DYNAMIC_TOPBAR_DESKTOP_BOUNDED",
+      "source_status": "DOC_SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh claims audit: historical interoperation not auto pipeline; header fallback/keyboard/mobile",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "S-04",
+      "scope": "MINIMUM_CANDIDATE",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/suite/governance/",
+      "route": "/suite/governance/",
+      "source_path": "suite/governance/index.html",
+      "source_blob": "85077f560465989d2adda93a1bbd74c9c5ee66a5",
+      "title": "Governance",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "NOT_IN_SAMPLED_DOM",
+      "source_status": "DOC_SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh governing decision identity, HTTP+canonical, link/mobile/keyboard",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "A-01",
+      "scope": "OPTIONAL_ATTESTOR",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/attestor/generation/",
+      "route": "/attestor/generation/",
+      "source_path": "attestor/generation/index.html",
+      "source_blob": "d6791d929f5c27a5873768ecc447ad8bfc7384b6",
+      "title": "Attestation Generation",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "JS_PARITY_NOT_PROVEN",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh public HTTP, functional/keyboard and canonical assertions if advertised",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "A-02",
+      "scope": "OPTIONAL_ATTESTOR",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/attestor/attestation-generation/",
+      "route": "/attestor/attestation-generation/",
+      "source_path": "attestor/attestation-generation/index.html",
+      "source_blob": "d6791d929f5c27a5873768ecc447ad8bfc7384b6",
+      "title": "Legacy Generation alias",
+      "historical_http": "HTTP200_CANONICAL_TO_A01_OCT24",
+      "historical_browser": "LEGACY_BEHAVIOR_NOT_EXHAUSTIVE",
+      "source_status": "SOURCE_BYTE_IDENTICAL_A01",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Preserve alias policy; no redirect claim; check served JS behavior only if advertised",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "A-03",
+      "scope": "OPTIONAL_ATTESTOR",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/attestor/publication/",
+      "route": "/attestor/publication/",
+      "source_path": "attestor/publication/index.html",
+      "source_blob": "31f676caf549ab007c4a92d592d8de998b005b8",
+      "title": "Attestor Publication",
+      "historical_http": "HTTP200_SELF_CANONICAL_AT_OCT24",
+      "historical_browser": "INDEX_PRECEDENCE_NOT_ESTABLISHED",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Current served content+title+canonical, interactive claims if included",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "A-04",
+      "scope": "OPTIONAL_ATTESTOR",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/attestor/publication/index.html",
+      "route": "/attestor/publication/index.html",
+      "source_path": "attestor/publication/index.html",
+      "source_blob": "31f676caf549ab007c4a92d592d8de998b005b8",
+      "title": "Publication HTML explicit",
+      "historical_http": "HTTP200_CANONICAL_TO_DIRECTORY_OCT24",
+      "historical_browser": "HOST_INDEX_PRECEDENCE_NOT_ESTABLISHED",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Check explicit URL and served equivalence if alias policy claimed",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "A-05",
+      "scope": "OPTIONAL_ATTESTOR",
+      "origin": "canonical",
+      "proposed_url": "https://satoshium.us/attestor/publication/index.htm",
+      "route": "/attestor/publication/index.htm",
+      "source_path": "attestor/publication/index.htm",
+      "source_blob": "31f676caf549ab007c4a92d592d8de998b005b8",
+      "title": "Publication HTM explicit",
+      "historical_http": "HTTP200_CANONICAL_TO_DIRECTORY_OCT24",
+      "historical_browser": "HOST_INDEX_PRECEDENCE_NOT_ESTABLISHED",
+      "source_status": "SOURCE_IDENTICAL_HTML",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Check explicit URL and hosting policy if supported",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "T-01",
+      "scope": "OPTIONAL_SERVICES",
+      "origin": "experimental",
+      "proposed_url": "https://satoshium.net/services/",
+      "route": "/services/",
+      "source_path": "services/index.html",
+      "source_blob": "d4d3991b19fab0b80d7db658d77013dc6daee508",
+      "title": "Services Hub",
+      "historical_http": "NO_HTTP_REPROBE_IN_REVIEW_SOURCES",
+      "historical_browser": "REVIEW011_PASS_BOUNDED",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh exact public host URL, 3 service links, navigation, keyboard, mobile",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "T-02",
+      "scope": "OPTIONAL_SERVICES",
+      "origin": "experimental",
+      "proposed_url": "https://satoshium.net/services/aegis/aegis-service-panel.html",
+      "route": "/services/aegis/aegis-service-panel.html",
+      "source_path": "services/aegis/aegis-service-panel.html",
+      "source_blob": "1de442057b4ffef6f87760d4775544f82dcda1dd",
+      "title": "Aegis inspection",
+      "historical_http": "NO_HTTP_REPROBE_IN_REVIEW_SOURCES",
+      "historical_browser": "REVIEW011_PASS_BOUNDED",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh UI functional/error/timeouts, source disclaimers, relevant service APIs, accessibility",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "T-03",
+      "scope": "OPTIONAL_SERVICES",
+      "origin": "experimental",
+      "proposed_url": "https://satoshium.net/services/agent-governance/tool.html",
+      "route": "/services/agent-governance/tool.html",
+      "source_path": "services/agent-governance/tool.html",
+      "source_blob": "b03cd0f41b22cfe75692c7dcedfcfabf054bf8d7",
+      "title": "Agent Governance reference",
+      "historical_http": "NOV1_LIVE_BROWSER_PINNED",
+      "historical_browser": "REVIEW013_SIX_CASES_PASS_WITH_OBS",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh live file pin, 6 safety cases and exports, clarify non-authorization labels, keyboard/mobile",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    },
+    {
+      "id": "T-04",
+      "scope": "OPTIONAL_SERVICES",
+      "origin": "experimental",
+      "proposed_url": "https://satoshium.net/services/verification-ledger/tool.html",
+      "route": "/services/verification-ledger/tool.html",
+      "source_path": "services/verification-ledger/tool.html",
+      "source_blob": "c35f722e681a15bcc6b70c5d996aada33b1e2e0d",
+      "title": "Verification Ledger",
+      "historical_http": "NO_HTTP_REPROBE_IN_REVIEW_SOURCES",
+      "historical_browser": "REVIEW011_PASS_BOUNDED",
+      "source_status": "SOURCE_EXISTS",
+      "current_deployment_readback": "NOT_PERFORMED_STAGE4B",
+      "current_http_browser_verification": "NOT_PERFORMED_STAGE4B",
+      "must_verify": "Fresh JSON generator/integrity/error-case tests; keyboard, screen reader, no trust overclaims",
+      "release_inclusion_decision": "UNSELECTED",
+      "acceptance": "NOT_YET_RELEASE_ACCEPTED",
+      "not_proven": [
+        "current public serving",
+        "comprehensive current mobile keyboard behavior",
+        "full feature runtime",
+        "effective release announcement authorization"
+      ]
+    }
+  ],
+  "conditional_features": [
+    {
+      "id": "D-01",
+      "name": "Generalized auto Suite exchange IQ001–011",
+      "if_claimed": "BLOCKING",
+      "if_excluded": "DEFER",
+      "notes": "0/11 production-accepted; six D-2A contract decisions OPEN"
+    },
+    {
+      "id": "D-02",
+      "name": "External participant pilot G05/G06/G09/G10/G11",
+      "if_claimed": "BLOCKING",
+      "if_excluded": "DEFER",
+      "notes": "Consent and steward requirements block external human pilot; no invitations"
+    },
+    {
+      "id": "D-03",
+      "name": "Certifier SCHR/SATR migrated receiving interface",
+      "if_claimed": "BLOCKING",
+      "if_excluded": "DEFER",
+      "notes": "No adopted receiving agreement"
+    },
+    {
+      "id": "D-04",
+      "name": "Specialized Attestor source/evidence machine profiles",
+      "if_claimed": "BLOCKING",
+      "if_excluded": "DEFER",
+      "notes": "Normative specialized profiles remain unverified"
+    },
+    {
+      "id": "D-05",
+      "name": "Atlas Media alternate-route aliases",
+      "if_claimed": "NEEDS_URL_POLICY",
+      "if_excluded": "DEFER",
+      "notes": "Saudi Arabia / Sweden source canonical metadata already corrected; alternate URLs observed 404, alias optional"
+    },
+    {
+      "id": "D-06",
+      "name": "Official Suite 1.0 product tag, release statement and rollback",
+      "if_claimed": "REQUIRED_FOR_PUBLIC_PRODUCT_RELEASE",
+      "if_excluded": "NOT_RELEVANT_TO_EXISTING_APPROVED_DOCUMENTARY_BASELINE",
+      "notes": "No product release authorization or tag issued"
+    }
+  ],
+  "release_gates": [
+    {
+      "id": "G4B-01",
+      "title": "Founder selects published scope and exact URLs",
+      "owner": "Founder",
+      "status": "OPEN",
+      "required": "Choose minimum S-01..S-04 only or add named optional routes; record exact scope and product wording"
+    },
+    {
+      "id": "G4B-02",
+      "title": "Current HTTP and source identity",
+      "owner": "Independent observer",
+      "status": "OPEN",
+      "required": "Observe status/effective URL/canonical/OG and served contents; compare applicable current repo SHA or page digest; no deployment inference"
+    },
+    {
+      "id": "G4B-03",
+      "title": "Current browser functional and accessibility",
+      "owner": "Independent observer + human tester where needed",
+      "status": "OPEN",
+      "required": "Mobile/keyboard/header fallback; interactive positive/negative cases only for tools included; preserve Review011 bounded NVDA facts"
+    },
+    {
+      "id": "G4B-04",
+      "title": "Public claims and privacy/security boundary",
+      "owner": "Founder + appropriate subject owners",
+      "status": "OPEN",
+      "required": "No autonomous cross-institution automation claims, no unsigned reference decision portrayed as real authorization, no participant feedback/pilot without separate governance"
+    },
+    {
+      "id": "G4B-05",
+      "title": "Versioned release and rollback",
+      "owner": "Founder/maintainer",
+      "status": "OPEN",
+      "required": "Immutable exact artifact/tag decision, planned rollback of site pointers, clear release notes and no retroactive canonical change"
+    },
+    {
+      "id": "G4B-06",
+      "title": "Feature-evidence and explicit release disposition",
+      "owner": "Founder",
+      "status": "OPEN",
+      "required": "Approve evidenced narrow release or NO-GO; no consent/pilot/release permission inferred from Stage 4B"
+    }
+  ],
+  "release_authorized": false,
+  "owner_approval_new": false,
+  "live_request_executed": false,
+  "grok_bot1_used": false,
+  "existing_documentary_baseline": "COMPLETE_APPROVED_BOUNDED",
+  "production_p0_accepted": 0,
+  "production_p0_total": 11,
+  "last_offline_suite": {
+    "count": 783,
+    "scope": "noncanonical offline evidence, not rerun"
+  }
+}
