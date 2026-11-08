@@ -1,0 +1,125 @@
+{
+  "schema_version": "stage4f-founder-scope-handoff-v1",
+  "date": "2026-11-07",
+  "classification": "UNSIGNED_DECISION_HANDOFF_NOT_INSTITUTIONAL_APPROVAL",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "read_only": true
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "prior_head": "33d94a378d0cc64b40784a4b8f438a43b6f8fcf4"
+  },
+  "evidence": {
+    "baseline": {
+      "path": "suite/satoshium-suite-1-0-baseline-b8-final-disposition-2026-10-24.md",
+      "blob_sha": "e2638535af1aeb2e3a56d14f9bfd673ff1868c19"
+    },
+    "stage4b": {
+      "blob_sha": "2b80124716f685a19fb99157b02ac937572337a0"
+    },
+    "stage4e": {
+      "blob_sha": "9ff8a6af113f414c842e0600af3a1597e93016a4"
+    },
+    "stage4c_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42456853522",
+    "stage4d_run": "https://github.com/SatoshiumAI/satoshium-net/actions/runs/42457607679"
+  },
+  "proposed_routes": [
+    "https://satoshium.us/suite/",
+    "https://satoshium.us/suite/status/",
+    "https://satoshium.us/suite/interoperability/",
+    "https://satoshium.us/suite/governance/"
+  ],
+  "options": [
+    {
+      "id": "FOUR_ROUTE_INFORMATIONAL_PREPARATION",
+      "summary": "Select four canonical Suite docs as a candidate for continued release-readiness verification",
+      "authorization_scope": "Evidence-only checks and preparation, not a Suite 1.0 launch, tag, site edit, outreach or integration",
+      "choice_status": "NOT_SELECTED"
+    },
+    {
+      "id": "DEFER_PRODUCT_RELEASE",
+      "summary": "Retain approved October 24 documentary baseline with no new product release efforts",
+      "authorization_scope": "No additional launch work; preserve current status",
+      "choice_status": "NOT_SELECTED"
+    },
+    {
+      "id": "REVISE_CANDIDATE",
+      "summary": "Choose a different expressly identified URL/feature inventory before testing",
+      "authorization_scope": "Rebuild acceptance matrix; no release authorization",
+      "choice_status": "NOT_SELECTED"
+    }
+  ],
+  "founder_selected_option": null,
+  "release_scope_approved": false,
+  "launch_authorized": false,
+  "production_integration_authorized": false,
+  "participant_pilot_authorized": false,
+  "release_gate_register": [
+    {
+      "id": "4F-01",
+      "topic": "Founder release-candidate scope choice",
+      "owner": "Founder",
+      "state": "AWAITING_EXPLICIT_CHOICE",
+      "evidence": "Four recommended Suite routes in Stage 4B; no selection recorded",
+      "pass_condition": "Attributable choice to pursue four-route informational-only candidate or to defer/revise",
+      "blocking_for_actual_launch": true
+    },
+    {
+      "id": "4F-02",
+      "topic": "Historical-versus-automation claims",
+      "owner": "Founder + subject governance steward",
+      "state": "OPEN",
+      "evidence": "B8 approved historical first-production baseline; 0/11 P0 generalized exchange production-accepted",
+      "pass_condition": "Review and approve precise public wording that excludes automated interinstitutional production guarantees",
+      "blocking_for_actual_launch": true
+    },
+    {
+      "id": "4F-03",
+      "topic": "Accessibility and navigation residuals",
+      "owner": "Independent observer + human tester as applicable",
+      "state": "PARTIALLY_EVIDENCED",
+      "evidence": "Stage 4C 8/8 HTTP 200; 4D 32 sampled Tabs and 26/26 internal link targets HTTP 200",
+      "pass_condition": "Reconcile visibility/order/keyboard paths, fallback behavior and required native zoom/AT coverage for four-route release; record exceptions",
+      "blocking_for_actual_launch": true
+    },
+    {
+      "id": "4F-04",
+      "topic": "Live served release snapshot",
+      "owner": "Maintainer + independent observer",
+      "state": "OPEN",
+      "evidence": "Stage 4C/4D HTTP/browser observations; canonical git blob pins are not live-byte attestation",
+      "pass_condition": "Exact release build SHA and served-identity evidence + fresh route recheck",
+      "blocking_for_actual_launch": true
+    },
+    {
+      "id": "4F-05",
+      "topic": "Privacy/support boundary",
+      "owner": "Founder + operator",
+      "state": "OPEN",
+      "evidence": "Proposed no-feedback/no-pilot informational scope",
+      "pass_condition": "Document data/analytics/disclosure, responsible contact and support boundary; no invented privacy guarantees",
+      "blocking_for_actual_launch": true
+    },
+    {
+      "id": "4F-06",
+      "topic": "Formal release controls",
+      "owner": "Founder",
+      "state": "NOT_AUTHORIZED",
+      "evidence": "No product tag, effective date, rollback plan or launch authorization",
+      "pass_condition": "Version/tag collision check, rollout/rollback plan, exact approved release notes and explicit release GO",
+      "blocking_for_actual_launch": true
+    }
+  ],
+  "summary": {
+    "four_route_bounded_http_observations": 8,
+    "same_origin_link_http200": 26,
+    "sampled_tab_steps": 32,
+    "p0_automation_accepted": 0,
+    "p0_automation_total": 11,
+    "contract_decisions_open": 6,
+    "release_blocking_gates_unclosed": 6
+  }
+}
