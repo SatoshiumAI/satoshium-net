@@ -1,0 +1,173 @@
+{
+  "schema_version": "stage3i-producer-receiver-contract-prerequisites-v1",
+  "date": "2026-11-07",
+  "classification": "DOCUMENTARY_SOURCE_GAP_CLOSURE_PROPOSAL_NOT_ADOPTED",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "read_only": true
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "branch": "phase004",
+    "previous_sha": "12ba9eb9dc366ac6e149a0093aac253912db2257"
+  },
+  "source_blobs": [
+    {
+      "path": "certifier/schemas/certification-schema.json",
+      "blob_sha": "cfc99ca8fc57f33bac1a03a5edf3e9a0ff89ddef",
+      "interpretation": "Draft certification-record schema, not adopted producer envelope"
+    },
+    {
+      "path": "certifier/tools/ops-toolkit/schema/certification_package.schema.json",
+      "blob_sha": "5efffd83e7f19a062755eca49735dbc167da3849",
+      "interpretation": "Toolkit package JSON contract with status enum; not institutional exchange adoption"
+    },
+    {
+      "path": "certifier/tools/ops-toolkit/docs/protocol-migration-assessment-2026-10-23.md",
+      "blob_sha": "e5691a6087e712f94ff1dc724ef3b92ad1250e05",
+      "interpretation": "Approved review only; executable migration explicitly deferred and stubs not authoritative"
+    },
+    {
+      "path": "registry/policies/record-creation-policy.md",
+      "blob_sha": "7f2cb6bc48a13759b351dfd97412dc936410d887",
+      "interpretation": "Governs record creation and authority separation; not executable intake API"
+    },
+    {
+      "path": "registry/schemas/certification-record-profile.json",
+      "blob_sha": "269a1062898645552681868416c13cd3701e51bc",
+      "interpretation": "Completed Certification SREG output profile"
+    },
+    {
+      "path": "registry/governance/README.md",
+      "blob_sha": "bd640f7f03dc656d6ab476076e88ad5ab78947f9",
+      "interpretation": "Owner roles, approvals, delegated authority and governed change control"
+    },
+    {
+      "path": "registry/validation/README.md",
+      "blob_sha": "e26ca5dfcf98952573cfb9c71605ebf8998c37c9",
+      "interpretation": "Validation follows SREG construction and does not publish it"
+    }
+  ],
+  "stage3h": {
+    "path": "services/reviews/stage3h/owner-decision-handoff-2026-11-07.json",
+    "blob_sha": "afadf32ead01483bd878292bd58c1f6072e38d3f"
+  },
+  "gap_items": [
+    {
+      "id": "3I-GAP-01",
+      "priority": "BLOCKING_CONTRACT_DECISION",
+      "owner": "Certifier",
+      "evidence": "Draft certification-schema.json record_status values differ from toolkit package schema status enum and canonical Certification Package Issued · Active status",
+      "claim": "There are multiple representations, not an adopted cross-institution producer contract",
+      "resolution": "Certifier chooses authoritative payload, effective schema/version, status/outcome namespace and version/freshness rules",
+      "decision": "D-2A-01"
+    },
+    {
+      "id": "3I-GAP-02",
+      "priority": "BLOCKING_CONTRACT_DECISION",
+      "owner": "Certifier",
+      "evidence": "Approved 2026-10-23 toolkit migration assessment says executable migration DEFER; sreg_stub and validation/checklist output do not issue institutional results",
+      "claim": "Local toolkit outputs cannot be considered Registry SREG issuance or validated source state",
+      "resolution": "Separate request artifact from source-owned certification record and downstream Registry ownership",
+      "decision": "D-2A-01"
+    },
+    {
+      "id": "3I-GAP-03",
+      "priority": "BLOCKING_CONTRACT_DECISION",
+      "owner": "Registry",
+      "evidence": "Record creation policy governs eligible registration and source attribution; Certification SREG profile constrains the completed output",
+      "claim": "Neither published source identifies an adopted machine request endpoint or authorization for external caller",
+      "resolution": "Registry defines receiving request schema, identity, registrability decision, validation, issuance and publication outcomes",
+      "decision": "D-2A-02"
+    },
+    {
+      "id": "3I-GAP-04",
+      "priority": "UNRESOLVED_SEMANTIC_LINK",
+      "owner": "Registry",
+      "evidence": "Record-creation policy uses illustrative initial Registry Status Pending and lifecycle Pending Registration; historical SREG has status active/lifecycle published; machine controlled values are partial",
+      "claim": "Do not conflate creation intake state with a previously published SREG or assume transition enums are adopted",
+      "resolution": "Registry reconciles effective controlled values and transition policy with D-2A-03; historical SREG remains intact",
+      "decision": "D-2A-02"
+    },
+    {
+      "id": "3I-GAP-05",
+      "priority": "BLOCKING_AUTHORITY",
+      "owner": "Registry",
+      "evidence": "Registry Governance requires attributable role/approval; Validation explicitly follows SREG construction, and a validation result does not activate or publish",
+      "claim": "No recipient-issued outcome may be inferred from schema conformance, source toolkit output or network access",
+      "resolution": "Approve separate owner decision/audit/readback contract; D-2A-05 remains open",
+      "decision": "D-2A-02"
+    }
+  ],
+  "owner_decision_requests": [
+    {
+      "decision": "D-2A-01",
+      "owner": "Certifier",
+      "suggested_disposition": "RETURN_FOR_EVIDENCE",
+      "not_actual": "NO_OWNER_DECISION",
+      "decision_required": "Which canonical Certification Package representation does Certifier own and permit Registry to reference?",
+      "requested_artifacts": [
+        "Owner-attributed current and historical machine source contract, exact schema ID, effective version and provenance",
+        "Explicit reconciliation of draft certification-schema.json, toolkit certification_package.schema.json and operational Package v1.1",
+        "Source-controlled certification status/outcome/class and date semantics distinct from toolkit and Registry values",
+        "Currentness verification method: known, stale, unavailable and conflicting issuer responses with source version-at-use",
+        "Source record vs request/stub vs derivative identification and prohibition on downstream issuance claims"
+      ],
+      "candidate_refusals": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "acceptance": "Documented Certifier owner approval of versioned source representation and fields; still not approval of integration calls",
+      "blocked_actions": [
+        "Registry creation by Certifier stub",
+        "status inference from unrelated schema",
+        "live production source assertion without readback"
+      ]
+    },
+    {
+      "decision": "D-2A-02",
+      "owner": "Registry",
+      "suggested_disposition": "RETURN_FOR_EVIDENCE",
+      "not_actual": "NO_OWNER_DECISION",
+      "decision_required": "What specific Registry-owned operation and governing principal, if any, may receive a Certifier source reference?",
+      "requested_artifacts": [
+        "Receiving intake schema separate from completed SREG output/base/profile",
+        "Effective Registry record-creation, registrability, validation, issuance, lifecycle and publication rules with owner role",
+        "Typed denial, review, unknown, unavailable and no-entry-created results; no binding of source status to Registry status",
+        "Authorization and audit/readback of each receiving action; no downstream rights derived from reference",
+        "Approved interpretation of initial Pending/Pending Registration versus historical active/published states, linked to D-2A-03"
+      ],
+      "candidate_refusals": [
+        "C05",
+        "C06",
+        "C07",
+        "C08"
+      ],
+      "acceptance": "Documented Registry decision about the actual intake and owner authorization boundaries; still no live access authorization",
+      "blocked_actions": [
+        "external SREG issuance from source account",
+        "schema conformance treated as publication",
+        "assumed API from completed record profile"
+      ]
+    }
+  ],
+  "decision_state": {
+    "D_2A_01": "OPEN",
+    "D_2A_02": "OPEN",
+    "D_2A_03": "OPEN_NARROWED",
+    "D_2A_04": "OPEN",
+    "D_2A_05": "OPEN",
+    "D_2A_06": "OPEN_NARROWED"
+  },
+  "acceptance": {
+    "owner_approvals": 0,
+    "p0_accepted": 0,
+    "p0_not_verified": 11,
+    "offline_ci_last_run": "722/722 prior Stage 2K"
+  },
+  "release_or_integration_authorized": false
+}
