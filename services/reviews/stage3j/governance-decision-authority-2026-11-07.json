@@ -1,0 +1,124 @@
+{
+  "schema_version": "stage3j-governance-authority-path-v1",
+  "date": "2026-11-07",
+  "status": "SOURCE_GROUNDED_OWNER_AUTHORITY_REVIEW_NO_ADOPTION",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "branch": "phase004",
+    "mode": "READ_ONLY"
+  },
+  "source_pins": [
+    {
+      "path": "certifier/governance/README.md",
+      "blob_sha": "86299c5a27e94c232458ac3ffb82fc0610966dae",
+      "significance": "Certifier operational stewardship and certification-decision integrity; no explicit authorizer for a new cross-institution wire contract verified"
+    },
+    {
+      "path": "registry/governance/README.md",
+      "blob_sha": "bd640f7f03dc656d6ab476076e88ad5ab78947f9",
+      "significance": "Founder or designated institutional steward explicitly among Registry governance authorities; records require attribution and defined decisions"
+    },
+    {
+      "path": "registry/policies/record-creation-policy.md",
+      "blob_sha": "7f2cb6bc48a13759b351dfd97412dc936410d887",
+      "significance": "Active 1.0.0 creation policy; Registry owns creation; source owner retains source authority"
+    },
+    {
+      "path": "registry/registrability/README.md",
+      "blob_sha": "a826cf416b7456ed5b1a2a11a916ccf63e09908e",
+      "significance": "Registrability before Registry record construction; eligibility is Registry decision"
+    },
+    {
+      "path": "registry/validation/README.md",
+      "blob_sha": "e26ca5dfcf98952573cfb9c71605ebf8998c37c9",
+      "significance": "Validation of constructed entry does not itself publish, certify, or register"
+    }
+  ],
+  "previous_stage3i": {
+    "path": "services/reviews/stage3i/contract-decision-gap-register-2026-11-07.json",
+    "blob_sha": "dda43b057746210c286f683f329a98071a8e7321",
+    "commit": "080f9682494174ccad94aa4885f9f5b6d09f9abc"
+  },
+  "owner_proposals": [
+    {
+      "decision_id": "D-2A-01",
+      "institution": "Certifier",
+      "state": "OPEN",
+      "authority_basis_confirmed": "Certifier Governance maintains operations and canonical Certification Package; role empowered to adopt external machine exchange format NOT verified from inspected documents",
+      "authority_question": "Which Certifier-authorized role or founder-governed decision process may approve new producer representation?",
+      "decision_request": "Approve, reject, or return for evidence a specific canonical producer representation, with full source identity/version/status/outcome, validity/freshness and external reference constraints",
+      "required_evidence": [
+        "Identify lawful institutional decision role and source policy or delegated authority",
+        "Specify machine representation and status/outcome field meanings; reconcile draft schema, toolkit schema and canonical Package",
+        "State effective version, intended consumers, provenance, unknown/unavailable and historical/current distinctions",
+        "Define exact source-origin verification and change-control/audit record"
+      ],
+      "gate": "NO_OWNER_APPROVAL_RECORDED",
+      "integration_permission": false
+    },
+    {
+      "decision_id": "D-2A-02",
+      "institution": "Registry",
+      "state": "OPEN",
+      "authority_basis_confirmed": "Registry Governance explicitly includes Founder or designated institutional steward; material decisions still require appropriate authority and a governed record",
+      "authority_question": "Will the Founder acting in a documented Registry governance capacity, or another designated role, approve a specifically scoped receiving contract?",
+      "decision_request": "Approve, reject, or return for evidence an explicit receiver model (including the option to authorize NO automatic intake), separate from any existing SREG output profile",
+      "required_evidence": [
+        "Name Registry decision-maker role and its scope, authority source and governance decision record",
+        "Specify intake contract or explicit no-automated-intake position; identify allowed request and refusal types",
+        "Separate registrability, SREG construction, validation, publication, identifier assignment and record update rights",
+        "Bind any delegated principal to receiver authorization, durable audit and revocation rules; no inferred rights from documentation"
+      ],
+      "gate": "NO_OWNER_APPROVAL_RECORDED",
+      "integration_permission": false
+    }
+  ],
+  "proposed_uncompleted_record_template": {
+    "record_type": "PROPOSED_GOVERNANCE_DECISION_RECORD_NOT_AN_ADOPTED_SCHEMA",
+    "decision_id": null,
+    "institution": null,
+    "decision_authority_role": null,
+    "decision_authority_basis": null,
+    "decision_date": null,
+    "effective_date": null,
+    "version": null,
+    "scope": null,
+    "decision": null,
+    "rationale": null,
+    "source_blobs": [],
+    "accepted_cases": [],
+    "refused_cases": [],
+    "conditions": [],
+    "exceptions": [],
+    "reviewer": null,
+    "publication_reference": null,
+    "history_reference": null,
+    "owner_signature_or_verified_attestation": null,
+    "independent_verification": null,
+    "production_authorization": false,
+    "authenticated_nonproduction_authorization": false
+  },
+  "open_decisions": {
+    "D_2A_01": "OPEN",
+    "D_2A_02": "OPEN",
+    "D_2A_03": "OPEN_NARROWED",
+    "D_2A_04": "OPEN",
+    "D_2A_05": "OPEN",
+    "D_2A_06": "OPEN_NARROWED"
+  },
+  "authorization": {
+    "founder_explicit_contract_approval_recorded": false,
+    "registry_decision_adopted": false,
+    "certifier_producer_adopted": false,
+    "authenticated_access": false,
+    "source_or_registry_write": false,
+    "production_release": false
+  },
+  "p0": {
+    "total": 11,
+    "accepted": 0,
+    "not_verified": 11
+  },
+  "regression_baseline": "722/722 previously verified (Stage 2K), no new tests in Stage 3J"
+}
