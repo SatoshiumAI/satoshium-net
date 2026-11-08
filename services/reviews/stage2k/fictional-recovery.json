@@ -1,0 +1,40 @@
+{
+  "identity": {
+    "ack_id": "fictional:ack-k",
+    "owner": "Attestor",
+    "reference_id": "fictional:ATT-2099-0001",
+    "source_event_id": "fictional:source-k",
+    "version_at_use": "1.1",
+    "correlation_id": "fictional:corr-k",
+    "attempt_id": "fictional:attempt-k",
+    "delivery": "fictional-new"
+  },
+  "integrity": {
+    "representation_id": "fictional:ack-k",
+    "method_id": "fictional:v1",
+    "key_ref": "fictional:key-k",
+    "digest_result": "claimed-match",
+    "signature_result": "claimed-valid"
+  },
+  "storage": {
+    "event_id": "fictional:ack-k",
+    "predecessor_id": "fictional:ack-prev",
+    "prior_event_id": "fictional:ack-prev",
+    "retention_rule": "fictional:preserve",
+    "rewrite_prior": false,
+    "drop_prior": false,
+    "append_state": "claimed-complete",
+    "readback_state": "claimed-match"
+  },
+  "governance": {
+    "policy_id": "fictional:rule-k",
+    "receiver": "Attestor",
+    "approval_claim": false,
+    "issue_object": false,
+    "overwrite_source": false,
+    "decision_state": "claimed-eligible",
+    "outcome_conflict": false,
+    "rule_version_at_use": "fictional:1",
+    "observed_rule_version": "fictional:1"
+  }
+}

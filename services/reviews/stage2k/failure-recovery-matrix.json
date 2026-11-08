@@ -1,0 +1,68 @@
+{
+  "schema_version": "stage2k-recovery-matrix-v1",
+  "date": "2026-11-07",
+  "classification": "PROPOSED_NOT_ADOPTED",
+  "canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "gates": [
+    {
+      "id": "K-1",
+      "name": "Identity and provenance",
+      "acceptance_evidence": "authenticated sender/receiver, full immutable identifiers, source state/version at use, signed correlation",
+      "blocked_by": [
+        "unknown origin",
+        "conflicting owner or identifier"
+      ]
+    },
+    {
+      "id": "K-2",
+      "name": "Representation integrity",
+      "acceptance_evidence": "frozen canonical bytes, independently computed digest and method-level verification results",
+      "blocked_by": [
+        "signature invalid",
+        "digest mismatch",
+        "missing material"
+      ]
+    },
+    {
+      "id": "K-3",
+      "name": "Governance and authorization",
+      "acceptance_evidence": "effective receiving rule, authenticated principal and independently evidenced institutional approval",
+      "blocked_by": [
+        "rule version unknown",
+        "technical access without owner approval"
+      ]
+    },
+    {
+      "id": "K-4",
+      "name": "Atomic durable append",
+      "acceptance_evidence": "transactional append-only history, verified predecessor chain and owner-authoritative readback",
+      "blocked_by": [
+        "partial write",
+        "concurrent conflict",
+        "no durable readback"
+      ]
+    },
+    {
+      "id": "K-5",
+      "name": "Recovery/replay",
+      "acceptance_evidence": "idempotent persisted attempt journal, crash replay and no historical overwrite demonstrated",
+      "blocked_by": [
+        "duplicate delivery",
+        "stale replay",
+        "crash mid-append"
+      ]
+    },
+    {
+      "id": "K-6",
+      "name": "Independent result proof",
+      "acceptance_evidence": "receiving institution actual decision and resulting canonical record, separately verified",
+      "blocked_by": [
+        "ack treated as decision",
+        "synthetic result asserted as issued object"
+      ]
+    }
+  ],
+  "policy": "All are proposed evidence demands, not existing production contracts.",
+  "production_accepted": 0,
+  "p0_not_verified": 11
+}

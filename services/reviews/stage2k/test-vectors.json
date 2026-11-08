@@ -1,0 +1,324 @@
+[
+  {
+    "name": "claimed complete remains review only",
+    "path": null,
+    "value": null,
+    "classification": "EVIDENCE_PACKAGE_REVIEW",
+    "reason": "ALL_CLAIMS_REQUIRE_INDEPENDENT_VERIFICATION"
+  },
+  {
+    "name": "duplicate delivery",
+    "path": "identity.delivery",
+    "value": "duplicate",
+    "classification": "HOLD_REPLAY",
+    "reason": "DUPLICATE_DELIVERY_UNRESOLVED"
+  },
+  {
+    "name": "replayed delivery",
+    "path": "identity.delivery",
+    "value": "replay",
+    "classification": "HOLD_REPLAY",
+    "reason": "DUPLICATE_DELIVERY_UNRESOLVED"
+  },
+  {
+    "name": "unknown delivery",
+    "path": "identity.delivery",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "DELIVERY_STATUS_UNKNOWN"
+  },
+  {
+    "name": "unexpected delivery",
+    "path": "identity.delivery",
+    "value": "authenticated",
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_DELIVERY_STATUS"
+  },
+  {
+    "name": "digest mismatch",
+    "path": "integrity.digest_result",
+    "value": "mismatch",
+    "classification": "HOLD_INTEGRITY",
+    "reason": "INTEGRITY_NONMATCH"
+  },
+  {
+    "name": "signature invalid",
+    "path": "integrity.signature_result",
+    "value": "invalid",
+    "classification": "HOLD_INTEGRITY",
+    "reason": "INTEGRITY_NONMATCH"
+  },
+  {
+    "name": "digest unknown",
+    "path": "integrity.digest_result",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "INTEGRITY_EVIDENCE_INCOMPLETE"
+  },
+  {
+    "name": "signature untested",
+    "path": "integrity.signature_result",
+    "value": "not-tested",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "INTEGRITY_EVIDENCE_INCOMPLETE"
+  },
+  {
+    "name": "signature unavailable",
+    "path": "integrity.signature_result",
+    "value": "unavailable",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "INTEGRITY_EVIDENCE_INCOMPLETE"
+  },
+  {
+    "name": "unrecognized digest state",
+    "path": "integrity.digest_result",
+    "value": "verified",
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_METHOD_RESULT"
+  },
+  {
+    "name": "append partial",
+    "path": "storage.append_state",
+    "value": "partial",
+    "classification": "HOLD_RECOVERY",
+    "reason": "PARTIAL_OR_INTERRUPTED_APPEND"
+  },
+  {
+    "name": "append crash",
+    "path": "storage.append_state",
+    "value": "crashed",
+    "classification": "HOLD_RECOVERY",
+    "reason": "PARTIAL_OR_INTERRUPTED_APPEND"
+  },
+  {
+    "name": "append missing",
+    "path": "storage.append_state",
+    "value": "missing",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "STORAGE_EVIDENCE_UNKNOWN"
+  },
+  {
+    "name": "append unknown",
+    "path": "storage.append_state",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "STORAGE_EVIDENCE_UNKNOWN"
+  },
+  {
+    "name": "append concurrency conflict",
+    "path": "storage.append_state",
+    "value": "conflict",
+    "classification": "HOLD_CONFLICT",
+    "reason": "CONCURRENT_APPEND_CONFLICT"
+  },
+  {
+    "name": "invalid append state",
+    "path": "storage.append_state",
+    "value": "complete",
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_APPEND_STATE"
+  },
+  {
+    "name": "readback mismatch",
+    "path": "storage.readback_state",
+    "value": "mismatch",
+    "classification": "HOLD_RECOVERY",
+    "reason": "READBACK_NOT_RECONCILED"
+  },
+  {
+    "name": "readback missing",
+    "path": "storage.readback_state",
+    "value": "missing",
+    "classification": "HOLD_RECOVERY",
+    "reason": "READBACK_NOT_RECONCILED"
+  },
+  {
+    "name": "readback unknown",
+    "path": "storage.readback_state",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "READBACK_UNVERIFIED"
+  },
+  {
+    "name": "invalid readback state",
+    "path": "storage.readback_state",
+    "value": "confirmed",
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_READBACK_STATE"
+  },
+  {
+    "name": "outcome conflict",
+    "path": "governance.outcome_conflict",
+    "value": true,
+    "classification": "HOLD_CONFLICT",
+    "reason": "INSTITUTIONAL_OUTCOME_CONFLICT"
+  },
+  {
+    "name": "rule changed",
+    "path": "governance.observed_rule_version",
+    "value": "fictional:2",
+    "classification": "HOLD_REVIEW",
+    "reason": "RULE_VERSION_CHANGED"
+  },
+  {
+    "name": "owner policy denied",
+    "path": "governance.decision_state",
+    "value": "denied",
+    "classification": "REJECTED",
+    "reason": "OWNER_POLICY_DENIAL"
+  },
+  {
+    "name": "owner pending",
+    "path": "governance.decision_state",
+    "value": "pending",
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "OWNER_DECISION_UNVERIFIED"
+  },
+  {
+    "name": "owner unknown",
+    "path": "governance.decision_state",
+    "value": "unknown",
+    "classification": "HOLD_GOVERNANCE",
+    "reason": "OWNER_DECISION_UNVERIFIED"
+  },
+  {
+    "name": "unrecognized governance",
+    "path": "governance.decision_state",
+    "value": "approved",
+    "classification": "REJECTED",
+    "reason": "UNRECOGNIZED_GOVERNANCE_STATE"
+  },
+  {
+    "name": "false approval",
+    "path": "governance.approval_claim",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "false object issuance",
+    "path": "governance.issue_object",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "source overwrite",
+    "path": "governance.overwrite_source",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "AUTHORITY_ESCALATION"
+  },
+  {
+    "name": "prior rewrite",
+    "path": "storage.rewrite_prior",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "NONDESTRUCTIVE_HISTORY_REQUIRED"
+  },
+  {
+    "name": "prior deletion",
+    "path": "storage.drop_prior",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "NONDESTRUCTIVE_HISTORY_REQUIRED"
+  },
+  {
+    "name": "event self reference",
+    "path": "storage.predecessor_id",
+    "value": "fictional:ack-k",
+    "classification": "REJECTED",
+    "reason": "AUDIT_SELF_REFERENCE"
+  },
+  {
+    "name": "history event self reference",
+    "path": "storage.prior_event_id",
+    "value": "fictional:ack-k",
+    "classification": "REJECTED",
+    "reason": "AUDIT_SELF_REFERENCE"
+  },
+  {
+    "name": "wrong owner",
+    "path": "identity.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "RECEIVING_OWNER_MISMATCH"
+  },
+  {
+    "name": "wrong receiver",
+    "path": "governance.receiver",
+    "value": "Beacon",
+    "classification": "REJECTED",
+    "reason": "RECEIVING_OWNER_MISMATCH"
+  },
+  {
+    "name": "event binding wrong",
+    "path": "storage.event_id",
+    "value": "fictional:other",
+    "classification": "REJECTED",
+    "reason": "EVIDENCE_BINDING_CONFLICT"
+  },
+  {
+    "name": "representation binding wrong",
+    "path": "integrity.representation_id",
+    "value": "fictional:other",
+    "classification": "REJECTED",
+    "reason": "EVIDENCE_BINDING_CONFLICT"
+  },
+  {
+    "name": "unsupported method",
+    "path": "integrity.method_id",
+    "value": "sha256",
+    "classification": "REJECTED",
+    "reason": "UNADOPTED_EVIDENCE_RULE"
+  },
+  {
+    "name": "unsupported retention",
+    "path": "storage.retention_rule",
+    "value": "erase",
+    "classification": "REJECTED",
+    "reason": "UNADOPTED_EVIDENCE_RULE"
+  },
+  {
+    "name": "missing key",
+    "path": "integrity.key_ref",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing source event",
+    "path": "identity.source_event_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing correlation",
+    "path": "identity.correlation_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing audit precursor",
+    "path": "storage.predecessor_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "missing policy",
+    "path": "governance.policy_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_CONTEXT"
+  },
+  {
+    "name": "invalid envelope",
+    "path": "storage",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_ENVELOPE"
+  }
+]

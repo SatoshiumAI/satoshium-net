@@ -1,0 +1,36 @@
+'use strict';
+// Fictional Stage 2K acceptance-context classification only. No IO, crypto, or institutional decisions.
+const assess=function assess(x){
+ const base={noncanonical:true,accepted:false,authenticated:false,durable:false,authority_verified:false,write_performed:false,production_acceptance:false};
+ const out=(classification,reason,extra={})=>({...base,classification,reason,...extra});
+ const ob=v=>v!==null&&typeof v==="object"&&!Array.isArray(v),str=v=>typeof v==="string"&&v.trim().length>0;
+ if(!ob(x)||!ob(x.identity)||!ob(x.integrity)||!ob(x.storage)||!ob(x.governance))return out("REJECTED","INVALID_ENVELOPE");
+ const i=x.identity,v=x.integrity,s=x.storage,g=x.governance;
+ if(![i.ack_id,i.owner,i.reference_id,i.source_event_id,i.version_at_use,i.correlation_id,i.attempt_id,v.representation_id,v.method_id,v.key_ref,s.event_id,s.predecessor_id,s.retention_rule,g.policy_id,g.receiver].every(str))return out("REJECTED","MISSING_CONTEXT");
+ if(i.owner!=="Attestor"||g.receiver!=="Attestor")return out("REJECTED","RECEIVING_OWNER_MISMATCH");
+ if(v.representation_id!==s.event_id||s.event_id!==i.ack_id)return out("REJECTED","EVIDENCE_BINDING_CONFLICT");
+ if(v.method_id!=="fictional:v1"||s.retention_rule!=="fictional:preserve")return out("REJECTED","UNADOPTED_EVIDENCE_RULE");
+ if(g.approval_claim===true||g.issue_object===true||g.overwrite_source===true)return out("REJECTED","AUTHORITY_ESCALATION");
+ if(s.rewrite_prior===true||s.drop_prior===true)return out("REJECTED","NONDESTRUCTIVE_HISTORY_REQUIRED");
+ if(s.prior_event_id===s.event_id||s.predecessor_id===s.event_id)return out("REJECTED","AUDIT_SELF_REFERENCE");
+ if(i.delivery==="duplicate"||i.delivery==="replay")return out("HOLD_REPLAY","DUPLICATE_DELIVERY_UNRESOLVED");
+ if(i.delivery==="unknown")return out("HOLD_UNKNOWN","DELIVERY_STATUS_UNKNOWN");
+ if(i.delivery!=="fictional-new")return out("REJECTED","UNRECOGNIZED_DELIVERY_STATUS");
+ if(v.digest_result==="mismatch"||v.signature_result==="invalid")return out("HOLD_INTEGRITY","INTEGRITY_NONMATCH");
+ if(["unknown","unavailable","not-tested"].includes(v.digest_result)||["unknown","unavailable","not-tested"].includes(v.signature_result))return out("HOLD_UNKNOWN","INTEGRITY_EVIDENCE_INCOMPLETE");
+ if(v.digest_result!=="claimed-match"||v.signature_result!=="claimed-valid")return out("REJECTED","UNRECOGNIZED_METHOD_RESULT");
+ if(s.append_state==="partial"||s.append_state==="crashed")return out("HOLD_RECOVERY","PARTIAL_OR_INTERRUPTED_APPEND");
+ if(s.append_state==="missing"||s.append_state==="unknown")return out("HOLD_UNKNOWN","STORAGE_EVIDENCE_UNKNOWN");
+ if(s.append_state==="conflict")return out("HOLD_CONFLICT","CONCURRENT_APPEND_CONFLICT");
+ if(s.append_state!=="claimed-complete")return out("REJECTED","UNRECOGNIZED_APPEND_STATE");
+ if(s.readback_state==="mismatch"||s.readback_state==="missing")return out("HOLD_RECOVERY","READBACK_NOT_RECONCILED");
+ if(s.readback_state==="unknown")return out("HOLD_UNKNOWN","READBACK_UNVERIFIED");
+ if(s.readback_state!=="claimed-match")return out("REJECTED","UNRECOGNIZED_READBACK_STATE");
+ if(g.outcome_conflict===true)return out("HOLD_CONFLICT","INSTITUTIONAL_OUTCOME_CONFLICT");
+ if(g.rule_version_at_use!==g.observed_rule_version)return out("HOLD_REVIEW","RULE_VERSION_CHANGED");
+ if(g.decision_state==="denied")return out("REJECTED","OWNER_POLICY_DENIAL");
+ if(g.decision_state==="unknown"||g.decision_state==="pending")return out("HOLD_GOVERNANCE","OWNER_DECISION_UNVERIFIED");
+ if(g.decision_state!=="claimed-eligible")return out("REJECTED","UNRECOGNIZED_GOVERNANCE_STATE");
+ return out("EVIDENCE_PACKAGE_REVIEW","ALL_CLAIMS_REQUIRE_INDEPENDENT_VERIFICATION",{required:["canonical_bytes","crypto_verification","authenticated_owner","durable_atomic_readback","governed_approval"]});
+};
+module.exports={assess};
