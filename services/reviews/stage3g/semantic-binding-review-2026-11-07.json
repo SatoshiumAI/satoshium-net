@@ -1,0 +1,3408 @@
+{
+  "schema_version": "stage3g-semantic-binding-review-v1",
+  "date": "2026-11-07",
+  "classification": "READ_ONLY_SECTION_CONTEXT_NOT_FIELD_PARITY",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "mode": "READ_ONLY"
+  },
+  "parent_stage3f": {
+    "sha": "503fcb8f51cca28758893b56c010d548c136b5a7",
+    "evidence_blob": "28783ba9751dffb669f7dafbd384d3d7bbed2058",
+    "classification_counts": {
+      "NO_DIRECT_HUMAN_FIELD_EVIDENCE": 147,
+      "UNSCOPED_VALUE_PRESENT": 68,
+      "LABELED_EXACT_VALUE": 46,
+      "UNSCOPED_LINK_PRESENT": 25,
+      "LABELED_FORMAT_EQUIVALENT": 5,
+      "LABELED_REVIEW_REQUIRED": 1
+    }
+  },
+  "sources": {
+    "e": {
+      "path": "services/reviews/stage3f/field-comparison-evidence-2026-11-07.json",
+      "sha": "28783ba9751dffb669f7dafbd384d3d7bbed2058"
+    },
+    "c": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/scrd_json.json",
+      "sha": "f1aedbc2899aaa94a59dcbef7d9438869adb62bc"
+    },
+    "r": {
+      "path": "registry/registered-items/SREG-2026-0001/record.json",
+      "sha": "9faf4401ec432ae1367aec5207a6eb08da308f99"
+    },
+    "ch": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/index.html",
+      "sha": "268902a45b064d0405851778a113048f6b55adde"
+    },
+    "rh": {
+      "path": "registry/registered-items/SREG-2026-0001/registry-entry.html",
+      "sha": "0415ec937b5449b8d305e6f20eff20163dc29f3f"
+    }
+  },
+  "summary": {
+    "prior_unscoped": 93,
+    "prior_no_direct": 147,
+    "reclassified_review_context": 240,
+    "context_counts": {
+      "NO_DIRECT_FIELD_EVIDENCE": 147,
+      "SINGLE_HTML_SECTION_PRESENCE": 39,
+      "MULTIPLE_HTML_SECTIONS_PRESENCE": 54
+    },
+    "labeled_exception_count": 1,
+    "confirmed_new_semantic_matches": 0,
+    "owner_approved": 0,
+    "p0_verified": 0
+  },
+  "wording_exception": {
+    "source_path": "source_certification.historical_prototype_assessment.status",
+    "machine": "Preserved as historical assessment data",
+    "human_label": "Assessment Status",
+    "human": "Preserved as historical source assessment data",
+    "classification": "LEXICAL_VARIATION_OWNER_REVIEW",
+    "proposed_questions": [
+      "Is 'source' a permitted explanatory qualifier in this Registry field?",
+      "Should documented human rendering permit additions to exact machine status text?",
+      "Does any consuming process rely on machine exact value or public wording?"
+    ],
+    "not_proven": "No approved semantic equivalence or material conflict determination",
+    "recommended_action": "Registry owner review and explicit exception/normalization rule; no canonical edit"
+  },
+  "rows": [
+    {
+      "id": "3E-C-001",
+      "path": "record_type",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-002",
+      "path": "record_name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Record Identity"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-003",
+      "path": "record_id",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-006",
+      "path": "generated_on",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Record Identity",
+        "Scope and Limitations",
+        "Record Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-008",
+      "path": "source_package.canonical_record",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Record Identity",
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-011",
+      "path": "certification.certification_version",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-020",
+      "path": "subject.jurisdiction",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Atlas via Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Record Identity",
+        "Certification Summary",
+        "Scope and Limitations",
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-021",
+      "path": "subject.primary_record",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Atlas via Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-022",
+      "path": "scope.certification_scope",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Record Identity",
+        "Certification Summary",
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-023",
+      "path": "scope.scope_statement",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-024",
+      "path": "governance.standards_version",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Certified Record"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-025",
+      "path": "governance.methodology_version",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Certified Record"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-026",
+      "path": "governance.applicable_standards[0]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-027",
+      "path": "governance.applicable_standards[1]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-028",
+      "path": "governance.applicable_standards[2]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-029",
+      "path": "governance.applicable_standards[3]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-030",
+      "path": "governance.applicable_methodology_components[0]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Certified Record"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-031",
+      "path": "governance.applicable_methodology_components[1]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-032",
+      "path": "governance.applicable_methodology_components[2]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-033",
+      "path": "governance.applicable_methodology_components[3]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-034",
+      "path": "governance.applicable_methodology_components[4]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-035",
+      "path": "governance.applicable_methodology_components[5]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-036",
+      "path": "governance.applicable_methodology_components[6]",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-037",
+      "path": "assessment.assessment_type",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Assessment Record"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-041",
+      "path": "assessment.assessment_categories[0].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-042",
+      "path": "assessment.assessment_categories[0].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-043",
+      "path": "assessment.assessment_categories[0].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-044",
+      "path": "assessment.assessment_categories[1].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-045",
+      "path": "assessment.assessment_categories[1].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-046",
+      "path": "assessment.assessment_categories[1].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-047",
+      "path": "assessment.assessment_categories[2].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-048",
+      "path": "assessment.assessment_categories[2].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-049",
+      "path": "assessment.assessment_categories[2].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-050",
+      "path": "assessment.assessment_categories[3].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-051",
+      "path": "assessment.assessment_categories[3].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-052",
+      "path": "assessment.assessment_categories[3].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-053",
+      "path": "assessment.assessment_categories[4].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-054",
+      "path": "assessment.assessment_categories[4].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-055",
+      "path": "assessment.assessment_categories[4].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-056",
+      "path": "assessment.assessment_categories[5].category",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-057",
+      "path": "assessment.assessment_categories[5].result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-058",
+      "path": "assessment.assessment_categories[5].score",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-059",
+      "path": "evidence_sources[0].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-060",
+      "path": "evidence_sources[0].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-061",
+      "path": "evidence_sources[0].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-062",
+      "path": "evidence_sources[0].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-063",
+      "path": "evidence_sources[0].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-064",
+      "path": "evidence_sources[1].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-065",
+      "path": "evidence_sources[1].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-066",
+      "path": "evidence_sources[1].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-067",
+      "path": "evidence_sources[1].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-068",
+      "path": "evidence_sources[1].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-069",
+      "path": "evidence_sources[2].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-070",
+      "path": "evidence_sources[2].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-071",
+      "path": "evidence_sources[2].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-072",
+      "path": "evidence_sources[2].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-073",
+      "path": "evidence_sources[2].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-074",
+      "path": "evidence_sources[3].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Certification Summary",
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-075",
+      "path": "evidence_sources[3].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-076",
+      "path": "evidence_sources[3].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-077",
+      "path": "evidence_sources[3].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-078",
+      "path": "evidence_sources[3].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-079",
+      "path": "evidence_sources[4].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-080",
+      "path": "evidence_sources[4].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-081",
+      "path": "evidence_sources[4].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-082",
+      "path": "evidence_sources[4].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-083",
+      "path": "evidence_sources[4].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-084",
+      "path": "evidence_sources[5].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-085",
+      "path": "evidence_sources[5].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-086",
+      "path": "evidence_sources[5].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-087",
+      "path": "evidence_sources[5].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-088",
+      "path": "evidence_sources[5].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-089",
+      "path": "evidence_sources[6].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-090",
+      "path": "evidence_sources[6].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-091",
+      "path": "evidence_sources[6].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-092",
+      "path": "evidence_sources[6].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-093",
+      "path": "evidence_sources[6].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-094",
+      "path": "evidence_sources[7].name",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-095",
+      "path": "evidence_sources[7].required",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-096",
+      "path": "evidence_sources[7].present",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-097",
+      "path": "evidence_sources[7].review_result",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-098",
+      "path": "evidence_sources[7].url",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-099",
+      "path": "generated_artifacts.certification_package",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Record Identity",
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-100",
+      "path": "generated_artifacts.scpr",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-101",
+      "path": "generated_artifacts.scr",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-102",
+      "path": "generated_artifacts.scrd_html",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-C-103",
+      "path": "generated_artifacts.scrd_json",
+      "representation": "CERTIFIER_DERIVED_SCRD_JSON",
+      "owner": "Certifier",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Related Records"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-001",
+      "path": "$schema",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-002",
+      "path": "record_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-003",
+      "path": "record_name",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Registration History"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-006",
+      "path": "title",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-007",
+      "path": "description",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-008",
+      "path": "registry_record_type.code",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Source Record Identity",
+        "Source Certification Record",
+        "Assessment Record",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-010",
+      "path": "schema_profile.name",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-011",
+      "path": "schema_profile.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-012",
+      "path": "schema_profile.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-013",
+      "path": "registry_status.code",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-015",
+      "path": "registry_lifecycle_state.code",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-018",
+      "path": "registration.publication_date",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-020",
+      "path": "registration.registration_position",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-021",
+      "path": "canonical_urls.registration_overview",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Publication",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-022",
+      "path": "canonical_urls.human_readable_registry_entry",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Registry Publication"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-023",
+      "path": "canonical_urls.machine_readable_registry_entry",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Publication",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-024",
+      "path": "canonical_urls.repository_documentation",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-025",
+      "path": "canonical_urls.registered_items_directory",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Publication",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-028",
+      "path": "source_authority.source_system",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-030",
+      "path": "source_authority.source_record_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-031",
+      "path": "source_authority.authoritative_source_record",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-033",
+      "path": "source_authority.canonical_source_url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Source Record Identity",
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-034",
+      "path": "source_authority.authority_statement",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-041",
+      "path": "registered_subject.canonical_subject_url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Atlas preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Registered Subject"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-042",
+      "path": "registered_subject.authority_statement",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Atlas preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-043",
+      "path": "source_certification.certification_id",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-051",
+      "path": "source_certification.historical_prototype_assessment.assessment_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Assessment Record"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-055",
+      "path": "source_certification.scope_statement",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-056",
+      "path": "source_artifacts.certification_package.artifact_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-057",
+      "path": "source_artifacts.certification_package.canonical",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-058",
+      "path": "source_artifacts.certification_package.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-059",
+      "path": "source_artifacts.certification_package.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Source Record Identity",
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-060",
+      "path": "source_artifacts.certification_process_report.artifact_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-061",
+      "path": "source_artifacts.certification_process_report.canonical",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-062",
+      "path": "source_artifacts.certification_process_report.derived_from",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-063",
+      "path": "source_artifacts.certification_process_report.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-064",
+      "path": "source_artifacts.certification_process_report.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-065",
+      "path": "source_artifacts.certification_receipt.artifact_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-066",
+      "path": "source_artifacts.certification_receipt.canonical",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-067",
+      "path": "source_artifacts.certification_receipt.derived_from",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-068",
+      "path": "source_artifacts.certification_receipt.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-069",
+      "path": "source_artifacts.certified_record_html.artifact_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-070",
+      "path": "source_artifacts.certified_record_html.canonical",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-071",
+      "path": "source_artifacts.certified_record_html.derived_from",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-072",
+      "path": "source_artifacts.certified_record_html.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-073",
+      "path": "source_artifacts.certified_record_html.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-074",
+      "path": "source_artifacts.certified_record_json.artifact_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-075",
+      "path": "source_artifacts.certified_record_json.canonical",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-076",
+      "path": "source_artifacts.certified_record_json.derived_from",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-077",
+      "path": "source_artifacts.certified_record_json.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-078",
+      "path": "source_artifacts.certified_record_json.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Certifier preserved by Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Source Artifact Manifest"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-079",
+      "path": "governing_framework.suite_standards.name",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-080",
+      "path": "governing_framework.suite_standards.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-081",
+      "path": "governing_framework.suite_standards.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-082",
+      "path": "governing_framework.suite_standards.applicable_standards[0]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-083",
+      "path": "governing_framework.suite_standards.applicable_standards[1]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-084",
+      "path": "governing_framework.suite_standards.applicable_standards[2]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-085",
+      "path": "governing_framework.suite_standards.applicable_standards[3]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-086",
+      "path": "governing_framework.suite_methodology.name",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-087",
+      "path": "governing_framework.suite_methodology.version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-088",
+      "path": "governing_framework.suite_methodology.url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-089",
+      "path": "governing_framework.suite_methodology.applicable_components[0]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-090",
+      "path": "governing_framework.suite_methodology.applicable_components[1]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-091",
+      "path": "governing_framework.suite_methodology.applicable_components[2]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-092",
+      "path": "governing_framework.suite_methodology.applicable_components[3]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-093",
+      "path": "governing_framework.suite_methodology.applicable_components[4]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-094",
+      "path": "governing_framework.suite_methodology.applicable_components[5]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Suite + Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Governing Framework"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-095",
+      "path": "registry_relationships[0].relationship_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-096",
+      "path": "registry_relationships[0].source.identifier_domain",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-097",
+      "path": "registry_relationships[0].source.identifier",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-098",
+      "path": "registry_relationships[0].target.identifier_domain",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-099",
+      "path": "registry_relationships[0].target.identifier",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-100",
+      "path": "registry_relationships[0].target.record",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-101",
+      "path": "registry_relationships[0].relationship_authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-102",
+      "path": "registry_relationships[0].relationship_status",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-103",
+      "path": "registry_relationships[1].relationship_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-104",
+      "path": "registry_relationships[1].source.identifier_domain",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-105",
+      "path": "registry_relationships[1].source.identifier",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-106",
+      "path": "registry_relationships[1].target.institution",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-107",
+      "path": "registry_relationships[1].relationship_authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-108",
+      "path": "registry_relationships[1].relationship_status",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-109",
+      "path": "registry_relationships[2].relationship_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-110",
+      "path": "registry_relationships[2].source.identifier_domain",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-111",
+      "path": "registry_relationships[2].source.identifier",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-112",
+      "path": "registry_relationships[2].source.record",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Source Artifact Manifest",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-113",
+      "path": "registry_relationships[2].target.institution",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-114",
+      "path": "registry_relationships[2].target.record",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-115",
+      "path": "registry_relationships[2].relationship_authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-116",
+      "path": "registry_relationships[2].relationship_status",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-117",
+      "path": "registry_relationships[3].relationship_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-118",
+      "path": "registry_relationships[3].source.record",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-119",
+      "path": "registry_relationships[3].target.institution",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-120",
+      "path": "registry_relationships[3].relationship_authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-121",
+      "path": "registry_relationships[3].relationship_status",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-122",
+      "path": "provenance.provenance_chain[0]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-123",
+      "path": "provenance.provenance_chain[1]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Registered Subject",
+        "Provenance",
+        "Registry Relationships",
+        "Registration History"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-124",
+      "path": "provenance.provenance_chain[2]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-125",
+      "path": "provenance.provenance_chain[3]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Source Record Identity",
+        "Provenance",
+        "Registry Relationships"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-126",
+      "path": "provenance.provenance_chain[4]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-127",
+      "path": "provenance.provenance_chain[5]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-128",
+      "path": "provenance.provenance_statement",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry (subject to referenced institution)",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-133",
+      "path": "registry_validation.checks[0].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-134",
+      "path": "registry_validation.checks[0].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-135",
+      "path": "registry_validation.checks[1].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Canonical Registry Hierarchy"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-136",
+      "path": "registry_validation.checks[1].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-137",
+      "path": "registry_validation.checks[2].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-138",
+      "path": "registry_validation.checks[2].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-139",
+      "path": "registry_validation.checks[3].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-140",
+      "path": "registry_validation.checks[3].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-141",
+      "path": "registry_validation.checks[4].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-142",
+      "path": "registry_validation.checks[4].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-143",
+      "path": "registry_validation.checks[5].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-144",
+      "path": "registry_validation.checks[5].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-145",
+      "path": "registry_validation.checks[6].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-146",
+      "path": "registry_validation.checks[6].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-147",
+      "path": "registry_validation.checks[7].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-148",
+      "path": "registry_validation.checks[7].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-149",
+      "path": "registry_validation.checks[8].check",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-150",
+      "path": "registry_validation.checks[8].result",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-151",
+      "path": "registry_validation.validation_notice",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-157",
+      "path": "registry_publication.representations[0].format",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-158",
+      "path": "registry_publication.representations[0].role",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-159",
+      "path": "registry_publication.representations[0].url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Registry Publication"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-160",
+      "path": "registry_publication.representations[1].format",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-161",
+      "path": "registry_publication.representations[1].role",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-162",
+      "path": "registry_publication.representations[1].url",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Publication",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-163",
+      "path": "history[0].date",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-164",
+      "path": "history[0].event_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-165",
+      "path": "history[0].authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-166",
+      "path": "history[0].description",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-167",
+      "path": "history[0].source_record_version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-168",
+      "path": "history[1].date",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-169",
+      "path": "history[1].event_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-170",
+      "path": "history[1].authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Source Record Identity",
+        "Source Certification Record",
+        "Provenance",
+        "Registry Relationships",
+        "Registry Validation",
+        "Registration History",
+        "Scope and Limitations",
+        "Downstream Historical-Preservation Reference"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-171",
+      "path": "history[1].description",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-172",
+      "path": "history[1].source_record_version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-173",
+      "path": "history[2].date",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-174",
+      "path": "history[2].event_type",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-175",
+      "path": "history[2].authority",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "MULTIPLE_HTML_SECTIONS_PRESENCE",
+      "sections": [
+        "Registry Entry Identity",
+        "Registry Entry Summary",
+        "Canonical Registry Hierarchy",
+        "Provenance",
+        "Registry Validation",
+        "Registry Publication",
+        "Registration History",
+        "Downstream Historical-Preservation Reference",
+        "Registry Entry Metadata"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-176",
+      "path": "history[2].description",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-177",
+      "path": "history[2].registry_entry_version",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-178",
+      "path": "notices_and_limitations[0]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-179",
+      "path": "notices_and_limitations[1]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-180",
+      "path": "notices_and_limitations[2]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-181",
+      "path": "notices_and_limitations[3]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-182",
+      "path": "notices_and_limitations[4]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-183",
+      "path": "notices_and_limitations[5]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-184",
+      "path": "notices_and_limitations[6]",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_VALUE_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Scope and Limitations"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-185",
+      "path": "institutional_correlation.certifier_registry_integration",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Institutional Correlation"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-186",
+      "path": "institutional_correlation.registry_integration",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "UNSCOPED_LINK_PRESENT",
+      "new_context": "SINGLE_HTML_SECTION_PRESENCE",
+      "sections": [
+        "Institutional Correlation"
+      ],
+      "evidence_limit": "No field-level binding; section context is not a labeled semantic pair",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-187",
+      "path": "maintenance.correction_policy",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-188",
+      "path": "maintenance.versioning_policy",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    },
+    {
+      "id": "3E-R-189",
+      "path": "maintenance.authority_preservation_policy",
+      "representation": "REGISTRY_CANONICAL_SREG_JSON",
+      "owner": "Registry",
+      "prior": "NO_DIRECT_HUMAN_FIELD_EVIDENCE",
+      "new_context": "NO_DIRECT_FIELD_EVIDENCE",
+      "sections": [],
+      "evidence_limit": "An unmapped field remains unreviewed; lack of evidence is not an omission finding",
+      "authoritative_field_binding": false,
+      "owner_approval": false
+    }
+  ],
+  "governance": {
+    "D_2A_06": "OPEN_NARROWED",
+    "D_2A_03": "OPEN_NARROWED",
+    "all_six_owner_decisions_open": true,
+    "p0_production_accepted": 0,
+    "authentication": false,
+    "production_write": false
+  }
+}
