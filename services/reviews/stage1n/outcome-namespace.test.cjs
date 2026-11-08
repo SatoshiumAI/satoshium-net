@@ -1,0 +1,36 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {classifyOutcome,compareOutcomes}=require('./outcome-namespace.cjs');
+const f=require('./fictional-outcomes.json');
+const copy=x=>structuredClone(x);
+let n=0;
+function check(label,edit,expectStatus,errCode){
+  const r=classifyOutcome(edit(copy(f.evaluation)));
+  assert.equal(r.status,expectStatus,label);
+  assert.equal(r.noncanonical,true,label);assert.equal(r.authority_granted,false,label);assert.equal(r.outcome_accepted,false,label);
+  if(errCode)assert.ok(r.errors.some(e=>e.code===errCode),label+' errors '+JSON.stringify(r.errors));
+  n++;return r;
+}
+check('Attestor supported known lexeme',x=>x,'TYPED_ONLY');
+for(const v of ['partially-supported','not-supported','contradicted','indeterminate'])check('Attestor value '+v,x=>{x.value=v;return x},'TYPED_ONLY');
+check('explicit unknown stays unknown',x=>{x.value='unknown';return x},'UNKNOWN');
+check('unrecognized Attestor evaluation value rejected',x=>{x.value='valid';return x},'REJECTED','UNSUPPORTED_CONTROLLED_VALUE');
+check('generic status rejected',x=>{x.status='supported';return x},'REJECTED','AMBIGUOUS_GENERIC_STATUS');
+check('generic_status rejected',x=>{x.generic_status='supported';return x},'REJECTED','AMBIGUOUS_GENERIC_STATUS');
+check('namespace wrong for institution',x=>{x.institution='Registry';return x},'REJECTED','UNSUPPORTED_NAMESPACE');
+check('unknown domain',x=>{x.outcome_kind='trust-score';return x},'REJECTED','UNSUPPORTED_NAMESPACE');
+for(const field of ['institution','outcome_kind','value','subject_reference','provenance_reference'])check('missing '+field,x=>{delete x[field];return x},'REJECTED','MISSING_TYPED_FIELD');
+check('null input',()=>null,'REJECTED','INVALID_INPUT');
+check('array input',()=>[],'REJECTED','INVALID_INPUT');
+let r=classifyOutcome(f.certification);assert.equal(r.status,'TYPED_ONLY');assert.equal(r.vocabulary_conformance,'NOT_VERIFIED');n++;
+r=classifyOutcome(f.review);assert.equal(r.status,'TYPED_ONLY');assert.equal(r.vocabulary_conformance,'NOT_VERIFIED');n++;
+r=classifyOutcome(f.verification);assert.equal(r.status,'TYPED_ONLY');n++;
+r=classifyOutcome(f.conclusion);assert.equal(r.status,'TYPED_ONLY');n++;
+r=compareOutcomes(f.certification,f.evaluation);assert.equal(r.comparison,'DIFFERENT_AUTHORITY_DOMAIN');assert.equal(r.equivalent,false);n++;
+r=compareOutcomes(f.review,f.conclusion);assert.equal(r.comparison,'DIFFERENT_AUTHORITY_DOMAIN');n++;
+r=compareOutcomes(f.evaluation,f.evaluation);assert.equal(r.comparison,'SAME_TYPED_LEXEME_ONLY');assert.equal(r.equivalent,false);n++;
+r=compareOutcomes({...f.evaluation,value:'unknown'},f.evaluation);assert.equal(r.comparison,'UNKNOWN');n++;
+r=compareOutcomes({...f.evaluation,value:'not-a-value'},f.evaluation);assert.equal(r.comparison,'REJECTED');n++;
+const original=copy(f.evaluation);classifyOutcome(f.evaluation);assert.deepEqual(f.evaluation,original);n++;
+assert.equal(n,27);
+console.log('PASS '+n+'/'+n+' fictional IQ-006 typed-outcome checks; no institutional conclusions approved');

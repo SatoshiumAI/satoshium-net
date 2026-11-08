@@ -1,0 +1,38 @@
+{
+  "notice": "FICTIONAL outcome references. They are not institutional decisions or issued canonical records.",
+  "certification": {
+    "institution": "Certifier",
+    "outcome_kind": "certification-outcome",
+    "value": "supported",
+    "subject_reference": "SC-CERT-2099-0042",
+    "provenance_reference": "fictional-certifier-source"
+  },
+  "evaluation": {
+    "institution": "Attestor",
+    "outcome_kind": "evaluation-outcome",
+    "value": "supported",
+    "subject_reference": "TRST-2099-0020",
+    "provenance_reference": "fictional-attestor-source"
+  },
+  "review": {
+    "institution": "Attestor",
+    "outcome_kind": "review-result",
+    "value": "supported",
+    "subject_reference": "ATT-2099-0021",
+    "provenance_reference": "fictional-review-source"
+  },
+  "verification": {
+    "institution": "Anchor",
+    "outcome_kind": "verification-result",
+    "value": "supported",
+    "subject_reference": "ANCH-2099-0022",
+    "provenance_reference": "fictional-anchor-source"
+  },
+  "conclusion": {
+    "institution": "Attestor",
+    "outcome_kind": "trust-statement-conclusion",
+    "value": "supported",
+    "subject_reference": "TRST-2099-0020",
+    "provenance_reference": "fictional-attestor-source"
+  }
+}
