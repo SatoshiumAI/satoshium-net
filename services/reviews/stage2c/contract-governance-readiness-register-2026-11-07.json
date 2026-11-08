@@ -1,0 +1,99 @@
+{
+  "schema_version": "stage2c-governance-readiness-v1",
+  "date": "2026-11-07",
+  "canonical": {
+    "repository": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "commit": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "access": "READ_ONLY"
+  },
+  "experimental": {
+    "repository": "SatoshiumAI/satoshium-net",
+    "base_commit": "313c1fafb31fde37baab03a7f42db5a88ba116b6",
+    "last_ci_checks": 436
+  },
+  "status": {
+    "assessment": "SOURCE_RECONCILED",
+    "decisions_open": 6,
+    "decisions_narrowed": 1,
+    "production_p0_not_verified": 11,
+    "production_p0_accepted": 0,
+    "release_authorized": false
+  },
+  "decisions": [
+    {
+      "id": "D-2A-01",
+      "topic": "Authoritative Certifier producer representation",
+      "status": "OPEN",
+      "finding": "Canonical Certification Package v1.1 is described in its issuer README. Toolkit certification_package.schema.json is an artifact-generation schema; no approved version-pinned automated producer exchange interface or machine source readback verified.",
+      "evidence": [
+        "certifier/certifications/SC-CERT-2026-0001/README.md",
+        "certifier/tools/ops-toolkit/README.md",
+        "certifier/tools/ops-toolkit/schema/certification_package.schema.json"
+      ],
+      "next_gate": "Issuer approves exact serialized representation, source version and signed/freshness provenance for nonproduction consumer tests."
+    },
+    {
+      "id": "D-2A-02",
+      "topic": "Registry intake and ownership",
+      "status": "OPEN",
+      "finding": "Production SREG Base Schema and Certification Record-Type Profile constrain Registry output records. Registry governance has decision/approval roles and controlled delegation, but no approved automated Certifier→Registry intake endpoint or creation authority was established by the reviewed sources.",
+      "evidence": [
+        "registry/schemas/sreg-base-schema.json",
+        "registry/schemas/certification-record-profile.json",
+        "registry/governance/README.md"
+      ],
+      "next_gate": "Registry approves a specific nonproduction request contract, decision scope, receiver policy and rejection semantics; output-schema validation is not issuance."
+    },
+    {
+      "id": "D-2A-03",
+      "topic": "Version/status and lifecycle separation",
+      "status": "OPEN — NARROWED",
+      "finding": "Registry Controlled Values README explicitly lists Published among initial Registry Lifecycle States. Historical SREG registry_lifecycle_state.code=published is therefore not inherently an invalid lifecycle label. However machine-controlled values, actual transitions and different issuer/Registry version and status domains remain to be verified; toolkit example schema_version=1.0.0 is not canonical package version=1.1.",
+      "evidence": [
+        "registry/controlled-values/README.md",
+        "registry/registered-items/SREG-2026-0001/record.json",
+        "certifier/tools/ops-toolkit/examples/SC-CERT-2026-0000/certification_package.json"
+      ],
+      "next_gate": "Inspect machine-controlled lifecycle code set and effective governance, confirm source state-at-use/currentness and version mappings without altering historical record."
+    },
+    {
+      "id": "D-2A-04",
+      "topic": "Native registers and Suite relationship predicate",
+      "status": "OPEN",
+      "finding": "Registry Certification Record-Type Profile requires a Registry-owned registers relationship. Generic Suite relationship semantics do not automatically authorize substituting references or any reverse direction; controlled-values narrative discusses relationship vocabularies but does not decide the exact bridge.",
+      "evidence": [
+        "registry/schemas/certification-record-profile.json",
+        "suite/interoperability/satoshium-interoperability-review-relationship-serialization-2026-10-03.md",
+        "registry/controlled-values/README.md"
+      ],
+      "next_gate": "Registry and Suite governance approve any additional cross-institution representation and evidence attribution separately; preserve native registers."
+    },
+    {
+      "id": "D-2A-05",
+      "topic": "Recipient authority/trace and write audit",
+      "status": "OPEN",
+      "finding": "Registry Governance names authorized and delegated decision roles, while Validation distinguishes conformity from publication. No verified production principal, signed approval, durable audit, idempotent authorization or endpoint enforcement has been demonstrated.",
+      "evidence": [
+        "registry/governance/README.md",
+        "registry/validation/README.md",
+        "suite/interoperability/satoshium-interoperability-review-security-authority-trust-boundaries-2026-10-03.md"
+      ],
+      "next_gate": "Define explicit Registry-governed test principal, policy decision and trace record; verify denied cross-institution writes and reported-result readback before any write test."
+    },
+    {
+      "id": "D-2A-06",
+      "topic": "Historical and current representation parity",
+      "status": "OPEN",
+      "finding": "Existing published SREG documentation requires alignment of machine record and human-readable Registry entry. Structural validation and source authority review remain separate from public publication. No independently executed live issuer/current-state/Registry parity or history-correction propagation test.",
+      "evidence": [
+        "registry/registered-items/SREG-2026-0001/README.md",
+        "registry/validation/README.md",
+        "certifier/certifications/SC-CERT-2026-0001/README.md"
+      ],
+      "next_gate": "Design read-only parity assertions with immutable source SHA, published URI and historical version context; verify both forms before testing any writes."
+    }
+  ],
+  "next_recommended_stage": "Stage 2D — Registry Machine Controlled Values and Lifecycle/Source-State Contract Verification",
+  "note": "One decision narrowed through direct source evidence; no autonomous approval or canonical change."
+}
