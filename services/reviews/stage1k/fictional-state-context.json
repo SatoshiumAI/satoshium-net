@@ -1,0 +1,38 @@
+{
+  "notice": "FICTIONAL DATA ONLY; does not describe a real Suite source or real canonical record",
+  "source": {
+    "institution": "Certifier",
+    "identifier": "SC-CERT-2099-0042"
+  },
+  "receiver": {
+    "institution": "Registry",
+    "object_identifier": "SREG-2099-0042",
+    "lifecycle_state": "active",
+    "publication_state": "published"
+  },
+  "profile": {
+    "lifecycle_values": [
+      "draft",
+      "active",
+      "superseded",
+      "withdrawn",
+      "retired"
+    ],
+    "publication_values": [
+      "unpublished",
+      "published"
+    ]
+  },
+  "at_use": {
+    "version": "1.0",
+    "lifecycle_state": "active",
+    "publication_state": "published",
+    "observed_at": "2099-01-01T00:00:00Z"
+  },
+  "current": {
+    "version": "1.1",
+    "lifecycle_state": "superseded",
+    "publication_state": "published",
+    "checked_at": "2099-02-01T00:00:00Z"
+  }
+}
