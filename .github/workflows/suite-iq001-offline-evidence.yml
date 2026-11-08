@@ -1,4 +1,4 @@
-name: Suite IQ-001 Offline Evidence (noncanonical)
+name: Suite IQ-001 / IQ-002 Offline Evidence (noncanonical)
 on:
   push:
     branches: [phase004]
