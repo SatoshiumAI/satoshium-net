@@ -42,5 +42,5 @@ const altered=structuredClone(envelope);altered.canonical_source_reference='http
 eq(assess(altered).classification,'REJECTED','cross-reference mismatch fail-closed');
 const stale=structuredClone(envelope);stale.readback_state='unknown';
 eq(assess(stale).classification,'HOLD_UNKNOWN','unknown readback fail-closed');
-assert.equal(n,30);
+assert.equal(n,31);
 console.log('PASS '+n+'/'+n+' Stage 3M copied historical source excerpt checks; no live source verification or P0 acceptance');
