@@ -1,0 +1,77 @@
+{
+  "source": {
+    "identifier": "SC-CERT-2099-0001",
+    "owner": "Certifier",
+    "version_at_registry_use": "1.1"
+  },
+  "registry": {
+    "registry_id": "FICTIONAL-SREG-2099-0001",
+    "owner": "Registry",
+    "source_id": "SC-CERT-2099-0001",
+    "entry_version": "1.0",
+    "recorded_source_version": "1.1"
+  },
+  "change": {
+    "event_id": "fictional:source-event-new",
+    "owner": "Certifier",
+    "observed_at": "2099-09-01T00:00:00Z",
+    "observed_version": "1.2",
+    "observed_state": "updated",
+    "provenance": "fictional-issuer-record",
+    "rewrite_history": false,
+    "override_registry_status": false,
+    "override_downstream_conclusions": false
+  },
+  "history": [
+    {
+      "event_id": "fictional:source-v1",
+      "owner": "Certifier",
+      "domain": "source",
+      "version": "1.0",
+      "occurred_at": "2099-01-05T00:00:00Z"
+    },
+    {
+      "event_id": "fictional:source-v11",
+      "owner": "Certifier",
+      "domain": "source",
+      "version": "1.1",
+      "occurred_at": "2099-02-02T00:00:00Z"
+    },
+    {
+      "event_id": "fictional:registry-v1",
+      "owner": "Registry",
+      "domain": "registry",
+      "version": "1.0",
+      "occurred_at": "2099-03-01T00:00:00Z"
+    }
+  ],
+  "downstream": [
+    {
+      "reference_id": "fictional:chronicle",
+      "owner": "Chronicle",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1",
+      "relationship": "preserves-history",
+      "disposition": "preserved",
+      "automatic_update": false
+    },
+    {
+      "reference_id": "fictional:beacon",
+      "owner": "Beacon",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1",
+      "relationship": "discovery-reference",
+      "disposition": "review-needed",
+      "automatic_update": false
+    },
+    {
+      "reference_id": "fictional:attestor",
+      "owner": "Attestor",
+      "source_identifier": "SC-CERT-2099-0001",
+      "source_version_at_use": "1.1",
+      "relationship": "attestation-reference",
+      "disposition": "unknown",
+      "automatic_update": false
+    }
+  ]
+}

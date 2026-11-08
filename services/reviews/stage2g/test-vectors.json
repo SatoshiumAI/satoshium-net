@@ -1,0 +1,287 @@
+[
+  {
+    "name": "source update requires separate owner review",
+    "path": null,
+    "value": null,
+    "classification": "SOURCE_CHANGE_REVIEW_REQUIRED",
+    "reason": "NO_AUTOMATIC_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "source version unchanged",
+    "path": "change",
+    "value": {
+      "event_id": "fictional:source-event-new",
+      "owner": "Certifier",
+      "observed_at": "2099-09-01T00:00:00Z",
+      "observed_version": "1.1",
+      "observed_state": "unchanged",
+      "provenance": "fictional-issuer-record",
+      "rewrite_history": false,
+      "override_registry_status": false,
+      "override_downstream_conclusions": false
+    },
+    "classification": "CONTEXT_ONLY",
+    "reason": "NO_NEW_SOURCE_VERSION"
+  },
+  {
+    "name": "unknown source",
+    "path": "change.observed_state",
+    "value": "unknown",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "CURRENT_SOURCE_NOT_VERIFIED"
+  },
+  {
+    "name": "unavailable source",
+    "path": "change.observed_state",
+    "value": "unavailable",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "CURRENT_SOURCE_NOT_VERIFIED"
+  },
+  {
+    "name": "unverified provenance",
+    "path": "change.provenance",
+    "value": "unverified",
+    "classification": "HOLD_UNKNOWN",
+    "reason": "CURRENT_SOURCE_NOT_VERIFIED"
+  },
+  {
+    "name": "history rewrite",
+    "path": "change.rewrite_history",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "FORBIDDEN_AUTHORITY_PROPAGATION"
+  },
+  {
+    "name": "registry status override",
+    "path": "change.override_registry_status",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "FORBIDDEN_AUTHORITY_PROPAGATION"
+  },
+  {
+    "name": "downstream conclusion override",
+    "path": "change.override_downstream_conclusions",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "FORBIDDEN_AUTHORITY_PROPAGATION"
+  },
+  {
+    "name": "unattributed source owner",
+    "path": "change.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "SOURCE_CHANGE_AUTHORITY_MISMATCH"
+  },
+  {
+    "name": "missing observed version",
+    "path": "change.observed_version",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_VERSIONED_TRACE_CONTEXT"
+  },
+  {
+    "name": "missing observed timestamp",
+    "path": "change.observed_at",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_VERSIONED_TRACE_CONTEXT"
+  },
+  {
+    "name": "wrong source owner",
+    "path": "source.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "OWNER_OR_REFERENCE_MISMATCH"
+  },
+  {
+    "name": "wrong registry owner",
+    "path": "registry.owner",
+    "value": "Certifier",
+    "classification": "REJECTED",
+    "reason": "OWNER_OR_REFERENCE_MISMATCH"
+  },
+  {
+    "name": "wrong registry target",
+    "path": "registry.source_id",
+    "value": "other",
+    "classification": "REJECTED",
+    "reason": "OWNER_OR_REFERENCE_MISMATCH"
+  },
+  {
+    "name": "source use and recorded version conflict",
+    "path": "registry.recorded_source_version",
+    "value": "1.0",
+    "classification": "REJECTED",
+    "reason": "AT_USE_VERSION_CONFLICT"
+  },
+  {
+    "name": "missing source historical event",
+    "path": "history",
+    "value": [
+      {
+        "event_id": "fictional:registry-v1",
+        "owner": "Registry",
+        "domain": "registry",
+        "version": "1.0",
+        "occurred_at": "2099-03-01T00:00:00Z"
+      }
+    ],
+    "classification": "REJECTED",
+    "reason": "SOURCE_AT_USE_HISTORY_UNSUPPORTED"
+  },
+  {
+    "name": "missing registry historical event",
+    "path": "history",
+    "value": [
+      {
+        "event_id": "fictional:source-v1",
+        "owner": "Certifier",
+        "domain": "source",
+        "version": "1.0",
+        "occurred_at": "2099-01-05T00:00:00Z"
+      },
+      {
+        "event_id": "fictional:source-v11",
+        "owner": "Certifier",
+        "domain": "source",
+        "version": "1.1",
+        "occurred_at": "2099-02-02T00:00:00Z"
+      }
+    ],
+    "classification": "REJECTED",
+    "reason": "REGISTRY_HISTORY_VERSION_UNSUPPORTED"
+  },
+  {
+    "name": "duplicate history identifier",
+    "path": "history.1.event_id",
+    "value": "fictional:source-v1",
+    "classification": "REJECTED",
+    "reason": "DUPLICATE_EVENT_ID"
+  },
+  {
+    "name": "invalid history timestamp",
+    "path": "history.0.occurred_at",
+    "value": "broken",
+    "classification": "REJECTED",
+    "reason": "INVALID_HISTORY_EVENT"
+  },
+  {
+    "name": "source history owner invalid",
+    "path": "history.0.owner",
+    "value": "Registry",
+    "classification": "REJECTED",
+    "reason": "HISTORY_AUTHORITY_MISMATCH"
+  },
+  {
+    "name": "registry history owner invalid",
+    "path": "history.2.owner",
+    "value": "Certifier",
+    "classification": "REJECTED",
+    "reason": "HISTORY_AUTHORITY_MISMATCH"
+  },
+  {
+    "name": "repeated new event",
+    "path": "change.event_id",
+    "value": "fictional:source-v11",
+    "classification": "REJECTED",
+    "reason": "REPEATED_SOURCE_CHANGE_EVENT"
+  },
+  {
+    "name": "downstream source mismatch",
+    "path": "downstream.0.source_identifier",
+    "value": "other",
+    "classification": "REJECTED",
+    "reason": "DOWNSTREAM_OWNER_OR_SOURCE_MISMATCH"
+  },
+  {
+    "name": "unsupported downstream institution",
+    "path": "downstream.0.owner",
+    "value": "Navigator",
+    "classification": "REJECTED",
+    "reason": "DOWNSTREAM_OWNER_OR_SOURCE_MISMATCH"
+  },
+  {
+    "name": "missing downstream version",
+    "path": "downstream.0.source_version_at_use",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "DOWNSTREAM_REFERENCE_INCOMPLETE"
+  },
+  {
+    "name": "downstream auto-update",
+    "path": "downstream.0.automatic_update",
+    "value": true,
+    "classification": "REJECTED",
+    "reason": "AUTOMATIC_DOWNSTREAM_MUTATION"
+  },
+  {
+    "name": "downstream duplicate",
+    "path": "downstream.1.reference_id",
+    "value": "fictional:chronicle",
+    "classification": "REJECTED",
+    "reason": "DUPLICATE_DOWNSTREAM_REFERENCE"
+  },
+  {
+    "name": "unsupported disposition",
+    "path": "downstream.0.disposition",
+    "value": "automated",
+    "classification": "REJECTED",
+    "reason": "DOWNSTREAM_DISPOSITION_UNSUPPORTED"
+  },
+  {
+    "name": "lost source identity",
+    "path": "source.identifier",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_VERSIONED_TRACE_CONTEXT"
+  },
+  {
+    "name": "lost Registry version",
+    "path": "registry.entry_version",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_VERSIONED_TRACE_CONTEXT"
+  },
+  {
+    "name": "lost change event identity",
+    "path": "change.event_id",
+    "value": "",
+    "classification": "REJECTED",
+    "reason": "MISSING_VERSIONED_TRACE_CONTEXT"
+  },
+  {
+    "name": "missing history",
+    "path": "history",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_TRACE_ENVELOPE"
+  },
+  {
+    "name": "missing downstream collection",
+    "path": "downstream",
+    "value": null,
+    "classification": "REJECTED",
+    "reason": "INVALID_TRACE_ENVELOPE"
+  },
+  {
+    "name": "no downstream records",
+    "path": "downstream",
+    "value": [],
+    "classification": "SOURCE_CHANGE_REVIEW_REQUIRED",
+    "reason": "NO_AUTOMATIC_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "source withdrawn instead of version update",
+    "path": "change.observed_state",
+    "value": "withdrawn",
+    "classification": "SOURCE_CHANGE_REVIEW_REQUIRED",
+    "reason": "NO_AUTOMATIC_INSTITUTIONAL_ACTION"
+  },
+  {
+    "name": "source superseded instead of version update",
+    "path": "change.observed_state",
+    "value": "superseded",
+    "classification": "SOURCE_CHANGE_REVIEW_REQUIRED",
+    "reason": "NO_AUTOMATIC_INSTITUTIONAL_ACTION"
+  }
+]

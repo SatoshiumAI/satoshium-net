@@ -20,6 +20,7 @@ on:
       - 'services/reviews/stage2b/**'
       - 'services/reviews/stage2e/**'
       - 'services/reviews/stage2f/**'
+      - 'services/reviews/stage2g/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,6 +37,8 @@ jobs:
         run: node services/reviews/stage1e/p0-evidence-gate.test.cjs
       - name: Stage 1E P0 evidence register completeness check
         run: node services/reviews/stage1e/p0-evidence-gate.cjs
+      - name: Stage 2G fictional versioned trace and source impact checks
+        run: node services/reviews/stage2g/impact-matrix.test.cjs
       - name: Stage 2F fictional historical state and transition checks
         run: node services/reviews/stage2f/historical-transition-gate.test.cjs
       - name: Stage 2E pinned controlled values conformance tests

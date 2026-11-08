@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-07",
+  "source_canonical_pin": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "status": "FICTIONAL_ADVISORY_MATRIX",
+  "owner_model": {
+    "source": "Certifier",
+    "registry": "Registry",
+    "downstream": [
+      "Chronicle",
+      "Beacon",
+      "Attestor"
+    ]
+  },
+  "changes": [
+    {
+      "change": "source_new_version",
+      "registry": "review source reference and SREG version (no automatic update)",
+      "chronicle": "preserve event's at-use version; review independently",
+      "beacon": "review discovery freshness independently",
+      "attestor": "review attestation source version and conclusion independently"
+    },
+    {
+      "change": "source_withdrawn",
+      "registry": "review separate registry status decision",
+      "chronicle": "preserve history",
+      "beacon": "review discovery signals",
+      "attestor": "review evidence validity without inferred conclusion"
+    },
+    {
+      "change": "source_unavailable",
+      "registry": "hold unknown; preserve historical reference",
+      "chronicle": "preserve history",
+      "beacon": "mark freshness verification unknown",
+      "attestor": "no supported result inferred"
+    }
+  ],
+  "production_ready": false,
+  "authenticated_notification": false,
+  "automatic_updates": false
+}
