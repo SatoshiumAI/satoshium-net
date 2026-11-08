@@ -1,0 +1,33 @@
+name: Stage 4D Suite Claims Links and Keyboard Observer
+on:
+  push:
+    branches: [phase004]
+    paths:
+      - '.github/workflows/stage4d-suite-review.yml'
+      - 'services/reviews/stage4d/**'
+      - 'services/reviews/satoshium-suite-stage4d-claims-links-accessibility-2026-11-07.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  observational:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install bounded Chromium observer
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Check scoped public URLs and keyboard evidence
+        run: node services/reviews/stage4d/claims-links-keyboard.cjs
+      - name: Preserve raw evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage4d-public-suite-observations
+          path: stage4d-evidence.json
+          if-no-files-found: warn
