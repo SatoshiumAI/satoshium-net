@@ -1,0 +1,214 @@
+{
+  "schema_version": "stage3c-pinned-source-parity-v1",
+  "date": "2026-11-07",
+  "source_repo": "SatoshiumAI/satoshium-us",
+  "branch": "phase004",
+  "canonical_sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+  "source_access": "READ_ONLY",
+  "files": {
+    "package_html": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/index.html",
+      "blob_sha": "0e54deb0c42de3396a4c13c9058da5739a2b0ce4"
+    },
+    "package_readme": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/README.md",
+      "blob_sha": "867d555d384d647bf490e22d0df8de6fca5f1ac7"
+    },
+    "scrd_html": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/index.html",
+      "blob_sha": "268902a45b064d0405851778a113048f6b55adde"
+    },
+    "scrd_json": {
+      "path": "certifier/certifications/SC-CERT-2026-0001/records/certified-record/scrd_json.json",
+      "blob_sha": "f1aedbc2899aaa94a59dcbef7d9438869adb62bc"
+    },
+    "registry_html": {
+      "path": "registry/registered-items/SREG-2026-0001/registry-entry.html",
+      "blob_sha": "0415ec937b5449b8d305e6f20eff20163dc29f3f"
+    },
+    "registry_json": {
+      "path": "registry/registered-items/SREG-2026-0001/record.json",
+      "blob_sha": "9faf4401ec432ae1367aec5207a6eb08da308f99"
+    },
+    "registry_overview": {
+      "path": "registry/registered-items/SREG-2026-0001/index.html",
+      "blob_sha": "cbfa5b617ec710dfeeba8a46bc18ba3e7952b224"
+    },
+    "registry_readme": {
+      "path": "registry/registered-items/SREG-2026-0001/README.md",
+      "blob_sha": "8bc661a4ca245a081c0b569d64f34289e9a29a07"
+    }
+  },
+  "checks": [
+    {
+      "id": "3C-01",
+      "scope": "cross_machine",
+      "check": "Canonical source identifier",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-02",
+      "scope": "cross_machine",
+      "check": "Historical source v1.1",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-03",
+      "scope": "cross_machine",
+      "check": "Certification outcome",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-04",
+      "scope": "cross_machine",
+      "check": "Certification status",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-05",
+      "scope": "cross_machine",
+      "check": "Certification class",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-06",
+      "scope": "cross_machine",
+      "check": "Confidence posture",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-07",
+      "scope": "cross_machine",
+      "check": "Decision authority",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-08",
+      "scope": "cross_machine",
+      "check": "Subject identity",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-09",
+      "scope": "cross_machine",
+      "check": "Subject system",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-10",
+      "scope": "cross_machine",
+      "check": "Historical date lexical equivalence",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-11",
+      "scope": "registry_machine",
+      "check": "Native relationship and direction",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-12",
+      "scope": "registry_machine",
+      "check": "Independent Registry status and lifecycle",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-13",
+      "scope": "certifier_human",
+      "check": "Canonical Certifier HTML source identity/version/status",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-14",
+      "scope": "certifier_human",
+      "check": "SCRD HTML source identity/version",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-15",
+      "scope": "certifier_human",
+      "check": "SCRD HTML source outcome/status/class/confidence",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-16",
+      "scope": "registry_human",
+      "check": "Registry entry HTML native identifier/version",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-17",
+      "scope": "registry_human",
+      "check": "Registry entry HTML status and lifecycle separately labeled",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-18",
+      "scope": "registry_human",
+      "check": "Registry entry HTML source version and identity",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-19",
+      "scope": "registry_human",
+      "check": "Registry entry HTML Certifier status and class",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-20",
+      "scope": "registry_human",
+      "check": "Registry entry HTML registers relation",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-21",
+      "scope": "registry_human",
+      "check": "Registry overview explicitly references Registry field names and values",
+      "result": "MATCH_AT_PIN"
+    },
+    {
+      "id": "3C-22",
+      "scope": "registry_human",
+      "check": "Registry overview source ID/version/status",
+      "result": "MATCH_AT_PIN"
+    }
+  ],
+  "summary": {
+    "matched": 22,
+    "total": 22,
+    "checks_executed_against_git_source": true,
+    "full_field_parity_verified": false,
+    "live_served_parity_verified": false,
+    "current_source_status_verified": false,
+    "owner_approval": false,
+    "production_p0_verified": 0,
+    "production_p0_not_verified": 11
+  },
+  "observations": [
+    {
+      "id": "O1",
+      "finding": "Registry overview headline Registered · Published is distinct from explicitly labeled Registry Status Active and Registry Lifecycle State Published",
+      "classification": "PRESENTATION_LABEL_NUANCE_NOT_ESTABLISHED_CONFLICT"
+    },
+    {
+      "id": "O2",
+      "finding": "Certifier SCRD JSON is derivative of canonical Certification Package; it does not establish the approved machine producer wire contract",
+      "classification": "MACHINE_REPRESENTATION_SCOPE_LIMIT"
+    },
+    {
+      "id": "O3",
+      "finding": "SCRD date July 5, 2026 and SREG source certification date 2026-07-05 represent the same historical calendar date",
+      "classification": "FORMAT_DIFFERENCE_NOT_MISMATCH"
+    },
+    {
+      "id": "O4",
+      "finding": "String/text-presence comparisons within human HTML are not field-adjacent structural DOM validations or a comprehensive Registry parity test",
+      "classification": "LIMITED_ASSERTION_STRENGTH"
+    },
+    {
+      "id": "O5",
+      "finding": "Repository commit pins describe published historical source; current source state and live served versions not observed",
+      "classification": "HISTORICAL_ONLY"
+    }
+  ]
+}
