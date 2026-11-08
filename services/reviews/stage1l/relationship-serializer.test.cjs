@@ -1,0 +1,41 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {serializeRelationships,checkOne}=require('./relationship-serializer.cjs');
+const f=require('./fictional-relationships.json');
+const baseline=f.relationships[0];
+const copy=x=>structuredClone(x);
+let count=0;
+function t(label,mutate,expectStatus,expectedCode,policy={}){
+  const r=checkOne(mutate(copy(baseline)),policy);
+  assert.equal(r.status,expectStatus,label);
+  if(expectedCode)assert.ok(r.errors.some(x=>x.code===expectedCode),label+' should include '+expectedCode);
+  if(r.status==='SERIALIZED_ONLY'){assert.equal(r.noncanonical,true);assert.equal(r.authority_granted,false);assert.equal(r.evidence_verified,false)}
+  count++;
+  return r;
+}
+t('fictional derivation unchanged',x=>x,'SERIALIZED_ONLY');
+for(const p of ['references','derived-from','supports','evaluates','results-in','supersedes','corrects','related-to']) t('vocabulary '+p,x=>{x.relationship_type=p;return x},'SERIALIZED_ONLY');
+t('missing subject',x=>{delete x.subject_identifier;return x},'REJECTED','MISSING_FIELD');
+t('missing object',x=>{delete x.object_identifier;return x},'REJECTED','MISSING_FIELD');
+t('missing issuer',x=>{delete x.subject_institution;return x},'REJECTED','MISSING_FIELD');
+t('invalid direction',x=>{x.direction='object-to-subject';return x},'REJECTED','INVALID_DIRECTION');
+t('missing direction',x=>{delete x.direction;return x},'REJECTED','MISSING_FIELD');
+t('unknown token never coerces',x=>{x.relationship_type='registers';return x},'REJECTED','UNSUPPORTED_PREDICATE');
+t('unknown token retained',x=>{x.relationship_type='unknown';return x},'REJECTED','UNSUPPORTED_PREDICATE');
+t('wrong authority context',x=>{x.authority_context='Certifier';return x},'REJECTED','AUTHORITY_MISMATCH');
+t('missing provenance',x=>{delete x.relationship_provenance;return x},'REJECTED','MISSING_FIELD');
+t('empty provenance',x=>{x.relationship_provenance={};return x},'REJECTED','INVALID_PROVENANCE');
+t('invalid object institution',x=>{x.object_institution='UnknownOrg';return x},'REJECTED','UNKNOWN_INSTITUTION');
+t('conditional time',x=>{delete x.effective_time;return x},'REJECTED','MISSING_CONDITIONAL',{effective_time:true});
+t('conditional version scope',x=>{delete x.version_scope;return x},'REJECTED','MISSING_CONDITIONAL',{version_scope:true});
+t('conditional state',x=>{delete x.relationship_state;return x},'REJECTED','MISSING_CONDITIONAL',{relationship_state:true});
+t('explicit related-to reason',x=>{x.relationship_type='related-to';return x},'REJECTED','MISSING_WEAK_REASON',{requires_explicit_weak_relationship_reason:true});
+t('noncanonical rejects null',()=>null,'REJECTED','INVALID_RELATIONSHIP');
+let r=serializeRelationships(f.relationships,{requires_explicit_weak_relationship_reason:true});
+assert.equal(r.status,'SERIALIZED_ONLY');assert.equal(r.items.length,3);assert.equal(r.rejected.length,0);assert.equal(r.items[1].relationship.relationship_type,'references');assert.equal(r.items[2].relationship.relationship_type,'related-to');count++;
+r=serializeRelationships([f.relationships[0],{...f.relationships[0],relationship_type:'registers'}]);
+assert.equal(r.status,'REJECTED');assert.equal(r.items.length,1);assert.equal(r.rejected.length,1);assert.equal(r.rejected[0].original.relationship_type,'registers');count++;
+r=serializeRelationships(null);assert.equal(r.status,'REJECTED');assert.equal(r.rejected[0].errors[0].code,'NOT_ARRAY');count++;
+const x=copy(f.relationships[0]);const frozen=copy(x);checkOne(x);assert.deepEqual(x,frozen);count++;
+assert.equal(count,29);
+console.log('PASS '+count+'/'+count+' fictional IQ-004 serialization checks; no institutional assertions verified');

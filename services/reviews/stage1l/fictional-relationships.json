@@ -1,0 +1,45 @@
+{
+  "notice": "FICTIONAL-only identities and asserted facts; none are issued Suite objects or verified assertions.",
+  "relationships": [
+    {
+      "subject_identifier": "TRST-2099-0009",
+      "relationship_type": "derived-from",
+      "object_identifier": "ATT-2099-0008",
+      "subject_institution": "Attestor",
+      "object_institution": "Attestor",
+      "direction": "subject-to-object",
+      "relationship_provenance": {
+        "basis": "fictional-attestor-derivation-assertion"
+      },
+      "authority_context": "Attestor",
+      "effective_time": "2099-02-01T00:00:00Z",
+      "version_scope": "fictional-scope-v1",
+      "relationship_state": "current"
+    },
+    {
+      "subject_identifier": "BEAC-2099-0010",
+      "relationship_type": "references",
+      "object_identifier": "SC-CERT-2099-0007",
+      "subject_institution": "Beacon",
+      "object_institution": "Certifier",
+      "direction": "subject-to-object",
+      "relationship_provenance": {
+        "basis": "fictional-discovery-assertion"
+      },
+      "authority_context": "Beacon"
+    },
+    {
+      "subject_identifier": "BEAC-2099-0010",
+      "relationship_type": "related-to",
+      "object_identifier": "SC-CERT-2099-0007",
+      "subject_institution": "Beacon",
+      "object_institution": "Certifier",
+      "direction": "subject-to-object",
+      "relationship_provenance": {
+        "basis": "independent-fictional-context-evidence"
+      },
+      "authority_context": "Beacon",
+      "weak_relationship_reason": "distinct, independently asserted contextual relationship"
+    }
+  ]
+}
