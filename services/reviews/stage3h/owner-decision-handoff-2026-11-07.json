@@ -1,0 +1,554 @@
+{
+  "schema_version": "stage3h-owner-decision-handoff-v1",
+  "date": "2026-11-07",
+  "classification": "UNAPPROVED_DOCUMENTARY_OWNER_REVIEW",
+  "canon": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "sha": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "access": "READ_ONLY"
+  },
+  "experimental": {
+    "repo": "SatoshiumAI/satoshium-net",
+    "branch": "phase004",
+    "previous_head": "1d77019078ff9703e160ad09e0dab4dbc56ff324",
+    "previous_regression": "722/722 PASS Stage 2K (not rerun)"
+  },
+  "input_pins": {
+    "b": {
+      "path": "services/reviews/stage3b/owner-review-register-2026-11-07.json",
+      "blob": "dad3d0f726dd5c2eb862cf106ebb90404a5537cd"
+    },
+    "g": {
+      "path": "services/reviews/stage3g/semantic-binding-review-2026-11-07.json",
+      "blob": "43808e0de9ba03b037b1fd36ba3fc0452688cf44"
+    },
+    "a": {
+      "path": "services/reviews/stage3a/owner-contract-decision-register-2026-11-07.json",
+      "blob": "ddae448fa6bd8d12ba31956c771819e6f33430b0"
+    },
+    "l": {
+      "path": "services/reviews/stage2l/consolidated-production-gate-register-2026-11-07.json",
+      "blob": "8735f7e5438323834dab5e7908a6d16072a03dda"
+    }
+  },
+  "summary": {
+    "open_decisions": 6,
+    "required_evidence_items": 24,
+    "candidate_refusal_vectors": 26,
+    "source_pinned_weak_fields": 240,
+    "registry_wording_exceptions": 1,
+    "new_owner_decisions": 0,
+    "owner_signatures_verified": 0,
+    "p0_accepted": 0,
+    "p0_not_verified": 11
+  },
+  "decision_records": [
+    {
+      "id": "D-2A-01",
+      "owner": "Certifier",
+      "question": "Which issuer-owned machine payload, state namespace, version and provenance become the governed Certifier-to-Registry producer contract?",
+      "status": "OPEN",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-01-E1",
+          "requirement": "Issuer-adopted serialization/profile and version identifier",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-01-E2",
+          "requirement": "Owner-specified canonical current-state and historical retrieval reference",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-01-E3",
+          "requirement": "Attributable origin, effective schema, source version and exact issuer status/outcome fields",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-01-E4",
+          "requirement": "Documented unavailable/unknown and bad-version behavior",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C01",
+          "case": "missing exact SC-CERT source identifier",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C02",
+          "case": "toolkit CERTIFIED inferred as canonical Issued · Active",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C03",
+          "case": "schema_version used as package_version",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C04",
+          "case": "stale or unavailable issuer source treated as current",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": null
+    },
+    {
+      "id": "D-2A-02",
+      "owner": "Registry",
+      "question": "What receiving method and which Registry principal may consider a source-record registration request?",
+      "status": "OPEN",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-02-E1",
+          "requirement": "Registry-approved intake operation/request format versus separate SREG output format",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-02-E2",
+          "requirement": "Receiving owner, delegated role, effective policy and negative response types",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-02-E3",
+          "requirement": "Independent registrability, validation, issuance and publication decision sequence",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-02-E4",
+          "requirement": "Explicit no-entry-created result until Registry-owned issuance",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C05",
+          "case": "SREG output profile mistaken for intake endpoint",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C06",
+          "case": "Certifier toolkit sreg_stub treated as issued Registry object",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C07",
+          "case": "structural conformance treated as registrability or publication",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C08",
+          "case": "attempt to issue SREG under source-only permission",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": null
+    },
+    {
+      "id": "D-2A-03",
+      "owner": "Certifier + Registry",
+      "question": "Which machine statuses/versions and governed transitions control Registry records while keeping Certifier state independent?",
+      "status": "OPEN_NARROWED",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-03-E1",
+          "requirement": "Separate issuer source version/status and Registry entry version/status/lifecycle namespaces",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-03-E2",
+          "requirement": "Registry-owned reconciliation of Base Schema values versus partial published controlled-values JSON",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-03-E3",
+          "requirement": "Governed machine lifecycle value-set/transition vocabulary and effective version",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-03-E4",
+          "requirement": "Explicit source state-at-use, separately checked current-state, unknown/stale outcomes",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C09",
+          "case": "status active in Registry inferred from Certifier Issued · Active",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C10",
+          "case": "Published lifecycle rejected solely because different lifecycle README omits the term",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C11",
+          "case": "prose Active silently mapped to machine published",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C12",
+          "case": "historical source v1.1 overwritten with latest unverified version",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C13",
+          "case": "lifecycle enum membership treated as transition approval",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": null
+    },
+    {
+      "id": "D-2A-04",
+      "owner": "Registry + Suite interoperability governance",
+      "question": "Is a distinct Suite relationship needed alongside native registers, and what approved semantics and owners apply?",
+      "status": "OPEN",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-04-E1",
+          "requirement": "Registry-owned native registers direction SREG→source package",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-04-E2",
+          "requirement": "Separate optional Suite predicate semantics, direction, evidence strength and inverse policy",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-04-E3",
+          "requirement": "Unsupported mapping rejection; no silent references synonym substitution",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-04-E4",
+          "requirement": "Multi-relation and provenance semantics when individually supported",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C14",
+          "case": "registers replaced silently by references",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C15",
+          "case": "derived-from or supports inferred without evidence",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C16",
+          "case": "inverse relationship assumed from identifier equality",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C17",
+          "case": "relationship used as permission to alter Certifier decision",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": null
+    },
+    {
+      "id": "D-2A-05",
+      "owner": "Registry",
+      "question": "Who can authorize any receiving action and what verified audit/readback proof is required?",
+      "status": "OPEN",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-05-E1",
+          "requirement": "Named authenticated nonproduction caller and Registry receiving decision right",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-05-E2",
+          "requirement": "Rule-version and documented delegation/approval context",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-05-E3",
+          "requirement": "Replay-safe attempt identity, refusal and durable audit requirements",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-05-E4",
+          "requirement": "Independent actual Registry result readback/negative owner authorization evidence",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C18",
+          "case": "network access treated as Registry registration authority",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C19",
+          "case": "acknowledgement receipt treated as approval",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C20",
+          "case": "duplicate request creates second Registry decision",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C21",
+          "case": "claimed audit digest or signature treated as verified trust",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C22",
+          "case": "partial write treated as complete",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": null
+    },
+    {
+      "id": "D-2A-06",
+      "owner": "Certifier + Registry",
+      "question": "Which reproducible read-only evidence establishes historical/current source and Registry representation parity?",
+      "status": "OPEN_NARROWED",
+      "source_evidence": "Stage 3A/3B canonical-source pins and owner inquiry",
+      "evidence_required": [
+        {
+          "id": "D-2A-06-E1",
+          "requirement": "Immutable historical source and SREG blob/version and capture context",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-06-E2",
+          "requirement": "At-use source state distinguished from current issuer observation",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-06-E3",
+          "requirement": "Registry human-readable representation compared to SREG record.json with field-level exceptions",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        },
+        {
+          "id": "D-2A-06-E4",
+          "requirement": "Non-destructive correction/supersession event and provenance policy",
+          "status": "NOT_SUBMITTED",
+          "owner_approval": false
+        }
+      ],
+      "candidate_refusals": [
+        {
+          "id": "C23",
+          "case": "human page and JSON have conflicting status or source version",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C24",
+          "case": "missing issuer readback silently classified as current",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C25",
+          "case": "source correction overwrites prior SREG history",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        },
+        {
+          "id": "C26",
+          "case": "downstream acknowledgement treated as issuer-current-state proof",
+          "kind": "PROPOSED_NOT_EXECUTED"
+        }
+      ],
+      "permitted_recommendation_dispositions": [
+        "APPROVE_WITH_AUTHENTICATED_OWNER_EVIDENCE",
+        "REJECT_WITH_REASONS",
+        "RETURN_FOR_EVIDENCE",
+        "DEFER"
+      ],
+      "actual_disposition": "NO_OWNER_DECISION",
+      "decision_evidence_verified": false,
+      "founder_authorization": false,
+      "canonical_write_authorized": false,
+      "stage3g_dependency": {
+        "labeled_exception": {
+          "source_path": "source_certification.historical_prototype_assessment.status",
+          "machine": "Preserved as historical assessment data",
+          "human_label": "Assessment Status",
+          "human": "Preserved as historical source assessment data",
+          "classification": "LEXICAL_VARIATION_OWNER_REVIEW",
+          "proposed_questions": [
+            "Is 'source' a permitted explanatory qualifier in this Registry field?",
+            "Should documented human rendering permit additions to exact machine status text?",
+            "Does any consuming process rely on machine exact value or public wording?"
+          ],
+          "not_proven": "No approved semantic equivalence or material conflict determination",
+          "recommended_action": "Registry owner review and explicit exception/normalization rule; no canonical edit"
+        },
+        "weak_or_unpaired_fields": 240,
+        "verified_labeled_comparisons": 51,
+        "semantic_full_parity_verified": false
+      }
+    }
+  ],
+  "ordered_owner_hand_off": [
+    {
+      "seq": 1,
+      "gate": "OWNER-01",
+      "owner": "Certifier",
+      "decisions": [
+        "D-2A-01"
+      ],
+      "question": "Adopt issuer-provided canonical source payload and provenance specification",
+      "required": "Written scoped schema/version, source version/currentness source, status/outcome meanings, issuer signed attribution; no reliance on toolkit stub",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    },
+    {
+      "seq": 2,
+      "gate": "OWNER-02",
+      "owner": "Registry",
+      "decisions": [
+        "D-2A-02"
+      ],
+      "question": "Decide whether any receiving contract exists or should be defined",
+      "required": "Registry-owned intake operation, role, refusal/unknown response, source-specific rules, with explicit separation from SREG output schema",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    },
+    {
+      "seq": 3,
+      "gate": "OWNER-03",
+      "owner": "Certifier + Registry",
+      "decisions": [
+        "D-2A-03"
+      ],
+      "question": "Reconcile source versus Registry version, lifecycle and publication value sets",
+      "required": "Approved namespace mapping, machine controlled values, effective transition rules and historical Published treatment",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    },
+    {
+      "seq": 4,
+      "gate": "OWNER-04",
+      "owner": "Registry + Suite interoperability governance",
+      "decisions": [
+        "D-2A-04"
+      ],
+      "question": "Govern native registers and optional Suite predicate relationship separately",
+      "required": "Predicate direction, authority, evidence and unsupported mappings",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    },
+    {
+      "seq": 5,
+      "gate": "OWNER-05",
+      "owner": "Registry",
+      "decisions": [
+        "D-2A-05"
+      ],
+      "question": "Approve explicit receiving policy identity and audit prerequisites",
+      "required": "Named principal, effective governance policy, replay/audit/readback requirements; no implicit authenticated access",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    },
+    {
+      "seq": 6,
+      "gate": "OWNER-06",
+      "owner": "Certifier + Registry",
+      "decisions": [
+        "D-2A-06"
+      ],
+      "question": "Decide historical/current parity and one observed wording exception",
+      "required": "Field-level exception disposition; 93 unscoped and 147 no direct field matches; historical correction and authorized issuer-currentness evidence",
+      "permission": "DOCUMENTARY_REVIEW_ONLY"
+    }
+  ],
+  "approval_preconditions": [
+    "Actual governing owner identity and authority verified independently of document contents",
+    "Explicit effective contract ID and source version and read-only scope",
+    "Owner approval is institution-specific and not inferred from acknowledgements",
+    "No write-capable testing or authentication until separate founder and receiving institution authorization",
+    "Any approved exception preserves prior human/machine historical record and version chronology"
+  ],
+  "institutional_authority": {
+    "canonical_write": false,
+    "live_authenticated_calls": false,
+    "recipient_action": false,
+    "owner_approved": false,
+    "production_release": false
+  }
+}
