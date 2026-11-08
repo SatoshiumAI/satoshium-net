@@ -1,0 +1,285 @@
+{
+  "schema_version": "stage3n-iq008-navigator-owner-gate-v1",
+  "date": "2026-11-07",
+  "classification": "READ_ONLY_CANONICAL_SOURCES_EXPERIMENTAL_DOCUMENTARY_RECONCILIATION",
+  "canonical": {
+    "repo": "SatoshiumAI/satoshium-us",
+    "branch": "phase004",
+    "head": "da8333ddb85face8ee499abe93ef4bc4f555e867",
+    "access": "READ_ONLY"
+  },
+  "source_blobs": [
+    {
+      "path": "navigator/README.md",
+      "blob_sha": "519fc928357f27ea9aede4f627adb810322f5038",
+      "significance": "Navigator canonical Workflow Definition and orchestration ownership"
+    },
+    {
+      "path": "navigator/workflow-orchestration/README.md",
+      "blob_sha": "784894aac3c04bc1b0e87fb109e8e0d59a8cb6e5",
+      "significance": "Workflow coordination without institutional acts or universal pipeline"
+    },
+    {
+      "path": "navigator/integration/README.md",
+      "blob_sha": "be101abd249e45301b4b52fabfb6c9165d4a41cb",
+      "significance": "Approved semantic handoff contract, exact serialization may vary"
+    },
+    {
+      "path": "navigator/interoperability/README.md",
+      "blob_sha": "729ab1c5777432502f28a9786ac7d421d957fe2c",
+      "significance": "Reference and retrieval interoperability, no service guarantees"
+    },
+    {
+      "path": "navigator/schemas/README.md",
+      "blob_sha": "9629b7262cbf7b85bc9b1384ab9d08789ad6eb24",
+      "significance": "Organizational schemas, not adopted handoff receiver API"
+    },
+    {
+      "path": "suite/interoperability/satoshium-suite-interoperability-implementation-queue-2026-10-03.md",
+      "blob_sha": "b8d0688a5a33d2feb3902e0a20b9b089a537eddf",
+      "significance": "IQ-008 approved queue and required fields/acceptance intent"
+    }
+  ],
+  "experimental_prior": {
+    "head": "ee28424eacc4ba593d8ef3559402d81b19eb7f25",
+    "stage2l_blob": "8735f7e5438323834dab5e7908a6d16072a03dda"
+  },
+  "iq008": {
+    "priority": "P0",
+    "canonical_semantics": "APPROVED",
+    "recipient_specific_machine_contract": "NOT_VERIFIED",
+    "authenticated_execution": "NOT_VERIFIED",
+    "durable_trace": "NOT_VERIFIED",
+    "production": "NOT_VERIFIED",
+    "prior_fictional_checks": 47,
+    "fields": [
+      {
+        "id": "3N-H01",
+        "field": "workflow_definition",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for workflow_definition; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H02",
+        "field": "workflow_execution_context",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for workflow_execution_context; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H03",
+        "field": "handoff_identifier",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for handoff_identifier; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H04",
+        "field": "sending_step",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for sending_step; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H05",
+        "field": "receiving_institution",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator + receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for receiving_institution; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H06",
+        "field": "requested_action",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator + receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for requested_action; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H07",
+        "field": "input_references",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for input_references; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H08",
+        "field": "input_provenance",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for input_provenance; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H09",
+        "field": "authority_context",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for authority_context; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H10",
+        "field": "preconditions",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for preconditions; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H11",
+        "field": "expected_output",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator + receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for expected_output; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H12",
+        "field": "completion_criteria",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for completion_criteria; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H13",
+        "field": "failure_model",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for failure_model; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H14",
+        "field": "retry_policy",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for retry_policy; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H15",
+        "field": "timeout_unavailable_policy",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for timeout_unavailable_policy; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H16",
+        "field": "unknown_state_handling",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for unknown_state_handling; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H17",
+        "field": "timestamp",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for timestamp; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      },
+      {
+        "id": "3N-H18",
+        "field": "traceability_context",
+        "architecture_status": "SEMANTIC_HANDOFF_APPROVED_AT_SUITE_LEVEL",
+        "serialization_status": "NOT_ADOPTED_RECIPIENT_SPECIFIC",
+        "runtime_status": "NOT_VERIFIED",
+        "owner": "Navigator; recipient semantics require receiving institution",
+        "evidence_required": "Adopted receiver-compatible exact field semantics and read-only/negative proof for traceability_context; distinguish Navigator coordination from recipient action",
+        "production_acceptance": false
+      }
+    ]
+  },
+  "decision_requests": [
+    {
+      "id": "3N-D01",
+      "title": "Navigator producer handoff wire profile",
+      "owner": "Navigator",
+      "needs": "Named machine format + version, source Workflow Definition ID, fields, immutability and historical execution context",
+      "status": "OPEN_FOR_OWNER_REVIEW"
+    },
+    {
+      "id": "3N-D02",
+      "title": "Recipient interpretation of requested action",
+      "owner": "Receiving institution",
+      "needs": "Accepted request classes, explicit denial/unknown responses, proof that coordination does not confer institutional authority",
+      "status": "OPEN_FOR_OWNER_REVIEW"
+    },
+    {
+      "id": "3N-D03",
+      "title": "Trace, retry and branch-specific outcomes",
+      "owner": "Navigator + recipient",
+      "needs": "Attempt identity, historical version-at-use, receiving acknowledgement provenance, timeout/partial handling and explicit independent resulting object reference",
+      "status": "OPEN_FOR_OWNER_REVIEW"
+    },
+    {
+      "id": "3N-D04",
+      "title": "No-write evidence-only preflight scope",
+      "owner": "Founder + Navigator/recipient owners",
+      "needs": "Separate named authorization if any actual authenticated/nonproduction exchange is proposed; none granted by this record",
+      "status": "OPEN_FOR_OWNER_REVIEW"
+    }
+  ],
+  "global_gates": {
+    "p0_accepted": 0,
+    "p0_not_verified": 11,
+    "owner_decisions_open": 6,
+    "new_owner_approvals": 0
+  },
+  "baseline": {
+    "offline_checks": 783,
+    "exact_ci_sha": "ee28424eacc4ba593d8ef3559402d81b19eb7f25",
+    "scope": "NONCANONICAL_SYNTHETIC_PLUS_HISTORICAL_EXCERPT"
+  },
+  "non_authorizations": {
+    "canonical_writes": false,
+    "authenticated_calls": false,
+    "live_recipient_action": false,
+    "production_release": false
+  }
+}
